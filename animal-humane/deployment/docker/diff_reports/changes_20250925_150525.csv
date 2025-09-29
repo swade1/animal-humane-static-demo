@@ -1,0 +1,5 @@
+Type,Dog_ID,Name,Field,Old_Value,New_Value,Status,Location
+NEW,211839851,Vixie,,,,Available,"Main Campus, Receiving"
+NEW,211910420,Rollo,,,,Available,"Main Kennel North, Main Campus - MKN-14"
+NEW,211910372,Floki,,,,Available,"Main Kennel North, Main Campus - MKN-08"
+REMOVED,211808307,Tim,,,,Available,"Main Campus- Big Blue, BB-10"

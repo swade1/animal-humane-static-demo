@@ -1,0 +1,1516 @@
+{
+  "took" : 11,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 54,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "animal-humane",
+        "_id" : "208810842",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Nova",
+          "sex" : "Female",
+          "breed" : "Terrier, American Pit Bull",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-03",
+          "id" : 208810842,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-10"
+          ],
+          "birthday" : "2020-09-26",
+          "primary_color" : "",
+          "secondary_color" : "",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/208810842",
+          "description" : "I spent some time with this sweet girl today and want to let you know what she is like!  She was unsure of going for a walk, excited but with her tail tucked at first.  Her big ears and alert eyes scanned the campus as we walked around the area.  She was very easy to walk, not pulling, but taking in the new environment.  However, her true personality came out when I sat down on her level to just relax and spend one on one time with her for a bit.  Her tail started wagging, and she was a lively, funny, cuddly girl who couldn't get enough of jumping in my lap and wiggling all over!  Her fur is soft and I can truly see her being someone's most loyal companion.  She just needs a little time to realize that she is safe and loved.  Could you be the person to make her dream come true?",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "208812411",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Snoopy",
+          "sex" : "Female",
+          "breed" : "Coonhound",
+          "secondary_breed" : "",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-03-11",
+          "id" : 208812411,
+          "location" : [
+            "Main Campus- Big Blue, BB-18"
+          ],
+          "birthday" : "2021-07-27",
+          "primary_color" : "Black",
+          "secondary_color" : "Brown",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/208812411",
+          "description" : "Hello world! My name is Snoopy. I am a dorky, fun loving, goofy big ear pup. I love to give kisses and lots of hugs. But most of all I love to eat! Any treat you have I will for sure enjoy. I might look big but, in my heart, I am a big puppy ready to find my forever home. I would love to be the only pet in the home but don’t let that change your mind. I am just a big lover that wants more time with you! My ears can tell the future, and they say my forever home is with you. Please come by and say hi to me and I promise I will win your heart.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "208812460",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Baxter",
+          "sex" : "Male",
+          "breed" : "Terrier, American Pit Bull",
+          "secondary_breed" : "Terrier",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-07-08",
+          "id" : 208812460,
+          "location" : [
+            "Main Campus- Big Blue, BB-03"
+          ],
+          "birthday" : "2023-07-20",
+          "primary_color" : "White",
+          "secondary_color" : "Tan",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/208812460",
+          "description" : "This handsome guy can't wait to meet you! Baxter is a smart, goofy dog looking for his forever adventure buddy. He already knows sit, shake, and down and is eager to learn more. He loves playing and is particularly fond of rope toys and nose games where he can sniff out treats. He is confident and friendly and ready to take on the world with his new family whether that's by their side on a walk or being chauffeured around in a wagon - he's up for it all! He is a loving little scamp who will be sure to make you smile, so hurry in to meet him!A team member says, \"Baxter loves to show off for you, whether it's jumping onto a bench for a perfect 'sit and shake' or proudly trotting by with a toy. He's a very smart boy and eager to please.\"Another team member says, \"Baxter is such a good boy! He is friendly to everyone he meets and loves to cuddle. He has done well in an office setting, mostly entertaining himself or napping and occasionally coming up for affection. He's going to make someone so lucky, he will be their very best friend.\"After a doggie date, a team member adds, \"Baxter was an absolute dream the moment he was lifted into the car.  During a walk through Old Town, he greeted everyone - men, women, toddlers, even a baby in a carrier - with gentle curiosity and wagging enthusiasm.  He showed no reactivity to other dogs or loud noises and was calm and composed in every setting. At lunch on a busy patio, Baxter wanted to say hello to everyone ( 2 and 4 legged alike ), but also settled down politely and eventually laid down for a nap.  Baxter is a joyful companion who loves adventures, car rides, and just as happily enjoys quiet cuddle time.  He’s the total package - sweet, friendly and 100% a good boy - ready to bring love and delight to his forever home.\"Baxter's foster says: \"Baxter is a very loving boy. When sitting down to read or work on an art project he wants to lay next to you. He walks very well in open space and is not reactive towards other dogs, joggers, or walkers. He is very well behaved and does not beg for food from the table or when someone is eating something. Baxter likes to play fetch and tug in the back yard and to run through the sprinkler with you. He is very calm in the house with bouts of play time in the mix and loves to be your shadow. He sleeps at the foot of the bed and is always ready to join you for bedtime.\"Baxter is currently enjoying some time away from the shelter in a foster home, if you would like to meet him, please call our Adoptions staff at (505)255-5523 ext 142 or e-mail info@animalhumanenm.org to organize a time to meet him!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "208815693",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Ferris",
+          "sex" : "Male",
+          "breed" : "Shepherd",
+          "secondary_breed" : "Mixed Breed (Medium)",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-03-18",
+          "id" : 208815693,
+          "location" : [
+            "Main Campus - Main Kennel South, MKS-09"
+          ],
+          "birthday" : "2021-03-10",
+          "primary_color" : "",
+          "secondary_color" : "",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/208815693",
+          "description" : "Hi there!  I'm Ferris-a handsome guy looking for a friend that will share adventures with me!  I love to go on walks to see what new things I can see!  I'm enthusiastic, alert and interested in all the sights and sounds around me.  I have some great skills already and will show you a \"sit\" for a nice crunchy treat!  I'm no couch potato so let's plan some outings together!  Then we can spend our evenings together having our dinner and relaxing after seizing the day!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "208819071",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Bella Michele",
+          "sex" : "Female",
+          "breed" : "Terrier, Bull",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-05-20",
+          "id" : 208819071,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-13"
+          ],
+          "birthday" : "2024-04-08",
+          "primary_color" : "White",
+          "secondary_color" : "Brown",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/208819071",
+          "description" : "Do you know what the \"zoomies\" are?  If not, I can show you!  Just take me to the exercise park at Animal Humane (or your back yard!) and I will run and run!  It's so much fun to stretch my legs and use my energy to take in the fresh air and sunshine!  I'm really good at chasing balls or toys, but I sometimes forget to return them to you.  But that's ok, It's something we can learn together, right?  Maybe we can take a long walk along the river or hike up in the Sandia mountains together?  I can be your \"one and only dog\", and you can be my \"one and only\" family!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "208819449",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Sierra",
+          "sex" : "Female",
+          "breed" : "Shepherd",
+          "secondary_breed" : "Mixed Breed (Medium)",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-02-02",
+          "id" : 208819449,
+          "location" : [
+            "Main Campus- Big Blue, BB-07"
+          ],
+          "birthday" : "2021-05-30",
+          "primary_color" : "Tan",
+          "secondary_color" : "White",
+          "attributes" : "['In Playgroups', 'Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/208819449",
+          "description" : "Sierra is a sweet soul who might take a moment to warm up when you first meet, but don't let her initial shyness fool you – she's quick to show her loving personality once she feels comfortable. Her adorably funny ears are absolutely irresistible and add to her unique charm that's sure to make you smile every day.This well-mannered girl is a dream on walks, staying perfectly by your side on the leash, making her an ideal companion for daily strolls around the neighborhood. When it's time to relax, Sierra has mastered the art of couch lounging and would love nothing more than to curl up beside you for some quality downtime.Sierra comes with impressive manners – she knows her \"sit\" and \"stay\" commands and is completely housebroken. She's also wonderfully communicative and will let you know when nature calls, making her an easy housemate who respects your home.Her social side truly shines around other dogs. Sierra would absolutely thrive in a home where she could have a canine sibling to play with, learn from, and share adventures. She's looking for a family who understands that the best things in life are even better when shared with a furry brother or sister.If you're ready to welcome a gentle, well-trained companion who will bring both laughter and love to your home, Sierra might just be the perfect match for your family.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "208819751",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Mowgli",
+          "sex" : "Male",
+          "breed" : "Rottweiler",
+          "secondary_breed" : "",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-06-14",
+          "id" : 208819751,
+          "location" : [
+            "Main Campus - Main Kennel South, MKS-20"
+          ],
+          "birthday" : "2021-06-20",
+          "primary_color" : "Black",
+          "secondary_color" : "Tan",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/208819751",
+          "description" : "Mowgli here. Are you looking for happy? You’ll love my eyebrows and cute floppy ears when I smile and check in with you often. I’m good on leash walkies and like meeting other people.I’m a sweet, sensitive soul who thrives in a calm and quiet environment. I can get a little overwhelmed when I hear loud noises, so I’m looking for a peaceful home where I can feel safe, secure, and loved. I would prefer a home without cats or dogs where I can be the primary focus.I love pets (don’t miss the belly rubs please) and snuggles. What I hope for is a caring home where I can finally relax and take on the sweet life. Bring the fam in for a Meet & Greet. Then bring me home and I’ll give you all my sweet caring love back at ya.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210169171",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Jack Frost",
+          "sex" : "Male",
+          "breed" : "Husky, Siberian",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-01",
+          "id" : 210169171,
+          "location" : [
+            "Main Campus - Main Kennel South, MKS-21"
+          ],
+          "birthday" : "2024-08-18",
+          "primary_color" : "White",
+          "secondary_color" : "Black",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210169171",
+          "description" : "Jack Frost here!  I'm a friendly guy that enjoys going on walks and seeing the great outdoors.  My leash skills are good and I listen to your cues during our walks.  I like to observe my surroundings to make sure I'm safe.  I will calmly observe other dogs from a distance but it would be better if I meet your family dogs first to see how we get along.  I have some good skills already-I can sit, give kisses, and eat gently from your hand.  That's a great start, I think!  So if you are looking for a fuzzy buddy, I'm your guy!A team member adds, \"I walked Jack Frost on Tuesday and he was so well behaved. Easy to harness, took treats gently, knew sit and just walked so well on leash. He was a real gentle guy for being so young! His energy is just great. I hope someone sees his magic soon!\"",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210356940",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Chuck",
+          "sex" : "Male",
+          "breed" : "Shepherd",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-01-22",
+          "id" : 210356940,
+          "location" : [
+            "Main Campus- Big Blue, BB-04"
+          ],
+          "birthday" : "2023-07-22",
+          "primary_color" : "Chocolate",
+          "secondary_color" : "Tan",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210356940",
+          "description" : "Chuck is the friendliest boy and loves to meet new people! His goofy personality will win anyone over. He has done well with other dogs but prefers ones who will give him time and space to get to know them. He is extremely smart and loves learning new things. Especially if he can work with his person. He already knows sit and down and is learning new things every day! Some of his favorite things to do are doggy parkour, playing fetch, chewing on his rawhide, and cuddling! He prefers savory treats, and his favorites right now are cheese, hot dog, and he loves pig ears. He is looking for a home where he can be part of the family, and he will make an amazingly loyal bestie. Come meet this handsome boy today!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210384420",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Major",
+          "sex" : "Male",
+          "breed" : "Cattle Dog",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-21",
+          "id" : 210384420,
+          "location" : [
+            "Main Campus- Big Blue, BB-13"
+          ],
+          "birthday" : "2024-10-27",
+          "primary_color" : "White",
+          "secondary_color" : "Red/Mahogany",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210384420",
+          "description" : "Am I not the cutest freckle face? I’m a super fun fella looking for someone else that likes to have fun. My freckles turn into curly waves on my back. I’m told by volunteer walkers I have the softest ears and brown eyes, and adorable butt cowlicks.I’m a bit fearful of strange new surroundings and noises but just for a few seconds. I’m very patient and sit handsomely to check in with you before we go outside. I walk nicely on leash and love meeting new people. I’m also a real fan on bench sitting, snuggles and belly rubs. I’m a young lad ready for all adventures. Bring the family and come check me out. I’ll be a “Major” asset and will make your home rich with love.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210569574",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Ramen",
+          "sex" : "Female",
+          "breed" : "Shepherd, German",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-07-05",
+          "id" : 210569574,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-04"
+          ],
+          "birthday" : "2024-03-04",
+          "primary_color" : "Black",
+          "secondary_color" : "Tan",
+          "attributes" : "['Has Done Well with Dogs', 'Has Done Well with Children']",
+          "url" : "https://new.shelterluv.com/embed/animal/210569574",
+          "description" : "Yep, I’m a noodle! Well, actually I’m an active, young adult girl, but I think I might be able to make music in your life. Maybe you don’t know, but the verb “noodle,” or “noodling,” means improvising or playing music in a casual manner. That’s me! It’s not like I’ll always be improvisational or casual. Love and devotion are serious matters, after all, and that’s what my song will say as we play, as I train, and as we home forever together: Music transcends time. Yes, ramen is a fairly quick noodle to cook, but quickness in that regard only means I’ll be a quick learner and even quicker to love! So, let’s noodle! What beautiful music we can make together! But, you also need to know, I love toys, I love to play, and I love to walk and hike.A team member says, \"Ramen did great meeting some children recently. She gave gentle kisses, didn't jump at all and took toys gently.\"Another team member says, \"Ramen is a real sweetheart. She's easy to walk, and she loves going to the park to play fetch while you pet her in between throws.\"",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210651765",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Scooby",
+          "sex" : "Male",
+          "breed" : "Terrier, American Staffordshire",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-03-17",
+          "id" : 210651765,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-03"
+          ],
+          "birthday" : "2023-03-17",
+          "primary_color" : "Red/Mahogany",
+          "secondary_color" : "",
+          "attributes" : "['Has Done Well with Dogs', 'Has Done Well with Children']",
+          "url" : "https://new.shelterluv.com/embed/animal/210651765",
+          "description" : "It's no mystery why we love Scooby! He is a happy-go-lucky dog just waiting to meet his forever best friend! He hasn't met a person he doesn't like so far. He is silly, affectionate, and adventurous! He has done well with dogs before and has lived with a young child. He loves plush toys and will entertain himself. He has done well in an office setting, playing with his toys and seeking affection throughout the day. Come meet him today - we know you will fall in love!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210698425",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Ronald",
+          "sex" : "Male",
+          "breed" : "Kelpie, Australian",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-03-25",
+          "id" : 210698425,
+          "location" : [
+            "Main Campus - Main Kennel South, MKS-12"
+          ],
+          "birthday" : "2024-03-25",
+          "primary_color" : "Brown",
+          "secondary_color" : "Sandy",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210698425",
+          "description" : "You'll never meet a dog that wants to play fetch with a tennis ball more than me!  There is nothing more fun.  I also love to be petted and cuddled.  I'm a sweet and affectionate boy with a goofy personality.  But I'm also a good boy who knows how to walk nicely on a leash and sit for treats.  I'm always ready for a good time!A team member says, \"Ronald is a very affectionate and playful guy. He loves to play fetch, and he's very good about returning it to you. He likes to get in some pets and hear you say 'good boy' when he brings the ball back. Eventually, he'll flop down next to you with his toy and chew on it while you pet him. He's just a handsome lovebug.\"Another team member says, \"Ronald loves nothing more than being near you and tennis balls, not necessarily in that order. On hot days, he loves taking his toys into a wading pool and playing his own game of 'Snorkel for the Balls.' It really is adorable.\"",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210702758",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "ZZ Top ",
+          "sex" : "Male",
+          "breed" : "Terrier",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-21",
+          "id" : 210702758,
+          "location" : [
+            "Main Campus- Big Blue, BB-15"
+          ],
+          "birthday" : "2024-03-26",
+          "primary_color" : "Brown",
+          "secondary_color" : "",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210702758",
+          "description" : "Hi friends, they call me ZZ Top. I don't know if I'm a sharp dressed man, but my human friends are always complimenting me on my curly coat and telling me what a handsome boy I am.I have legs, and I know how to use them - one of my favorite things to do is jump up on a bench next to the human I'm with and snuggle up. I love being around people, and I'm looking for a home where I can be included in things, even if it's just hanging out in the same room as you. I also walk nicely on a leash, so if you need a walking or hiking buddy, I'm game!If you have little kids, I'd love to meet them to make sure they're as happy to see me as I am to see them. I have experience living with cats, but they make me a little too excited, so it's best if I go to a home without cats.I'm ready for you to gimme all your lovin' - come meet me today!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210719230",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Red ",
+          "sex" : "Male",
+          "breed" : "Hound",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-03-30",
+          "id" : 210719230,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-07"
+          ],
+          "birthday" : "2024-03-30",
+          "primary_color" : "Tan",
+          "secondary_color" : "",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210719230",
+          "description" : "Hi there!  Red's the name!  I'm a friendly boy who loves to give kisses and show affection.  I'm a big guy for sure, but the world is a lot bigger than me!  There's a lot out there that I'm still a bit nervous about.  I would do best with a patient person that understands my need to take things slowly and at my own pace.  I know I can be a great companion when I gain a little confidence and trust.  I have some great skills already and I would love to learn more from you.  Come see me!  You'll see my heart shine through!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210758790",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Tangerine ",
+          "sex" : "Female",
+          "breed" : "Retriever, Black Labrador",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-04",
+          "id" : 210758790,
+          "location" : [
+            "Main Campus- Big Blue, BB-16"
+          ],
+          "birthday" : "2024-11-23",
+          "primary_color" : "Black",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210758790",
+          "description" : "Meet Tangerine. This sweet and sunny girl is ready to brighten your life! Tangerine is a well-behaved pup with a heart full of love and a tail that never stops wagging. She’s learning her leash manners and already knows how to sit like a pro. She's also working hard on mastering “shake” (and looks adorable doing it!).Tangerine absolutely lives for people time. She gets wiggly with excitement when meeting new friends and loves to show off her charm. Whether she’s cuddling up or showing off her tricks, she’s happiest when she’s with her humans.Tangerine has shown she's interested in other dogs. She'd likely thrive with a calm, respectful canine companion who gives her space as they get to know each other.If you’re looking for a loyal, loving pup with a zest for life, Tangerine might just be your perfect match!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210775713",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Aries",
+          "sex" : "Male",
+          "breed" : "Shepherd",
+          "secondary_breed" : "",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-04-10",
+          "id" : 210775713,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-01"
+          ],
+          "birthday" : "2022-10-10",
+          "primary_color" : "White",
+          "secondary_color" : "Black",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210775713",
+          "description" : "This handsome boy is a real cuddler and so much fun to walk.  He is always excited to get out of his kennel and loves going to the dog park so that he can play his version of fetch!  He has the first part down, chasing the ball with enthusiasm, but he often gets so excited that he just keeps playing with the ball himself or runs back to you for snuggles.  It's a work in progress, but who can complain when he'd rather cuddle up next to you?  Aries also enjoys chewing on a rawhide or toy while you sit next to him, and it won't be long until he presents his belly so you can rub it.Aries likes to let people know when he's out and about, often barking hellos as he goes by. He also has some things to say about people wearing hats, just FYI (it's just how he feels!)If you have a creative mind, check out the white markings on his back!  Do you see the figure of a dog or a cat?  He checks in often with his special dog walker to be sure that they are enjoying the walk as much as him!  Could you be his special person enjoying the walk?  Come meet this guy and find out!A team member says, \"Aries is a sweet and special guy. He loves going to the park and having you throw a ball or toy to him. He might bring it back to you, or he might pivot and go stretch his legs or explore. His back legs are cute and funny when he gets to running. He knows how to sit and shake, and he absolutely loves cuddles. If you sit down near him, he'll flop over onto his belly so you can rub it.\"",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210782959",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Andy",
+          "sex" : "Male",
+          "breed" : "Retriever, Labrador",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-04-10",
+          "id" : 210782959,
+          "location" : [
+            "Main Campus- Big Blue, BB-05"
+          ],
+          "birthday" : "2023-10-10",
+          "primary_color" : "Red/Mahogany",
+          "secondary_color" : "",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210782959",
+          "description" : "A-N-D-Y, that spells Andy and I am pretty sure it means 100% good dog! I am just a friendly shelter pup looking for someone that is that perfect fit, that I can live my life along side. Team members around campus have said how absolutely beautiful my mahogany coat is - it's truly New Mexico, right? Anyway, I am just so excited to meet you, to go for walks, to play around the yard and to just spend some quality time cuddling. Hurry up don't waste a minute and come meet me today!Ruff!A team member says, \"Andy is a sweet boy. Pretty sure his internal monologue is always something like 'Ball is good. Ball is life. Every day should have ball.' He absolutely loves stretching his legs with a good run and playing fetch. He's a champion ball chaser and catcher - he's a very fast guy returning the long throws, and he's also a professional at catching a bounce pass or pop fly. If you had a backyard or took him to the park and played some fetch with him, he would be one very happy guy.\"",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210798244",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Bobby",
+          "sex" : "Male",
+          "breed" : "Cattle Dog",
+          "secondary_breed" : "Husky",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-04-14",
+          "id" : 210798244,
+          "location" : [
+            "Main Campus- Big Blue, BB-22"
+          ],
+          "birthday" : "2022-04-14",
+          "primary_color" : "Tan",
+          "secondary_color" : "White",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210798244",
+          "description" : "The first thing you will notice when you meet Bobby are his beautiful blue eyes and perfect eye liner!  You might not even notice all his cute black freckles on his body!  But what you really need to know is that this guy is ready for anything fun in his life!  Are you someone who likes to play fetch? Bobby has tried out all the balls at the shelter, from small tennis balls to the big balls in the play yard!  He loves them all!  Do you love to go for hikes in the mountains?  Bobby would be the perfect partner to experience hiking and camping where he could enjoy all the new smells and the fresh air and sunshine! He has enjoyed playgroups with other dogs. This is one happy guy, who will add endless fun and devotion to his forever person or family.  Could that be you?",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210798763",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Florence",
+          "sex" : "Female",
+          "breed" : "Terrier, American Pit Bull",
+          "secondary_breed" : "Shepherd, Australian",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-05-21",
+          "id" : 210798763,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-26"
+          ],
+          "birthday" : "2022-04-14",
+          "primary_color" : "Brindle",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210798763",
+          "description" : "I am certainly lovely to look at as you can see. If my face is one you'd like to see each morning, please come to meet  me.  The folks here say that I will thrive with PLC.  I am sometimes shy around folks and other dogs I haven't met, so going slow is our best bet.  I hope you won't mind skipping the dog park.  I'd rather spend our time together in your backyard or hiking on our own.  If you have owned dogs in the past, your expertise will help me to become your best new friend.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210821501",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Marley",
+          "sex" : "Female",
+          "breed" : "Terrier, Bull",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-04-17",
+          "id" : 210821501,
+          "location" : [
+            "Main Campus - Main Kennel South, MKS-14"
+          ],
+          "birthday" : "2022-04-17",
+          "primary_color" : "Red/Mahogany",
+          "secondary_color" : "White",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210821501",
+          "description" : "After you adopt me, you can say \"It's Marley and Me\" like the movie.  Don't think I'll get into the kind of mischief that Marley did!  I'm awfully cute with that big spot over my eye.  I seem to get along with the dogs here at Animal Humane.  If you already have a dog in your household, be sure and bring them with you when you come to meet me.  Could be a match made in heaven.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210871009",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Mazey",
+          "sex" : "Female",
+          "breed" : "Terrier, American Pit Bull",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-04-28",
+          "id" : 210871009,
+          "location" : [
+            "Main Campus - Main Kennel South, MKS-18"
+          ],
+          "birthday" : "2019-04-28",
+          "primary_color" : "White",
+          "secondary_color" : "",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210871009",
+          "description" : "Ears caught your attention, didn't they??  They're the cutest.  I'm a big, youngish gal with enough energy that I would find long walks (maybe even runs) something I would love to do.  But then at night, I'd like to cuddle up with you and rest from my busy day.  Sound fun.  Let's make it happen!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210919404",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Freddy",
+          "sex" : "Male",
+          "breed" : "Retriever, Labrador",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-05-05",
+          "id" : 210919404,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-27"
+          ],
+          "birthday" : "2017-05-05",
+          "primary_color" : "Red/Mahogany",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210919404",
+          "description" : "Hi, I'm Freddy! Just look at my friendly face as I gaze adoringly at you. I know you can’t resist my soft brown ears. I may not be the youngest kid on the block, but I’m ready to learn new things. I listen to commands like stay and sit. I may do best without cats. I love car rides…Hey, we could go to Freddy’s for a steak burger and custard!If you're ready for a loving sidekick who's part goofy, part sweet, and 100% loyal, then I think we might be a perfect match. Freddy is ready!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210921418",
+        "_score" : 1.0,
+        "_source" : {
+          "name" : "Alice",
+          "sex" : "Female",
+          "breed" : "Shepherd",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-05-05",
+          "id" : 210921418,
+          "location" : [
+            "Main Campus- Big Blue, BB-20"
+          ],
+          "birthday" : "2025-01-05",
+          "primary_color" : "Black",
+          "secondary_color" : "Brindle",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210921418",
+          "description" : "",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210934478",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Ashley",
+          "sex" : "Female",
+          "breed" : "Pointer, English",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-05-07",
+          "id" : 210934478,
+          "location" : [
+            "Main Campus- Big Blue, BB-08"
+          ],
+          "birthday" : "2023-11-07",
+          "primary_color" : "Black",
+          "secondary_color" : "White",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210934478",
+          "description" : "Ashley is the sweetest girl, just like her sister Mary Kate! (They would love to go home together, but they've talked it over and are willing to part if necessary.)Ashley is SO excited to get her harness on so she can go for a walk!  She is good on a leash, and is a joy to walk. She is curious about her surroundings and loves to get lots of pets and hugs when she sits next to you on a bench. She would probably also love to sit next to you on a couch while the two of you watch your favorite show or movie!She has done well with other dogs. She has soft fur and beautiful expressive eyes that you will notice right away! Come meet her!  Maybe you will be the one to give her the forever family that she deserves!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210934608",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Mary Kate",
+          "sex" : "Female",
+          "breed" : "Pointer, English",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-05-07",
+          "id" : 210934608,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-23"
+          ],
+          "birthday" : "2023-11-07",
+          "primary_color" : "Red/Mahogany",
+          "secondary_color" : "White",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210934608",
+          "description" : "Hello there, I'm Mary Kate, a warm-hearted, fun-loving, affectionate girl.I came here to Animal Humane with my sister, Ashley. We'd very much like to stay together, but we've talked it over, and we're both willing to part if necessary.Although, if you happen to be in the market for a pair of new friends, Ashley and I love to play with each other, and we'd happily entertain ourselves for hours. We love to share - toys, treats and eye color! Between the two of us, there's a pair of brown eyes and a pair of blue eyes.We also have experience playing very nicely apart from each other, with other doggo friends. I just love meeting new dogs, and I've always greeted them with play bows and wags. I've had successful playgroups with other doggos here at the shelter - it's one of my favorite things! If it's just me and a human friend, I'll also play bow to them just to see what will happen. Who knows, I might get lucky one day and they'll play chase!I'm a pretty athletic young girl, and I would thrive in a home with a play buddy, whether that's my sister or another furry friend who also loves to run around, play and explore.I also love going on walks with humans, and I behave admirably on a leash. I'm a good listener, and I'm easy to refocus if I'm a little excited about getting out and about. Once I get some energy out, I'm all about the snuggles and affection.My human friends love when I do this, and they use words like \"sociable, playful, loveable and beautiful\" to describe me. It's enough to make a girl blush. But it's all true - and I'd love to show you! Just come on down and say \"hi.\"A team member says, \"Mary Kate is an incredibly sweet and affectionate girl. She loves running around the park or a dog run and exploring, and she always checks in with you frequently for attention. She's also very easy to walk on a leash.\"",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211016449",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Storm",
+          "sex" : "Female",
+          "breed" : "Husky",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-05-27",
+          "id" : 211016449,
+          "location" : [
+            "Main Campus- Big Blue, BB-14"
+          ],
+          "birthday" : "2023-05-08",
+          "primary_color" : "White",
+          "secondary_color" : "Black",
+          "attributes" : "['Has Done Well with Dogs', 'In Playgroups']",
+          "url" : "https://new.shelterluv.com/embed/animal/211016449",
+          "description" : "I'll come \"Stormin\" into your heart the minute you meet me.  Who could resist someone as cute as I am?  I'm a young gal, medium-sized with unique markings on my fur.  Super friendly and agreeable.  I've lived politely with other dogs and cats before, and I've shown that I can pick up potty training and habits quickly.  I'm a very good girl on a leash, and I love hikes!  When I've been out on hikes with my human friends, I've been very happy to see other people and doggos, even when they walk or bike right past me.  Since I'm still a young girl with a lot of energy, I'd thrive in a home that likes to keep me active, whether that's playing in the back yard or going to the dog park or bringing me along for long walks or hikes.  I really show what a good, smart, loveable girl I am once I get some exercise in.  If I sound like the perfect match for you, let's not waste another day being apart!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211030646",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Plum ",
+          "sex" : "Female",
+          "breed" : "Cattle Dog",
+          "secondary_breed" : "Shepherd",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-17",
+          "id" : 211030646,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-15"
+          ],
+          "birthday" : "2024-09-12",
+          "primary_color" : "Black",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211030646",
+          "description" : "You’ll go plum crazy for my cuteness!  I might be a bit shy until I really get to know you. My young self is still learning my way around. Can you show me all about walkies and car rides? I’m a quick learner. I can’t wait to be your new best friend.A team member adds,\"That dog runs! She ran and ran and ran. Joyously. And every so often she ran into the pool, splashed around, drank some water and then ran and ran and ran again.\" Do you want to run with me?",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211032695",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Kia ",
+          "sex" : "Female",
+          "breed" : "Cattle Dog",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-24",
+          "id" : 211032695,
+          "location" : [
+            "Main Campus- Big Blue, BB-06"
+          ],
+          "birthday" : "2023-11-12",
+          "primary_color" : "White",
+          "secondary_color" : "Black",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/211032695",
+          "description" : "When you meet sweet Kia, spend some one on one time sitting with her.  You will see her true personality emerge!  She wants to be close to you, wants to connect with you, and will give you the sweetest kisses to show her appreciation.  She really wants a special person to bond with, someone who can show her all the good things that life will give her!    She will return the favor with her love and devotion to you!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211037990",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Eve",
+          "sex" : "Female",
+          "breed" : "Shepherd",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-05-13",
+          "id" : 211037990,
+          "location" : [
+            "Main Campus- Big Blue, BB-24"
+          ],
+          "birthday" : "2021-05-13",
+          "primary_color" : "Sable",
+          "secondary_color" : "White",
+          "attributes" : "['Has Done Well with Dogs', 'Has Done Well with Cats']",
+          "url" : "https://new.shelterluv.com/embed/animal/211037990",
+          "description" : "Eve is a beautiful, strong, and athletic girl who would love to meet someone who shares her love of being outside and active!  She has the most unique coloring and expressive eyes.  She is curious about her surroundings and loves to run in the park!  She also loves to share her time with you sitting on a bench watching a sunset!  Maybe you could share a seat on a couch binging some tv after a long morning walk or hike?  Come meet this special girl and see if she is the perfect fit for your family!A team member shares, \"Eve is a sweet and special girl who loves nothing more than playing outside and getting loved on by people. She's a perfect lady on a leash and easy to walk. On a recent hot day, she made a beeline for a kiddie pool and had a blast splashing around and bringing toys into the pool with her. She would bring a lot of love and fun to anyone's home.\"",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211038271",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Littles ",
+          "sex" : "Female",
+          "breed" : "Boxer",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-05-13",
+          "id" : 211038271,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-18"
+          ],
+          "birthday" : "2024-05-13",
+          "primary_color" : "White",
+          "secondary_color" : "",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/211038271",
+          "description" : "I think a good name for me would be \"Spot\".  Can you guess why?  Look how cute I am in my picture playing tug with the leash.  Oh, another pup just told me humans don't like that too much.  They prefer you tug on a toy so I promise to work on that.  I can be a little picky about the canine buddies that I prefer.  If you have a current pup at home, bring them with you when you come to meet me.  I'd have to give them the seal of approval.  I also need a secure yard with a tall fence.  Need to have enough attention at home to keep me from investigating other places.A team member adds, \"Littles is the sweetest young mama dog. She acts tough when dogs walk by, but she’s really very sweet and loving. She takes treats gently and she walks well on leash. She has the cutest little wiggle while walking and a very sweet smile.\"Come meet Littles today and find out what a darling she is!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211066523",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Brandy ",
+          "sex" : "Female",
+          "breed" : "Mixed Breed (Medium)",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-05-19",
+          "id" : 211066523,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-22"
+          ],
+          "birthday" : "2021-05-19",
+          "primary_color" : "Red/Mahogany",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211066523",
+          "description" : "Brandy is my name, and being cute and adorable is my game. I mean just look at my eyes?! I absolutely love to go on walks, be vocal and say hi and give all of the kisses. I am a very sweet natured dog, I listen but I do have fun energy that I really would like to burn. How about some nice long walks? Maybe toss around the backyard with the ball? And then we can end the day with cuddles on the couch. Doesn't that sound perfect? I am looking for my fur-ever home and place - could it possibly be with you?",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211208121",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Thunder",
+          "sex" : "Male",
+          "breed" : "Shepherd, German",
+          "secondary_breed" : "Mixed Breed (Large)",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-06-06",
+          "id" : 211208121,
+          "location" : [
+            "Main Campus - Main Kennel South, MKS-15"
+          ],
+          "birthday" : "2021-06-06",
+          "primary_color" : "Black",
+          "secondary_color" : "Tan",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/211208121",
+          "description" : "Hi! I’m Thunder. You’ll “clap” when you see how handsome I am. I’m a stunning big boy that’s good on leash, and I like to meet and get cuddles from new people. I’m a bit shy but warm up quick, especially if a treat appears!I’m darn smart and eager to learn. If you’re looking for a new best friend, hiking partner and loyal sidekick, I’ve got it all. I get along with most other dogs but would like to meet with your fur babies and the rest of the family. Come in and meet me today and let’s start your next great adventure together.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211233849",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Burger",
+          "sex" : "Male",
+          "breed" : "Shepherd, German",
+          "secondary_breed" : "Leonberger",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-06-11",
+          "id" : 211233849,
+          "location" : [
+            "Main Campus- Big Blue, BB-23"
+          ],
+          "birthday" : "2024-06-11",
+          "primary_color" : "Brown",
+          "secondary_color" : "Black",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211233849",
+          "description" : "Hello!  Are you looking for a big fuzzy guy to be by your side?  Well look no further.  I'd love to sit by you in the sunshine and survey our surroundings.  I'm a majestic boy with a beautiful coat and the sweetest ears.  You just have to see them in person.  I'm pretty good on a leash too, but I am strong!  I'm an affectionate guy but like it when you go slowly when handling me.  I'd love to be your loyal companion.  Could it be you?",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211254014",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Amelia",
+          "sex" : "Female",
+          "breed" : "Boxer",
+          "secondary_breed" : "Terrier, Jack Russell",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-07-01",
+          "id" : 211254014,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-21"
+          ],
+          "birthday" : "2024-06-16",
+          "primary_color" : "Black",
+          "secondary_color" : "White",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/211254014",
+          "description" : "Amelia is the cutest little ball of energy in a compact little body!  She is curious about everything and ready to explore every inch of her environment!  She will give kisses with her little underbite while wiggling  her whole body!  She will be SO much fun for some lucky family!  Could you be that family?  Come meet her and find out!  She is guaranteed to make you smile!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211281108",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Benny",
+          "sex" : "Male",
+          "breed" : "Terrier, American Pit Bull",
+          "secondary_breed" : "",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-06-20",
+          "id" : 211281108,
+          "location" : [
+            "Main Campus- Big Blue, BB-12"
+          ],
+          "birthday" : "2020-05-12",
+          "primary_color" : "Grey",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211281108",
+          "description" : "I’m a middle-aged guy who would “Benny-fit” a forever home. I’m a happy, handsome, white and grey guy who wants to walk and hike. My name means many things, like “son of the right hand” (which I think means “mankind’s best friend”), or “blessed” (forever dogs and forever humans certainly are!), or “brave as a bear” (yes, I am, but still…). Anyway, just look at my smile in my photo and you’ll know exactly what you’re getting: “Benny-ificience”! Happiness is \"Benny-ficial\"!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211294191",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Betty Boop",
+          "sex" : "Female",
+          "breed" : "Retriever, Black Labrador",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-23",
+          "id" : 211294191,
+          "location" : [
+            "Main Campus - Main Kennel South, MKS-08"
+          ],
+          "birthday" : "2024-10-23",
+          "primary_color" : "Black",
+          "secondary_color" : "",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211294191",
+          "description" : "I’m a puppy-ish girl ready to learn the tricks of my trade: sit, come, stay, and so on. You can boop-oop-a-doop bet I’ll go on walks and hikes! You’ll love my smile, brown eyes, and cute pink crown on top of my nose. A forever home with my forever human would make me so happy because it would let me make you happy. Come see how animated my love and devotion for you will be!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211294255",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Daffy",
+          "sex" : "Male",
+          "breed" : "Rottweiler",
+          "secondary_breed" : "",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-06-23",
+          "id" : 211294255,
+          "location" : [
+            "Main Campus- Big Blue, BB-01"
+          ],
+          "birthday" : "2023-06-23",
+          "primary_color" : "Black",
+          "secondary_color" : "Brown",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211294255",
+          "description" : "I’m a big, curious young lad. I just love to check out all that’s going on. Do you need an explore buddy? I’m so ready to go on adventures with you.I love to go on hikes and play dates. I’m eager to learn and experience new things, people and animals. .. oh, and toys too.I’m ready to soak up all the doggie wisdom I can get! Everyday I’m learning how to be a proper gentleman and become a respectful, loyal member of the pack. So whaddaya say? Are you ready to bring my loving heart and fun, goofy charm into your home?",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211350151",
+        "_score" : 1.0,
+        "_source" : {
+          "name" : "Dottie",
+          "sex" : "Female",
+          "breed" : "Cattle Dog",
+          "secondary_breed" : "Mixed Breed (Medium)",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-30",
+          "id" : 211350151,
+          "location" : [
+            "Main Campus- Big Blue, BB-19"
+          ],
+          "birthday" : "2024-12-20",
+          "primary_color" : "White",
+          "secondary_color" : "Black",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211350151",
+          "description" : "",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211350346",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Rumi",
+          "sex" : "Female",
+          "breed" : "Shepherd",
+          "secondary_breed" : "Mixed Breed (Medium)",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-30",
+          "id" : 211350346,
+          "location" : [
+            "Main Campus- Big Blue, BB-25"
+          ],
+          "birthday" : "2024-11-30",
+          "primary_color" : "Black",
+          "secondary_color" : "Tan",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211350346",
+          "description" : "What kind of canine buddy are you looking for?  Hopefully a young pup with a good amount of puppy energy.  A female that's cute as a bug and ready for obedience classes.  Wants to be the best girl ever.  If that's what you're looking for, then look no further.  I'm all that and more.  Come visit me in person and you'll see there's no one to compare.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211402217",
+        "_score" : 1.0,
+        "_source" : {
+          "name" : "Jack Sparrow",
+          "sex" : "Male",
+          "breed" : "Shih Tzu",
+          "secondary_breed" : "",
+          "weight_group" : "Small (0-24)",
+          "intake_date" : "2025-07-02",
+          "id" : 211402217,
+          "location" : [
+            "Main Campus- Big Blue, BB-02"
+          ],
+          "birthday" : "2022-10-03",
+          "primary_color" : "White",
+          "secondary_color" : "Grey",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211402217",
+          "description" : "",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211409804",
+        "_score" : 1.0,
+        "_source" : {
+          "name" : "Royce",
+          "sex" : "Male",
+          "breed" : "Retriever, Black Labrador",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-07-03",
+          "id" : 211409804,
+          "location" : [
+            "Main Campus- Big Blue, BB-09"
+          ],
+          "birthday" : "2025-01-14",
+          "primary_color" : "Black",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211409804",
+          "description" : "",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211410022",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Zane",
+          "sex" : "Male",
+          "breed" : "Collie, Border",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-07-03",
+          "id" : 211410022,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-25"
+          ],
+          "birthday" : "2022-05-20",
+          "primary_color" : "White",
+          "secondary_color" : "Black",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211410022",
+          "description" : "Our buddy Zane here is a striking black and white Border Collie mix with soulful amber eyes that seem to see right into your heart.The name Zane has multiple meanings, including \"gift,\" \"gracious\" and \"handsome,\" and we think it fits him perfectly. This sweet boy is a reminder of the joy that can come from second chances.Zane has been polite with both people and other dogs when he's been out on his walks and around the shelter. He's a big fan of hopping onto the nearest bench to strike some poses and steal some snuggles.Whether you’ve been searching for a loyal hiking partner, a cuddle buddy or simply a new best friend, Zane is ready to be the silver lining in your story — and you in his. Come say hello and see if he's your perfect match!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "208812468",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Bitsy",
+          "sex" : "Female",
+          "breed" : "Carolina Dog",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2024-12-10",
+          "id" : 208812468,
+          "location" : [
+            "Main Campus- Big Blue, BB-17"
+          ],
+          "birthday" : "2023-06-10",
+          "primary_color" : "Tan",
+          "secondary_color" : "",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/208812468",
+          "description" : "I’m a gorgeous gal. Some call me “Yaller Dog\" or “American Dingo”. I’d be so excited to meet you. I soak up all the love and attention I can get. I have plenty to learn. I would be an excellent hiking companion and with my boundless energy I might be great at competing in agility or dock diving. I‘d benefit from an experienced adopter who can give me consistency, brain games and lots of exercise. I love water, snow, toys, and cuddles.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210565048",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Bronx",
+          "sex" : "Male",
+          "breed" : "Terrier, American Pit Bull",
+          "secondary_breed" : "",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-05-03",
+          "id" : 210565048,
+          "location" : [
+            "Main Campus- Big Blue, BB-11"
+          ],
+          "birthday" : "2021-03-03",
+          "primary_color" : "Blue",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210565048",
+          "description" : "Bronx is a lovely boy who will make a great family pet! He absolutely adores people and makes friends with every person he meets. He's a gentle boy who loves to just be by your side, leaning into you for affection. While he has made some doggy friends, he prefers those who will respect his space and just relax with him so if you have other dogs, bring them in to meet him to see if they're a good match! He is well-mannered and has done well with children. He has done well with house-training in the past. His favorite things to do are cuddling and playing with squeaky toys. He is an all-around good, sweet boy! Won't you give him a chance at a loving home?",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211047757",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Eren",
+          "sex" : "Male",
+          "breed" : "Shepherd",
+          "secondary_breed" : "Mix",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-09",
+          "id" : 211047757,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-19"
+          ],
+          "birthday" : "2024-12-01",
+          "primary_color" : "Black",
+          "secondary_color" : "Tan",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/211047757",
+          "description" : "He just wants what every dog wants: a safe and loving home! Eren is such a sweet and affectionate young guy. He loves to cuddle and play with toys. He can be shy with new people but with a little patience and lots of treats, he will be the best bud you could ever ask for! He would make a great companion for someone who likes to stick to routine. Are you a homebody who loves cozy, quiet nights in? You may be Eren's perfect match! He is a fun-loving, silly young boy when he comes out of his shell. He would LOVE to go home with another dog who can show him the ropes. Please give him a chance at a happy life - he will make you so happy in return!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211281513",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Herman",
+          "sex" : "Male",
+          "breed" : "Terrier, Wirehaired",
+          "secondary_breed" : "Boxer",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-20",
+          "id" : 211281513,
+          "location" : [
+            "Westside Adoption Center, Dog Kennel 4"
+          ],
+          "birthday" : "2024-09-30",
+          "primary_color" : "Brindle",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211281513",
+          "description" : "Hey there. I’ve got it ALL go’n on. Check out my totally awesome mix of fluff and brindle. I’m happy, affectionate, intelligent and a fan of people and pup play. I’ve got good leash skills, come when called and sit nicely for treats.Tricks? You got it - I know wait, stay and “leave it\". I’m a young lad still wanting to learn more. Some think my love of water and leaping ability would make me a great dock diver.I’m still in puppyhood and my energy (and tail) might be a tad too much for small kiddos and elder folk. I’d fit in best with a tall fenced yard and other dogs to play with. My foster fam is sure I’ll steal your heart. Come on in and let me show you how it’s done.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210611172",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "King",
+          "sex" : "Male",
+          "breed" : "Shepherd",
+          "secondary_breed" : "Cattle Dog",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-07-03",
+          "id" : 210611172,
+          "location" : [
+            "Westside Adoption Center, Dog Kennel 3"
+          ],
+          "birthday" : "2024-09-25",
+          "primary_color" : "Black",
+          "secondary_color" : "Tan",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210611172",
+          "description" : "If you've been waiting for just the right fellow, wait no longer!  I am a great age (about a year), a great size (medium), and a  great personality--not overbearing, just sweet and lovable.  Some say that I am a real NM dog--willing, sweet and smart--just what you're looking for, right?  Zip on one to the Westside and let's get acquainted.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210919768",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Dhillon",
+          "sex" : "Male",
+          "breed" : "Shepherd",
+          "secondary_breed" : "",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-06-26",
+          "id" : 210919768,
+          "location" : [
+            "Westside Adoption Center, Dog Kennel 2"
+          ],
+          "birthday" : "2024-05-04",
+          "primary_color" : "Black",
+          "secondary_color" : "Tan",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/210919768",
+          "description" : "Do you like sweet gentle hugs?  Chin kisses?  Then I am the guy for you!  I wag my tail and am anxious to meet every person who comes along, because those are all my best friends!  I am a big boy, but I am easy to walk on a leash, and I love to go for walks!   Actually, I would really love to go for long walks, maybe along the river or up in the mountains?  Oh, and one more thing you need to know about me.....I love treats (especially cheese!) and know how to sit politely to get those treats from you!",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211349875",
+        "_score" : 1.0,
+        "_source" : {
+          "name" : "Inky",
+          "sex" : "Female",
+          "breed" : "Shepherd",
+          "secondary_breed" : "Retriever, Black Labrador",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-06-30",
+          "id" : 211349875,
+          "location" : [
+            "Westside Adoption Center, Dog Kennel 5"
+          ],
+          "birthday" : "2025-02-28",
+          "primary_color" : "Black",
+          "secondary_color" : "",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211349875",
+          "description" : "",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "208812462",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Ruby",
+          "sex" : "Female",
+          "breed" : "Retriever, Labrador",
+          "secondary_breed" : "",
+          "weight_group" : "Large (60-99)",
+          "intake_date" : "2025-01-13",
+          "id" : 208812462,
+          "location" : [
+            "Westside Adoption Center, Dog Kennel 6"
+          ],
+          "birthday" : "2021-09-30",
+          "primary_color" : "Tan",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/208812462",
+          "description" : "What do you call a red gem waiting to be adopted by you? A Ruby! Hello, my name is Ruby, the gem that you need in your life. I am a goofy girl looking for lots of belly rubs. My favorite thing to do is give lots of hugs and be a couch potato. I enjoy my walks as long as it is fresh outside for me. A secret between me and you I love the fresh air when it is nice and cool out. I would love to meet you so come on by and say hi to me and hopefully I will be your pup forever.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "210468592",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Phill",
+          "sex" : "Male",
+          "breed" : "Terrier, American Pit Bull",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-02-10",
+          "id" : 210468592,
+          "location" : [
+            "Foster Home"
+          ],
+          "birthday" : "2023-08-10",
+          "primary_color" : "Black",
+          "secondary_color" : "White",
+          "attributes" : "['Has Done Well with Dogs']",
+          "url" : "https://new.shelterluv.com/embed/animal/210468592",
+          "description" : "Hi, I’m Phill! I’ll fill the bill...if I can just find my way to you. Looking for a lifelong buddy and someone who will care about me. I know I have tons of love to give! I just need a co-pilot in life. I am a quietly confident guy. Come meet me and bring the family too.  I’m so ready to find my forever home.A team member says, \"Phill loves nothing more than a good rawhide to chew on and a human by his side. He has a collection of rawhides on the ledge outside his room, and he selects the one he wants to take on his walk. He'll make a beeline for the nearest bench and wants you to sit beside him and pet him. He could stay like that all day. He's also a smart guy who knows commands like sit, shake and down, and he loves showing off what he knows for treats.\"",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211438395",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Stray Hold- Amaya",
+          "sex" : "Female",
+          "breed" : "Shepherd, German",
+          "secondary_breed" : "",
+          "weight_group" : "Medium (25-59)",
+          "intake_date" : "2025-07-07",
+          "id" : 211438395,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-20"
+          ],
+          "birthday" : "2025-03-31",
+          "primary_color" : "Tan",
+          "secondary_color" : "Black",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211438395",
+          "description" : "The pet shown here has been brought into our shelter by the public and is waiting to be reunited with their family. The pet must remain with us for a legal-holding period and is not available for adoption. We are unable to place adoption holds or interested party notes on pets on stray hold. Please continue to watch the website for when the pet is available for adoption.If you recognize a pet, please let our staff know so that we can begin the process of getting your pet back to your loving home. Please call the shelter or email us at info@animalhumanenm.org.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      },
+      {
+        "_index" : "animal-humane",
+        "_id" : "211446506",
+        "_score" : 1.0,
+        "_ignored" : [
+          "description.keyword"
+        ],
+        "_source" : {
+          "name" : "Stray Hold - Yuno",
+          "sex" : "Male",
+          "breed" : "Poodle, Miniature",
+          "secondary_breed" : "Mixed Breed (Small)",
+          "weight_group" : "",
+          "intake_date" : "2025-07-09",
+          "id" : 211446506,
+          "location" : [
+            "Main Kennel North, Main Campus - MKN-11"
+          ],
+          "birthday" : "2024-07-09",
+          "primary_color" : "Black",
+          "secondary_color" : "White",
+          "attributes" : "[]",
+          "url" : "https://new.shelterluv.com/embed/animal/211446506",
+          "description" : "The pet shown here has been brought into our shelter by the public and is waiting to be reunited with their family. The pet must remain with us for a legal-holding period and is not available for adoption. We are unable to place adoption holds or interested party notes on pets on stray hold. Please continue to watch the website for when the pet is available for adoption.If you recognize a pet, please let our staff know so that we can begin the process of getting your pet back to your loving home. Please call the shelter or email us at info@animalhumanenm.org.",
+          "collection_time" : "2025-07-09T13:30:01.844225",
+          "status" : "Available"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "comparison": {
+    "current_index": "animal-humane-20250925-1900",
+    "previous_index": "animal-humane-20250925-1700",
+    "timestamp": "2025-09-25T19:34:23.007199"
+  },
+  "summary": {
+    "total_current": 0,
+    "total_previous": 57,
+    "new_dogs": 0,
+    "returned_dogs": 0,
+    "adopted_dogs": 57,
+    "trial_dogs": 0,
+    "unlisted_dogs": 0
+  },
+  "new_dogs": [],
+  "returned_dogs": [],
+  "adopted_dogs": [
+    {
+      "id": 208818048,
+      "name": "Chuckie",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-18"
+    },
+    {
+      "id": 211903105,
+      "name": "Gambit",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-20"
+    },
+    {
+      "id": 211696516,
+      "name": "Captain Marvel",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-13"
+    },
+    {
+      "id": 210758790,
+      "name": "Tangerine ",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-22"
+    },
+    {
+      "id": 208817674,
+      "name": "Griffin",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-06"
+    },
+    {
+      "id": 211681932,
+      "name": "Benji",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-14"
+    },
+    {
+      "id": 210841997,
+      "name": "Junebug",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-12"
+    },
+    {
+      "id": 211903376,
+      "name": "Cyclops",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-11"
+    },
+    {
+      "id": 211460756,
+      "name": "Tom Hardy",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-23"
+    },
+    {
+      "id": 211910420,
+      "name": "Rollo",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-14"
+    },
+    {
+      "id": 211460888,
+      "name": "Molly",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-03"
+    },
+    {
+      "id": 211066523,
+      "name": "Brandy ",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-22"
+    },
+    {
+      "id": 211834149,
+      "name": "Skipper",
+      "status": "Available",
+      "location": "Westside Adoption Center, Dog Kennel 4"
+    },
+    {
+      "id": 211795622,
+      "name": "Dolly",
+      "status": "Available",
+      "location": "Main Campus - Main Kennel South, MKS-11"
+    },
+    {
+      "id": 211823911,
+      "name": "Tortellini",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-17"
+    },
+    {
+      "id": 211808037,
+      "name": "Raphtalia",
+      "status": "Available",
+      "location": "Foster Home"
+    },
+    {
+      "id": 211903273,
+      "name": "Jean Grey",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-03"
+    },
+    {
+      "id": 211639083,
+      "name": "Pudding",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-21"
+    },
+    {
+      "id": 211686957,
+      "name": "Dahlia",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-05"
+    },
+    {
+      "id": 210282034,
+      "name": "Hemi",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-15"
+    },
+    {
+      "id": 211590195,
+      "name": "Girby",
+      "status": "Available",
+      "location": "Foster Home"
+    },
+    {
+      "id": 211590452,
+      "name": "Ginny",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-21"
+    },
+    {
+      "id": 208809271,
+      "name": "Oreo",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-19"
+    },
+    {
+      "id": 210698425,
+      "name": "Phelps",
+      "status": "Available",
+      "location": "Main Campus - Main Kennel South, MKS-13"
+    },
+    {
+      "id": 211910330,
+      "name": "Ragnar",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, Website"
+    },
+    {
+      "id": 208812347,
+      "name": "Zoe",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-28"
+    },
+    {
+      "id": 211696060,
+      "name": "Wanda",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-24"
+    },
+    {
+      "id": 211903164,
+      "name": "Falkor",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-24"
+    },
+    {
+      "id": 211834297,
+      "name": "Ziggy ",
+      "status": "Available",
+      "location": "Westside Adoption Center, Dog Kennel 3"
+    },
+    {
+      "id": 211720642,
+      "name": "Aleu ",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-06"
+    },
+    {
+      "id": 211875394,
+      "name": "Santana",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-18"
+    },
+    {
+      "id": 211917893,
+      "name": "Cochise",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-01"
+    },
+    {
+      "id": 208818887,
+      "name": "Taco ",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-20"
+    },
+    {
+      "id": 211032775,
+      "name": "Jane ",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-05"
+    },
+    {
+      "id": 211590344,
+      "name": "Hermione",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-19"
+    },
+    {
+      "id": 208815693,
+      "name": "Ferris",
+      "status": "Available",
+      "location": "Main Campus - Main Kennel South, MKS-09"
+    },
+    {
+      "id": 211808589,
+      "name": "Tam",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-07"
+    },
+    {
+      "id": 211811917,
+      "name": "Lae'zel",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-02"
+    },
+    {
+      "id": 211812176,
+      "name": "Elton",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-04"
+    },
+    {
+      "id": 211680593,
+      "name": "Katniss",
+      "status": "Available",
+      "location": "Main Campus - Main Kennel South, MKS-16"
+    },
+    {
+      "id": 211903055,
+      "name": "Andi",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-25"
+    },
+    {
+      "id": 211834064,
+      "name": "Scout",
+      "status": "Available",
+      "location": "Westside Adoption Center, Dog Kennel 2"
+    },
+    {
+      "id": 211281108,
+      "name": "Billy",
+      "status": "Available",
+      "location": "Foster Home"
+    },
+    {
+      "id": 208808287,
+      "name": "Ping",
+      "status": "Available",
+      "location": "Westside Adoption Center, Dog Kennel 6"
+    },
+    {
+      "id": 211911009,
+      "name": "Beemo",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-16"
+    },
+    {
+      "id": 211910372,
+      "name": "Floki",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-08"
+    },
+    {
+      "id": 210569574,
+      "name": "Ramen",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-08"
+    },
+    {
+      "id": 210433767,
+      "name": "Warbler",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-09"
+    },
+    {
+      "id": 211410022,
+      "name": "Zane",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-23"
+    },
+    {
+      "id": 210061291,
+      "name": "Ivy",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-17"
+    },
+    {
+      "id": 211839851,
+      "name": "Vixie",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-27"
+    },
+    {
+      "id": 211721069,
+      "name": "Jabba the Pup",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-04"
+    },
+    {
+      "id": 210495598,
+      "name": "Wilbur",
+      "status": "Available",
+      "location": "Main Campus - Main Kennel South, MKS-18"
+    },
+    {
+      "id": 210468592,
+      "name": "Atlas",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-13"
+    },
+    {
+      "id": 208817015,
+      "name": "Harley",
+      "status": "Available",
+      "location": "Main Campus - Main Kennel South, MKS-08"
+    },
+    {
+      "id": 208812411,
+      "name": "Snoopy",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-07"
+    },
+    {
+      "id": 211903229,
+      "name": "Tauriel",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-15"
+    }
+  ],
+  "trial_dogs": [],
+  "unlisted_dogs": [],
+  "changed_dogs": []
+}

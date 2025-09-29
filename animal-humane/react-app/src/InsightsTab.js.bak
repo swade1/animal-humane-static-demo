@@ -1,0 +1,248 @@
+import React, { useEffect, useState } from 'react';
+import { fetchInsights, fetchWeeklyAgeGroupAdoptions, fetchDogOrigins } from './api';
+import {BarChart, Bar, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LabelList} from 'recharts';
+import {getLast5Weeks} from './utils/dateUtils';
+import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
+import L from 'leaflet';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png')
+});
+
+
+
+const chartLabels = getLast5Weeks();
+const MAP_CENTER = [35.0844, -106.6504];
+const MAP_ZOOM =7;
+
+
+/* -------------------- */
+/*    Custom Tooltip    */
+/* -------------------- */
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    const { count, names } = payload[0].payload;
+
+    return (
+      <div style={{ backgroundColor: 'white', border: '1px solid #ccc', padding: '10px' }}>
+        <p><strong>Date:</strong> {label}</p>
+        <p><strong>Adoptions:</strong> {count}</p>
+        {names && names.length > 0 && (
+          <>
+            <p><strong>Dogs Adopted:</strong></p>
+            <ul style={{ margin: 0, paddingLeft: '20px' }}>
+              {names.map((name, i) => (
+                <li key={i}>{name}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+    );
+  }
+  return null;
+};
+
+const CustomLegend = (props) => {
+  const { payload } = props;
+  const order = ["Puppies", "Adults", "Seniors"]; // desired legend order
+
+  // Sort payload by the order array
+  const sortedPayload = order.map(name => 
+    payload.find(item => item.value === name)
+  ).filter(Boolean);
+
+  return (
+    <ul style={{ listStyle: 'none', display: 'flex', justifyContent:"center", alignItems:"center", padding: 0, margin: 0,width:"100%" }}>
+      {sortedPayload.map((entry, index) => (
+        <li key={`item-${index}`} style={{ marginRight: 10, display: 'flex', alignItems: 'center' }}>
+          <span style={{
+            display: 'inline-block',
+            width: 10,
+            height: 10,
+            backgroundColor: entry.color,
+            marginRight: 5,
+          }}></span>
+          {entry.value}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+
+
+/* ------------------------------- */
+/*            Main Tab             */
+/* ------------------------------- */
+function WeeklyAdoptionsBarChart({ data }) {
+  return (
+    <div>
+      <div className="overview-text" style={{ marginTop: "20px" }}>
+        <strong>Weekly Adoption Totals per Age Group</strong>
+      </div>
+      <ResponsiveContainer width="100%" height={350}>
+        <BarChart
+          labels={chartLabels}
+          data={data}
+          margin={{ top: 20, right: 30, left: 20, bottom: 30 }}
+          barCategoryGap="16%"
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="week" />
+          <YAxis allowDecimals={false} label={{ value: "Adopted Dogs", angle: -90, position: "insideLeft", offset: 0 }} />
+          <Tooltip />
+          <Legend content={CustomLegend}/>
+          <Bar dataKey="Puppy" fill="#7DD181" name="Puppies" />
+          <Bar dataKey="Adult" fill="#4E79A7" name="Adults" />
+          <Bar dataKey="Senior" fill="#F28E2B" name="Seniors" />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+  
+
+function InsightsTab() {
+  const [origins, setOrigins] = useState([]);
+  const [insights, setInsights] = useState(null);
+  const [weeklyAgeGroupData, setWeeklyAgeGroupData] = useState([]);
+
+  useEffect(() => {
+    console.log("InsightsTab useEffect triggered");
+    fetchInsights().then(setInsights).catch(err => {
+      console.error("Error loading insights:", err);
+    });
+    
+  fetchWeeklyAgeGroupAdoptions()
+    .then(data => setWeeklyAgeGroupData(Array.isArray(data) ? data : []))
+    .catch(err => {
+      console.error("Error loading weekly age group data:", err);
+      setWeeklyAgeGroupData([]);
+    });
+  fetchDogOrigins()
+    .then(data => setOrigins(Array.isArray(data) ? data:[]))
+    .catch((error) => {
+       console.error('Error fetching dog origins:', error);
+       setOrigins([]);
+    })
+  }, []);
+
+
+
+  if (!insights) return <div>Loading...</div>;
+ 
+  /*const weeklyAgeGroupData = [
+    { week: "07/27/2025", Puppy: 5, Adult: 12, Senior: 2 },
+    { week: "08/03/2025", Puppy: 7, Adult: 9, Senior: 4 },
+    { week: "08/10/2025", Puppy: 4, Adult: 15, Senior: 3 }
+  ];*/
+
+  // Find max count and index for highlighting
+  const maxCount = Math.max(...insights.dailyAdoptions.map(d => d.count));
+  const maxIndex = insights.dailyAdoptions.findIndex(d => d.count === maxCount);
+
+  // Custom dot to highlight max adoption day
+  const CustomDot = (props) => {
+    const { cx, cy, index } = props;
+    if (index === maxIndex) {
+      return (
+        <circle cx={cx} cy={cy} r={6} fill="#FF4136" stroke="#fff" strokeWidth={2} />
+      );
+    }
+    return (
+      <circle cx={cx} cy={cy} r={4} fill="#8884d8" />
+    );
+  };
+
+
+  return (
+   <div>
+    <div>
+      {/* Summary metrics */}
+      {/* Header */}
+      <h3 style={{ marginTop: '20px' }}>Adoption Trends</h3>
+      <div className="overview-text">
+        <strong>Average Stay:</strong> {insights.avgStay} days<br />
+        <strong>Longest Stay:</strong> {insights.longestStay.name} (
+        {insights.longestStay.days} days)<br />
+      <strong>Adoption Totals per Week</strong>
+      </div>
+
+
+      {/* Inline Recharts LineChart with highlight */}
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart
+          data={insights.dailyAdoptions}
+          margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey="date"
+            angle={-45}
+            textAnchor="end"
+            height={60}
+            interval={3} // only show some x-axis labels for readability
+            tick={{ fontSize: 12 }}
+          />
+          <YAxis allowDecimals={false} />
+          <Tooltip content={<CustomTooltip />} />
+
+          <Line
+            type="monotone"
+            dataKey="count"
+            stroke="#8884d8"
+            strokeWidth={2}
+            dot={CustomDot}
+            activeDot={{ r: 8, stroke: "#FF4136", strokeWidth: 2, fill: '#FF4136' }}
+          >
+            {/* Label the highest point */}
+            <LabelList
+              dataKey="count"
+              position="top"
+              formatter={(value, entry) =>
+                entry && entry.index === maxIndex ? `${value} (max)` : ''
+              }
+              style={{ fill: '#FF4136', fontWeight: 'bold' }}
+            />
+          </Line>
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+
+    {/* Inline Recharts BarChart */}
+    <div className="overview-text">
+       <WeeklyAdoptionsBarChart data={weeklyAgeGroupData} />
+    </div>
+
+    {/* Map showing Dog Origins */}
+
+    <h2 style={{ marginTop: "40px" }}>Origins of Dogs at Animal Humane</h2>
+      <MapContainer center={MAP_CENTER} zoom={MAP_ZOOM} style={{ height: '800px', width: '100%' }}>
+        <TileLayer
+            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+            attribution='&copy; OpenStreetMap contributors'
+        />
+        {origins.map(({ latitude, longitude, origin, count }, idx) =>
+           latitude && longitude ? (
+          <Marker key={idx} position={[latitude, longitude]}>
+            <Popup>
+              <strong>{origin}</strong><br />
+              Dogs: {count}
+            </Popup>
+          </Marker>
+        ) : null
+      )}
+    </MapContainer>
+   </div> 
+  );
+}
+export default InsightsTab;
+

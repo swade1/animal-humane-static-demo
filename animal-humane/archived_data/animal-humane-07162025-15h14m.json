@@ -1,0 +1,1122 @@
+[
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "208819449",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 208819449,
+    "name" : "Sierra",
+    "location" : "Foster Home",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/208819449",
+    "intake_date" : "2025-02-02",
+    "birthdate" : "2021-05-30",
+    "breed" : "Shepherd",
+    "secondary_breed" : "Mixed Breed (Medium)",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Tan",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210719230",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210719230,
+    "name" : "Red ",
+    "location" : "Foster Home",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210719230",
+    "intake_date" : "2025-03-30",
+    "birthdate" : "2024-03-30",
+    "breed" : "Hound",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Tan",
+    "secondary_color" : null,
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210758790",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210758790,
+    "name" : "Tangerine ",
+    "location" : "Foster Home",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210758790",
+    "intake_date" : "2025-06-04",
+    "birthdate" : "2024-11-23",
+    "breed" : "Retriever, Black Labrador",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Black",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210934608",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210934608,
+    "name" : "Mary Kate",
+    "location" : "Foster Home",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210934608",
+    "intake_date" : "2025-05-07",
+    "birthdate" : "2023-11-07",
+    "breed" : "Pointer, English",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Red/Mahogany",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210919768",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210919768,
+    "name" : "Dhillon",
+    "location" : "Westside Adoption Center, Dog Kennel 1",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210919768",
+    "intake_date" : "2025-06-26",
+    "birthdate" : "2024-05-04",
+    "breed" : "Shepherd",
+    "secondary_breed" : "",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Black",
+    "secondary_color" : "Tan",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211410022",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211410022,
+    "name" : "Zane",
+    "location" : "Westside Adoption Center, Dog Kennel 3",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211410022",
+    "intake_date" : "2025-07-03",
+    "birthdate" : "2022-05-20",
+    "breed" : "Collie, Border",
+    "secondary_breed" : "",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "White",
+    "secondary_color" : "Black",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211460158",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211460158,
+    "name" : "Neon",
+    "location" : "Westside Adoption Center, Dog Kennel 5",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211460158",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2025-01-11",
+    "breed" : "Kelpie, Australian",
+    "secondary_breed" : "Mix",
+    "weight_group" : null,
+    "primary_color" : "Tan",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211460841",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211460841,
+    "name" : "Nickel",
+    "location" : "Westside Adoption Center, Dog Kennel 6",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211460841",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2025-01-11",
+    "breed" : "Mixed Breed (Medium)",
+    "secondary_breed" : "Mixed Breed (Medium)",
+    "weight_group" : null,
+    "primary_color" : "Brown",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "208810842",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 208810842,
+    "name" : "Nova",
+    "location" : "Main Campus- Big Blue, BB-15",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/208810842",
+    "intake_date" : "2025-06-03",
+    "birthdate" : "2020-09-26",
+    "breed" : "Terrier, American Pit Bull",
+    "secondary_breed" : "",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "",
+    "secondary_color" : null,
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "208812411",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 208812411,
+    "name" : "Snoopy",
+    "location" : "Main Campus- Big Blue, BB-18",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/208812411",
+    "intake_date" : "2025-03-11",
+    "birthdate" : "2021-07-27",
+    "breed" : "Coonhound",
+    "secondary_breed" : "",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Black",
+    "secondary_color" : "Brown",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "208812460",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 208812460,
+    "name" : "Baxter",
+    "location" : "Main Campus- Big Blue, BB-03",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/208812460",
+    "intake_date" : "2025-07-08",
+    "birthdate" : "2023-07-20",
+    "breed" : "Terrier, American Pit Bull",
+    "secondary_breed" : "Terrier",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "White",
+    "secondary_color" : "Tan",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "208815693",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 208815693,
+    "name" : "Ferris",
+    "location" : "Main Campus - Main Kennel South, MKS-09",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/208815693",
+    "intake_date" : "2025-03-18",
+    "birthdate" : "2021-03-10",
+    "breed" : "Shepherd",
+    "secondary_breed" : "Mixed Breed (Medium)",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "",
+    "secondary_color" : null,
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "208819751",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 208819751,
+    "name" : "Mowgli",
+    "location" : "Main Campus - Main Kennel South, MKS-20",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/208819751",
+    "intake_date" : "2025-06-14",
+    "birthdate" : "2021-06-20",
+    "breed" : "Rottweiler",
+    "secondary_breed" : "",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Black",
+    "secondary_color" : "Tan",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210169171",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210169171,
+    "name" : "Jack Frost",
+    "location" : "Main Campus- Big Blue, BB-21",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210169171",
+    "intake_date" : "2025-06-01",
+    "birthdate" : "2024-08-18",
+    "breed" : "Husky, Siberian",
+    "secondary_breed" : "",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "White",
+    "secondary_color" : "Black",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210333265",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210333265,
+    "name" : "Chef",
+    "location" : "Main Campus- Big Blue, BB-08",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210333265",
+    "intake_date" : "2025-07-09",
+    "birthdate" : "2023-01-16",
+    "breed" : "Retriever, Labrador",
+    "secondary_breed" : "Husky",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Blond",
+    "secondary_color" : null,
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210384420",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210384420,
+    "name" : "Major",
+    "location" : "Main Campus- Big Blue, BB-13",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210384420",
+    "intake_date" : "2025-06-21",
+    "birthdate" : "2024-10-27",
+    "breed" : "Cattle Dog",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "White",
+    "secondary_color" : "Red/Mahogany",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210435252",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210435252,
+    "name" : "Kash",
+    "location" : "Main Campus- Big Blue, BB-10",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210435252",
+    "intake_date" : "2025-07-01",
+    "birthdate" : "2024-02-04",
+    "breed" : "Terrier, American Pit Bull",
+    "secondary_breed" : "",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Sandy",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210468592",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210468592,
+    "name" : "Phill",
+    "location" : "Main Kennel North, Main Campus - MKN-13",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210468592",
+    "intake_date" : "2025-02-10",
+    "birthdate" : "2023-08-10",
+    "breed" : "Terrier, American Pit Bull",
+    "secondary_breed" : "",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Black",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210569574",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210569574,
+    "name" : "Ramen",
+    "location" : "Main Campus- Big Blue, BB-09",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210569574",
+    "intake_date" : "2025-07-05",
+    "birthdate" : "2024-03-04",
+    "breed" : "Shepherd, German",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Black",
+    "secondary_color" : "Tan",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210651765",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210651765,
+    "name" : "Scooby",
+    "location" : "Main Kennel North, Main Campus - MKN-04",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210651765",
+    "intake_date" : "2025-03-17",
+    "birthdate" : "2023-03-17",
+    "breed" : "Terrier, American Staffordshire",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Red/Mahogany",
+    "secondary_color" : "",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210698425",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210698425,
+    "name" : "Ronald",
+    "location" : "Main Campus - Main Kennel South, MKS-12",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210698425",
+    "intake_date" : "2025-03-25",
+    "birthdate" : "2024-03-25",
+    "breed" : "Kelpie, Australian",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Brown",
+    "secondary_color" : "Sandy",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210775713",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210775713,
+    "name" : "Aries",
+    "location" : "Main Kennel North, Main Campus - MKN-01",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210775713",
+    "intake_date" : "2025-04-10",
+    "birthdate" : "2022-10-10",
+    "breed" : "Shepherd",
+    "secondary_breed" : "",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "White",
+    "secondary_color" : "Black",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210782959",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210782959,
+    "name" : "Andy",
+    "location" : "Main Campus- Big Blue, BB-05",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210782959",
+    "intake_date" : "2025-04-10",
+    "birthdate" : "2023-10-10",
+    "breed" : "Retriever, Labrador",
+    "secondary_breed" : "",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Red/Mahogany",
+    "secondary_color" : "",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210798763",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210798763,
+    "name" : "Florence",
+    "location" : "Main Kennel North, Main Campus - MKN-26",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210798763",
+    "intake_date" : "2025-05-21",
+    "birthdate" : "2022-04-14",
+    "breed" : "Terrier, American Pit Bull",
+    "secondary_breed" : "Shepherd, Australian",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Brindle",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210821501",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210821501,
+    "name" : "Marley",
+    "location" : "Main Campus - Main Kennel South, MKS-13",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210821501",
+    "intake_date" : "2025-04-17",
+    "birthdate" : "2022-04-17",
+    "breed" : "Terrier, Bull",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Red/Mahogany",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210871009",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210871009,
+    "name" : "Mazey",
+    "location" : "Main Campus- Big Blue, BB-02",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210871009",
+    "intake_date" : "2025-04-28",
+    "birthdate" : "2019-04-28",
+    "breed" : "Terrier, American Pit Bull",
+    "secondary_breed" : "",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "White",
+    "secondary_color" : null,
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210919404",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210919404,
+    "name" : "Freddy",
+    "location" : "Main Kennel North, Main Campus - MKN-27",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210919404",
+    "intake_date" : "2025-05-05",
+    "birthdate" : "2017-05-05",
+    "breed" : "Retriever, Labrador",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Red/Mahogany",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210921217",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210921217,
+    "name" : "Jasper ",
+    "location" : "Main Campus- Big Blue, BB-25",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210921217",
+    "intake_date" : "2025-05-05",
+    "birthdate" : "2025-01-05",
+    "breed" : "Shepherd",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Black",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210921418",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210921418,
+    "name" : "Alice",
+    "location" : "Main Campus- Big Blue, BB-20",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210921418",
+    "intake_date" : "2025-05-05",
+    "birthdate" : "2025-01-05",
+    "breed" : "Shepherd",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Black",
+    "secondary_color" : "Brindle",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211016449",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211016449,
+    "name" : "Storm",
+    "location" : "Main Campus - Main Kennel South, MKS-15",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211016449",
+    "intake_date" : "2025-07-14",
+    "birthdate" : "2023-05-08",
+    "breed" : "Husky",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "White",
+    "secondary_color" : "Black",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211030646",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211030646,
+    "name" : "Plum ",
+    "location" : "Main Campus- Big Blue, BB-16",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211030646",
+    "intake_date" : "2025-06-17",
+    "birthdate" : "2024-09-12",
+    "breed" : "Cattle Dog",
+    "secondary_breed" : "Shepherd",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Black",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211037990",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211037990,
+    "name" : "Eve",
+    "location" : "Main Campus- Big Blue, BB-24",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211037990",
+    "intake_date" : "2025-05-13",
+    "birthdate" : "2021-05-13",
+    "breed" : "Shepherd",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Sable",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211066523",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211066523,
+    "name" : "Brandy ",
+    "location" : "Main Kennel North, Main Campus - MKN-22",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211066523",
+    "intake_date" : "2025-05-19",
+    "birthdate" : "2021-05-19",
+    "breed" : "Mixed Breed (Medium)",
+    "secondary_breed" : "",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Red/Mahogany",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211233849",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211233849,
+    "name" : "Burger",
+    "location" : "Main Campus- Big Blue, BB-23",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211233849",
+    "intake_date" : "2025-06-11",
+    "birthdate" : "2024-06-11",
+    "breed" : "Shepherd, German",
+    "secondary_breed" : "Leonberger",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Brown",
+    "secondary_color" : "Black",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211281108",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211281108,
+    "name" : "Benny",
+    "location" : "Main Campus- Big Blue, BB-12",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211281108",
+    "intake_date" : "2025-06-20",
+    "birthdate" : "2020-05-12",
+    "breed" : "Terrier, American Pit Bull",
+    "secondary_breed" : "",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Grey",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211294191",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211294191,
+    "name" : "Betty Boop",
+    "location" : "Main Campus - Main Kennel South, MKS-08",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211294191",
+    "intake_date" : "2025-06-23",
+    "birthdate" : "2024-10-23",
+    "breed" : "Retriever, Black Labrador",
+    "secondary_breed" : "",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Black",
+    "secondary_color" : null,
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211294255",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211294255,
+    "name" : "Daffy",
+    "location" : "Main Campus - Main Kennel South, MKS-17",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211294255",
+    "intake_date" : "2025-06-23",
+    "birthdate" : "2023-06-23",
+    "breed" : "Rottweiler",
+    "secondary_breed" : "",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Black",
+    "secondary_color" : "Brown",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211294318",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211294318,
+    "name" : "Luna",
+    "location" : "Main Campus- Big Blue, BB-19",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211294318",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2024-12-23",
+    "breed" : "Retriever, Black Labrador",
+    "secondary_breed" : "",
+    "weight_group" : null,
+    "primary_color" : "Black",
+    "secondary_color" : null,
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211443359",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211443359,
+    "name" : "Peanut",
+    "location" : "Main Campus- Big Blue, BB-04",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211443359",
+    "intake_date" : "2025-07-08",
+    "birthdate" : "2025-03-25",
+    "breed" : "Terrier, Pit Bull",
+    "secondary_breed" : "Mixed Breed (Medium)",
+    "weight_group" : null,
+    "primary_color" : "Brown",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211443418",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211443418,
+    "name" : "Hershey",
+    "location" : "Main Kennel North, Main Campus - MKN-23",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211443418",
+    "intake_date" : "2025-07-08",
+    "birthdate" : "2025-02-22",
+    "breed" : "Mixed Breed (Medium)",
+    "secondary_breed" : "None",
+    "weight_group" : null,
+    "primary_color" : "Black",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211459856",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211459856,
+    "name" : "Clark",
+    "location" : "Main Kennel North, Main Campus - MKN-06",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211459856",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2024-09-11",
+    "breed" : "Shepherd, Australian",
+    "secondary_breed" : "Mix",
+    "weight_group" : null,
+    "primary_color" : "Brown",
+    "secondary_color" : "Black",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211459897",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211459897,
+    "name" : "Gimli",
+    "location" : "Main Campus- Big Blue, BB-07",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211459897",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2023-01-11",
+    "breed" : "American Blue Heeler",
+    "secondary_breed" : "Mix",
+    "weight_group" : null,
+    "primary_color" : "White",
+    "secondary_color" : "Black",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211459964",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211459964,
+    "name" : "Lewis",
+    "location" : "Main Kennel North, Main Campus - MKN-02",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211459964",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2024-08-11",
+    "breed" : "Collie, Border",
+    "secondary_breed" : "Mix",
+    "weight_group" : null,
+    "primary_color" : "Red/Mahogany",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211460307",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211460307,
+    "name" : "Meleni",
+    "location" : "Main Kennel North, Main Campus - MKN-20",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211460307",
+    "intake_date" : "2025-07-15",
+    "birthdate" : "2024-10-11",
+    "breed" : "Mixed Breed (Medium)",
+    "secondary_breed" : "Mix",
+    "weight_group" : null,
+    "primary_color" : "Brown",
+    "secondary_color" : "",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211460525",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211460525,
+    "name" : "Iridium",
+    "location" : "Main Campus- Big Blue, BB-06",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211460525",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2024-01-11",
+    "breed" : "Retriever, Black Labrador",
+    "secondary_breed" : "Mix",
+    "weight_group" : null,
+    "primary_color" : "Black",
+    "secondary_color" : "",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211460756",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211460756,
+    "name" : "President Snow",
+    "location" : "Main Campus - Main Kennel South, MKS-19",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211460756",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2019-07-11",
+    "breed" : "Terrier, Pit Bull",
+    "secondary_breed" : "Mixed Breed (Medium)",
+    "weight_group" : null,
+    "primary_color" : "Tan",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211460888",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211460888,
+    "name" : "Molly",
+    "location" : "Main Campus- Big Blue, BB-01",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211460888",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2024-03-11",
+    "breed" : "Terrier, American Pit Bull",
+    "secondary_breed" : "Mixed Breed (Medium)",
+    "weight_group" : null,
+    "primary_color" : "Brindle",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211461826",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211461826,
+    "name" : "Cinna",
+    "location" : "Main Kennel North, Main Campus - MKN-14",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211461826",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2025-02-26",
+    "breed" : "Terrier",
+    "secondary_breed" : "Mix",
+    "weight_group" : null,
+    "primary_color" : "Tan",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211471667",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211471667,
+    "name" : "Sponge Bob",
+    "location" : "Main Kennel North, Main Campus - MKN-28",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211471667",
+    "intake_date" : "2025-07-14",
+    "birthdate" : "2024-09-14",
+    "breed" : "Terrier",
+    "secondary_breed" : "Mixed Breed (Medium)",
+    "weight_group" : "Small (0-24)",
+    "primary_color" : "White",
+    "secondary_color" : "Tan",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211471778",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211471778,
+    "name" : "Pearl",
+    "location" : "Main Kennel North, Main Campus - MKN-08",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211471778",
+    "intake_date" : "2025-07-14",
+    "birthdate" : "2024-12-14",
+    "breed" : "Terrier",
+    "secondary_breed" : "Mixed Breed (Medium)",
+    "weight_group" : "Small (0-24)",
+    "primary_color" : "White",
+    "secondary_color" : "Tan",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211471935",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211471935,
+    "name" : "Nala",
+    "location" : "Main Kennel North, Main Campus - MKN-15",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211471935",
+    "intake_date" : "2025-07-14",
+    "birthdate" : "2018-07-14",
+    "breed" : "Chihuahua, Short Coat",
+    "secondary_breed" : "Mixed Breed (Small)",
+    "weight_group" : "Small (0-24)",
+    "primary_color" : "Fawn",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "208812468",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 208812468,
+    "name" : "Bitsy",
+    "location" : "Main Campus- Big Blue, BB-17",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/208812468",
+    "intake_date" : "2024-12-10",
+    "birthdate" : "2023-06-10",
+    "breed" : "Carolina Dog",
+    "secondary_breed" : "",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Tan",
+    "secondary_color" : null,
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "210565048",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 210565048,
+    "name" : "Bronx",
+    "location" : "Main Campus- Big Blue, BB-11",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/210565048",
+    "intake_date" : "2025-05-03",
+    "birthdate" : "2021-03-03",
+    "breed" : "Terrier, American Pit Bull",
+    "secondary_breed" : "",
+    "weight_group" : "Large (60-99)",
+    "primary_color" : "Blue",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211047757",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211047757,
+    "name" : "Eren",
+    "location" : "Main Kennel North, Main Campus - MKN-19",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211047757",
+    "intake_date" : "2025-06-09",
+    "birthdate" : "2024-12-01",
+    "breed" : "Shepherd",
+    "secondary_breed" : "Mix",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Black",
+    "secondary_color" : "Tan",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211460689",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211460689,
+    "name" : "Gale",
+    "location" : "Main Campus - Main Kennel South, MKS-21",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211460689",
+    "intake_date" : "2025-07-11",
+    "birthdate" : "2016-07-11",
+    "breed" : "Collie, Border",
+    "secondary_breed" : "",
+    "weight_group" : null,
+    "primary_color" : "Black",
+    "secondary_color" : "White",
+    "visible" : true
+  }
+},
+{
+  "_index" : "animal-humane-07162025-15h14m",
+  "_id" : "211471411",
+  "_score" : 1.0,
+  "_source" : {
+    "id" : 211471411,
+    "name" : "Chip",
+    "location" : "Main Kennel North, Main Campus - MKN-18",
+    "status" : "Available",
+    "url" : "https://new.shelterluv.com/embed/animal/211471411",
+    "intake_date" : "2025-07-14",
+    "birthdate" : "2024-07-14",
+    "breed" : "Retriever, Chocolate Labrador",
+    "secondary_breed" : "Mixed Breed (Medium)",
+    "weight_group" : "Medium (25-59)",
+    "primary_color" : "Chocolate",
+    "secondary_color" : null,
+    "visible" : true
+  }
+}
+]

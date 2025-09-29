@@ -1,0 +1,22 @@
+ANIMAL HUMANE - DIFFERENCE ANALYSIS REPORT
+==================================================
+
+Analysis Date: 2025-09-25T15:05:25.477962
+Current Index: animal-humane-20250925-1500
+Previous Index: animal-humane-20250925-1300
+
+SUMMARY:
+  Current Total Dogs: 59
+  Previous Total Dogs: 57
+  New Dogs: 3
+  Removed Dogs: 1
+  Changed Dogs: 0
+
+NEW DOGS:
+  - Vixie (ID: 211839851) - Available - Main Campus, Receiving
+  - Rollo (ID: 211910420) - Available - Main Kennel North, Main Campus - MKN-14
+  - Floki (ID: 211910372) - Available - Main Kennel North, Main Campus - MKN-08
+
+REMOVED DOGS (Likely Adopted/Transferred):
+  - Tim (ID: 211808307) - Was: Available - Main Campus- Big Blue, BB-10
+

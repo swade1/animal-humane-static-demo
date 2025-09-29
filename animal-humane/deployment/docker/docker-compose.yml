@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: animal-humane-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.ml.enabled=false
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+      - bootstrap.memory_lock=true
+      - http.host=0.0.0.0
+      - transport.host=localhost
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - animal-humane-network
+
+  scheduler:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+    container_name: animal-humane-scheduler
+    depends_on:
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_HOST=http://host.docker.internal:9200  # Connect to host machine's Elasticsearch
+      - TZ=America/Denver  # Mountain Time timezone
+    volumes:
+      - ./logs:/app/logs
+      - ./diff_reports:/app/diff_reports
+    networks:
+      - animal-humane-network
+    restart: unless-stopped
+
+volumes:
+  elasticsearch_data:
+
+networks:
+  animal-humane-network:
+    driver: bridge

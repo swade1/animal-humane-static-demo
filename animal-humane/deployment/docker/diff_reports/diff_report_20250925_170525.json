@@ -1,0 +1,41 @@
+{
+  "comparison": {
+    "current_index": "animal-humane-20250925-1700",
+    "previous_index": "animal-humane-20250925-1500",
+    "timestamp": "2025-09-25T17:05:25.912045"
+  },
+  "summary": {
+    "total_current": 57,
+    "total_previous": 59,
+    "new_dogs": 0,
+    "removed_dogs": 2,
+    "changed_dogs": 1
+  },
+  "new_dogs": [],
+  "removed_dogs": [
+    {
+      "id": 211903456,
+      "name": "Havana",
+      "status": "Available",
+      "location": "Westside Adoption Center, Dog Kennel 5"
+    },
+    {
+      "id": 211823717,
+      "name": "Gnocchi",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-16"
+    }
+  ],
+  "changed_dogs": [
+    {
+      "id": 211839851,
+      "name": "Vixie",
+      "changes": {
+        "location": {
+          "from": "Main Campus, Receiving",
+          "to": "Main Kennel North, Main Campus - MKN-27"
+        }
+      }
+    }
+  ]
+}

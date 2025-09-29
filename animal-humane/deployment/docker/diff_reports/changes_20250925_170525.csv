@@ -1,0 +1,4 @@
+Type,Dog_ID,Name,Field,Old_Value,New_Value,Status,Location
+REMOVED,211903456,Havana,,,,Available,"Westside Adoption Center, Dog Kennel 5"
+REMOVED,211823717,Gnocchi,,,,Available,"Main Campus- Big Blue, BB-16"
+CHANGED,211839851,Vixie,location,"Main Campus, Receiving","Main Kennel North, Main Campus - MKN-27",,

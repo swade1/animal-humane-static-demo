@@ -1,0 +1,62 @@
+
+
+Step 1: Run Ollama and Start Local Model Server
+
+Start the Ollama local API server with:
+```
+ollama serve
+```
+
+This starts the server at http://localhost:11434.
+
+Step 2: Configure ngrok to Expose Local Server
+ngrok dashboard: https://dashboard.ngrok.com/get-started/setup/macos
+ngrok sign in info: ..09@gmail.com, m1_ngrokm1_ngrok
+Authorization token saved to ~/Library/Application Support/ngrok/ngrok.yml
+
+```
+ngrok authtoken 2FfsjxKAjtXDmcCfvyCUPPLrm9d_86h6xdq26uHmg4U4WbnTv 
+```
+
+Expose the Ollama server publicly with:
+
+```
+ngrok http 11434
+```
+
+Copy the HTTPS forwarding URL that ngrok gives you (e.g., https://abc123.ngrok.io).
+
+Step 3: Configure Cursor to Use the Local DeepSeek Model
+
+Open Cursor IDE.
+
+Go to Settings -> Cursor Settings -> Models
+
+Make sure deepseek-coder-v2:16b-lite-base-q4_K_M is selected. (Add it if it's not already there)
+
+For the OpenAI API Key, enter any placeholder text, e.g., ollama (it won't be validated).
+
+Find the option to Override OpenAI Base URL or Custom API Endpoint.
+
+Paste your ngrok URL with /v1 appended at the end, e.g.,
+https://abc123.ngrok.io/v1
+
+The settings auto-save; close the settings pane.
+
+Restart Cursor for good measure to apply changes.
+
+Step 4: Use Your Local DeepSeek in Cursor
+Open Cursor’s chat panel (Cmd + L).
+
+Select your newly added DeepSeek model in the model dropdown.
+
+Start typing coding prompts or requests powered by your local DeepSeek model.
+
+Extra Tips:
+Keep the terminal running Ollama and ngrok open while working.
+
+If the ngrok session ends, restart it and update the API Base URL in Cursor.
+
+For improved privacy, consider using Cloudflare tunnel or similar instead of ngrok.
+
+This workflow will give you a fast, private, and powerful AI coding assistant inside Cursor using your local DeepSeek LLM.

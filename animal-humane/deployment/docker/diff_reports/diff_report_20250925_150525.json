@@ -1,0 +1,43 @@
+{
+  "comparison": {
+    "current_index": "animal-humane-20250925-1500",
+    "previous_index": "animal-humane-20250925-1300",
+    "timestamp": "2025-09-25T15:05:25.477962"
+  },
+  "summary": {
+    "total_current": 59,
+    "total_previous": 57,
+    "new_dogs": 3,
+    "removed_dogs": 1,
+    "changed_dogs": 0
+  },
+  "new_dogs": [
+    {
+      "id": 211839851,
+      "name": "Vixie",
+      "status": "Available",
+      "location": "Main Campus, Receiving"
+    },
+    {
+      "id": 211910420,
+      "name": "Rollo",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-14"
+    },
+    {
+      "id": 211910372,
+      "name": "Floki",
+      "status": "Available",
+      "location": "Main Kennel North, Main Campus - MKN-08"
+    }
+  ],
+  "removed_dogs": [
+    {
+      "id": 211808307,
+      "name": "Tim",
+      "status": "Available",
+      "location": "Main Campus- Big Blue, BB-10"
+    }
+  ],
+  "changed_dogs": []
+}

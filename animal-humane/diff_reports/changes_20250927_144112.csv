@@ -1,0 +1,20 @@
+Type,Dog_ID,Name,Field,Old_Value,New_Value,Status,Location
+ADOPTED,211720642,Aleu ,,,,adopted,
+ADOPTED,211903024,Izzy,,,,adopted,
+ADOPTED,211839851,Vixie,,,,adopted,
+ADOPTED,211903456,Havana,,,,adopted,
+ADOPTED,211823717,Gnocchi,,,,adopted,
+ADOPTED,211823911,Tortellini,,,,adopted,
+ADOPTED,211812176,Elton,,,,adopted,
+TRIAL_ADOPTION,211462064,Rio,,,,Available,"Main Campus, Trial Adoption"
+TRIAL_ADOPTION,211808307,Tim,,,,Available,"Main Campus, Trial Adoption"
+TRIAL_ADOPTION,211819096,Sweet Pea ,,,,Available,"Main Campus, Trial Adoption"
+TRIAL_ADOPTION,208809275,Isabella,,,,Available,"Main Campus, Trial Adoption"
+UNLISTED,211903164,Falkor,,,,Available,"Westside Adoption Center, Dog Kennel 1"
+UNLISTED,211903105,Gambit,,,,Available,"Main Kennel North, Main Campus - MKN-20"
+UNLISTED,210569574,Ramen,,,,Available,"Main Campus- Big Blue, BB-08"
+UNLISTED,211294318,Luna,,,,Available,"Main Campus - Main Kennel South, MKS-20"
+UNLISTED,208819751,Mowgli,,,,Available,"Main Campus - Main Kennel South, MKS-21"
+UNLISTED,210919404,Freddy,,,,Available,"Main Campus - Main Kennel South, MKS-19"
+UNLISTED,211823502,Bao,,,,Available,"Dog Treatment, T-08"
+UNLISTED,211823638,Mateo,,,,Available,"Dog Treatment, T-08"
