@@ -1,0 +1,6 @@
+
+# Generated data files
+diff_reports/
+logs/
+*.log
+*.json

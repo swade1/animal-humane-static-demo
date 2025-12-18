@@ -14,6 +14,8 @@ pytz==2023.3
 # Web scraping
 beautifulsoup4==4.12.2
 lxml==4.9.3
+selenium==4.15.0
+selenium-wire==5.1.0
 
 # Scheduling
 schedule==1.2.0

@@ -31,7 +31,7 @@ def check_dependencies():
         'elasticsearch',
         'pydantic',
         'requests',
-        'beautifulsoup4'
+        'bs4'  # beautifulsoup4 imports as 'bs4'
     ]
     
     missing = []

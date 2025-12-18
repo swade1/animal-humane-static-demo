@@ -8,7 +8,7 @@ services:
       - discovery.type=single-node
       - xpack.security.enabled=false
       - xpack.ml.enabled=false
-      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - bootstrap.memory_lock=true
       - http.host=0.0.0.0
       - transport.host=localhost
@@ -20,8 +20,6 @@ services:
       - "9200:9200"
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
-    networks:
-      - animal-humane-network
 
   scheduler:
     build:
@@ -31,18 +29,22 @@ services:
     depends_on:
       - elasticsearch
     environment:
-      - ELASTICSEARCH_HOST=http://host.docker.internal:9200  # Connect to host machine's Elasticsearch
+      - ELASTICSEARCH_HOST=http://elasticsearch:9200 
       - TZ=America/Denver  # Mountain Time timezone
+    ports:
+      - "8000:8000"
     volumes:
       - ./logs:/app/logs
       - ./diff_reports:/app/diff_reports
-    networks:
-      - animal-humane-network
+
+  frontend:
+    build:
+      context: ../../react-app
+      dockerfile: Dockerfile
+    container_name: animal-humane-frontend
+    ports:
+      - "8080:80"
     restart: unless-stopped
 
 volumes:
   elasticsearch_data:
-
-networks:
-  animal-humane-network:
-    driver: bridge

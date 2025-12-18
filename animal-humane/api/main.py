@@ -58,6 +58,22 @@ async def global_exception_handler(request, exc):
 async def health_check():
     return APIResponse.success_response({"status": "healthy", "timestamp": datetime.now().isoformat()})
 
+@app.get("/debug/es-connection")
+async def debug_es_connection():
+    """Debug endpoint to test Elasticsearch connection"""
+    try:
+        from config import config
+        import os
+        es_host = config.elasticsearch.host
+        env_host = os.getenv("ELASTICSEARCH_HOST")
+        return APIResponse.success_response({
+            "config_host": es_host,
+            "env_host": env_host,
+            "all_env": dict(os.environ)
+        })
+    except Exception as e:
+        return APIResponse.error_response(f"Debug error: {str(e)}")
+
 # API Routes
 @app.get("/api/overview", response_model=APIResponse)
 async def get_overview(dog_service: DogService = Depends(get_dog_service)):
@@ -77,6 +93,16 @@ async def get_dogs(dog_service: DogService = Depends(get_dog_service)):
         return APIResponse.success_response(dogs)
     except Exception as e:
         logger.error(f"Error getting dogs: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/live_population", response_model=APIResponse)
+async def get_live_population(dog_service: DogService = Depends(get_dog_service)):
+    """Get live population of available dogs"""
+    try:
+        dogs = await dog_service.get_available_dogs()
+        return APIResponse.success_response(dogs)
+    except Exception as e:
+        logger.error(f"Error getting live population: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/dogs/{dog_id}", response_model=APIResponse)
@@ -135,6 +161,26 @@ async def get_dog_origins(dog_service: DogService = Depends(get_dog_service)):
         return APIResponse.success_response(origins)
     except Exception as e:
         logger.error(f"Error getting dog origins: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/weekly-age-group-adoptions", response_model=APIResponse)
+async def get_weekly_age_group_adoptions(dog_service: DogService = Depends(get_dog_service)):
+    """Get weekly age group adoptions"""
+    try:
+        data = await dog_service.get_weekly_age_group_adoptions()
+        return APIResponse.success_response(data)
+    except Exception as e:
+        logger.error(f"Error getting weekly age group adoptions: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/length-of-stay", response_model=APIResponse)
+async def get_length_of_stay(dog_service: DogService = Depends(get_dog_service)):
+    """Get length of stay histogram distribution"""
+    try:
+        histogram_data = await dog_service.get_length_of_stay_data()
+        return APIResponse.success_response(histogram_data)
+    except Exception as e:
+        logger.error(f"Error getting length of stay distribution: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/run_document_updates", response_model=APIResponse)

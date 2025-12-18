@@ -110,11 +110,18 @@ export async function fetchAdoptions() {
 
 // Fetch insights & spotlight data for advanced analytics and reporting
 export async function fetchInsights() {
-  const res = await fetch('http://localhost:8000/api/insights');
+  const res = await fetch('/api/insights');
   if (!res.ok) {
     throw new Error('Failed to fetch insights');
   }
   return res.json();
+}
+
+// Fetch length of stay histogram data
+export async function fetchLengthOfStayData() {
+  const response = await fetch('/api/length-of-stay');
+  if (!response.ok) throw new Error('Failed to fetch length of stay data');
+  return response.json();
 }
 export async function fetchWeeklyAgeGroupAdoptions() {
   const response = await fetch('/api/weekly-age-group-adoptions');

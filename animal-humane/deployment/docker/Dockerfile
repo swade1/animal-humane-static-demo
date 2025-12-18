@@ -3,10 +3,16 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies including Chromium for Selenium
 RUN apt-get update && apt-get install -y \
     curl \
     tzdata \
+    supervisor \
+    wget \
+    gnupg \
+    ca-certificates \
+    chromium \
+    chromium-driver \
     && rm -rf /var/lib/apt/lists/*
 
 # Set timezone to Mountain Time
@@ -20,6 +26,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
+# Copy supervisord config
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 # Create directories for logs and reports
 RUN mkdir -p logs diff_reports
 
@@ -27,5 +36,5 @@ RUN mkdir -p logs diff_reports
 ENV PYTHONPATH=/app
 ENV ELASTICSEARCH_HOST=http://elasticsearch:9200
 
-# Run the scheduler
-CMD ["python", "scheduler/background_scheduler.py"]
+# Run both scheduler and API/backend using supervisord
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

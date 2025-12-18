@@ -7,6 +7,10 @@ import { fetchDogs, fetchDogById, updateDog, fetchLatestIndex } from './api';
 function LivePopulationTab() {
   const [availables, setAvailables] = useState([]); // Initialize as empty array
 
+  // Add admin mode detection with secret key
+  const adminKey = new URLSearchParams(window.location.search).get('admin_key');
+  const isAdmin = adminKey === 'ah2025_secure_edit_access_kx8m9p3';
+
   // New state for inline editing
   const [editDogId, setEditDogId] = useState(null);
   const [form, setForm] = useState({ origin: '', latitude: '', longitude: '' });
@@ -14,7 +18,10 @@ function LivePopulationTab() {
   useEffect(() => {
     fetch("/api/live_population")
       .then((res) => res.json())
-      .then((data) => setAvailables(Array.isArray(data) ? data : []))
+      .then((response) => {
+        const data = response.data || response;
+        setAvailables(Array.isArray(data) ? data : []);
+      })
       .catch((error) => {
         console.error("Error fetching available dogs:", error);
         setAvailables([]);
@@ -24,8 +31,13 @@ function LivePopulationTab() {
   // Open popup to edit dog info
   async function openEdit(dogId) {
     console.log('Editing dog id:', dogId);
-    const dogData = await fetchDogById(dogId);
-    console.log('dogData after fetchDogById: ', dogData);
+    const response = await fetchDogById(dogId);
+    console.log('Response after fetchDogById: ', response);
+    
+    // Extract data from APIResponse wrapper
+    const dogData = response.data || response;
+    console.log('Unwrapped dogData: ', dogData);
+    
     setEditDogId(dogId);
     setForm({
       index: dogData._index || "",
@@ -83,7 +95,7 @@ function LivePopulationTab() {
             <th>Name</th>
             <th>Location</th>
             <th style={{ textAlign: "center" }}>URL</th>
-            <th style={{ textAlign: "center" }}>Edit</th>
+            {isAdmin && <th style={{ textAlign: "center" }}>Edit</th>}
           </tr>
         </thead>
         <tbody>
@@ -101,16 +113,18 @@ function LivePopulationTab() {
                       Link
                     </a>
                   </td>
-                  <td style={{ textAlign: "center" }}>
-                    <button
-                      onClick={() => openEdit(dogIdFromUrl)}
-                      style={{ marginLeft: 8, cursor: "pointer", border: "none", background: "none" }}
-                      aria-label={`Edit ${dog.name}`}
-                      title={`Edit ${dog.name}`}
-                    >
-                      ✏️
-                    </button>
-                  </td>
+                  {isAdmin && (
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        onClick={() => openEdit(dogIdFromUrl)}
+                        style={{ marginLeft: 8, cursor: "pointer", border: "none", background: "none" }}
+                        aria-label={`Edit ${dog.name}`}
+                        title={`Edit ${dog.name}`}
+                      >
+                        ✏️
+                      </button>
+                    </td>
+                  )}
                 </tr>
               );
             })}

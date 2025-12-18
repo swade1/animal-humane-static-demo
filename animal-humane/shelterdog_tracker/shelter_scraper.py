@@ -7,17 +7,12 @@ import json
 import pytz
 import re
 import requests
-# Selenium imports - only import if actually used
-try:
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.chrome.options import Options
-    from selenium.webdriver.support.ui import WebDriverWait
-    SELENIUM_AVAILABLE = True
-except ImportError:
-    SELENIUM_AVAILABLE = False
-    print("Warning: Selenium not available. Some scraping features may not work.")
-# from seleniumwire import webdriver  # pip install selenium-wire
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+#from selenium.webdriver.support import expected_conditions as EC
+from seleniumwire import webdriver  # pip install selenium-wire
 import time
 from shelterdog_tracker.elasticsearch_handler import ElasticsearchHandler
 # Encapsulates all scraping and data extraction logic.
@@ -46,35 +41,29 @@ class ShelterScraper:
         and extracts all relevant iframe src URLs.
         Returns a list of URLs.
         """
-        if not SELENIUM_AVAILABLE:
-            print("Selenium not available, using fallback method")
-            return self.fetch_iframe_urls_fallback()
-            
-        try:
-            options = Options()
-            options.add_argument("--headless")  # Run Chrome in headless mode
-            options.add_argument("--no-sandbox")
-            options.add_argument("--disable-dev-shm-usage")
+        options = Options()
+        options.add_argument("--headless")  # Run Chrome in headless mode
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.binary_location = "/usr/bin/chromium"  # Use Chromium binary in Docker
 
-            driver = webdriver.Chrome(options=options)
-            driver.set_page_load_timeout(120)
-            driver.get(self.main_url)
-            #wait for all links to be collected 
-            WebDriverWait(driver, 60).until(
-                lambda d: len(d.find_elements(By.CLASS_NAME, "shelterluv")) >= 4
-            )
-            time.sleep(60)
-            #Iterate over all captured requests
-            filtered_urls = []
-            for request in driver.requests:
-                if request.response and "available-animals" in request.url:
-                    filtered_urls.append(request.url)
-                    print(f"url: {request.url}")
-            driver.quit()
-            return filtered_urls
-        except Exception as e:
-            print(f"Selenium scraping failed: {e}, falling back to alternative method")
-            return self.fetch_iframe_urls_fallback()
+        driver = webdriver.Chrome(options=options)
+        driver.set_page_load_timeout(120)
+        driver.get(self.main_url)
+        #wait for all links to be collected 
+        WebDriverWait(driver, 60).until(
+            lambda d: len(d.find_elements(By.CLASS_NAME, "shelterluv")) >= 4
+        )
+        time.sleep(60)
+        #Iterate over all captured requests
+        filtered_urls = []
+        for request in driver.requests:
+            if request.response and "available-animals" in request.url:
+                filtered_urls.append(request.url)
+                print(f"url: {request.url}")
+        driver.quit()
+        return filtered_urls
     
     def fetch_iframe_urls_fallback(self):
         """
@@ -289,14 +278,6 @@ class ShelterScraper:
         for url in urls:
             response = requests.get(url, headers=headers)
             parsed_data = response.json()
-            
-            # Debug: print the structure of the response
-            print(f"DEBUG: Response keys: {list(parsed_data.keys())}")
-            if 'animals' not in parsed_data:
-                print(f"DEBUG: 'animals' key not found. Available keys: {list(parsed_data.keys())}")
-                print(f"DEBUG: Sample response structure: {str(parsed_data)[:500]}...")
-                continue
-                
             for dog_dict in parsed_data['animals']:
                 dog_dict['timestamp'] = timestamp_mt_iso
                 dog_id = dog_dict['nid'] 

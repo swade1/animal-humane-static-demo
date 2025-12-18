@@ -39,8 +39,20 @@ class Config:
     
     def _load_from_env(self):
         """Load configuration from environment variables"""
-        if os.getenv("ES_HOST"):
-            self.elasticsearch.host = os.getenv("ES_HOST")
+        elasticsearch_host = os.getenv("ELASTICSEARCH_HOST")
+        es_host = os.getenv("ES_HOST")
+        print(f"DEBUG: ELASTICSEARCH_HOST={elasticsearch_host}")
+        print(f"DEBUG: ES_HOST={es_host}")
+        
+        if elasticsearch_host:
+            print(f"DEBUG: Setting elasticsearch.host to {elasticsearch_host}")
+            self.elasticsearch.host = elasticsearch_host
+        elif es_host:
+            print(f"DEBUG: Setting elasticsearch.host to {es_host}")
+            self.elasticsearch.host = es_host
+        else:
+            print(f"DEBUG: No env vars found, using default: {self.elasticsearch.host}")
+            
         if os.getenv("API_PORT"):
             self.api.port = int(os.getenv("API_PORT"))
         if os.getenv("DEBUG"):

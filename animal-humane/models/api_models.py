@@ -64,6 +64,27 @@ class OriginData(BaseModel):
     longitude: float
     count: int
 
+# Length of Stay Histogram Models
+class LOSDogSummary(BaseModel):
+    """Minimal dog info for histogram display"""
+    id: int
+    name: str
+    breed: Optional[str] = None
+    age_group: Optional[str] = None
+    length_of_stay_days: int
+
+class LOSBin(BaseModel):
+    """Histogram bin with range and dog list"""
+    min: int  # Inclusive lower bound
+    max: int  # Inclusive upper bound (last bin is right-inclusive)
+    count: int
+    dogs: List[LOSDogSummary]
+
+class LOSHistogramData(BaseModel):
+    """Complete histogram response"""
+    bins: List[LOSBin]
+    metadata: Dict[str, Any] = Field(default_factory=dict)
+
 class APIResponse(BaseModel):
     success: bool = True
     data: Optional[Any] = None
