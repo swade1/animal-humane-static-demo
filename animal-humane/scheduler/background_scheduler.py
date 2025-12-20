@@ -75,7 +75,7 @@ class AnimalHumaneScheduler:
             return False
     
     def run_diff_analysis(self):
-        """Run difference analysis and save results to file"""
+        """Run difference analysis and save results to file, and update Diff Analysis tab data"""
         try:
             logger.info("Starting diff analysis")
             
@@ -84,6 +84,25 @@ class AnimalHumaneScheduler:
             
             if results:
                 logger.info(f"Diff analysis completed. Found {len(results.get('changes', []))} changes")
+                
+                # Also update the Diff Analysis tab data by calling the ElasticsearchService method
+                # This ensures the tab shows the latest categorized dog data
+                try:
+                    from services.elasticsearch_service import ElasticsearchService
+                    es_service = ElasticsearchService()
+                    
+                    # Run get_diff_analysis in a synchronous context (since we're in a sync method)
+                    import asyncio
+                    loop = asyncio.new_event_loop()
+                    asyncio.set_event_loop(loop)
+                    diff_data = loop.run_until_complete(es_service.get_diff_analysis())
+                    loop.close()
+                    
+                    logger.info(f"Diff Analysis tab data updated: {len(diff_data.get('new_dogs', []))} new, {len(diff_data.get('adopted_dogs', []))} adopted, {len(diff_data.get('trial_adoption_dogs', []))} trial, {len(diff_data.get('other_unlisted_dogs', []))} unlisted")
+                    
+                except Exception as e:
+                    logger.error(f"Error updating Diff Analysis tab data: {e}")
+                
                 return True
             else:
                 logger.warning("Diff analysis returned no results")
@@ -121,20 +140,20 @@ def main():
     schedule.every().day.at("17:00").do(scheduler.scrape_and_index)  # 5 PM MT
     schedule.every().day.at("19:00").do(scheduler.scrape_and_index)  # 7 PM MT
     
-    # Run diff analysis 5 minutes after each scrape
-    schedule.every().day.at("09:05").do(scheduler.run_diff_analysis)  # 9:05 AM MT
-    schedule.every().day.at("11:05").do(scheduler.run_diff_analysis)  # 11:05 AM MT
-    schedule.every().day.at("13:05").do(scheduler.run_diff_analysis)  # 1:05 PM MT
-    schedule.every().day.at("15:05").do(scheduler.run_diff_analysis)  # 3:05 PM MT
-    schedule.every().day.at("17:05").do(scheduler.run_diff_analysis)  # 5:05 PM MT
-    schedule.every().day.at("19:05").do(scheduler.run_diff_analysis)  # 7:05 PM MT
+    # Run diff analysis 10 minutes after each scrape
+    schedule.every().day.at("09:10").do(scheduler.run_diff_analysis)  # 9:10 AM MT
+    schedule.every().day.at("11:10").do(scheduler.run_diff_analysis)  # 11:10 AM MT
+    schedule.every().day.at("13:10").do(scheduler.run_diff_analysis)  # 1:10 PM MT
+    schedule.every().day.at("15:10").do(scheduler.run_diff_analysis)  # 3:10 PM MT
+    schedule.every().day.at("17:10").do(scheduler.run_diff_analysis)  # 5:10 PM MT
+    schedule.every().day.at("19:10").do(scheduler.run_diff_analysis)  # 7:10 PM MT
     
     # Health check every hour
     schedule.every().hour.do(scheduler.health_check)
     
     logger.info("Scheduler configured with the following jobs (Mountain Time):")
     logger.info("- Scraping: 9:00, 11:00, 13:00, 15:00, 17:00, 19:00")
-    logger.info("- Diff analysis: 9:05, 11:05, 13:05, 15:05, 17:05, 19:05")
+    logger.info("- Diff analysis: 9:10, 11:10, 13:10, 15:10, 17:10, 19:10")
     logger.info("- Health check: Every hour")
     
     # Run initial health check

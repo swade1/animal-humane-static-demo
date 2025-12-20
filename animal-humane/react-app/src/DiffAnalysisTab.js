@@ -74,7 +74,7 @@ function DiffAnalysisTab() {
   return (
     <div style={{ padding: '20px' }}>
       <h2>Dog Movement Analysis</h2>
-      <p>This analysis shows changes in dog status between index updates.</p>
+      <p>This analysis shows changes in dog status between database updates.</p>
 
       {renderDogList(data.new_dogs, "New Dogs")}
       {renderDogList(data.returned_dogs, "Returned Dogs")}

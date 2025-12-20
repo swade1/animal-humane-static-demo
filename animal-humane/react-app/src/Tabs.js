@@ -3,16 +3,14 @@ import OverviewTab from './OverviewTab';
 import LivePopulationTab from './LivePopulationTab';
 import AdoptionsTab from './AdoptionsTab';
 import InsightsTab from './InsightsTab';
-import RoadmapTab from './RoadmapTab';
 import DiffAnalysisTab from './DiffAnalysisTab';
 
 const tabs = [
   { label: 'Overview', Component: OverviewTab },
+  { label: 'Recent Pupdates', Component: DiffAnalysisTab },
   { label: 'Current Population', Component: LivePopulationTab },
   { label: 'Adoptions', Component: AdoptionsTab },
   { label: 'Insights & Spotlight', Component: InsightsTab },
-  { label: 'Diff Analysis', Component: DiffAnalysisTab },
-  { label: 'Technical Roadmap & AI', Component: RoadmapTab },
 ];
 
 export default function Tabs() {
