@@ -11,8 +11,9 @@ function OverviewTab() {
       try {
         setLoading(true);
         setError(null);
-        const data = await fetchOverviewStats();
-        setStats(data);
+        const response = await fetchOverviewStats();
+        // Extract data from APIResponse wrapper
+        setStats(response.data || response);
       } catch (err) {
         setError(err.message);
         console.error('Failed to load overview stats:', err);

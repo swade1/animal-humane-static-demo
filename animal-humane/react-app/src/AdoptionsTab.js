@@ -6,7 +6,8 @@ function Adoptions() {
 
   useEffect(() => {
     fetchAdoptions()
-      .then(data => {
+      .then(response => {
+        const data = response.data || response;
         setAdoptions(Array.isArray(data) ? data : []);
       })
       .catch(err => {

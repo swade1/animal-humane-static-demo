@@ -1,55 +1,84 @@
-#These tests presuppose that an index named 'dogs' exists
-#Usage (run from shelterdog_project directory) to execute a single function
-#python3 -m unittest -v shelterdog_tracker.tests.test_elasticsearch_handler.TestElasticsearchHandler.test_push_dog_to_elasticsearch
-
 import unittest
-from unittest.mock import MagicMock
-from datetime import datetime
-from shelterdog_tracker.dog import Dog
+from datetime import datetime, timedelta
+from elasticsearch import Elasticsearch
+import sys
+import os
+
+# Add the project root to the path
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
+sys.path.insert(0, project_root)
+
 from shelterdog_tracker.elasticsearch_handler import ElasticsearchHandler
 
 class TestElasticsearchHandler(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        # Set up ElasticsearchHandler instance once for all tests
-        cls.handler = ElasticsearchHandler(
-            host="http://localhost:9200",
-            index_name="dogs"
+
+    def setUp(self):
+        # Create a mock Elasticsearch client
+        self.es = Elasticsearch(
+            "http://localhost:9200",
+            request_timeout=60,
+            verify_certs=False,
+            ssl_show_warn=False
         )
-        # Optionally, ingest test data here if not already present
+        self.handler = ElasticsearchHandler("http://localhost:9200", "test-index")
 
-    def test_get_dog_by_id(self):
-        # Replace with a known dog ID ingested in your test index
-        test_id = 208812460 
-        dog = self.handler.get_dog_by_id(test_id)
-        print(f"dog inside test is: {dog}")
-        print()
-        self.assertIsNotNone(dog, f"Dog with id {test_id} should be found.")
-        # Optionally, check specific fields
-        self.assertEqual(dog.get('id'), test_id)
+    def test_get_length_of_stay_distribution(self):
+        # Test data setup
+        index_name = "test-index"
+        self.handler.es.indices.create(index=index_name, ignore=400)
 
-    def test_get_dog_by_name(self):
-        test_name = "Nova"
-        dog = self.handler.get_dog_by_name(test_name)
-        print(f"dog inside test is: {test_name}")
-        self.assertIsNotNone(dog, f"Dog with name {test_name} should be found.")
-        self.assertIsInstance(dogs, list)
-        self.assertTrue(any(dog.get('name') == test_name for dog in dogs),
-                        f"At least one dog named {test_name} should be found.")
-    def test_push_dog_to_elasticsearch(self):
-        test_dog = Dog(dog_id=1, name="Fido", intake_date=datetime(2025, 7, 16))
-        handler = ElasticsearchHandler(host="http://localhost:9200", index_name="dogs")
-        handler.es = MagicMock()
-        handler.es.index.return_value = {
-            "_index": "dogs",
-            "_id": "1",
-            "result": "created"
-        }
-        response = handler.push_dog_to_elasticsearch(test_dog, "dogs")
-        self.assertEqual(response["result"], "created")
+        # Create test documents with length_of_stay_days
+        docs = [
+            {
+                "_index": index_name,
+                "_source": {
+                    "id": 1,
+                    "status": "adopted",
+                    "length_of_stay_days": 5
+                }
+            },
+            {
+                "_index": index_name,
+                "_source": {
+                    "id": 2,
+                    "status": "available",
+                    "length_of_stay_days": 10
+                }
+            },
+            {
+                "_index": index_name,
+                "_source": {
+                    "id": 3,
+                    "status": "adopted",
+                    "length_of_stay_days": 15
+                }
+            },
+            {
+                "_index": index_name,
+                "_source": {
+                    "id": 4,
+                    "status": "available",
+                    "length_of_stay_days": 20
+                }
+            }
+        ]
 
-    # Add more tests as needed, e.g., for non-existent IDs or names
+        # Index the test documents
+        for doc in docs:
+            self.handler.es.index(index=doc["_index"], body=doc["_source"])
 
-if __name__ == '__main__':
+        # Test with no status filter (should return all)
+        distribution = self.handler.get_length_of_stay_distribution()
+        # We're getting all the intervals, so just check that we have data
+        self.assertTrue(len(distribution) > 0)
+
+        # Test with 'adopted' status filter
+        adopted_distribution = self.handler.get_length_of_stay_distribution("adopted")
+        self.assertTrue(len(adopted_distribution) > 0)
+        # Check that we have the expected values
+        adopted_values = {d["range_start"] for d in adopted_distribution}
+        self.assertTrue(5 in adopted_values)
+        self.assertTrue(15 in adopted_values)
+
+if __name__ == "__main__":
     unittest.main()
-

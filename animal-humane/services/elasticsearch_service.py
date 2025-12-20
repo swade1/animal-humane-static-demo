@@ -126,3 +126,33 @@ class ElasticsearchService:
     async def get_length_of_stay_distribution(self) -> Dict[str, Any]:
         """Get length of stay histogram distribution using Sturges formula"""
         return await self._run_in_executor(self.handler.get_length_of_stay_distribution)
+
+    async def get_diff_analysis(self) -> Dict[str, Any]:
+        """Get diff analysis data (new, returned, adopted, trial, unlisted dogs)"""
+        # Get current available dogs
+        availables = await self.get_current_availables()
+
+        # Get most recent index
+        index_name = await self.get_most_recent_index()
+
+        # Get dog groups (adopted, trial, unlisted, returned)
+        dog_groups = await self.get_dog_groups(availables, index_name)
+
+        # Get new dogs
+        new_dogs_data = await self.get_new_dogs()
+        new_dogs = new_dogs_data.get("new_dogs", [])
+
+        # Combine results in the format expected by the frontend
+        result = {
+            "new_dogs": new_dogs,
+            "returned_dogs": dog_groups.get("returned_dogs", []),
+            "adopted_dogs": dog_groups.get("adopted_dogs", []),
+            "trial_adoption_dogs": dog_groups.get("trial_adoption_dogs", []),
+            "other_unlisted_dogs": dog_groups.get("other_unlisted_dogs", [])
+        }
+
+        # Automatically update the documents for adopted, trial, and unlisted dogs
+        # This ensures their status and location are current in the most recent index
+        await self._run_in_executor(self.handler.update_dogs, result)
+
+        return result

@@ -24,12 +24,16 @@ class ElasticsearchHandler:
         "Clayton":{"latitude":36.4517,"longitude":-103.1841},
         "Corrales Animal Services":{"latitude":35.2393,"longitude":-106.6054},
         "Corrales Kennels":{"latitude":35.2378,"longitude":-106.6067},
+        "County of Taos Animal Control":{"latitude":36.3948,"longitude":-105.5767},
         "DAGSHIP Rescue":{"latitude":32.2655,"longitude":-107.7582},
+        "Edgewood Animal Control":{"latitude":35.0913,"longitude":-106.1945},
         "Espanola Humane":{"latitude":36.0006,"longitude":-106.0373},
         "Farmington Regional Animal Shelter":{"latitude":36.7334,"longitude":-108.1681},
         "Forever Homes Animal Rescue":{"latitude":32.8985,"longitude":-105.9510},
         "Four Corners Animal League":{"latitude":36.4072,"longitude":-105.5731},
+        "Gallup McKinley County Humane Society":{"latitude":35.543605,"longitude":-108.760272},
         "Humane Society of Lincoln County":{"latitude":33.3436,"longitude":-105.6650},
+        "Lovelace Biomedical Research":{"latitude":35.0559,"longitude":-106.5789},
         "Moriarty Animal Control":{"latitude":34.9996,"longitude":-106.0183},
         "Mountainair Animal Control":{"latitude":34.5197,"longitude":-106.2433},
         "Otero County Animal Control":{"latitude":32.8995,"longitude":-105.9603},
@@ -41,8 +45,9 @@ class ElasticsearchHandler:
         "Sandoval County Animal Services":{"latitude":35.3515,"longitude":-106.4694},
         "Santa Clara Animal Control":{"latitude":32.776773,"longitude":-108.153132},
         "Santa Rosa Animal Control":{"latitude":34.9387,"longitude":-104.6825},
+        "Sororro Animal Services":{"latitude":34.0242,"longitude":-106.8958},
         "Socorro Animal Shelter and Adoption Center":{"latitude":34.0225,"longitude":-106.9031},
-        "Stray Hearts Animal Shelter":{"latitude":36.4096,"longitude":-105.5732},
+        "Stray Hearts Animal Shelter":{"latitude":36.3848,"longitude":-105.5969},
         "The Animal Services Center":{"latitude":32.3128,"longitude":-106.7799},
         "Torrance County Animal Shelter":{"latitude":34.8712,"longitude":-106.0515},
         "Truth or Consequences Animal Shelter":{"latitude":33.1347,"longitude":-107.2425},
@@ -156,6 +161,101 @@ class ElasticsearchHandler:
                     print(f"Updated dog {dog.get('name')} in index {index_name}: {update_response}")
                 else:
                     print(f"No documents found for dog {dog.get('name')} with dog_id {dog_id}")
+
+    def update_metadata_from_location_info(self, dog_ids=None):
+        """
+        Update existing Elasticsearch documents with metadata from location_info.jsonl
+        This is needed because location_info.jsonl data is only applied during initial scraping,
+        not retroactively updated for existing documents.
+
+        Args:
+            dog_ids: List of specific dog IDs to update. If None, updates all dogs.
+        """
+        import json
+
+        # Load location_info.jsonl data
+        origin_lookup = {}
+        try:
+            with open('location_info.jsonl', 'r') as f:
+                for lineno, line in enumerate(f, 1):
+                    try:
+                        data = json.loads(line)
+                    except json.JSONDecodeError as e:
+                        print(f"Error on line {lineno}: {e}")
+                        print("Line:", line)
+                        continue
+                    origin_lookup[data['id']] = {
+                        "origin": data.get('origin', 'Unknown'),
+                        "returned": data.get('returned', 0),
+                        "bite_quarantine": data.get('bite_quarantine', 0),
+                        "latitude": data.get('latitude', 0) if data.get('latitude') not in (None, '') else None,
+                        "longitude": data.get('longitude', 0) if data.get('longitude') not in (None, '') else None
+                    }
+        except FileNotFoundError:
+            print("location_info.jsonl file not found")
+            return
+
+        # If specific dog_ids provided, filter the lookup
+        if dog_ids:
+            origin_lookup = {k: v for k, v in origin_lookup.items() if k in dog_ids}
+
+        print(f"Updating metadata for {len(origin_lookup)} dogs from location_info.jsonl")
+
+        # Update each dog in Elasticsearch
+        index_pattern = "animal-humane-*"
+        updated_count = 0
+
+        for dog_id, metadata in origin_lookup.items():
+            # Find the most recent document for this dog
+            query_body = {
+                "query": {"term": {"id": dog_id}},
+                "sort": [{"_index": {"order": "desc"}}],
+                "size": 1
+            }
+
+            try:
+                response = self.es.search(index=index_pattern, body=query_body)
+                hits = response['hits']['hits']
+
+                if hits:
+                    hit = hits[0]
+                    index_name = hit['_index']
+                    document_id = hit['_id']
+                    current_doc = hit['_source']
+
+                    # Prepare update document with metadata fields
+                    doc_update = {}
+
+                    # Only update if values are different or missing
+                    if current_doc.get('bite_quarantine', 0) != metadata['bite_quarantine']:
+                        doc_update['bite_quarantine'] = metadata['bite_quarantine']
+                    if current_doc.get('returned', 0) != metadata['returned']:
+                        doc_update['returned'] = metadata['returned']
+                    if current_doc.get('origin', 'Unknown') != metadata['origin']:
+                        doc_update['origin'] = metadata['origin']
+                    if metadata['latitude'] is not None and current_doc.get('latitude', 0) != metadata['latitude']:
+                        doc_update['latitude'] = metadata['latitude']
+                    if metadata['longitude'] is not None and current_doc.get('longitude', 0) != metadata['longitude']:
+                        doc_update['longitude'] = metadata['longitude']
+
+                    # Only update if there are changes
+                    if doc_update:
+                        update_response = self.es.update(
+                            index=index_name,
+                            id=document_id,
+                            body={"doc": doc_update}
+                        )
+                        print(f"Updated dog ID {dog_id} in index {index_name}: {doc_update}")
+                        updated_count += 1
+                    else:
+                        print(f"Dog ID {dog_id} already has correct metadata")
+                else:
+                    print(f"No documents found for dog ID {dog_id}")
+
+            except Exception as e:
+                print(f"Error updating dog ID {dog_id}: {e}")
+
+        print(f"Metadata update complete. Updated {updated_count} documents.")
 
     def get_dog_by_name(self, name):
         print(f"Retrieving dog with name: {name} from index: {self.index_name}")
@@ -697,12 +797,16 @@ class ElasticsearchHandler:
                 dog_info = {
                     "id": doc.get('_id'),            # or source["id"] if stored there
                     "name": source.get("name"),
-                    "url": source.get("url")
+                    "url": source.get("url"),
+                    "origin": source.get("origin")  # Add origin to check if it's a stray
                 }
                 dogs_with_one_day_stay.append(dog_info)
 
         for dog in dogs_with_one_day_stay:
             dog_id = str(dog["id"])
+            # Exclude stray dogs from being classified as returned
+            if dog.get("origin") == "Stray":
+                continue
             if self.has_been_seen_before(dog_id):
                 returned_dogs.append({"name": dog["name"], "url": dog["url"]})
         return returned_dogs
@@ -746,7 +850,7 @@ class ElasticsearchHandler:
             'other_unlisted_dogs': other_unlisted_dogs
         }
     def get_adoptions_per_day(self):
-        query = {"size":0, "query":{"term":{"status":"adopted"}},"aggs":{"adoptions_over_time":{"date_histogram":{"field":"timestamp","calendar_interval":"day","format":"MM/dd/yyyy","time_zone":"UTC"},"aggs":{"dog_names":{"terms":{"field":"name.keyword","size":100}}}}}}
+        query = {"size":0, "query":{"term":{"status":"adopted"}},"aggs":{"adoptions_over_time":{"date_histogram":{"field":"timestamp","calendar_interval":"day","format":"MM/dd/yyyy","time_zone":"-07:00"},"aggs":{"dog_names":{"terms":{"field":"name.keyword","size":100}}}}}}
         response = self.es.search(index="animal-humane-*", body=query)
 
         #for bucket in response["aggregations"]["adoptions_over_time"]["buckets"]:
@@ -765,7 +869,7 @@ class ElasticsearchHandler:
 
     def get_longest_resident(self):
 
-        query = { "query": { "match": { "status": "available" } },"sort": [ {"_index": {"order": "desc"}}, {"length_of_stay_days": {"order": "desc"}} ], "_source": ["name", "length_of_stay_days", "url"], "size": 1 }
+        query = { "query": { "match": { "status": "available" } },"sort": [ {"length_of_stay_days": {"order": "desc"}}, {"_index": {"order": "desc"}} ], "_source": ["name", "length_of_stay_days", "url"], "size": 1 }
 
         response = self.es.search(index="animal-humane-*",body=query)
 
@@ -921,10 +1025,9 @@ class ElasticsearchHandler:
                 'longitude': None
             }
         
-        # Now get coordinates from the latest index
-        latest_index = self.get_most_recent_index()
+        # Now get coordinates from ALL indices (not just latest)
         query["size"] = 10000
-        response = self.es.search(index=latest_index, body=query)
+        response = self.es.search(index="animal-humane-*", body=query)
         hits = response["hits"]["hits"]
         
         # Update coordinates from latest index data
@@ -948,10 +1051,10 @@ class ElasticsearchHandler:
             if not origin or origin not in origins_data:
                 continue
 
-            # Update coordinates if we have them
-            if lat is not None and origins_data[origin]['latitude'] is None:
+            # Update coordinates if we have them (always use latest found)
+            if lat is not None:
                 origins_data[origin]['latitude'] = lat
-            if lon is not None and origins_data[origin]['longitude'] is None:
+            if lon is not None:
                 origins_data[origin]['longitude'] = lon
 
         # Convert to the expected format and ensure coordinates are available
@@ -1003,7 +1106,7 @@ class ElasticsearchHandler:
         ]
 
         # Debug: Print specific origins and final result structure
-        print(f"\nDEBUG: Scanned {doc_count} documents from {latest_index}")
+        print(f"\nDEBUG: Scanned {doc_count} documents from ALL indices")
         print(f"DEBUG: Found {len(origins_data)} unique origins with IDs")
         print(f"FINAL RESULTS - Total origins returned (with coords): {len(result)}")
         for item in result:
@@ -1020,7 +1123,7 @@ class ElasticsearchHandler:
         # Add adopted count to each shelter in result
         for shelter in result:
             origin = shelter.get('origin')
-            adopted = adopted_by_origin.get(origin, 0)  # default to 0 if not found
+            adopted = adopted_by_origin.get(origin, 0) # default to 0 if not found
             shelter['adopted'] = adopted
 
         #{'origin': 'ABQ Animal Welfare Department', 'latitude': 35.1102, 'longitude': -106.5823, 'count': 18, 'adopted':9}

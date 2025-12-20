@@ -136,4 +136,10 @@ export async function fetchDogOrigins() {
   return await response.json();
 }
 
+export async function fetchDiffAnalysis() {
+  const response = await fetch('/api/diff-analysis');
+  if (!response.ok) throw new Error('Failed to fetch diff analysis');
+  return response.json();
+}
+
 

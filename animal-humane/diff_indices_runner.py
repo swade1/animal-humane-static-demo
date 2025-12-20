@@ -1,3 +1,5 @@
+#run this script from the command line with:
+# docker exec -it animal-humane-scheduler python diff_indices_runner.py
 from datetime import datetime
 import json
     
@@ -8,7 +10,7 @@ from output_utils import print_dog_groups
 
 def run_diffs(handler):
     availables = handler.get_current_availables()
-    print(f"availables passed to get_unlisted_dog_groups are: {availables}")
+    #print(f"availables passed to get_unlisted_dog_groups are: {availables}")
     idx = handler.get_most_recent_index()
     #Verify that unlisted dogs are not in a trial adoption and if they are, change group from unlisted to trial adoption
     #Dogs can be unlisted and then while unlisted, have a location change. This will not be detected since their last 
@@ -20,7 +22,7 @@ def run_diffs(handler):
 
     #get_unlisted_dog_groups also returns returned dogs - might be best to call that function separately for clarity
     results = handler.get_dog_groups(availables, idx)
-    print(f"unlisted dog groups: {results}")
+    #print(f"unlisted dog groups: {results}")
 
     new_dogs = handler.get_new_dogs()
     
@@ -28,7 +30,7 @@ def run_diffs(handler):
     if "new_dogs" not in results:
         results["new_dogs"] = []
     results["new_dogs"].extend(new_dogs.get("new_dogs", []))    
-    print(results)
+    #print(results)
     print_dog_groups(results)
     return results
 
@@ -41,7 +43,7 @@ if __name__ == "__main__":
     today_time = datetime.now().strftime('%Hh%Mm')
     index_name = f"animal-humane-{today_str}-{today_time}"
 
-    handler = ElasticsearchHandler(host="http://localhost:9200", index_name=index_name)
+    handler = ElasticsearchHandler(host="http://elasticsearch:9200", index_name=index_name)
     results = run_diffs(handler)
 
     answer = input("Please enter 'y' to start updates or 'n' to quit: ").strip().lower()

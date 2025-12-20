@@ -183,6 +183,16 @@ async def get_length_of_stay(dog_service: DogService = Depends(get_dog_service))
         logger.error(f"Error getting length of stay distribution: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/diff-analysis", response_model=APIResponse)
+async def get_diff_analysis(es_service: ElasticsearchService = Depends(get_elasticsearch_service)):
+    """Get diff analysis data (new, returned, adopted, trial, unlisted dogs)"""
+    try:
+        data = await es_service.get_diff_analysis()
+        return APIResponse.success_response(data)
+    except Exception as e:
+        logger.error(f"Error getting diff analysis: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.post("/run_document_updates", response_model=APIResponse)
 async def run_document_updates(dog_service: DogService = Depends(get_dog_service)):
     """Run document updates (admin function)"""

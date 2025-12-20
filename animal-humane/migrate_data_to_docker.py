@@ -14,11 +14,25 @@ def main():
     
     # Source: Your local Elasticsearch on port 9201
     print("🔍 Connecting to local Elasticsearch on port 9201...")
-    local_es = Elasticsearch("http://localhost:9201")
+    local_es = Elasticsearch(
+        ["http://127.0.0.1:9201"],
+        verify_certs=False,
+        ssl_show_warn=False,
+        request_timeout=30,
+        retry_on_timeout=True,
+        max_retries=3
+    )
     
     # Target: Docker Elasticsearch on port 9200
     print("🔍 Connecting to Docker Elasticsearch on port 9200...")
-    docker_es = Elasticsearch("http://localhost:9200")
+    docker_es = Elasticsearch(
+        ["http://127.0.0.1:9200"],
+        verify_certs=False,
+        ssl_show_warn=False,
+        request_timeout=30,
+        retry_on_timeout=True,
+        max_retries=3
+    )
     
     try:
         # Check if local Elasticsearch is accessible

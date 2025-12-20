@@ -4,6 +4,7 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
     container_name: animal-humane-elasticsearch
+    restart: unless-stopped 
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
@@ -20,12 +21,19 @@ services:
       - "9200:9200"
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
 
   scheduler:
     build:
       context: ../..
       dockerfile: deployment/docker/Dockerfile
     container_name: animal-humane-scheduler
+    restart: unless-stopped
     depends_on:
       - elasticsearch
     environment:
@@ -36,15 +44,16 @@ services:
     volumes:
       - ./logs:/app/logs
       - ./diff_reports:/app/diff_reports
+      - ../..:/app
 
   frontend:
+    restart: unless-stopped
     build:
       context: ../../react-app
       dockerfile: Dockerfile
     container_name: animal-humane-frontend
     ports:
       - "8080:80"
-    restart: unless-stopped
 
 volumes:
   elasticsearch_data:
