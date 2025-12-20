@@ -1,9 +1,11 @@
 """
 Refactored FastAPI application with improved structure
 """
-from datetime import datetime
-from typing import List
+from datetime import datetime, timedelta
+from typing import List, Dict, Any
 import traceback
+import asyncio
+from functools import wraps
 
 from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,6 +22,37 @@ from utils.logger import setup_logger
 
 # Setup logging
 logger = setup_logger("api")
+
+# Cache configuration
+CACHE_DURATION = timedelta(minutes=90)  # Cache for 1.5 hours (data updates every 2 hours)
+cache = {}
+
+def cached(cache_key: str):
+    """Decorator to cache async function results"""
+    def decorator(func):
+        @wraps(func)
+        async def wrapper(*args, **kwargs):
+            now = datetime.now()
+            
+            # Check if we have cached data and it's still valid
+            if cache_key in cache:
+                cached_time, cached_data = cache[cache_key]
+                if now - cached_time < CACHE_DURATION:
+                    logger.debug(f"Cache hit for {cache_key}")
+                    return cached_data
+                else:
+                    logger.debug(f"Cache expired for {cache_key}")
+            
+            # Cache miss or expired - call the function
+            logger.debug(f"Cache miss for {cache_key} - fetching fresh data")
+            result = await func(*args, **kwargs)
+            
+            # Cache the result
+            cache[cache_key] = (now, result)
+            return result
+            
+        return wrapper
+    return decorator
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -58,6 +91,37 @@ async def global_exception_handler(request, exc):
 async def health_check():
     return APIResponse.success_response({"status": "healthy", "timestamp": datetime.now().isoformat()})
 
+@app.get("/api/cache/status")
+async def get_cache_status():
+    """Get cache status for monitoring"""
+    now = datetime.now()
+    cache_status = {}
+    
+    for key, (timestamp, data) in cache.items():
+        age = now - timestamp
+        is_expired = age >= CACHE_DURATION
+        cache_status[key] = {
+            "age_seconds": age.total_seconds(),
+            "age_minutes": age.total_seconds() / 60,
+            "expires_in_seconds": max(0, (CACHE_DURATION - age).total_seconds()),
+            "is_expired": is_expired,
+            "cached_at": timestamp.isoformat(),
+            "data_size": len(str(data)) if data else 0
+        }
+    
+    return APIResponse.success_response({
+        "cache_duration_minutes": CACHE_DURATION.total_seconds() / 60,
+        "cached_endpoints": list(cache.keys()),
+        "cache_status": cache_status
+    })
+
+@app.post("/api/cache/clear")
+async def clear_cache():
+    """Clear all cached data (admin function)"""
+    global cache
+    cache.clear()
+    return APIResponse.success_response({"message": "Cache cleared successfully"})
+
 @app.get("/debug/es-connection")
 async def debug_es_connection():
     """Debug endpoint to test Elasticsearch connection"""
@@ -76,6 +140,7 @@ async def debug_es_connection():
 
 # API Routes
 @app.get("/api/overview", response_model=APIResponse)
+@cached("overview")
 async def get_overview(dog_service: DogService = Depends(get_dog_service)):
     """Get shelter overview statistics"""
     try:
@@ -96,6 +161,7 @@ async def get_dogs(dog_service: DogService = Depends(get_dog_service)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/live_population", response_model=APIResponse)
+@cached("live_population")
 async def get_live_population(dog_service: DogService = Depends(get_dog_service)):
     """Get live population of available dogs"""
     try:
@@ -144,6 +210,7 @@ async def get_adoptions(dog_service: DogService = Depends(get_dog_service)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/insights", response_model=APIResponse)
+@cached("insights")
 async def get_insights(dog_service: DogService = Depends(get_dog_service)):
     """Get insights and analytics"""
     try:
@@ -154,6 +221,7 @@ async def get_insights(dog_service: DogService = Depends(get_dog_service)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/dog-origins", response_model=APIResponse)
+@cached("dog_origins")
 async def get_dog_origins(dog_service: DogService = Depends(get_dog_service)):
     """Get dog origin data for mapping"""
     try:
@@ -164,6 +232,7 @@ async def get_dog_origins(dog_service: DogService = Depends(get_dog_service)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/weekly-age-group-adoptions", response_model=APIResponse)
+@cached("weekly_age_group_adoptions")
 async def get_weekly_age_group_adoptions(dog_service: DogService = Depends(get_dog_service)):
     """Get weekly age group adoptions"""
     try:
@@ -184,6 +253,7 @@ async def get_length_of_stay(dog_service: DogService = Depends(get_dog_service))
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/diff-analysis", response_model=APIResponse)
+@cached("diff_analysis")
 async def get_diff_analysis(es_service: ElasticsearchService = Depends(get_elasticsearch_service)):
     """Get diff analysis data (new, returned, adopted, trial, unlisted dogs)"""
     try:

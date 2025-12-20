@@ -75,7 +75,7 @@ class AnimalHumaneScheduler:
             return False
     
     def run_diff_analysis(self):
-        """Run difference analysis and save results to file, and update Diff Analysis tab data"""
+        """Run difference analysis and save results to file, update Diff Analysis tab data, and warm up API cache"""
         try:
             logger.info("Starting diff analysis")
             
@@ -103,6 +103,9 @@ class AnimalHumaneScheduler:
                 except Exception as e:
                     logger.error(f"Error updating Diff Analysis tab data: {e}")
                 
+                # Warm up the API cache with fresh data
+                self._warm_up_api_cache()
+                
                 return True
             else:
                 logger.warning("Diff analysis returned no results")
@@ -111,6 +114,47 @@ class AnimalHumaneScheduler:
         except Exception as e:
             logger.error(f"Error in diff analysis: {e}", exc_info=True)
             return False
+    
+    def _warm_up_api_cache(self):
+        """Warm up the API cache by making requests to all cached endpoints"""
+        try:
+            logger.info("Warming up API cache with fresh data")
+            
+            import requests
+            
+            # API base URL (assuming it's running on the same host)
+            api_base = "http://localhost:8000"  # Adjust if needed
+            
+            # Endpoints to warm up
+            endpoints = [
+                "/api/overview",
+                "/api/live_population", 
+                "/api/insights",
+                "/api/diff-analysis",
+                "/api/weekly-age-group-adoptions",
+                "/api/dog-origins"
+            ]
+            
+            for endpoint in endpoints:
+                try:
+                    url = f"{api_base}{endpoint}"
+                    logger.debug(f"Warming cache for {endpoint}")
+                    response = requests.get(url, timeout=30)
+                    
+                    if response.status_code == 200:
+                        logger.debug(f"Successfully warmed cache for {endpoint}")
+                    else:
+                        logger.warning(f"Failed to warm cache for {endpoint}: HTTP {response.status_code}")
+                        
+                except requests.exceptions.RequestException as e:
+                    logger.error(f"Error warming cache for {endpoint}: {e}")
+                except Exception as e:
+                    logger.error(f"Unexpected error warming cache for {endpoint}: {e}")
+            
+            logger.info("API cache warm-up completed")
+            
+        except Exception as e:
+            logger.error(f"Error in cache warm-up: {e}")
     
     def health_check(self):
         """Check if Elasticsearch is accessible"""
