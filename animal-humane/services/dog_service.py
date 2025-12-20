@@ -35,14 +35,14 @@ class DogService:
             longest_resident = await self.es_service.get_longest_resident()
              # Log the overview data
             await self._log_overview_output(
-                total_listed_and_unlisted,
+                len(availables),
                 new_dog_count,
                 adopted_dog_count,
                 trial_adoption_count
             )
 
             return {
-                "total": total_listed_and_unlisted - trial_adoption_count,
+                "total": len(availables),
                 "newThisWeek": new_dog_count,
                 "adoptedThisWeek": adopted_dog_count,
                 "trialAdoptions": trial_adoption_count,
