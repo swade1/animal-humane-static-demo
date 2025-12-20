@@ -297,6 +297,14 @@ function InsightsTab() {
             {/* Map showing Dog Origins */}
             <h3 style={{ marginTop: "30px", textAlign: 'center' }}>Origination of Dogs at Animal Humane</h3>
             <h2 style={{ marginTop: "40px" }}>Shelters and Rescues Transferring Dogs to Animal Humane</h2>
+            <div style={{ textAlign: 'center', marginBottom: '20px', padding: '10px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
+                <p style={{ margin: '0', color: '#495057', fontSize: '14px' }}>
+                    <strong>{origins.length} shelters and rescues</strong> across multiple states have partnered with Animal Humane to find homes for their dogs
+                </p>
+                <p style={{ margin: '5px 0 0 0', color: '#6c757d', fontSize: '13px' }}>
+                    Each pin represents a shelter that has transferred at least one dog to our care
+                </p>
+            </div>
             <MapContainer center={MAP_CENTER} zoom={MAP_ZOOM} style={{ height: '800px', width: '100%' }}>
                 <TileLayer
                     url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
