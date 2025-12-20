@@ -103,10 +103,23 @@ function WeeklyAdoptionsBarChart({ data }) {
 
 // ----------- NEW: Shelter Transfers BarChart -----------
 function ShelterTransfersBarChart({ originData }) {
-    // Sort shelters from lowest to highest count
-    const sortedData = [...originData]
+    // Group shelters by count, then sort alphabetically within each count group
+    const groupedData = [...originData]
         .filter(item => typeof item.count === 'number' && item.count > 0 && item.origin)
-        .sort((a, b) => a.count - b.count)
+        .reduce((groups, item) => {
+            if (!groups[item.count]) {
+                groups[item.count] = [];
+            }
+            groups[item.count].push(item);
+            return groups;
+        }, {});
+
+    // Sort each group alphabetically by origin name, then flatten
+    const sortedData = Object.keys(groupedData)
+        .sort((a, b) => parseInt(a) - parseInt(b)) // Sort count groups from lowest to highest
+        .flatMap(count => 
+            groupedData[count].sort((a, b) => a.origin.localeCompare(b.origin))
+        )
         .map(item => ({
             ...item,
             not_adopted: item.count - item.adopted // assumes 'adopted' is already present
