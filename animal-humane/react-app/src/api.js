@@ -142,4 +142,13 @@ export async function fetchDiffAnalysis() {
   return response.json();
 }
 
+// Clear API cache
+export async function clearCache() {
+  const res = await fetch('/api/cache/clear', { method: 'POST' });
+  if (!res.ok) {
+    throw new Error('Failed to clear cache');
+  }
+  return res.json();
+}
+
 

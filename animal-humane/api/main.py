@@ -24,7 +24,7 @@ from utils.logger import setup_logger
 logger = setup_logger("api")
 
 # Cache configuration
-CACHE_DURATION = timedelta(minutes=90)  # Cache for 1.5 hours (data updates every 2 hours)
+CACHE_DURATION = timedelta(minutes=30)  # Reduced to 30 minutes for fresher data
 cache = {}
 
 def cached(cache_key: str):

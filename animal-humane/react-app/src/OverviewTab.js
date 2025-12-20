@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { fetchOverviewStats } from './api';
+import { fetchOverviewStats, clearCache } from './api';
 
 function OverviewTab() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     const loadStats = async () => {
@@ -24,6 +25,23 @@ function OverviewTab() {
 
     loadStats();
   }, []);
+
+  const handleRefresh = async () => {
+    try {
+      setRefreshing(true);
+      setError(null);
+      // Clear cache first
+      await clearCache();
+      // Then reload data
+      const response = await fetchOverviewStats();
+      setStats(response.data || response);
+    } catch (err) {
+      setError(err.message);
+      console.error('Failed to refresh overview stats:', err);
+    } finally {
+      setRefreshing(false);
+    }
+  };
 
   if (loading) return <div>Loading overview statistics...</div>;
   
@@ -62,7 +80,24 @@ function OverviewTab() {
   return (
     <div>
       <div>
-      <h3 style={{ marginTop: '10px', textAlign: 'center' }}>Shelter Overview</h3>
+      <h3 style={{ marginTop: '10px', textAlign: 'left' }}>Shelter Overview</h3>
+      <div style={{ marginBottom: '16px' }}>
+        <button 
+          onClick={handleRefresh} 
+          disabled={refreshing || loading}
+          style={{ 
+            padding: '8px 16px', 
+            backgroundColor: 'transparent', 
+            color: '#007bff', 
+            border: 'none', 
+            borderRadius: '4px', 
+            cursor: refreshing || loading ? 'not-allowed' : 'pointer',
+            opacity: refreshing || loading ? 0.6 : 1
+          }}
+        >
+          {refreshing ? 'Refreshing...' : '🔄 Refresh Data'}
+        </button>
+      </div>
       <table style={{ width: "50%", marginTop: "16px", textAlign: "left", borderCollapse: "collapse" }}>
         <tbody>
           <tr>
