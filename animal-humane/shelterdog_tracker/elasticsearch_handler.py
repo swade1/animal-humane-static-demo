@@ -885,23 +885,18 @@ class ElasticsearchHandler:
     def get_weekly_age_group_adoptions(self):
         query_body = {
             "size": 0,
-            "query": {"term": {"status.keyword": "adopted"}},
+            "query": {"term": {"status": "adopted"}},
             "aggs": {
                 "weekly": {
                     "date_histogram": {
                         "field": "timestamp",
                         "calendar_interval": "week",
                         "format": "MM/dd/yyyy",
-                        "time_zone": "UTC"
+                        "time_zone": "-07:00"
                     },
                     "aggs": {
                         "by_age_group": {
-                            "terms": {"field": "age_group.keyword", "size": 10},
-                            "aggs": {
-                                "unique_dogs": {
-                                    "cardinality": {"field": "id", "precision_threshold": 10000}
-                                }
-                            }
+                            "terms": {"field": "age_group.keyword", "size": 10}
                         }
                     }
                 }
@@ -921,7 +916,7 @@ class ElasticsearchHandler:
             # Fill in the counts from the buckets
             for age_bucket in age_buckets:
                 age_group = age_bucket['key']
-                count = age_bucket['unique_dogs']['value']
+                count = age_bucket['doc_count']
                 week_data[age_group] = count
             result.append(week_data)
         print(f"Returning results from get_weekly_age_group_adoptions: {result}")
