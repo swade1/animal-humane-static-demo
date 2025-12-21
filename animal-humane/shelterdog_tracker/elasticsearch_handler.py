@@ -1170,56 +1170,105 @@ class ElasticsearchHandler:
             return []
     def get_length_of_stay_distribution(self):
         """
-        Get histogram distribution of length_of_stay_days for all dogs (available and adopted).
-        Uses Sturges' formula for bin calculation: num_bins = ceil(log2(n) + 1)
+        Get histogram distribution of length_of_stay_days for dogs currently available at the shelter.
+        Uses fixed 30-day intervals for bin calculation.
+        Calculates current length of stay from intake_date for available dogs only.
+        Excludes adopted and euthanized dogs.
         Returns bins with dog lists containing minimal fields.
-        
+
         Bin boundaries: [min, max] inclusive for all bins except last which is right-inclusive.
         """
         import math
         from datetime import datetime
-        
-        # Query all dogs with valid length_of_stay_days from latest index
-        query = {
-            "size": 10000,  # Get all dogs (adjust if shelter has more)
-            "query": {
-                "exists": {"field": "length_of_stay_days"}
-            },
-            "_source": ["id", "name", "breed", "age_group", "length_of_stay_days"]
+
+        # First, get all unique dog IDs across all indices
+        id_query = {
+            "size": 0,
+            "aggs": {
+                "unique_ids": {
+                    "terms": {
+                        "field": "id",
+                        "size": 10000
+                    }
+                }
+            }
         }
-        
+
         try:
-            # Use animal-humane-latest alias
-            response = self.es.search(index="animal-humane-latest", body=query)
-            hits = response["hits"]["hits"]
-            
-            # Extract dogs with valid LOS values
+            # Get all unique dog IDs from all indices
+            id_response = self.es.search(index="animal-humane-*", body=id_query)
+            dog_ids = [bucket["key"] for bucket in id_response["aggregations"]["unique_ids"]["buckets"]]
+
+            # Now get the latest record for each dog
             dogs = []
             excluded_count = 0
-            
-            for hit in hits:
-                source = hit["_source"]
-                los = source.get("length_of_stay_days")
-                
-                # Validate and cast to numeric
-                if los is not None and isinstance(los, (int, float)) and los >= 0:
-                    dogs.append({
-                        "id": source.get("id"),
-                        "name": source.get("name", "Unknown"),
-                        "breed": source.get("breed"),
-                        "age_group": source.get("age_group"),
-                        "length_of_stay_days": int(los)
-                    })
-                else:
-                    excluded_count += 1
-            
+
+            for dog_id in dog_ids:
+                # Get the most recent record for this dog across all indices
+                dog_query = {
+                    "size": 1,
+                    "query": {"term": {"id": dog_id}},
+                    "sort": [{"_index": {"order": "desc"}}],  # Most recent index first
+                    "_source": ["id", "name", "breed", "age_group", "length_of_stay_days", "intake_date", "status"]
+                }
+
+                dog_response = self.es.search(index="animal-humane-*", body=dog_query)
+                if dog_response["hits"]["hits"]:
+                    source = dog_response["hits"]["hits"][0]["_source"]
+                    name = source.get("name", "Unknown")
+                    breed = source.get("breed")
+                    age_group = source.get("age_group")
+                    status = source.get("status", "").lower()
+                    intake_date_str = source.get("intake_date")
+                    stored_los = source.get("length_of_stay_days")
+
+                    # Skip euthanized dogs
+                    if status == "euthanized":
+                        excluded_count += 1
+                        continue
+
+                    # Only include dogs with status "available"
+                    if status != "available":
+                        excluded_count += 1
+                        continue
+
+                    # Calculate current length of stay for available dogs
+                    los_days = None
+
+                    if intake_date_str:
+                        # Calculate current stay for available dogs
+                        try:
+                            intake_date = datetime.fromisoformat(intake_date_str.replace('Z', '+00:00')).date()
+                            current_date = datetime.now().date()
+                            los_days = (current_date - intake_date).days
+                            if los_days < 0:  # Future date, invalid
+                                los_days = None
+                        except (ValueError, TypeError):
+                            los_days = None
+
+                    # Use stored length_of_stay_days if available and reasonable, otherwise use calculated
+                    final_los = stored_los if stored_los is not None and stored_los >= 0 else los_days
+
+                    # Only include dogs with valid LOS
+                    if final_los is not None and final_los >= 0:
+                        dogs.append({
+                            "id": dog_id,
+                            "name": name,
+                            "breed": breed,
+                            "age_group": age_group,
+                            "length_of_stay_days": final_los,
+                            "status": status
+                        })
+                    else:
+                        excluded_count += 1
+
             n = len(dogs)
             print(f"Length of stay distribution: {n} dogs included, {excluded_count} excluded")
-            
+
             # Handle edge case: no valid dogs
             if n == 0:
-                return {"bins": [], "metadata": {"n": 0, "bin_algorithm": "sturges", "generated_at": datetime.now().isoformat()}}
-            
+                return {"bins": [], "metadata": {"n": 0, "bin_algorithm": "30_day_intervals", "generated_at": datetime.now().isoformat()}}
+
             # Handle edge case: single dog
             if n == 1:
                 dog = dogs[0]
@@ -1231,65 +1280,57 @@ class ElasticsearchHandler:
                         "count": 1,
                         "dogs": [dog]
                     }],
-                    "metadata": {"n": 1, "bin_algorithm": "sturges", "generated_at": datetime.now().isoformat()}
+                    "metadata": {"n": 1, "bin_algorithm": "30_day_intervals", "generated_at": datetime.now().isoformat()}
                 }
-            
-            # Calculate bins using Sturges' formula
-            num_bins = math.ceil(math.log2(n) + 1)
+
+            # Use fixed 30-day intervals
+            bin_width = 30  # 30-day intervals
+
+            # Calculate number of bins needed to cover the range with 30-day intervals
             los_values = [d["length_of_stay_days"] for d in dogs]
             min_los = min(los_values)
             max_los = max(los_values)
-            
-            # Handle edge case: all dogs have same LOS
-            if min_los == max_los:
-                return {
-                    "bins": [{
-                        "min": min_los,
-                        "max": max_los,
-                        "count": n,
-                        "dogs": dogs
-                    }],
-                    "metadata": {"n": n, "bin_algorithm": "sturges", "generated_at": datetime.now().isoformat()}
-                }
-            
-            # Calculate bin width
-            bin_width = (max_los - min_los) / num_bins
-            
-            # Create bins
+
+            # Create bins with fixed 30-day intervals: 0-30, 31-60, 61-90, etc.
             bins = []
-            for i in range(num_bins):
-                bin_min = min_los + (i * bin_width)
-                bin_max = min_los + ((i + 1) * bin_width)
-                
-                # Round to integers for cleaner display
-                bin_min = int(math.floor(bin_min))
-                bin_max = int(math.ceil(bin_max))
-                
-                # For the last bin, make it right-inclusive
-                if i == num_bins - 1:
-                    bin_dogs = [d for d in dogs if bin_min <= d["length_of_stay_days"] <= bin_max]
+            bin_start = 0
+
+            while bin_start <= max_los:
+                if bin_start == 0:
+                    bin_end = 30
+                    bin_start_next = 31
                 else:
-                    bin_dogs = [d for d in dogs if bin_min <= d["length_of_stay_days"] < bin_max]
-                
+                    bin_end = bin_start + 29
+                    bin_start_next = bin_end + 1
+
+                bin_dogs = [d for d in dogs if bin_start <= d["length_of_stay_days"] <= bin_end]
+
+                # Always add bins, even if empty (but only up to the point where we have data)
                 bins.append({
-                    "min": bin_min,
-                    "max": bin_max,
+                    "min": bin_start,
+                    "max": bin_end,
                     "count": len(bin_dogs),
                     "dogs": bin_dogs
                 })
-            
+
+                bin_start = bin_start_next
+
+                # If we've exceeded the max, stop creating bins
+                if bin_start > max_los:
+                    break
+
             return {
                 "bins": bins,
                 "metadata": {
                     "n": n,
-                    "bin_algorithm": "sturges",
+                    "bin_algorithm": "30_day_intervals",
                     "generated_at": datetime.now().isoformat()
                 }
             }
-            
+
         except Exception as e:
             print(f"Error getting length_of_stay_distribution: {e}")
             import traceback
             traceback.print_exc()
-            return {"bins": [], "metadata": {"n": 0, "bin_algorithm": "sturges", "generated_at": datetime.now().isoformat(), "error": str(e)}}
+            return {"bins": [], "metadata": {"n": 0, "bin_algorithm": "30_day_intervals", "generated_at": datetime.now().isoformat(), "error": str(e)}}
 
