@@ -26,15 +26,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Copy supervisord config
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Create directories for logs and reports
-RUN mkdir -p logs diff_reports
+# Make start.sh executable
+RUN chmod +x start.sh
 
 # Set environment variables
 ENV PYTHONPATH=/app
 ENV ELASTICSEARCH_HOST=http://elasticsearch:9200
 
-# Run both scheduler and API/backend using supervisord
-CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# Run the API
+CMD ["./start.sh"]

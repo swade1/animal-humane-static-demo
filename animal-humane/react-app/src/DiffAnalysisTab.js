@@ -98,7 +98,7 @@ function DiffAnalysisTab() {
   return (
     <div>
       <h2 style={{ marginTop: '10px', textAlign: 'left' }}>Dog Movement Analysis</h2>
-      <p style={{ marginBottom: '30px' }}>This analysis shows changes in dog status between database updates.</p>
+      <p style={{ marginBottom: '30px' }}>This tab shows changes in dog status between database updates.</p>
 
       {renderDogList(data.new_dogs, "New Dogs")}
       {renderDogList(data.returned_dogs, "Returned Dogs")}
