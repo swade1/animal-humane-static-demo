@@ -122,7 +122,7 @@ function ShelterTransfersBarChart({ originData }) {
         )
         .map(item => ({
             ...item,
-            not_adopted: item.count - item.adopted // assumes 'adopted' is already present
+            not_adopted: item.available || (item.count - item.adopted) // use available field if present, fallback to calculation
         }));
 
     return (
@@ -347,7 +347,6 @@ function InsightsTab() {
             <ShelterTransfersBarChart originData={origins} />
 
             {/* ----------- Length of Stay Histogram ----------- */}
-            <h3 style={{ marginTop: '60px', textAlign: 'center' }}>Length of Stay Analysis</h3>
             <LengthOfStayHistogram onBarClick={handleBarClick} />
 
             {/* Dog List Modal */}

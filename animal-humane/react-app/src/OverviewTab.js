@@ -80,7 +80,7 @@ function OverviewTab() {
   return (
     <div>
       <div>
-      <h3 style={{ marginTop: '10px', textAlign: 'left' }}>Shelter Overview</h3>
+      <h2 style={{ marginTop: '10px', textAlign: 'left' }}>Shelter Overview</h2>
       <div style={{ marginBottom: '16px' }}>
         <button 
           onClick={handleRefresh} 

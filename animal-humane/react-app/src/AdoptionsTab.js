@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAdoptions } from './api';
+import './AdoptionsTab.css';
 
 function Adoptions() {
   const [adoptions, setAdoptions] = useState([]);
@@ -37,7 +38,7 @@ function Adoptions() {
             <tr key={dog.name + dog.date}>
               <td style={{ paddingRight: "30px" }}>{dog.name.trim()}</td>
               <td style={{ paddingRight: "30px" }}>{dog.date}</td>
-              <td style={{ paddingRight: "100px" }}>{dog.los}</td>
+              <td className="days-at-shelter">{dog.los}</td>
               <td><a href={dog.url} target="_blank" rel="noopener noreferrer">Link</a></td>
             </tr>
           ))}

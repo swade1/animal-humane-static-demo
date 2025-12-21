@@ -46,7 +46,7 @@ function DiffAnalysisTab() {
     if (!dogs || dogs.length === 0) {
       return (
         <div style={{ marginBottom: '20px' }}>
-          <h3>{title}</h3>
+          <p style={{ fontWeight: 'bold', marginBottom: '10px', fontSize: '16px' }}>{title}</p>
           <p>No dogs in this category</p>
         </div>
       );
@@ -54,7 +54,7 @@ function DiffAnalysisTab() {
 
     return (
       <div style={{ marginBottom: '20px' }}>
-        <h3>{title}</h3>
+        <p style={{ fontWeight: 'bold', marginBottom: '10px', fontSize: '16px' }}>{title}</p>
         {dogs.map((dog, index) => (
           <div key={index} style={{ marginBottom: '5px' }}>
             <a
@@ -72,9 +72,9 @@ function DiffAnalysisTab() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Dog Movement Analysis</h2>
-      <p>This analysis shows changes in dog status between database updates.</p>
+    <div>
+      <h2 style={{ marginTop: '10px', textAlign: 'left' }}>Dog Movement Analysis</h2>
+      <p style={{ marginBottom: '30px' }}>This analysis shows changes in dog status between database updates.</p>
 
       {renderDogList(data.new_dogs, "New Dogs")}
       {renderDogList(data.returned_dogs, "Returned Dogs")}
