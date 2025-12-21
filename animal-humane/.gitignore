@@ -4,3 +4,4 @@ diff_reports/
 logs/
 *.log
 *.json
+*.bak

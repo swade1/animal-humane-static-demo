@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Modal from 'react-modal';
 import { fetchOverviewStats, clearCache } from './api';
 
 function OverviewTab() {
@@ -6,6 +7,10 @@ function OverviewTab() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
+
+  // Add modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalUrl, setModalUrl] = useState('');
 
   useEffect(() => {
     const loadStats = async () => {
@@ -25,6 +30,17 @@ function OverviewTab() {
 
     loadStats();
   }, []);
+
+  // Add modal handlers
+  const openModal = (url) => {
+    setModalUrl(url);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalUrl('');
+  };
 
   const handleRefresh = async () => {
     try {
@@ -60,8 +76,6 @@ function OverviewTab() {
 
   if (!stats) return <div>No data available</div>;
 
-
-
   const ageOrder = ["Puppy","Adult","Senior"];
 
   const labelMap = {
@@ -76,12 +90,25 @@ function OverviewTab() {
       })
     : [];
 
-  // Replace objects below with your fields and structure
+  // Add modal styles
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      width: '80%',
+      height: '80%',
+    },
+  };
+
   return (
     <div>
-      <div>
-      <h2 style={{ marginTop: '10px', textAlign: 'left' }}>Shelter Overview</h2>
-      <div style={{ marginBottom: '16px' }}>
+      {/* Move refresh button to the right of the heading */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '10px' }}>
+        <h2 style={{ margin: 0, textAlign: 'left' }}>Shelter Overview</h2>
         <button 
           onClick={handleRefresh} 
           disabled={refreshing || loading}
@@ -92,10 +119,12 @@ function OverviewTab() {
             border: 'none', 
             borderRadius: '4px', 
             cursor: refreshing || loading ? 'not-allowed' : 'pointer',
-            opacity: refreshing || loading ? 0.6 : 1
+            opacity: refreshing || loading ? 0.6 : 1,
+            fontSize: '32px'  // Increased from 16px to make the icon larger
           }}
+          title="Refresh Data"
         >
-          {refreshing ? 'Refreshing...' : '🔄 Refresh Data'}
+          {refreshing ? 'Refreshing...' : '🔄'}
         </button>
       </div>
       <table style={{ width: "50%", marginTop: "16px", textAlign: "left", borderCollapse: "collapse" }}>
@@ -103,35 +132,40 @@ function OverviewTab() {
           <tr>
             <td><strong>Dogs in Shelter:</strong></td>
             <td>{stats.total}</td>
-          </tr><br />
+          </tr>
+          <br />  {/* Added to preserve original line spacing */}
           <tr>
             <td><strong>New this week:</strong></td>
             <td>{stats.newThisWeek}</td>
-          </tr><br />
+          </tr>
+          <br />  {/* Added to preserve original line spacing */}
           <tr>
             <td><strong>Adopted this week:</strong></td>
             <td>{stats.adoptedThisWeek}</td>
-          </tr><br />
+          </tr>
+          <br />  {/* Added to preserve original line spacing */}
           <tr>
             <td><strong>Trial Adoptions:</strong></td>
             <td>{stats.trialAdoptions}</td>
-          </tr><br />
+          </tr>
+          <br />  {/* Added to preserve original line spacing */}
           <tr>
             <td><strong>Average Length of Stay:</strong></td>
             <td>{stats.avgStay} days</td>
-          </tr><br />
+          </tr>
+          <br />  {/* Added to preserve original line spacing */}
           <tr>
             <td><strong>Longest Stay:</strong></td>
-            <td>{stats.longestStay.days} days (<a
-              href={stats.longestStay.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#2a5db0", textDecoration: "underline" }}
-            >
-              {stats.longestStay.name}
-            </a>)
-          </td>
-          </tr><br />
+            <td>{stats.longestStay.days} days (
+              <span
+                onClick={() => openModal(stats.longestStay.url)}
+                style={{ color: "#2a5db0", textDecoration: "underline", cursor: "pointer", fontWeight: 'bold' }}
+              >
+                {stats.longestStay.name}
+              </span>
+            )</td>
+          </tr>
+          <br />  {/* Added to preserve original line spacing */}
           <tr>
             <td style={{ verticalAlign: "top" }}>
               <strong>Available Dogs by Age Group:</strong>
@@ -157,13 +191,26 @@ function OverviewTab() {
           </tr>
         </tbody>
       </table>
-    </div>
-
 
       {/* Add trend, alerts, small charts here */}
+      {/* Add the modal */}
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Dog Information"
+      >
+        <button onClick={closeModal} style={{ float: 'right' }}>Close</button>
+        <iframe
+          src={modalUrl}
+          width="100%"
+          height="100%"
+          title="Dog Information"
+          style={{ border: 'none' }}
+        ></iframe>
+      </Modal>
     </div>
   );
 }
 
 export default OverviewTab;
-

@@ -1,11 +1,15 @@
 import './LivePopulationTab.css';
 
 import React, { useEffect, useState } from 'react';
+import Modal from 'react-modal';  // Add this import
 import { fetchDogs, fetchDogById, updateDog, fetchLatestIndex } from './api';
-
 
 function LivePopulationTab() {
   const [availables, setAvailables] = useState([]); // Initialize as empty array
+
+  // Add modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalUrl, setModalUrl] = useState('');
 
   // Add admin mode detection with secret key
   const adminKey = new URLSearchParams(window.location.search).get('admin_key');
@@ -27,6 +31,17 @@ function LivePopulationTab() {
         setAvailables([]);
       });
   }, []);
+
+  // Add modal handlers
+  const openModal = (url) => {
+    setModalUrl(url);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalUrl('');
+  };
 
   // Open popup to edit dog info
   async function openEdit(dogId) {
@@ -86,16 +101,35 @@ function LivePopulationTab() {
     return <p>Loading...</p>;
   }
 
+  // Add modal styles
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      width: '80%',
+      height: '80%',
+    },
+  };
+
   return (
     <>
       {/* Render existing availables list */}
-      <table>
+      <table style={{ 
+        width: '80%', 
+        maxWidth: '800px', 
+        margin: '0 0 0 25px',
+        borderCollapse: 'collapse'
+      }}>
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th style={{ textAlign: "center" }}>URL</th>
-            {isAdmin && <th style={{ textAlign: "center" }}>Edit</th>}
+          <tr style={{ backgroundColor: '#f2f2f2' }}>
+            <th style={{ padding: '10px', textAlign: 'left' }}>Name</th>
+            <th style={{ padding: '10px', textAlign: 'center' }}>Location</th>
+            {/* Remove URL column */}
+            {isAdmin && <th style={{ textAlign: "center", padding: '10px' }}>Edit</th>}
           </tr>
         </thead>
         <tbody>
@@ -106,15 +140,19 @@ function LivePopulationTab() {
               const dogIdFromUrl = url.pathname.split('/').filter(Boolean).pop();
               return (
                 <tr key={dog.dog_id}>
-                  <td style={{ paddingRight: "20px" }}>{dog.name.trim()}</td>
-                  <td style={{ paddingRight: "20px" }}>{dog.location}</td>
-                  <td style={{ textAlign: "center" }}>
-                    <a href={dog.url} target="_blank" rel="noopener noreferrer">
-                      Link
-                    </a>
+                  {/* Make Name clickable */}
+                  <td style={{ padding: '10px 20px', textAlign: 'left' }}>
+                    <span
+                      onClick={() => openModal(dog.url)}
+                      style={{ color: '#007bff', textDecoration: 'none', cursor: 'pointer', fontWeight: 'bold' }}
+                    >
+                      {dog.name.trim()}
+                    </span>
                   </td>
+                  <td style={{ padding: '10px 20px', textAlign: 'left', paddingLeft: "80px" }}>{dog.location}</td>
+                  {/* Remove URL td */}
                   {isAdmin && (
-                    <td style={{ textAlign: "center" }}>
+                    <td style={{ textAlign: "center", padding: '10px 20px' }}>
                       <button
                         onClick={() => openEdit(dogIdFromUrl)}
                         style={{ marginLeft: 8, cursor: "pointer", border: "none", background: "none" }}
@@ -130,6 +168,23 @@ function LivePopulationTab() {
             })}
         </tbody>
       </table>
+
+      {/* Add the modal */}
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Dog Information"
+      >
+        <button onClick={closeModal} style={{ float: 'right' }}>Close</button>
+        <iframe
+          src={modalUrl}
+          width="100%"
+          height="100%"
+          title="Dog Information"
+          style={{ border: 'none' }}
+        ></iframe>
+      </Modal>
 
       {/* Render EditDogDialog conditionally, passing props */}
       {editDogId && (
@@ -264,4 +319,3 @@ function EditDogDialog({ dogId, form, setForm, onChange, onSave, setEditDogId })
 }
 
 export default LivePopulationTab;
-

@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div style={{padding:20}}>
-      <h1>Animal Humane New Mexico Shelter Pet Status and Updates</h1>
+      <h1>Animal Humane New Mexico: Pet Status and Updates</h1>
       <button 
          onClick={handleUpdate} 
          disabled={loading}

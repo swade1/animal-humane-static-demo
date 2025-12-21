@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import Modal from 'react-modal';  // Install via npm install react-modal if not already installed
 import { fetchDiffAnalysis } from './api';
 
 function DiffAnalysisTab() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalUrl, setModalUrl] = useState('');
 
   useEffect(() => {
     const loadDiffAnalysis = async () => {
@@ -24,6 +27,16 @@ function DiffAnalysisTab() {
 
     loadDiffAnalysis();
   }, []);
+
+  const openModal = (url) => {
+    setModalUrl(url);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalUrl('');
+  };
 
   if (loading) return <div>Loading diff analysis...</div>;
 
@@ -57,18 +70,29 @@ function DiffAnalysisTab() {
         <p style={{ fontWeight: 'bold', marginBottom: '10px', fontSize: '16px' }}>{title}</p>
         {dogs.map((dog, index) => (
           <div key={index} style={{ marginBottom: '5px' }}>
-            <a
-              href={dog.url || '#'}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#007bff', textDecoration: 'none' }}
+            <span
+              onClick={() => openModal(dog.url || '#')}
+              style={{ color: '#007bff', textDecoration: 'none', cursor: 'pointer', fontWeight: 'bold' }}
             >
               {dog.name || 'Unnamed Dog'}
-            </a>
+            </span>
           </div>
         ))}
       </div>
     );
+  };
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      width: '80%',
+      height: '80%',
+    },
   };
 
   return (
@@ -81,6 +105,22 @@ function DiffAnalysisTab() {
       {renderDogList(data.adopted_dogs, "Adopted/Reclaimed Dogs")}
       {renderDogList(data.trial_adoption_dogs, "Trial Adoptions")}
       {renderDogList(data.other_unlisted_dogs, "Available but Temporarily Unlisted")}
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Dog Information"
+      >
+        <button onClick={closeModal} style={{ float: 'right' }}>Close</button>
+        <iframe
+          src={modalUrl}
+          width="100%"
+          height="100%"
+          title="Dog Information"
+          style={{ border: 'none' }}
+        ></iframe>
+      </Modal>
     </div>
   );
 }
