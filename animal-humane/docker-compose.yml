@@ -28,7 +28,7 @@ services:
 
   scheduler:
     build:
-      context: ../..
+      context: .
       dockerfile: Dockerfile
     container_name: animal-humane-scheduler
     restart: unless-stopped
@@ -42,12 +42,12 @@ services:
     volumes:
       - ./logs:/app/logs
       - ./diff_reports:/app/diff_reports
-      - ../..:/app
+      - .:/app
 
   frontend:
     restart: unless-stopped
     build:
-      context: ../../react-app
+      context: ./react-app
       dockerfile: Dockerfile
     container_name: animal-humane-frontend
     ports:
