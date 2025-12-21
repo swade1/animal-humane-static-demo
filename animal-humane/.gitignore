@@ -5,3 +5,11 @@ logs/
 *.log
 *.json
 *.bak
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
