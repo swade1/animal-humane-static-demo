@@ -29,7 +29,7 @@ services:
   scheduler:
     build:
       context: ../..
-      dockerfile: deployment/docker/Dockerfile
+      dockerfile: Dockerfile
     container_name: animal-humane-scheduler
     restart: unless-stopped
     depends_on:
