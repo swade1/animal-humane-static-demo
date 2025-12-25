@@ -8,6 +8,7 @@ function DiffAnalysisTab() {
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalUrl, setModalUrl] = useState('');
+  const [missingDogs, setMissingDogs] = useState([]);
 
   useEffect(() => {
     const loadDiffAnalysis = async () => {
@@ -28,6 +29,25 @@ function DiffAnalysisTab() {
     loadDiffAnalysis();
   }, []);
 
+  useEffect(() => {
+    const loadMissingDogs = async () => {
+      try {
+        const response = await fetch('/missing_dogs.txt');
+        if (!response.ok) {
+          throw new Error('Failed to load missing dogs file');
+        }
+        const text = await response.text();
+        const dogs = parseMissingDogs(text);
+        setMissingDogs(dogs);
+      } catch (err) {
+        console.error('Failed to load missing dogs:', err);
+        setMissingDogs([]);
+      }
+    };
+
+    loadMissingDogs();
+  }, []);
+
   const openModal = (url) => {
     setModalUrl(url);
     setIsModalOpen(true);
@@ -36,6 +56,25 @@ function DiffAnalysisTab() {
   const closeModal = () => {
     setIsModalOpen(false);
     setModalUrl('');
+  };
+
+  const parseMissingDogs = (text) => {
+    const dogs = [];
+    const lines = text.split('\n').filter(line => line.trim() && !line.startsWith('Missing dogs'));
+
+    lines.forEach(line => {
+      const match = line.match(/^(\d+):\s*(.+)$/);
+      if (match) {
+        const [, id, name] = match;
+        dogs.push({
+          id: parseInt(id),
+          name: name.trim(),
+          url: `https://new.shelterluv.com/embed/animal/${id}`
+        });
+      }
+    });
+
+    return dogs;
   };
 
   if (loading) return <div>Loading diff analysis...</div>;
@@ -105,6 +144,7 @@ function DiffAnalysisTab() {
       {renderDogList(data.adopted_dogs, "Adopted/Reclaimed Dogs")}
       {renderDogList(data.trial_adoption_dogs, "Trial Adoptions")}
       {renderDogList(data.other_unlisted_dogs, "Available but Temporarily Unlisted")}
+      {renderDogList(missingDogs, "Available Soon")}
 
       <Modal
         isOpen={isModalOpen}

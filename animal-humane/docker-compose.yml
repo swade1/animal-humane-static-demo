@@ -1,20 +1,22 @@
 services:
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
-    container_name: animal-humane-elasticsearch
-    restart: unless-stopped 
+  mongodb:
+    image: mongo:7.0
+    container_name: animal-humane-mongodb
+    restart: unless-stopped
     environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - xpack.ml.enabled=false
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - bootstrap.memory_lock=false
-      - http.host=0.0.0.0
-      - transport.host=localhost
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=animal_humane
     ports:
-      - "9200:9200"
+      - "27017:27017"
     volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
   scheduler:
     build:
@@ -23,9 +25,9 @@ services:
     container_name: animal-humane-scheduler
     restart: unless-stopped
     depends_on:
-      - elasticsearch
+      - mongodb
     environment:
-      - ELASTICSEARCH_HOST=http://elasticsearch:9200 
+      - MONGODB_CONNECTION_STRING=mongodb://admin:password@mongodb:27017/animal_humane?authSource=admin
       - TZ=America/Denver  # Mountain Time timezone
     ports:
       - "8000:8000"
@@ -42,6 +44,8 @@ services:
     container_name: animal-humane-frontend
     ports:
       - "8080:80"
+    volumes:
+      - ./react-app/public:/usr/share/nginx/html
 
 volumes:
-  elasticsearch_data:
+  mongodb_data:

@@ -103,6 +103,9 @@ class AnimalHumaneScheduler:
                 except Exception as e:
                     logger.error(f"Error updating Diff Analysis tab data: {e}")
                 
+                # Update missing dogs list
+                self.update_missing_dogs_list()
+                
                 # Warm up the API cache with fresh data
                 self._warm_up_api_cache()
                 
@@ -155,6 +158,52 @@ class AnimalHumaneScheduler:
             
         except Exception as e:
             logger.error(f"Error in cache warm-up: {e}")
+    
+    def update_missing_dogs_list(self):
+        """Update the missing dogs list by running the find_missing_dogs.py script"""
+        try:
+            logger.info("Updating missing dogs list")
+            
+            import subprocess
+            import shutil
+            
+            # Path to the find_missing_dogs.py script
+            script_path = os.path.join(os.path.dirname(__file__), '..', 'find_missing_dogs.py')
+            
+            # Run the script
+            result = subprocess.run(
+                [sys.executable, script_path],
+                capture_output=True,
+                text=True,
+                cwd=os.path.dirname(script_path)
+            )
+            
+            if result.returncode == 0:
+                logger.info("Missing dogs list updated successfully")
+                # Parse the output to get the count
+                for line in result.stdout.split('\n'):
+                    if 'Found' in line and 'dogs that exist in the file but not in Elasticsearch' in line:
+                        logger.info(line.strip())
+                        break
+                
+                # Copy the updated file to the React app's public directory
+                source_file = os.path.join(os.path.dirname(script_path), 'missing_dogs.txt')
+                react_public_dir = os.path.join(os.path.dirname(__file__), '..', 'react-app', 'public')
+                dest_file = os.path.join(react_public_dir, 'missing_dogs.txt')
+                
+                if os.path.exists(source_file):
+                    shutil.copy2(source_file, dest_file)
+                    logger.info(f"Copied missing_dogs.txt to React app public directory: {dest_file}")
+                else:
+                    logger.warning(f"Source file not found: {source_file}")
+                    
+            else:
+                logger.error(f"Failed to update missing dogs list. Return code: {result.returncode}")
+                logger.error(f"Stdout: {result.stdout}")
+                logger.error(f"Stderr: {result.stderr}")
+                
+        except Exception as e:
+            logger.error(f"Error updating missing dogs list: {e}", exc_info=True)
     
     def health_check(self):
         """Check if Elasticsearch is accessible"""
