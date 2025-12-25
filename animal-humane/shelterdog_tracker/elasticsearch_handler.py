@@ -402,38 +402,61 @@ class ElasticsearchHandler:
     def get_current_availables(self):
         # This returns the total number of dogs currently appearing on the site. It does not
         # include dogs that are still at the shelter but are not currently listed for whatever reason.
-        # Build the query
+        
+        # Get today's date and search only recent indices to avoid HTTP line length limits
+        current_date = datetime.now().strftime('%Y%m%d')
+        
+        # Search indices from the last 30 days to current date
+        recent_indices = []
+        for days_back in range(30, -1, -1):  # 30 days back to today
+            check_date = (datetime.now() - timedelta(days=days_back)).strftime('%Y%m%d')
+            pattern = f"animal-humane-{check_date}*"
+            recent_indices.append(pattern)
+        
+        # Build the query using aggregations instead of field collapsing
         query = {
-            "size": 1000,
-            "collapse": {
-                "field": "id",
-                "inner_hits": {
-                    "name": "most_recent",
-                    "size": 1,
-                    "sort": [{"_index": "desc"}]
+            "size": 0,  # We only want aggregations, not hits
+            "aggs": {
+                "dogs_by_id": {
+                    "terms": {
+                        "field": "id",
+                        "size": 10000  # Adjust size as needed for total dogs
+                    },
+                    "aggs": {
+                        "most_recent": {
+                            "top_hits": {
+                                "size": 1,
+                                "sort": [{"_index": {"order": "desc"}}],
+                                "_source": ["id", "name", "url", "status", "location"]
+                            }
+                        }
+                    }
                 }
             },
-            "_source": ["_index", "id", "name", "url","status", "location"]
+            "query": {
+                "match_all": {}
+            }
         }
 
-        # Run the search
-        response = self.es.search(index="animal-humane-*", body=query)
+        # Run the search on recent indices only
+        response = self.es.search(index=recent_indices, body=query)
 
-        # Parse the response to extract only name, id, and url from each most recent inner hit
+        # Parse the response to extract dogs from aggregations
         dogs = []
-        for hit in response["hits"]["hits"]:
-            inner = hit["inner_hits"]["most_recent"]["hits"]["hits"]
-            if inner:
-                source = inner[0]["_source"]
-                if source.get("status") == "Available":
-                    dog = {
-                        "name" : source.get("name"),
-                        "dog_id" : source.get("id"),
-                        "url" : source.get("url"),
-                        "location":source.get("location")
-                    }
-                    dogs.append(dog)
-        return(dogs)
+        if "aggregations" in response:
+            for bucket in response["aggregations"]["dogs_by_id"]["buckets"]:
+                hits = bucket["most_recent"]["hits"]["hits"]
+                if hits:
+                    source = hits[0]["_source"]
+                    if source.get("status") == "Available":
+                        dog = {
+                            "name": source.get("name"),
+                            "dog_id": source.get("id"),
+                            "url": source.get("url"),
+                            "location": source.get("location")
+                        }
+                        dogs.append(dog)
+        return dogs
 
     def get_all_ids(self, index_name):
         ids = []
@@ -492,7 +515,7 @@ class ElasticsearchHandler:
             return None
     def get_new_dogs(self):
         indices_info = self.es.cat.indices(format='json')
-        all_indices = [index['index'] for index in indices_info]
+        all_indices = [index['index'] for index in indices_info if index.get('status') == 'open']
 
         # Get today's date in YYYYMMDD format
         current_date = datetime.now().strftime('%Y%m%d')
@@ -505,8 +528,8 @@ class ElasticsearchHandler:
 
         # Exclude system indices and today's indices
         indices_not_today = [
-            idx['index'] for idx in indices_info
-            if not idx['index'].startswith('.') and f"-{current_date}-" not in idx['index']
+            idx for idx in all_indices
+            if not idx.startswith('.') and f"-{current_date}-" not in idx
         ]
 
         # Retrieve all unique _id values from each index (or all at once)
@@ -593,13 +616,41 @@ class ElasticsearchHandler:
         #Retrieve all unique ids where status is not "adopted"
         current_date = datetime.now().strftime("%Y%m%d")
         index_pattern = f"animal-humane-{current_date}-*"
-        query = {"_source":["name","id"],"collapse":{"field":"id"},"query":{"bool":{"must_not":[{"term":{"location":""}}]}}}
+        query = {
+            "size": 0,
+            "aggs": {
+                "unique_dogs": {
+                    "terms": {
+                        "field": "id",
+                        "size": 1000
+                    },
+                    "aggs": {
+                        "latest_doc": {
+                            "top_hits": {
+                                "size": 1,
+                                "sort": [{"_index": {"order": "desc"}}],
+                                "_source": ["name", "id"]
+                            }
+                        }
+                    }
+                }
+            },
+            "query": {
+                "bool": {
+                    "must_not": [{"term": {"location": ""}}]
+                }
+            }
+        }
         response = self.es.search(index=index_pattern, body=query, size=100)
         #This gets you all the available dogs. You still need to compare with dogs on the site
-        for hit in response["hits"]["hits"]:
-            source = hit["_source"]
-            #print(f"ID: {source.get('id')}, Name: {source.get('name')}")
-        return source
+        dogs = []
+        if "aggregations" in response:
+            for bucket in response["aggregations"]["unique_dogs"]["buckets"]:
+                hits = bucket["latest_doc"]["hits"]["hits"]
+                if hits:
+                    source = hits[0]["_source"]
+                    dogs.append(source)
+        return dogs
 
     def get_current_listed_count(self):
         #current count includes all unique ids for the day + unlisted but available dogs
@@ -774,8 +825,15 @@ class ElasticsearchHandler:
         return round(average_los)
 
     def has_been_seen_before(self, dog_id: str) -> bool:
+        # Get only open 2025 indices to avoid closed index exceptions
+        indices_info = self.es.cat.indices(format='json')
+        open_2025_indices = [index['index'] for index in indices_info if index.get('status') == 'open' and index['index'].startswith('animal-humane-2025')]
+        
+        if not open_2025_indices:
+            return False
+            
         query = {"size":0,"query":{"range":{"timestamp":{"lt":"now/d"}}},"aggs":{"weeks":{"date_histogram":{"field":"timestamp","calendar_interval":"week","format":"yyyy-MM-dd","time_zone":"UTC"},"aggs":{"id_filter":{"filter":{"term":{"id":dog_id}}}}}}}
-        response = self.es.search(index="animal-humane-*",body=query)
+        response = self.es.search(index=open_2025_indices, body=query)
         buckets = response.get("aggregations", {}).get("weeks", {}).get("buckets", [])
         for bucket in buckets:
             id_filter_count = bucket.get("id_filter", {}).get("doc_count", 0)
@@ -815,8 +873,8 @@ class ElasticsearchHandler:
         #availables is a list of dicts in this format:
         #{'name': 'Nova', 'dog_id': 208810842, 'url': 'https://new.shelterluv.com/embed/animal/208810842', 'location': 'Main Kennel North, Main Campus - MKN-18'}
 
-        from shelterdog_tracker.shelter_scraper import ShelterScraper
-        scraper = ShelterScraper()
+        # For diff analysis, use existing location data instead of scraping
+        # to avoid seleniumwire dependency
 
         index_ids = self.get_all_ids(most_recent_index)
         unlisted_dogs = [dog for dog in availables if dog['dog_id'] not in index_ids]
@@ -828,17 +886,12 @@ class ElasticsearchHandler:
         other_unlisted_dogs = []
 
         for dog in unlisted_dogs:
-            url = dog.get('url', None)
-            if url:
-                scraped_location = scraper.scrape_dog_location(url)
-                scraped_location_norm = scraped_location.strip().lower()
-            else:
-                # No URL means no way to scrape; fallback to stale location
-                scraped_location_norm = dog.get('location', '').strip().lower()
+            # Use the location from the available dogs data instead of scraping
+            location = dog.get('location', '').strip().lower()
 
-            if scraped_location_norm == '':
+            if location == '':
                 adopted_dogs.append(dog)
-            elif 'trial adoption' in scraped_location_norm:
+            elif 'trial adoption' in location:
                 trial_adoption_dogs.append(dog)
             else:
                 other_unlisted_dogs.append(dog)
@@ -851,7 +904,8 @@ class ElasticsearchHandler:
         }
     def get_adoptions_per_day(self):
         query = {"size":0, "query":{"term":{"status":"adopted"}},"aggs":{"adoptions_over_time":{"date_histogram":{"field":"timestamp","calendar_interval":"day","format":"MM/dd/yyyy","time_zone":"-07:00"},"aggs":{"dog_names":{"terms":{"field":"name.keyword","size":100}}}}}}
-        response = self.es.search(index="animal-humane-*", body=query)
+        # Use index pattern that only includes 2025 indices to avoid timestamp mapping conflicts
+        response = self.es.search(index="animal-humane-2025*", body=query)
 
         #for bucket in response["aggregations"]["adoptions_over_time"]["buckets"]:
         #    print({"date": bucket["key_as_string"], "count":bucket["doc_count"]})
@@ -883,6 +937,7 @@ class ElasticsearchHandler:
             return {"name":None, "days":None, "url":None}
 
     def get_weekly_age_group_adoptions(self):
+        # Only search indices from 2025 onwards to avoid timestamp mapping conflicts
         query_body = {
             "size": 0,
             "query": {"term": {"status": "adopted"}},
@@ -902,7 +957,8 @@ class ElasticsearchHandler:
                 }
             }
         }
-        response = self.es.search(index="animal-humane-*", body=query_body)
+        # Use index pattern that only includes 2025 indices to avoid mapping conflicts
+        response = self.es.search(index="animal-humane-2025*", body=query_body)
         weekly_buckets=response['aggregations']['weekly']['buckets']
         result = []
 

@@ -1,0 +1,51 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: animal-humane-mongodb
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=animal_humane
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: animal-humane-scheduler
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+    environment:
+      - MONGODB_CONNECTION_STRING=mongodb://admin:password@mongodb:27017/animal_humane?authSource=admin
+      - TZ=America/Denver  # Mountain Time timezone
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/logs
+      - ./diff_reports:/app/diff_reports
+      - .:/app
+
+  frontend:
+    restart: unless-stopped
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    container_name: animal-humane-frontend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./react-app/public:/usr/share/nginx/html
+
+volumes:
+  mongodb_data:

@@ -151,8 +151,8 @@ class ElasticsearchService:
             "other_unlisted_dogs": dog_groups.get("other_unlisted_dogs", [])
         }
 
-        # Automatically update the documents for adopted, trial, and unlisted dogs
-        # This ensures their status and location are current in the most recent index
-        await self._run_in_executor(self.handler.update_dogs, result)
+        # Skip automatic updates for Recent Pupdates tab to avoid seleniumwire dependency
+        # The updates can be done separately if needed
+        # await self._run_in_executor(self.handler.update_dogs, result)
 
         return result
