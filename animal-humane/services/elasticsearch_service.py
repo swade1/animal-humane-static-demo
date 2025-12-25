@@ -48,6 +48,20 @@ class ElasticsearchService:
         """Get adopted dogs this week"""
         return await self._run_in_executor(self.handler.get_adopted_dog_count_this_week)
 
+    async def get_trial_adoptions(self) -> List[Dict[str, Any]]:
+        """Get dogs currently on trial adoption"""
+        def _get_trial_adoptions():
+            # Get current available dogs
+            availables = self.handler.get_current_availables()
+            # Filter for dogs with "trial adoption" in location (case insensitive)
+            trial_adoptions = [
+                dog for dog in availables 
+                if 'trial adoption' in dog.get('location', '').lower()
+            ]
+            return trial_adoptions
+
+        return await self._run_in_executor(_get_trial_adoptions)
+
     async def get_age_groups(self, index_name: str = None) -> List[Dict[str, Any]]:
         """Get age group distribution"""
         if index_name is None:

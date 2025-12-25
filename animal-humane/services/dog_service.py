@@ -17,32 +17,34 @@ class DogService:
     async def get_overview_stats(self) -> Dict[str, Any]:
         """Get comprehensive overview statistics"""
         try:
-            # Get the data needed for calculations
+            # Get available dogs (already filtered for status "Available")
             availables = await self.es_service.get_current_availables()
-            idx = await self.es_service.get_most_recent_index()
-            results = await self.es_service.get_dog_groups(availables, idx)
-             # Calculate totals
-            total_unlisted = len(results.get('other_unlisted_dogs', []))
-            total_listed = await self.es_service.get_current_listed_count()
-            total_listed_and_unlisted = total_listed + total_unlisted
-             # Get other stats
+            
+            # Get trial adoptions (dogs with "Trial Adoption" in location)
+            trial_adoptions = await self.es_service.get_trial_adoptions()
+            trial_adoption_count = len(trial_adoptions)
+            
+            # Get foster dogs (dogs with "foster" in location)
+            foster_dogs = [
+                dog for dog in availables 
+                if 'foster' in dog.get('location', '').lower()
+            ]
+            foster_count = len(foster_dogs)
+            
+            # Total dogs in shelter = ALL available dogs (including trial adoptions and foster)
+            total_in_shelter = len(availables)
+            
+            # Get other stats
             new_dog_count = await self.es_service.get_new_dog_count_this_week()
             _, _, _, _, adopted_dog_count = await self.es_service.get_adopted_dogs_this_week()
-            trial_adoption_count = len(results.get('trial_adoption_dogs', []))
-             # Get age groups
-            age_groups = await self.es_service.get_age_groups(idx)
+            
+            # Get age groups (only for dogs in shelter, not trial adoptions or foster)
+            age_groups = await self.es_service.get_age_groups()
             avg_stay = await self.es_service.get_avg_length_of_stay()
             longest_resident = await self.es_service.get_longest_resident()
-             # Log the overview data
-            await self._log_overview_output(
-                len(availables),
-                new_dog_count,
-                adopted_dog_count,
-                trial_adoption_count
-            )
 
             return {
-                "total": len(availables),
+                "total": total_in_shelter,
                 "newThisWeek": new_dog_count,
                 "adoptedThisWeek": adopted_dog_count,
                 "trialAdoptions": trial_adoption_count,
@@ -73,20 +75,13 @@ class DogService:
     async def update_dog(self, dog_id: int, dog_update) -> Dict[str, Any]:
         """Update a dog's information"""
         try:
-            # Get the latest index for this dog
-            latest_index = await self.es_service.get_latest_index_for_dog(dog_id)
-            if not latest_index:
-                raise ValueError(f"No index found for dog {dog_id}")
-
             # Prepare update data
             update_data = dog_update.dict(exclude_unset=True)
             if 'index' in update_data:
                 del update_data['index']  # Don't update the index field
 
-            # Perform the update
-            result = await self.es_service.update_dog_document(
-                latest_index, dog_id, update_data
-            )
+            # Perform the update using MongoDB
+            result = await self.es_service.update_dog_document(dog_id, update_data)
 
             return {"result": "updated", "dog_id": dog_id}
         except Exception as e:

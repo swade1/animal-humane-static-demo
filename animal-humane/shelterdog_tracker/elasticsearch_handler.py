@@ -400,18 +400,7 @@ class ElasticsearchHandler:
         pass
 
     def get_current_availables(self):
-        # This returns the total number of dogs currently appearing on the site. It does not
-        # include dogs that are still at the shelter but are not currently listed for whatever reason.
-        
-        # Get today's date and search only recent indices to avoid HTTP line length limits
-        current_date = datetime.now().strftime('%Y%m%d')
-        
-        # Search indices from the last 30 days to current date
-        recent_indices = []
-        for days_back in range(30, -1, -1):  # 30 days back to today
-            check_date = (datetime.now() - timedelta(days=days_back)).strftime('%Y%m%d')
-            pattern = f"animal-humane-{check_date}*"
-            recent_indices.append(pattern)
+        # This returns ALL available dogs from all indices, not just recent ones
         
         # Build the query using aggregations instead of field collapsing
         query = {
@@ -438,8 +427,8 @@ class ElasticsearchHandler:
             }
         }
 
-        # Run the search on recent indices only
-        response = self.es.search(index=recent_indices, body=query)
+        # Run the search on ALL indices
+        response = self.es.search(index="animal-humane-*", body=query)
 
         # Parse the response to extract dogs from aggregations
         dogs = []
