@@ -4,7 +4,7 @@ import pytz
 import re
 import requests
 
-from elasticsearch import Elasticsearch, helpers
+from elasticsearch import Elasticsearch, helpers, exceptions as es_exceptions
 from elasticsearch.helpers import scan
 
 from shelterdog_tracker.dog import Dog
@@ -33,6 +33,7 @@ class ElasticsearchHandler:
         "Four Corners Animal League":{"latitude":36.4072,"longitude":-105.5731},
         "Gallup McKinley County Humane Society":{"latitude":35.543605,"longitude":-108.760272},
         "Humane Society of Lincoln County":{"latitude":33.3436,"longitude":-105.6650},
+        "Labor of Love Project NM":{"latitude":34.1827,"longitude":-103.3245},
         "Lovelace Biomedical Research":{"latitude":35.0559,"longitude":-106.5789},
         "Moriarty Animal Control":{"latitude":34.9996,"longitude":-106.0183},
         "Mountainair Animal Control":{"latitude":34.5197,"longitude":-106.2433},
@@ -400,52 +401,65 @@ class ElasticsearchHandler:
         pass
 
     def get_current_availables(self):
-        # This returns ALL available dogs from all indices, not just recent ones
-        
-        # Build the query using aggregations instead of field collapsing
+        # This returns ALL available dogs from recent indices, not just recent ones
+        # Modified to avoid aggregation issues with mixed field types by using direct query
+
+        # Get the most recent indices (last 30 days) to avoid mixed type issues
+        try:
+            indices_response = self.es.cat.indices(index="animal-humane-*", format="json")
+            # Sort indices by name (which includes date) and get the most recent ones
+            sorted_indices = sorted([idx['index'] for idx in indices_response], reverse=True)
+            # Use the last 10 most recent indices to get available dogs from recent data
+            recent_indices = sorted_indices[:10]
+            index_pattern = ",".join(recent_indices) if recent_indices else "animal-humane-*"
+        except Exception as e:
+            print(f"Error getting indices, falling back to wildcard: {e}")
+            index_pattern = "animal-humane-*"
+
+        # Use a simpler query without aggregations to avoid mixed type issues
         query = {
-            "size": 0,  # We only want aggregations, not hits
-            "aggs": {
-                "dogs_by_id": {
-                    "terms": {
-                        "field": "id",
-                        "size": 10000  # Adjust size as needed for total dogs
-                    },
-                    "aggs": {
-                        "most_recent": {
-                            "top_hits": {
-                                "size": 1,
-                                "sort": [{"_index": {"order": "desc"}}],
-                                "_source": ["id", "name", "url", "status", "location"]
-                            }
-                        }
-                    }
-                }
-            },
+            "size": 10000,  # Get up to 10k documents
+            "sort": [{"_index": {"order": "desc"}}],  # Sort by index name (most recent first)
+            "_source": ["id", "name", "url", "status", "location", "origin", "intake_date", "length_of_stay_days", "birthdate", "age_group", "breed", "secondary_breed", "weight_group", "color", "bite_quarantine", "returned", "latitude", "longitude"],
             "query": {
-                "match_all": {}
+                "match": {"status": "Available"}  # Only get available dogs
             }
         }
 
-        # Run the search on ALL indices
-        response = self.es.search(index="animal-humane-*", body=query)
+        # Run the search on recent indices only
+        response = self.es.search(index=index_pattern, body=query)
 
-        # Parse the response to extract dogs from aggregations
-        dogs = []
-        if "aggregations" in response:
-            for bucket in response["aggregations"]["dogs_by_id"]["buckets"]:
-                hits = bucket["most_recent"]["hits"]["hits"]
-                if hits:
-                    source = hits[0]["_source"]
-                    if source.get("status") == "Available":
-                        dog = {
-                            "name": source.get("name"),
-                            "dog_id": source.get("id"),
-                            "url": source.get("url"),
-                            "location": source.get("location")
-                        }
-                        dogs.append(dog)
-        return dogs
+        # Process results to get unique dogs (most recent record for each ID)
+        dogs_by_id = {}
+        for hit in response['hits']['hits']:
+            dog_data = hit['_source']
+            dog_id = str(dog_data['id'])  # Ensure ID is string for consistency
+
+            # Keep the most recent record for each dog (first in sorted results)
+            if dog_id not in dogs_by_id:
+                # Transform to expected format with 'dog_id' instead of 'id'
+                dogs_by_id[dog_id] = {
+                    "name": dog_data.get("name"),
+                    "dog_id": dog_data.get("id"),
+                    "url": dog_data.get("url"),
+                    "location": dog_data.get("location"),
+                    "origin": dog_data.get("origin"),
+                    "intake_date": dog_data.get("intake_date"),
+                    "length_of_stay_days": dog_data.get("length_of_stay_days"),
+                    "birthdate": dog_data.get("birthdate"),
+                    "age_group": dog_data.get("age_group"),
+                    "breed": dog_data.get("breed"),
+                    "secondary_breed": dog_data.get("secondary_breed"),
+                    "weight_group": dog_data.get("weight_group"),
+                    "color": dog_data.get("color"),
+                    "bite_quarantine": dog_data.get("bite_quarantine"),
+                    "returned": dog_data.get("returned"),
+                    "latitude": dog_data.get("latitude"),
+                    "longitude": dog_data.get("longitude")
+                }
+
+        # Return list of unique dogs
+        return list(dogs_by_id.values())
 
     def get_all_ids(self, index_name):
         ids = []
@@ -751,8 +765,8 @@ class ElasticsearchHandler:
             print(f"Unique new dogs since {seven_days_ago.date()} ({len(recent_ids)} total): {recent_ids}")
             return len(recent_ids)
 
-        except es_exceptions.ElasticsearchException as e:
-            self.logger.error(f"Error querying Elasticsearch for new dog count: {e}")
+        except es_exceptions.ApiError as e:
+            print(f"Error querying Elasticsearch for new dog count: {e}")
             return 0
 
     def get_adopted_dog_count_this_week(self):
@@ -790,8 +804,8 @@ class ElasticsearchHandler:
             print(f"Dogs adopted since {seven_days_ago.date()}: {adopted_name}")
             return adopted_name, adopted_date, adopted_url, adopted_los, len(adopted_ids)
 
-        except es_exceptions.ElasticsearchException as e:
-            self.logger.error(f"Error querying adopted dogs in last 7 days: {e}")
+        except es_exceptions.ApiError as e:
+            print(f"Error querying adopted dogs in last 7 days: {e}")
             return [], [], [], [], 0
 
     def get_avg_length_of_stay(self):
@@ -974,7 +988,7 @@ class ElasticsearchHandler:
         origin_buckets=response['aggregations']['origins']['buckets']
         transformed_data = []
         for bucket in origin_buckets:
-            coords = origin_coordinates.get(bucket["key"])
+            coords = self.origin_coordinates.get(bucket["key"])
             if coords:
                 transformed_data.append({
                     "latitude": coords["latitude"],
