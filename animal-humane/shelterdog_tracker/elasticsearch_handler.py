@@ -404,14 +404,10 @@ class ElasticsearchHandler:
         # This returns ALL available dogs from recent indices, not just recent ones
         # Modified to avoid aggregation issues with mixed field types by using direct query
 
-        # Get the most recent indices (last 30 days) to avoid mixed type issues
+        # Query all indices to get complete picture, avoiding mixed type issues by processing in Python
         try:
-            indices_response = self.es.cat.indices(index="animal-humane-*", format="json")
-            # Sort indices by name (which includes date) and get the most recent ones
-            sorted_indices = sorted([idx['index'] for idx in indices_response], reverse=True)
-            # Use the last 10 most recent indices to get available dogs from recent data
-            recent_indices = sorted_indices[:10]
-            index_pattern = ",".join(recent_indices) if recent_indices else "animal-humane-*"
+            # Use all animal-humane indices but sort by recency for deduplication
+            index_pattern = "animal-humane-*"
         except Exception as e:
             print(f"Error getting indices, falling back to wildcard: {e}")
             index_pattern = "animal-humane-*"
@@ -422,7 +418,7 @@ class ElasticsearchHandler:
             "sort": [{"_index": {"order": "desc"}}],  # Sort by index name (most recent first)
             "_source": ["id", "name", "url", "status", "location", "origin", "intake_date", "length_of_stay_days", "birthdate", "age_group", "breed", "secondary_breed", "weight_group", "color", "bite_quarantine", "returned", "latitude", "longitude"],
             "query": {
-                "match": {"status": "Available"}  # Only get available dogs
+                "match_all": {}  # Get all dogs from recent indices
             }
         }
 
@@ -437,13 +433,13 @@ class ElasticsearchHandler:
 
             # Keep the most recent record for each dog (first in sorted results)
             if dog_id not in dogs_by_id:
-                # Transform to expected format with 'dog_id' instead of 'id'
                 dogs_by_id[dog_id] = {
                     "name": dog_data.get("name"),
                     "dog_id": dog_data.get("id"),
                     "url": dog_data.get("url"),
                     "location": dog_data.get("location"),
                     "origin": dog_data.get("origin"),
+                    "status": dog_data.get("status"),  # Make sure status is included
                     "intake_date": dog_data.get("intake_date"),
                     "length_of_stay_days": dog_data.get("length_of_stay_days"),
                     "birthdate": dog_data.get("birthdate"),
@@ -458,8 +454,14 @@ class ElasticsearchHandler:
                     "longitude": dog_data.get("longitude")
                 }
 
-        # Return list of unique dogs
-        return list(dogs_by_id.values())
+        # Filter for dogs with status "Available" from their most recent record
+        available_dogs = [
+            dog for dog in dogs_by_id.values() 
+            if dog.get("status") == "Available"  # Only include dogs currently available
+        ]
+
+        # Return list of unique available dogs
+        return available_dogs
 
     def get_all_ids(self, index_name):
         ids = []
