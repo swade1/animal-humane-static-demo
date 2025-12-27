@@ -938,17 +938,27 @@ class ElasticsearchHandler:
         # Get only open 2025 indices to avoid closed index exceptions
         indices_info = self.es.cat.indices(format='json')
         open_2025_indices = [index['index'] for index in indices_info if index.get('status') == 'open' and index['index'].startswith('animal-humane-2025')]
-        
+
         if not open_2025_indices:
             return False
-            
+
+        # Batch indices to avoid HTTP line length limits
+        batch_size = 200  # Process 200 indices at a time
         query = {"size":0,"query":{"range":{"timestamp":{"lt":"now/d"}}},"aggs":{"weeks":{"date_histogram":{"field":"timestamp","calendar_interval":"week","format":"yyyy-MM-dd","time_zone":"UTC"},"aggs":{"id_filter":{"filter":{"term":{"id":dog_id}}}}}}}
-        response = self.es.search(index=open_2025_indices, body=query)
-        buckets = response.get("aggregations", {}).get("weeks", {}).get("buckets", [])
-        for bucket in buckets:
-            id_filter_count = bucket.get("id_filter", {}).get("doc_count", 0)
-            if id_filter_count > 0:
-                return True
+
+        for i in range(0, len(open_2025_indices), batch_size):
+            batch_indices = open_2025_indices[i:i + batch_size]
+            try:
+                response = self.es.search(index=batch_indices, body=query)
+                buckets = response.get("aggregations", {}).get("weeks", {}).get("buckets", [])
+                for bucket in buckets:
+                    id_filter_count = bucket.get("id_filter", {}).get("doc_count", 0)
+                    if id_filter_count > 0:
+                        return True
+            except Exception as e:
+                print(f"Error querying batch {i//batch_size + 1}: {e}")
+                continue
+
         return False
 
     def get_returned_dogs(self, availables, idx):
