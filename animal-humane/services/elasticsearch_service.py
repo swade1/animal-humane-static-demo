@@ -42,7 +42,12 @@ class ElasticsearchService:
 
     async def get_new_dog_count_this_week(self) -> int:
         """Get new dog count this week"""
-        return await self._run_in_executor(self.handler.get_new_dog_count_this_week)
+        dog_names = await self._run_in_executor(self.handler.get_new_dog_count_this_week_accurate)
+        return len(dog_names)
+
+    async def get_new_dog_names_this_week(self) -> List[str]:
+        """Get new dog names this week"""
+        return await self._run_in_executor(self.handler.get_new_dog_count_this_week_accurate)
 
     async def get_adopted_dogs_this_week(self) -> Tuple[List[str], List[str], List[str], List[int], int]:
         """Get adopted dogs this week"""

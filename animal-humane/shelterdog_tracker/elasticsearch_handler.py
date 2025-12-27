@@ -751,25 +751,130 @@ class ElasticsearchHandler:
 
     def get_new_dog_count_this_week(self):
         """
-        Return the count of dogs whose intake_date is within the last 7 days.
-        Uses intake_date rather than index timestamp to ensure accuracy.
+        Return the count of dogs that appeared in indices from the last 7 days.
+        This approximates "new dogs" by counting dogs in recent scrapes.
         """
         now = datetime.utcnow().replace(microsecond=0)
         seven_days_ago = now - timedelta(days=7)
 
         try:
-            query = { "size": 0, "query": { "range": { "intake_date": {   "gte": seven_days_ago.isoformat(), "lt": now.isoformat() } } }, "aggs": { "unique_ids": { "terms": { "field": "id", "size": 10000 } } } }
+            # Get indices from the last 7 days
+            cutoff_date = seven_days_ago.strftime("%Y%m%d")
 
-            resp = self.es.search( index="animal-humane-*", body=query, request_timeout=60)
+            # Get all indices and filter for recent ones
+            indices_response = self.es.cat.indices(index="animal-humane-*", format="json")
+            all_indices = [idx['index'] for idx in indices_response]
 
-            recent_ids = {bucket['key'] for bucket in resp['aggregations']['unique_ids']['buckets']}
+            # Filter for indices from the last 7 days
+            recent_indices = []
+            for index in all_indices:
+                try:
+                    # Extract date from index name (animal-humane-YYYYMMDD-...)
+                    date_str = index.split('-')[2]  # YYYYMMDD
+                    if date_str >= cutoff_date:
+                        recent_indices.append(index)
+                except:
+                    continue
 
-            print(f"Unique new dogs since {seven_days_ago.date()} ({len(recent_ids)} total): {recent_ids}")
-            return len(recent_ids)
+            if not recent_indices:
+                return []
+
+            recent_pattern = ",".join(recent_indices)
+
+            # Query for all dogs in recent indices with aggregation to get names
+            query = {
+                "size": 0,
+                "query": {"match_all": {}},
+                "aggs": {
+                    "unique_dogs": {
+                        "terms": {
+                            "field": "id",
+                            "size": 10000
+                        },
+                        "aggs": {
+                            "dog_name": {
+                                "terms": {
+                                    "field": "name.keyword",
+                                    "size": 1
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            resp = self.es.search(index=recent_pattern, body=query, request_timeout=60)
+
+            if 'aggregations' in resp and 'unique_dogs' in resp['aggregations']:
+                dog_names = []
+                for bucket in resp['aggregations']['unique_dogs']['buckets']:
+                    if bucket['dog_name']['buckets']:
+                        dog_names.append(bucket['dog_name']['buckets'][0]['key'])
+                
+                print(f"Found {len(dog_names)} unique dogs in indices since {seven_days_ago.date()}")
+                return sorted(dog_names)
+            else:
+                print("No aggregation results found")
+                return []
 
         except es_exceptions.ApiError as e:
             print(f"Error querying Elasticsearch for new dog count: {e}")
-            return 0
+            return []
+
+    def get_new_dog_count_this_week_accurate(self):
+        """
+        Return the count of dogs that first appeared in the last 7 days.
+        This checks each current dog's first appearance date by finding their earliest index.
+        """
+        now = datetime.utcnow().replace(microsecond=0)
+        seven_days_ago = now - timedelta(days=7)
+        cutoff_date = seven_days_ago.strftime("%Y%m%d")
+
+        print(f"Checking for dogs that first appeared on or after {cutoff_date}")
+
+        try:
+            # First, get all current dogs from recent indices
+            current_dogs = self.get_current_availables()
+            current_dog_ids = set(dog.get('dog_id') for dog in current_dogs if dog.get('dog_id'))
+
+            new_dog_count = 0
+            new_dog_names = []
+
+            for dog_id in current_dog_ids:
+                try:
+                    # Query for this dog's earliest appearance
+                    query = {
+                        "query": {"match": {"id": dog_id}},
+                        "size": 1,
+                        "_source": ["name"],
+                        "sort": [{"_index": {"order": "asc"}}]
+                    }
+
+                    resp = self.es.search(index="animal-humane-*", body=query, request_timeout=10)
+
+                    if resp["hits"]["hits"]:
+                        earliest_index = resp["hits"]["hits"][0]["_index"]
+                        dog_name = resp["hits"]["hits"][0]["_source"].get("name", f"ID:{dog_id}")
+
+                        # Extract date from index name (animal-humane-YYYYMMDD-...)
+                        try:
+                            date_str = earliest_index.split('-')[2]  # YYYYMMDD
+                            if date_str >= cutoff_date:
+                                new_dog_count += 1
+                                new_dog_names.append(dog_name)
+                        except:
+                            continue
+
+                except Exception as e:
+                    print(f"Error checking dog {dog_id}: {e}")
+                    continue
+
+            print(f"Found {new_dog_count} dogs that first appeared on or after {seven_days_ago.date()}")
+            return sorted(new_dog_names)
+
+        except es_exceptions.ApiError as e:
+            print(f"Error querying Elasticsearch for accurate new dog count: {e}")
+            return []
 
     def get_adopted_dog_count_this_week(self):
         """
