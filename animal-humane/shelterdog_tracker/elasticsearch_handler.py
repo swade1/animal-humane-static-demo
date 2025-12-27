@@ -935,31 +935,34 @@ class ElasticsearchHandler:
         return round(average_los)
 
     def has_been_seen_before(self, dog_id: str) -> bool:
-        # Get only open 2025 indices to avoid closed index exceptions
-        indices_info = self.es.cat.indices(format='json')
-        open_2025_indices = [index['index'] for index in indices_info if index.get('status') == 'open' and index['index'].startswith('animal-humane-2025')]
+        # Only check indices from the last 3 months to avoid excessive queries
+        # Use a simpler query that just checks if the dog exists in historical data
+        from datetime import datetime, timedelta
+        three_months_ago = datetime.now() - timedelta(days=90)
+        date_pattern = three_months_ago.strftime('%Y%m%d')
 
-        if not open_2025_indices:
+        # Use index pattern for recent indices only (current year)
+        current_year = datetime.now().strftime('%Y')
+        index_pattern = f"animal-humane-{current_year}*"
+        query = {
+            "size": 0,
+            "query": {
+                "bool": {
+                    "must": [
+                        {"range": {"timestamp": {"lt": "now/d"}}},
+                        {"term": {"id": dog_id}}
+                    ]
+                }
+            }
+        }
+
+        try:
+            response = self.es.search(index=index_pattern, body=query)
+            total_hits = response.get("hits", {}).get("total", {}).get("value", 0)
+            return total_hits > 0
+        except Exception as e:
+            print(f"Error checking if dog {dog_id} has been seen before: {e}")
             return False
-
-        # Batch indices to avoid HTTP line length limits
-        batch_size = 200  # Process 200 indices at a time
-        query = {"size":0,"query":{"range":{"timestamp":{"lt":"now/d"}}},"aggs":{"weeks":{"date_histogram":{"field":"timestamp","calendar_interval":"week","format":"yyyy-MM-dd","time_zone":"UTC"},"aggs":{"id_filter":{"filter":{"term":{"id":dog_id}}}}}}}
-
-        for i in range(0, len(open_2025_indices), batch_size):
-            batch_indices = open_2025_indices[i:i + batch_size]
-            try:
-                response = self.es.search(index=batch_indices, body=query)
-                buckets = response.get("aggregations", {}).get("weeks", {}).get("buckets", [])
-                for bucket in buckets:
-                    id_filter_count = bucket.get("id_filter", {}).get("doc_count", 0)
-                    if id_filter_count > 0:
-                        return True
-            except Exception as e:
-                print(f"Error querying batch {i//batch_size + 1}: {e}")
-                continue
-
-        return False
 
     def get_returned_dogs(self, availables, idx):
         returned_dogs = []
