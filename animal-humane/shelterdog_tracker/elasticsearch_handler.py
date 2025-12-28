@@ -964,32 +964,50 @@ class ElasticsearchHandler:
             print(f"Error checking if dog {dog_id} has been seen before: {e}")
             return False
 
-    def get_returned_dogs(self, availables, idx):
+    def get_returned_dogs(self, availables, most_recent_index):
+        # Extract current date from most_recent_index (e.g., "20251227" from "animal-humane-20251227-1500")
+        import re
+        date_match = re.search(r'animal-humane-(\d{8})-', most_recent_index)
+        if not date_match:
+            # Fallback if date extraction fails
+            return []
+        current_date = date_match.group(1)
+        # Convert to YYYY-MM-DD format for timestamp comparison
+        formatted_date = f"{current_date[:4]}-{current_date[4:6]}-{current_date[6:]}"
+
         returned_dogs = []
-        dogs_with_one_day_stay = []
-        #find length_of_stay_days:1 for availables in most_recent_index
-        query = {"query": {"match":{ "length_of_stay_days":1 }}}
-        response = self.es.search(index=idx, body=query)
 
-        if 'hits' in response and response['hits']['total']['value'] > 0:
-            hits = response['hits']['hits']  # list of document hits
-            for doc in hits:
-                source = doc.get('_source', {})
-                dog_info = {
-                    "id": doc.get('_id'),            # or source["id"] if stored there
-                    "name": source.get("name"),
-                    "url": source.get("url"),
-                    "origin": source.get("origin")  # Add origin to check if it's a stray
-                }
-                dogs_with_one_day_stay.append(dog_info)
+        # For each available dog, check if they were previously adopted
+        for available_dog in availables:
+            dog_id = available_dog['dog_id']
 
-        for dog in dogs_with_one_day_stay:
-            dog_id = str(dog["id"])
-            # Exclude stray dogs from being classified as returned
-            if dog.get("origin") == "Stray":
-                continue
-            if self.has_been_seen_before(dog_id):
-                returned_dogs.append({"name": dog["name"], "url": dog["url"]})
+            # Check if this dog has "status":"adopted" in historical indices (before today)
+            historical_query = {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {"term": {"id": dog_id}},
+                            {"term": {"status": "adopted"}},
+                            {"range": {"timestamp": {"lt": formatted_date}}}  # Before today
+                        ]
+                    }
+                },
+                "_source": ["name", "id", "url", "location", "status"]
+            }
+
+            try:
+                response = self.es.search(index="animal-humane-*", body=historical_query)
+                if response['hits']['total']['value'] > 0:
+                    # This dog was previously adopted and is now back
+                    returned_dogs.append({
+                        'name': available_dog.get('name', 'Unknown'),
+                        'dog_id': dog_id,
+                        'url': available_dog.get('url', ''),
+                        'location': available_dog.get('location', '')
+                    })
+            except Exception as e:
+                print(f"Error checking returned dog {dog_id}: {e}")
+
         return returned_dogs
 
     def get_dog_groups(self, availables, most_recent_index):
