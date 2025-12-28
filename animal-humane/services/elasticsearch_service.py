@@ -161,13 +161,31 @@ class ElasticsearchService:
         new_dogs_data = await self.get_new_dogs()
         new_dogs = new_dogs_data.get("new_dogs", [])
 
+        # Extract dog IDs from new dogs URLs to exclude them from other_unlisted_dogs
+        new_dog_ids = set()
+        for new_dog in new_dogs:
+            url = new_dog.get('url', '')
+            # Extract dog ID from URL like "https://new.shelterluv.com/embed/animal/208811366"
+            if '/animal/' in url:
+                try:
+                    dog_id = int(url.split('/animal/')[-1])
+                    new_dog_ids.add(dog_id)
+                except (ValueError, IndexError):
+                    pass
+
+        # Filter out new dogs from other_unlisted_dogs to prevent duplicates
+        filtered_unlisted_dogs = [
+            dog for dog in dog_groups.get("other_unlisted_dogs", [])
+            if dog.get('dog_id') not in new_dog_ids
+        ]
+
         # Combine results in the format expected by the frontend
         result = {
             "new_dogs": new_dogs,
             "returned_dogs": dog_groups.get("returned_dogs", []),
             "adopted_dogs": dog_groups.get("adopted_dogs", []),
             "trial_adoption_dogs": dog_groups.get("trial_adoption_dogs", []),
-            "other_unlisted_dogs": dog_groups.get("other_unlisted_dogs", [])
+            "other_unlisted_dogs": filtered_unlisted_dogs
         }
 
         # Skip automatic updates for Recent Pupdates tab to avoid seleniumwire dependency

@@ -1159,19 +1159,70 @@ class ElasticsearchHandler:
         return chart_data
 
     def get_longest_resident(self):
+        """
+        Get the dog with the longest length of stay, calculated dynamically
+        as the difference between intake_date and today's date.
+        Only considers dogs that are currently available (most recent status is "available").
+        """
+        from datetime import datetime
 
-        query = { "query": { "match": { "status": "available" } },"sort": [ {"length_of_stay_days": {"order": "desc"}}, {"_index": {"order": "desc"}} ], "_source": ["name", "length_of_stay_days", "url"], "size": 1 }
+        # First, get all dogs that are currently available by finding their most recent status
+        # We'll query all documents and group by dog ID, keeping only those with latest status = "available"
+        current_available_query = {
+            "size": 10000,  # Need to get all available dogs
+            "query": {"match_all": {}},  # Get all documents
+            "_source": ["id", "status", "name", "intake_date", "url"],
+            "sort": [{"_index": {"order": "desc"}}]  # Most recent index first
+        }
 
-        response = self.es.search(index="animal-humane-*",body=query)
+        response = self.es.search(index="animal-humane-*", body=current_available_query)
 
-        if response["hits"]["hits"]:
-            longest_stay_doc = response["hits"]["hits"][0]["_source"]
-            name = longest_stay_doc.get("name")
-            days = longest_stay_doc.get("length_of_stay_days")
-            url = longest_stay_doc.get("url")
-            return {"name":name, "days":days, "url":url}
-        else:
-            return {"name":None, "days":None, "url":None}
+        # Group by dog ID and keep only the most recent record for each dog
+        dogs_by_id = {}
+        for hit in response["hits"]["hits"]:
+            dog_data = hit["_source"]
+            dog_id = str(dog_data.get("id"))
+
+            # Only keep the first (most recent) record for each dog
+            if dog_id not in dogs_by_id:
+                dogs_by_id[dog_id] = dog_data
+
+        # Filter to only dogs with current status "available" and valid intake_date
+        available_dogs = []
+        for dog_data in dogs_by_id.values():
+            if (dog_data.get("status", "").lower() == "available" and
+                dog_data.get("intake_date") and
+                dog_data.get("name")):  # Exclude euthanized dogs
+                available_dogs.append(dog_data)
+
+        if not available_dogs:
+            return {"name": None, "days": None, "url": None}
+
+        # Calculate length of stay for each available dog and find the maximum
+        longest_stay_dog = None
+        max_days = 0
+        today = datetime.now().date()
+
+        for dog_data in available_dogs:
+            intake_date_str = dog_data.get("intake_date")
+
+            try:
+                # Parse intake_date (assuming format like "2025-10-17")
+                intake_date = datetime.fromisoformat(intake_date_str.split('T')[0]).date()
+                days = (today - intake_date).days
+
+                if days > max_days:
+                    max_days = days
+                    longest_stay_dog = {
+                        "name": dog_data.get("name"),
+                        "days": days,
+                        "url": dog_data.get("url")
+                    }
+            except (ValueError, AttributeError) as e:
+                # Skip dogs with invalid intake dates
+                continue
+
+        return longest_stay_dog if longest_stay_dog else {"name": None, "days": None, "url": None}
 
     def get_weekly_age_group_adoptions(self):
         # Only search indices from 2025 onwards to avoid timestamp mapping conflicts

@@ -23,8 +23,13 @@ class TestElasticsearchHandler(unittest.TestCase):
         self.handler = ElasticsearchHandler("http://localhost:9200", "test-index")
 
     def test_get_length_of_stay_distribution(self):
-        # Test data setup
-        index_name = "test-index"
+        # Use a unique index name to avoid conflicts
+        import time
+        index_name = f"test-index-{int(time.time())}"
+        
+        # Delete index if it exists
+        self.handler.es.indices.delete(index=index_name, ignore=[400, 404])
+        
         self.handler.es.indices.create(index=index_name, ignore=400)
 
         # Create test documents with length_of_stay_days
@@ -66,19 +71,35 @@ class TestElasticsearchHandler(unittest.TestCase):
         # Index the test documents
         for doc in docs:
             self.handler.es.index(index=doc["_index"], body=doc["_source"])
+        
+        # Refresh the index to make documents searchable
+        self.handler.es.indices.refresh(index=index_name)
 
-        # Test with no status filter (should return all)
-        distribution = self.handler.get_length_of_stay_distribution()
-        # We're getting all the intervals, so just check that we have data
-        self.assertTrue(len(distribution) > 0)
+        # Test with no status filter (should return available dogs by default)
+        distribution = self.handler.get_length_of_stay_distribution(index_pattern=index_name)
+        # Check that we have the expected structure
+        self.assertIn("bins", distribution)
+        self.assertIn("metadata", distribution)
+        self.assertTrue(len(distribution["bins"]) > 0)
 
         # Test with 'adopted' status filter
-        adopted_distribution = self.handler.get_length_of_stay_distribution("adopted")
-        self.assertTrue(len(adopted_distribution) > 0)
-        # Check that we have the expected values
-        adopted_values = {d["range_start"] for d in adopted_distribution}
-        self.assertTrue(5 in adopted_values)
-        self.assertTrue(15 in adopted_values)
+        adopted_distribution = self.handler.get_length_of_stay_distribution("adopted", index_pattern=index_name)
+        self.assertIn("bins", adopted_distribution)
+        self.assertIn("metadata", adopted_distribution)
+        self.assertIsInstance(adopted_distribution["bins"], list)
+        self.assertIsInstance(adopted_distribution["metadata"], dict)
+
+        # Check that adopted dogs are found (should be 2 dogs with status "adopted")
+        adopted_dogs = []
+        for bin_data in adopted_distribution["bins"]:
+            adopted_dogs.extend(bin_data["dogs"])
+
+        # Should find the 2 adopted dogs
+        self.assertEqual(len(adopted_dogs), 2, f"Expected 2 adopted dogs, found {len(adopted_dogs)}")
+        
+        # Check that the dogs have the expected length_of_stay_days values
+        los_values = sorted([dog["length_of_stay_days"] for dog in adopted_dogs])
+        self.assertEqual(los_values, [5, 15], f"Expected [5, 15], found {los_values}")
 
 if __name__ == "__main__":
     unittest.main()
