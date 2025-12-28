@@ -142,9 +142,9 @@ class ElasticsearchService:
         """Get new dogs"""
         return await self._run_in_executor(self.handler.get_new_dogs)
 
-    async def get_length_of_stay_distribution(self) -> Dict[str, Any]:
-        """Get length of stay histogram distribution using Sturges formula"""
-        return await self._run_in_executor(self.handler.get_length_of_stay_distribution)
+    async def get_length_of_stay_distribution(self, status: Optional[str] = None) -> Dict[str, Any]:
+        """Get length of stay histogram distribution using optimized aggregation approach"""
+        return await self._run_in_executor(self.handler.get_length_of_stay_distribution, status)
 
     async def get_diff_analysis(self) -> Dict[str, Any]:
         """Get diff analysis data (new, returned, adopted, trial, unlisted dogs)"""

@@ -48,6 +48,24 @@ function DiffAnalysisTab() {
     loadMissingDogs();
   }, []);
 
+  // Filter missing dogs to exclude any that are in new_dogs
+  const filteredMissingDogs = React.useMemo(() => {
+    if (!data || !missingDogs.length) return missingDogs;
+    
+    // Extract dog IDs from new_dogs URLs
+    const newDogIds = new Set();
+    (data.new_dogs || []).forEach(dog => {
+      const url = dog.url || '';
+      const match = url.match(/\/animal\/(\d+)$/);
+      if (match) {
+        newDogIds.add(parseInt(match[1]));
+      }
+    });
+    
+    // Filter out dogs that are in new_dogs
+    return missingDogs.filter(dog => !newDogIds.has(dog.id));
+  }, [data, missingDogs]);
+
   const openModal = (url) => {
     setModalUrl(url);
     setIsModalOpen(true);
@@ -144,7 +162,7 @@ function DiffAnalysisTab() {
       {renderDogList(data.adopted_dogs, "Adopted/Reclaimed Dogs")}
       {renderDogList(data.trial_adoption_dogs, "Trial Adoptions")}
       {renderDogList(data.other_unlisted_dogs, "Available but Temporarily Unlisted")}
-      {renderDogList(missingDogs, "Available Soon")}
+      {renderDogList(filteredMissingDogs, "Available Soon")}
 
       <Modal
         isOpen={isModalOpen}
