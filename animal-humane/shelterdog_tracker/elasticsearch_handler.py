@@ -1000,11 +1000,33 @@ class ElasticsearchHandler:
         # to avoid seleniumwire dependency
 
         index_ids = self.get_all_ids(most_recent_index)
+        available_ids = [dog['dog_id'] for dog in availables]
+
+        # Find dogs that are in the most recent index but not in current availables - these are adopted
+        adopted_dog_ids = [dog_id for dog_id in index_ids if dog_id not in available_ids]
+
+        # Get full dog data for adopted dogs from the most recent index
+        adopted_dogs = []
+        if adopted_dog_ids:
+            # Query for adopted dogs data
+            query = {
+                "query": {"terms": {"id": adopted_dog_ids}},
+                "_source": ["name", "id", "url", "location", "status"]
+            }
+            response = self.es.search(index=most_recent_index, body=query)
+            for hit in response['hits']['hits']:
+                dog_data = hit['_source']
+                adopted_dogs.append({
+                    'name': dog_data.get('name', 'Unknown'),
+                    'dog_id': dog_data['id'],
+                    'url': dog_data.get('url', ''),
+                    'location': dog_data.get('location', '')
+                })
+
         unlisted_dogs = [dog for dog in availables if dog['dog_id'] not in index_ids]
 
         returned_dogs = self.get_returned_dogs(availables, most_recent_index)
 
-        adopted_dogs = []
         trial_adoption_dogs = []
         other_unlisted_dogs = []
 
@@ -1012,9 +1034,7 @@ class ElasticsearchHandler:
             # Use the location from the available dogs data instead of scraping
             location = dog.get('location', '').strip().lower()
 
-            if location == '':
-                adopted_dogs.append(dog)
-            elif 'trial adoption' in location:
+            if 'trial adoption' in location:
                 trial_adoption_dogs.append(dog)
             else:
                 other_unlisted_dogs.append(dog)
