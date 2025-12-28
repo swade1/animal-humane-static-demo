@@ -973,38 +973,65 @@ class ElasticsearchHandler:
             return []
         current_date = date_match.group(1)
         # Convert to YYYY-MM-DD format for timestamp comparison
-        formatted_date = f"{current_date[:4]}-{current_date[4:6]}-{current_date[6:]}"
+        formatted_today = f"{current_date[:4]}-{current_date[4:6]}-{current_date[6:]}"
 
         returned_dogs = []
 
-        # For each available dog, check if they were previously adopted
+        # For each available dog, check if they were previously adopted AND returned today
         for available_dog in availables:
             dog_id = available_dog['dog_id']
 
-            # Check if this dog has "status":"adopted" in historical indices (before today)
+            # First check if this dog has "status":"adopted" in historical indices (before today)
             historical_query = {
                 "query": {
                     "bool": {
                         "must": [
                             {"term": {"id": dog_id}},
                             {"term": {"status": "adopted"}},
-                            {"range": {"timestamp": {"lt": formatted_date}}}  # Before today
+                            {"range": {"timestamp": {"lt": formatted_today}}}  # Before today
                         ]
                     }
                 },
-                "_source": ["name", "id", "url", "location", "status"]
+                "_source": ["name", "id", "status", "timestamp"]
             }
 
             try:
                 response = self.es.search(index="animal-humane-*", body=historical_query)
                 if response['hits']['total']['value'] > 0:
-                    # This dog was previously adopted and is now back
-                    returned_dogs.append({
-                        'name': available_dog.get('name', 'Unknown'),
-                        'dog_id': dog_id,
-                        'url': available_dog.get('url', ''),
-                        'location': available_dog.get('location', '')
-                    })
+                    # This dog was previously adopted, now check if they returned TODAY
+                    # Get all records for this dog to find the return date
+                    all_records_query = {
+                        "query": {"term": {"id": dog_id}},
+                        "_source": ["status", "timestamp"],
+                        "sort": [{"timestamp": {"order": "asc"}}],
+                        "size": 1000
+                    }
+                    all_response = self.es.search(index="animal-humane-*", body=all_records_query)
+
+                    # Find the return date (first "Available" status after adoption)
+                    adoption_found = False
+                    return_date = None
+
+                    for record in all_response['hits']['hits']:
+                        status = record['_source'].get('status')
+                        timestamp = record['_source'].get('timestamp')
+
+                        if status == 'adopted':
+                            adoption_found = True
+                        elif status == 'Available' and adoption_found and not return_date:
+                            # This is the return date
+                            return_date = timestamp[:10] if timestamp else None  # YYYY-MM-DD
+                            break
+
+                    # Only include if the return date is today
+                    if return_date == formatted_today:
+                        returned_dogs.append({
+                            'name': available_dog.get('name', 'Unknown'),
+                            'dog_id': dog_id,
+                            'url': available_dog.get('url', ''),
+                            'location': available_dog.get('location', '')
+                        })
+
             except Exception as e:
                 print(f"Error checking returned dog {dog_id}: {e}")
 
@@ -1344,18 +1371,74 @@ class ElasticsearchHandler:
             else:
                 print(f"WARNING: {origin_name} has no coordinates - lat: {lat}, lon: {lon}")
 
-        # Query ALL indices for adopted dogs (adoptions are historical)
-        adoptions_per_shelter_results = self.es.search(index="animal-humane-*", body=adoptions_per_shelter)
-        shelter_buckets = adoptions_per_shelter_results['aggregations']['shelters']['buckets']
-        
-        # Build dict of adopted counts per shelter
+        # Instead of counting historical adoptions, we need to count dogs by their CURRENT status
+        # Use Elasticsearch aggregations to efficiently count current status per origin
+        # This replaces the inefficient deduplication approach that hit the 10,000 document limit
+        current_status_agg_query = {
+            "size": 0,  # We only need aggregations, not the actual documents
+            "query": {
+                "bool": {
+                    "must_not": [
+                        {"term": {"origin.keyword": "Unknown"}},
+                        {"term": {"origin.keyword": "Stray"}},
+                        {"term": {"origin.keyword": "Owner Surrender"}}
+                    ]
+                }
+            },
+            "aggs": {
+                "origins": {
+                    "terms": {
+                        "field": "origin.keyword",
+                        "size": 500  # Should be enough for all shelters
+                    },
+                    "aggs": {
+                        "dogs": {
+                            "terms": {
+                                "field": "id",
+                                "size": 10000  # Allow up to 10k dogs per shelter
+                            },
+                            "aggs": {
+                                "latest_status": {
+                                    "top_hits": {
+                                        "size": 1,
+                                        "sort": [{"_index": {"order": "desc"}}],  # Most recent index first
+                                        "_source": ["status"]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        # Execute the aggregation query
+        agg_response = self.es.search(index="animal-humane-*", body=current_status_agg_query)
+
+        # Process aggregation results
         adopted_by_origin = {}
-        for bucket in shelter_buckets:
-            shelter_name = bucket["key"]
-            # Use cardinality aggregation result
-            num_adoptions = bucket["uids"]["value"]
-            adopted_by_origin[shelter_name] = int(num_adoptions)
-        
+        available_by_origin = {}
+
+        for origin_bucket in agg_response['aggregations']['origins']['buckets']:
+            origin = origin_bucket['key']
+
+            # Count unique dogs by their latest status
+            adopted_count = 0
+            available_count = 0
+
+            for dog_bucket in origin_bucket['dogs']['buckets']:
+                # Get the latest status for this dog
+                latest_hit = dog_bucket['latest_status']['hits']['hits'][0]
+                status = latest_hit['_source'].get('status', '').lower()
+
+                if status == 'adopted':
+                    adopted_count += 1
+                elif status == 'available':
+                    available_count += 1
+
+            adopted_by_origin[origin] = adopted_count
+            available_by_origin[origin] = available_count
+
         # Debug: Print adopted dogs per shelter
         print("ADOPTED dogs per shelter:")
         for shelter_name, count in adopted_by_origin.items():
@@ -1367,7 +1450,7 @@ class ElasticsearchHandler:
         ]
 
         # Debug: Print specific origins and final result structure
-        print(f"\nDEBUG: Scanned {doc_count} documents from ALL indices")
+        print(f"\nDEBUG: Used Elasticsearch aggregations to process ALL records efficiently")
         print(f"DEBUG: Found {len(origins_data)} unique origins with IDs")
         print(f"FINAL RESULTS - Total origins returned (with coords): {len(result)}")
         for item in result:
@@ -1381,13 +1464,21 @@ class ElasticsearchHandler:
             for item in missing_coords:
                 print(f"  - {item.get('origin')}: lat={item.get('latitude')}, lon={item.get('longitude')}")
 
-        # Add adopted count to each shelter in result
+        # Add adopted and available counts to each shelter in result
         for shelter in result:
             origin = shelter.get('origin')
-            adopted = adopted_by_origin.get(origin, 0) # default to 0 if not found
+            adopted = adopted_by_origin.get(origin, 0)
+            available = available_by_origin.get(origin, 0)
             shelter['adopted'] = adopted
+            shelter['available'] = available
 
-        #{'origin': 'ABQ Animal Welfare Department', 'latitude': 35.1102, 'longitude': -106.5823, 'count': 18, 'adopted':9}
+        # Debug: Print final results for specific origins
+        print("\nCURRENT STATUS counts per shelter:")
+        for shelter in result:
+            origin = shelter.get('origin')
+            if origin in ['Four Corners Animal League', 'Bayard Animal Control', 'Clayton']:
+                print(f"  {origin}: total={shelter.get('count')}, adopted={shelter.get('adopted')}, available={shelter.get('available')}")
+
         return result
 
     def get_adoption_count_per_shelter(self):
@@ -1434,134 +1525,91 @@ class ElasticsearchHandler:
         except Exception as e:
             print(f"Error in get_age_groups: {e}")
             return []
-    def get_length_of_stay_distribution(self):
+    def get_length_of_stay_distribution(self, status=None, index_pattern=None):
         """
-        Get histogram distribution of length_of_stay_days for dogs currently available at the shelter.
+        Get histogram distribution of length_of_stay_days for dogs at the shelter.
         Uses fixed 30-day intervals for bin calculation.
-        Calculates current length of stay from intake_date for available dogs only.
-        Excludes adopted and euthanized dogs.
         Returns bins with dog lists containing minimal fields.
 
-        Bin boundaries: [min, max] inclusive for all bins except last which is right-inclusive.
+        Uses the same logic as get_current_availables() to get all currently available dogs
+        from all indices, deduplicating by ID and keeping the most recent record for each dog.
+        
+        For visualization purposes, length_of_stay_days is dynamically calculated as the 
+        number of days between intake_date and current date, rather than using the stored value.
+
+        Args:
+            status: Optional status filter ('available', 'adopted', etc.). If None, defaults to 'available'.
+            index_pattern: Optional index pattern to search. If None, uses all animal-humane indices.
         """
-        import math
         from datetime import datetime
 
-        # First, get all unique dog IDs across all indices
-        id_query = {
-            "size": 0,
-            "aggs": {
-                "unique_ids": {
-                    "terms": {
-                        "field": "id",
-                        "size": 10000
-                    }
+        # Default to 'available' if no status specified
+        target_status = status if status is not None else "available"
+        
+        # Use the same logic as get_current_availables() to get all current available dogs
+        try:
+            # Use all animal-humane indices but sort by recency for deduplication
+            index_pattern = index_pattern or "animal-humane-*"
+
+            # Use a simpler query without aggregations to avoid mixed type issues
+            query = {
+                "size": 10000,  # Get up to 10k documents
+                "sort": [{"_index": {"order": "desc"}}],  # Sort by index name (most recent first)
+                "_source": ["id", "name", "breed", "age_group", "length_of_stay_days", "intake_date", "status"],
+                "query": {
+                    "match_all": {}  # Get all dogs from recent indices
                 }
             }
-        }
 
-        try:
-            # Get all unique dog IDs from all indices
-            id_response = self.es.search(index="animal-humane-*", body=id_query)
-            dog_ids = [bucket["key"] for bucket in id_response["aggregations"]["unique_ids"]["buckets"]]
+            # Run the search on all indices
+            response = self.es.search(index=index_pattern, body=query)
 
-            # Now get the latest record for each dog
-            dogs = []
-            excluded_count = 0
+            # Process results to get unique dogs (most recent record for each ID)
+            dogs_by_id = {}
+            for hit in response['hits']['hits']:
+                dog_data = hit['_source']
+                dog_id = str(dog_data['id'])  # Ensure ID is string for consistency
 
-            for dog_id in dog_ids:
-                # Get the most recent record for this dog across all indices
-                dog_query = {
-                    "size": 1,
-                    "query": {"term": {"id": dog_id}},
-                    "sort": [{"_index": {"order": "desc"}}],  # Most recent index first
-                    "_source": ["id", "name", "breed", "age_group", "length_of_stay_days", "intake_date", "status"]
-                }
+                # Keep the most recent record for each dog (first in sorted results)
+                if dog_id not in dogs_by_id:
+                    dogs_by_id[dog_id] = {
+                        "id": dog_data.get("id"),
+                        "name": dog_data.get("name", "Unknown"),
+                        "breed": dog_data.get("breed"),
+                        "age_group": dog_data.get("age_group"),
+                        "length_of_stay_days": dog_data.get("length_of_stay_days"),
+                        "intake_date": dog_data.get("intake_date"),
+                        "status": dog_data.get("status")
+                    }
 
-                dog_response = self.es.search(index="animal-humane-*", body=dog_query)
-                if dog_response["hits"]["hits"]:
-                    source = dog_response["hits"]["hits"][0]["_source"]
-                    name = source.get("name", "Unknown")
-                    breed = source.get("breed")
-                    age_group = source.get("age_group")
-                    status = source.get("status", "").lower()
-                    intake_date_str = source.get("intake_date")
-                    stored_los = source.get("length_of_stay_days")
-
-                    # Skip euthanized dogs
-                    if status == "euthanized":
-                        excluded_count += 1
+            # Filter for dogs with the target status and calculate dynamic length of stay
+            from datetime import datetime
+            current_date = datetime.now().date()
+            
+            filtered_dogs = []
+            for dog in dogs_by_id.values():
+                if dog.get("status") == target_status.title() and dog.get("intake_date"):
+                    try:
+                        # Parse intake_date and calculate dynamic length of stay
+                        intake_date = datetime.fromisoformat(dog["intake_date"].replace('Z', '+00:00')).date()
+                        dynamic_length_of_stay = (current_date - intake_date).days
+                        
+                        # Create dog record with calculated length of stay for visualization
+                        dog_with_calculated_los = dog.copy()
+                        dog_with_calculated_los["length_of_stay_days"] = dynamic_length_of_stay
+                        dog_with_calculated_los["original_length_of_stay_days"] = dog.get("length_of_stay_days")  # Keep original for reference
+                        
+                        filtered_dogs.append(dog_with_calculated_los)
+                    except (ValueError, TypeError) as e:
+                        print(f"Error parsing intake_date for dog {dog.get('id')}: {e}")
                         continue
 
-                    # Only include dogs with status "available"
-                    if status != "available":
-                        excluded_count += 1
-                        continue
-
-                    # Calculate current length of stay for available dogs
-                    los_days = None
-
-                    if intake_date_str:
-                        # Calculate current stay for available dogs
-                        try:
-                            intake_date = datetime.fromisoformat(intake_date_str.replace('Z', '+00:00')).date()
-                            current_date = datetime.now().date()
-                            los_days = (current_date - intake_date).days
-                            if los_days < 0:  # Future date, invalid
-                                los_days = None
-                        except (ValueError, TypeError):
-                            los_days = None
-
-                    # Use stored length_of_stay_days if available and reasonable, otherwise use calculated
-                    final_los = stored_los if stored_los is not None and stored_los >= 0 else los_days
-
-                    # Only include dogs with valid LOS
-                    if final_los is not None and final_los >= 0:
-                        dogs.append({
-                            "id": dog_id,
-                            "name": name,
-                            "breed": breed,
-                            "age_group": age_group,
-                            "length_of_stay_days": final_los,
-                            "status": status
-                        })
-                    else:
-                        excluded_count += 1
-
-            n = len(dogs)
-            print(f"Length of stay distribution: {n} dogs included, {excluded_count} excluded")
-
-            # Handle edge case: no valid dogs
-            if n == 0:
-                return {"bins": [], "metadata": {"n": 0, "bin_algorithm": "30_day_intervals", "generated_at": datetime.now().isoformat()}}
-
-            # Handle edge case: single dog
-            if n == 1:
-                dog = dogs[0]
-                los_val = dog["length_of_stay_days"]
-                return {
-                    "bins": [{
-                        "min": los_val,
-                        "max": los_val,
-                        "count": 1,
-                        "dogs": [dog]
-                    }],
-                    "metadata": {"n": 1, "bin_algorithm": "30_day_intervals", "generated_at": datetime.now().isoformat()}
-                }
-
-            # Use fixed 30-day intervals
-            bin_width = 30  # 30-day intervals
-
-            # Calculate number of bins needed to cover the range with 30-day intervals
-            los_values = [d["length_of_stay_days"] for d in dogs]
-            min_los = min(los_values)
-            max_los = max(los_values)
-
-            # Create bins with fixed 30-day intervals: 0-30, 31-60, 61-90, etc.
-            bins = []
+            # Define the bin ranges (0-30, 31-60, 61-90, etc.)
+            bin_ranges = []
             bin_start = 0
+            max_bins = 20  # Reasonable limit to prevent excessive bins
 
-            while bin_start <= max_los:
+            for i in range(max_bins):
                 if bin_start == 0:
                     bin_end = 30
                     bin_start_next = 31
@@ -1569,28 +1617,46 @@ class ElasticsearchHandler:
                     bin_end = bin_start + 29
                     bin_start_next = bin_end + 1
 
-                bin_dogs = [d for d in dogs if bin_start <= d["length_of_stay_days"] <= bin_end]
-
-                # Always add bins, even if empty (but only up to the point where we have data)
-                bins.append({
+                bin_ranges.append({
                     "min": bin_start,
                     "max": bin_end,
-                    "count": len(bin_dogs),
-                    "dogs": bin_dogs
+                    "from": bin_start,
+                    "to": bin_end + 1  # Elasticsearch range is exclusive of 'to'
                 })
-
                 bin_start = bin_start_next
 
-                # If we've exceeded the max, stop creating bins
-                if bin_start > max_los:
+            # Build histogram from filtered dogs
+            bins = []
+            total_dogs = len(filtered_dogs)
+
+            for bin_range in bin_ranges:
+                # Find dogs in this bin
+                dogs_in_bin = [
+                    dog for dog in filtered_dogs
+                    if bin_range["from"] <= dog["length_of_stay_days"] < bin_range["to"]
+                ]
+                
+                bins.append({
+                    "min": bin_range["min"],
+                    "max": bin_range["max"],
+                    "count": len(dogs_in_bin),
+                    "dogs": dogs_in_bin
+                })
+
+                # Stop creating bins if we've gone beyond the data range
+                if bin_range["min"] > 365:  # Reasonable cutoff at 1 year
                     break
+
+            print(f"Length of stay distribution: {total_dogs} dogs from all indices with deduplication (dynamic calculation)")
 
             return {
                 "bins": bins,
                 "metadata": {
-                    "n": n,
-                    "bin_algorithm": "30_day_intervals",
-                    "generated_at": datetime.now().isoformat()
+                    "n": total_dogs,
+                    "bin_algorithm": "30_day_intervals_all_indices_deduplicated_dynamic_los",
+                    "index_used": index_pattern,
+                    "generated_at": datetime.now().isoformat(),
+                    "calculation_method": "dynamic_from_intake_date"
                 }
             }
 
@@ -1598,5 +1664,15 @@ class ElasticsearchHandler:
             print(f"Error getting length_of_stay_distribution: {e}")
             import traceback
             traceback.print_exc()
-            return {"bins": [], "metadata": {"n": 0, "bin_algorithm": "30_day_intervals", "generated_at": datetime.now().isoformat(), "error": str(e)}}
+            return {
+                "bins": [],
+                "metadata": {
+                    "n": 0,
+                    "bin_algorithm": "30_day_intervals_all_indices_deduplicated_dynamic_los",
+                    "index_used": index_pattern or "animal-humane-*",
+                    "generated_at": datetime.now().isoformat(),
+                    "calculation_method": "dynamic_from_intake_date",
+                    "error": str(e)
+                }
+            }
 
