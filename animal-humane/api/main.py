@@ -150,6 +150,16 @@ async def get_overview(dog_service: DogService = Depends(get_dog_service)):
         logger.error(f"Error getting overview: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/new-dogs-this-week", response_model=APIResponse)
+async def get_new_dogs_this_week(es_service: ElasticsearchService = Depends(get_elasticsearch_service)):
+    """Get names of new dogs this week"""
+    try:
+        dog_names = await es_service.get_new_dog_names_this_week()
+        return APIResponse.success_response({"count": len(dog_names), "names": dog_names})
+    except Exception as e:
+        logger.error(f"Error getting new dogs this week: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/dogs", response_model=APIResponse)
 async def get_dogs(dog_service: DogService = Depends(get_dog_service)):
     """Get all available dogs"""

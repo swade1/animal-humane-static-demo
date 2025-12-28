@@ -42,11 +42,30 @@ class ElasticsearchService:
 
     async def get_new_dog_count_this_week(self) -> int:
         """Get new dog count this week"""
-        return await self._run_in_executor(self.handler.get_new_dog_count_this_week)
+        dog_names = await self._run_in_executor(self.handler.get_new_dog_count_this_week_accurate)
+        return len(dog_names)
+
+    async def get_new_dog_names_this_week(self) -> List[str]:
+        """Get new dog names this week"""
+        return await self._run_in_executor(self.handler.get_new_dog_count_this_week_accurate)
 
     async def get_adopted_dogs_this_week(self) -> Tuple[List[str], List[str], List[str], List[int], int]:
         """Get adopted dogs this week"""
         return await self._run_in_executor(self.handler.get_adopted_dog_count_this_week)
+
+    async def get_trial_adoptions(self) -> List[Dict[str, Any]]:
+        """Get dogs currently on trial adoption"""
+        def _get_trial_adoptions():
+            # Get current available dogs
+            availables = self.handler.get_current_availables()
+            # Filter for dogs with "trial adoption" in location (case insensitive)
+            trial_adoptions = [
+                dog for dog in availables 
+                if 'trial adoption' in dog.get('location', '').lower()
+            ]
+            return trial_adoptions
+
+        return await self._run_in_executor(_get_trial_adoptions)
 
     async def get_age_groups(self, index_name: str = None) -> List[Dict[str, Any]]:
         """Get age group distribution"""
@@ -123,9 +142,9 @@ class ElasticsearchService:
         """Get new dogs"""
         return await self._run_in_executor(self.handler.get_new_dogs)
 
-    async def get_length_of_stay_distribution(self) -> Dict[str, Any]:
-        """Get length of stay histogram distribution using Sturges formula"""
-        return await self._run_in_executor(self.handler.get_length_of_stay_distribution)
+    async def get_length_of_stay_distribution(self, status: Optional[str] = None) -> Dict[str, Any]:
+        """Get length of stay histogram distribution using optimized aggregation approach"""
+        return await self._run_in_executor(self.handler.get_length_of_stay_distribution, status)
 
     async def get_diff_analysis(self) -> Dict[str, Any]:
         """Get diff analysis data (new, returned, adopted, trial, unlisted dogs)"""
@@ -142,13 +161,31 @@ class ElasticsearchService:
         new_dogs_data = await self.get_new_dogs()
         new_dogs = new_dogs_data.get("new_dogs", [])
 
+        # Extract dog IDs from new dogs URLs to exclude them from other_unlisted_dogs
+        new_dog_ids = set()
+        for new_dog in new_dogs:
+            url = new_dog.get('url', '')
+            # Extract dog ID from URL like "https://new.shelterluv.com/embed/animal/208811366"
+            if '/animal/' in url:
+                try:
+                    dog_id = int(url.split('/animal/')[-1])
+                    new_dog_ids.add(dog_id)
+                except (ValueError, IndexError):
+                    pass
+
+        # Filter out new dogs from other_unlisted_dogs to prevent duplicates
+        filtered_unlisted_dogs = [
+            dog for dog in dog_groups.get("other_unlisted_dogs", [])
+            if dog.get('dog_id') not in new_dog_ids
+        ]
+
         # Combine results in the format expected by the frontend
         result = {
             "new_dogs": new_dogs,
             "returned_dogs": dog_groups.get("returned_dogs", []),
             "adopted_dogs": dog_groups.get("adopted_dogs", []),
             "trial_adoption_dogs": dog_groups.get("trial_adoption_dogs", []),
-            "other_unlisted_dogs": dog_groups.get("other_unlisted_dogs", [])
+            "other_unlisted_dogs": filtered_unlisted_dogs
         }
 
         # Skip automatic updates for Recent Pupdates tab to avoid seleniumwire dependency
