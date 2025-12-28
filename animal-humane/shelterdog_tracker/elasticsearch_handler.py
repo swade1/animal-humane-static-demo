@@ -999,30 +999,79 @@ class ElasticsearchHandler:
         # For diff analysis, use existing location data instead of scraping
         # to avoid seleniumwire dependency
 
-        index_ids = self.get_all_ids(most_recent_index)
+        # Extract current date from most_recent_index (e.g., "20251227" from "animal-humane-20251227-1500")
+        import re
+        date_match = re.search(r'animal-humane-(\d{8})-', most_recent_index)
+        if not date_match:
+            # Fallback to just using the most recent index if date extraction fails
+            current_date = None
+        else:
+            current_date = date_match.group(1)
+
         available_ids = [dog['dog_id'] for dog in availables]
 
-        # Find dogs that are in the most recent index but not in current availables - these are adopted
-        adopted_dog_ids = [dog_id for dog_id in index_ids if dog_id not in available_ids]
-
-        # Get full dog data for adopted dogs from the most recent index
+        # Find adopted dogs: dogs with status "adopted" in today's indices but not in current availables
         adopted_dogs = []
-        if adopted_dog_ids:
-            # Query for adopted dogs data
+        if current_date:
+            # Query all indices from today for adopted dogs
+            today_index_pattern = f"animal-humane-{current_date}-*"
             query = {
-                "query": {"terms": {"id": adopted_dog_ids}},
+                "query": {"term": {"status": "adopted"}},
                 "_source": ["name", "id", "url", "location", "status"]
             }
-            response = self.es.search(index=most_recent_index, body=query)
-            for hit in response['hits']['hits']:
-                dog_data = hit['_source']
-                adopted_dogs.append({
-                    'name': dog_data.get('name', 'Unknown'),
-                    'dog_id': dog_data['id'],
-                    'url': dog_data.get('url', ''),
-                    'location': dog_data.get('location', '')
-                })
+            try:
+                response = self.es.search(index=today_index_pattern, body=query)
+                for hit in response['hits']['hits']:
+                    dog_data = hit['_source']
+                    dog_id = dog_data['id']
+                    # Only include if not in current available dogs
+                    if dog_id not in available_ids:
+                        adopted_dogs.append({
+                            'name': dog_data.get('name', 'Unknown'),
+                            'dog_id': dog_id,
+                            'url': dog_data.get('url', ''),
+                            'location': dog_data.get('location', '')
+                        })
+            except Exception as e:
+                print(f"Error querying today's adopted dogs: {e}")
+                # Fallback to old logic if today's query fails
+                index_ids = self.get_all_ids(most_recent_index)
+                adopted_dog_ids = [dog_id for dog_id in index_ids if dog_id not in available_ids]
+                if adopted_dog_ids:
+                    query = {
+                        "query": {"terms": {"id": adopted_dog_ids}},
+                        "_source": ["name", "id", "url", "location", "status"]
+                    }
+                    response = self.es.search(index=most_recent_index, body=query)
+                    for hit in response['hits']['hits']:
+                        dog_data = hit['_source']
+                        adopted_dogs.append({
+                            'name': dog_data.get('name', 'Unknown'),
+                            'dog_id': dog_data['id'],
+                            'url': dog_data.get('url', ''),
+                            'location': dog_data.get('location', '')
+                        })
+        else:
+            # Fallback to old logic if date extraction fails
+            index_ids = self.get_all_ids(most_recent_index)
+            adopted_dog_ids = [dog_id for dog_id in index_ids if dog_id not in available_ids]
+            if adopted_dog_ids:
+                query = {
+                    "query": {"terms": {"id": adopted_dog_ids}},
+                    "_source": ["name", "id", "url", "location", "status"]
+                }
+                response = self.es.search(index=most_recent_index, body=query)
+                for hit in response['hits']['hits']:
+                    dog_data = hit['_source']
+                    adopted_dogs.append({
+                        'name': dog_data.get('name', 'Unknown'),
+                        'dog_id': dog_data['id'],
+                        'url': dog_data.get('url', ''),
+                        'location': dog_data.get('location', '')
+                    })
 
+        # Get index IDs for filtering unlisted dogs (still use most recent for this)
+        index_ids = self.get_all_ids(most_recent_index)
         unlisted_dogs = [dog for dog in availables if dog['dog_id'] not in index_ids]
 
         returned_dogs = self.get_returned_dogs(availables, most_recent_index)
