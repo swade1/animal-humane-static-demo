@@ -7,6 +7,7 @@ from elasticsearch import Elasticsearch
     
 from shelterdog_tracker.elasticsearch_handler import ElasticsearchHandler
 from output_utils import print_dog_groups
+from config import config
 
 def run_diffs(handler):
     availables = handler.get_current_availables()
@@ -43,7 +44,7 @@ if __name__ == "__main__":
     today_time = datetime.now().strftime('%Hh%Mm')
     index_name = f"animal-humane-{today_str}-{today_time}"
 
-    handler = ElasticsearchHandler(host="http://elasticsearch:9200", index_name=index_name)
+    handler = ElasticsearchHandler(host=config.elasticsearch.host, index_name=index_name)
     results = run_diffs(handler)
 
     answer = input("Please enter 'y' to start updates or 'n' to quit: ").strip().lower()

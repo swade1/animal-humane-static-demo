@@ -1,0 +1,17 @@
+# Elasticsearch Configuration (Free License)
+cluster.name: animal-humane-cluster
+node.name: animal-humane-node
+
+# Security disabled (free license compatible)
+xpack.security.enabled: false
+
+# Single node discovery
+discovery.type: single-node
+
+# Network binding for Docker
+network.host: 0.0.0.0
+
+# Disable unnecessary features
+xpack.watcher.enabled: false
+xpack.graph.enabled: false
+xpack.ml.enabled: false
