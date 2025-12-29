@@ -65,7 +65,7 @@ export async function fetchLatestIndex(dogId) {
 
 // Makes a fetch GET request to your backend endpoint for document updates
 export async function runDocumentUpdates() {
-  const response = await fetch('http://localhost:8000/animal_updates_text', {
+  const response = await fetch('/animal_updates_text', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

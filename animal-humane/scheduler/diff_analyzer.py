@@ -280,6 +280,19 @@ class DiffAnalyzer:
                     })
                     print(f"DEBUG: Found adopted dog from trial: {current_dog.get('name')} (ID: {dog_id}) - was in trial adoption, now has empty location")
             
+            # GENERAL CASE: Any dog with empty location should be treated as adopted
+            # This handles cases like Lotus who has empty location but wasn't necessarily in trial adoption
+            elif not current_location.strip():
+                # Check if not already in recently_adopted
+                if not any(dog['id'] == dog_id for dog in recently_adopted):
+                    recently_adopted.append({
+                        'id': dog_id,
+                        'name': current_dog.get('name'),
+                        'status': 'adopted',  # Mark as adopted since location is empty
+                        'location': current_dog.get('location')
+                    })
+                    print(f"DEBUG: Found adopted dog: {current_dog.get('name')} (ID: {dog_id}) - has empty location, treating as adopted")
+            
                 # Also check for dogs that have been updated to "adopted" status (regardless of trial adoption history)
             current_status = current_dog.get('status', '').lower()
             if current_status == 'adopted':
@@ -471,7 +484,7 @@ class DiffAnalyzer:
                 # Exclude dogs that are:
                 # 1. Adopted or reclaimed (should be in adopted/reclaimed category)
                 # 2. In trial adoption (should be in trial adoption category)
-                # 3. Have empty location
+                # 3. Have empty location (indicating adoption)
                 if status in ['adopted', 'reclaimed']:
                     # Special case for Crescendo - add to adopted category
                     if dog_id == '211812422':  # Crescendo's ID
@@ -486,7 +499,7 @@ class DiffAnalyzer:
                     print(f"DEBUG: Excluding {dog_data.get('name')} (ID: {dog_id}) - most recent status is '{status}', should be in adopted/reclaimed category")
                 elif 'trial adoption' in location_lower:
                     print(f"DEBUG: Excluding {dog_data.get('name')} (ID: {dog_id}) - most recent location contains 'trial adoption': '{location}'")
-                elif not location.strip():
+                elif not str(location).strip():
                     print(f"DEBUG: Excluding {dog_data.get('name')} (ID: {dog_id}) - most recent location is empty: '{location}'")
                 else:
                     # Only include dogs that are truly temporarily unlisted
