@@ -310,17 +310,19 @@ class DiffAnalyzer:
         # This handles cases like Crescendo who was available but is now adopted
         for dog_id in all_historical_ids:
             if dog_id not in current_ids:  # Not in current index
-                # Get most recent record for this dog
+                # Get most recent record for this dog and remember which index it came from
                 most_recent_record = None
+                most_recent_record_index = None
                 for index in all_historical_indices:
                     dogs_in_index = self.get_dogs_from_index(index)
                     if dog_id in dogs_in_index:
                         most_recent_record = dogs_in_index[dog_id]
+                        most_recent_record_index = index
                         break
                 
                 # If dog is adopted and was recently available (not just old historical data)
                 if most_recent_record and most_recent_record.get('status', '').lower() == 'adopted':
-                    # Check if this dog was available in recent indices (within last 7 days)
+                    # Check if this dog was available in recent indices (within last 20 indices)
                     was_recently_available = False
                     for index in all_historical_indices[:20]:  # Check last 20 indices
                         dogs_in_index = self.get_dogs_from_index(index)
@@ -329,8 +331,27 @@ class DiffAnalyzer:
                             if historical_status == 'available':
                                 was_recently_available = True
                                 break
-                    
-                    if was_recently_available:
+
+                    # Also consider dogs whose most recent record with status 'adopted' is itself recent
+                    # (e.g., trial adoption formalized recently without prior 'available' record).
+                    adopted_record_is_recent = False
+                    try:
+                        # Parse the date portion of the index name: animal-humane-YYYYMMDD-HHMM
+                        if most_recent_record_index:
+                            idx_date_str = most_recent_record_index.split("animal-humane-")[1].split("-")[0]
+                            current_idx_date_str = current_index.split("animal-humane-")[1].split("-")[0]
+                            idx_date = datetime.strptime(idx_date_str, "%Y%m%d")
+                            current_idx_date = datetime.strptime(current_idx_date_str, "%Y%m%d")
+
+                            # If the adopted record timestamp is within the last 8 days (inclusive), consider it recent
+                            delta_days = (current_idx_date - idx_date).days
+                            if 0 <= delta_days <= 8:
+                                adopted_record_is_recent = True
+                    except Exception:
+                        # If parsing fails, fall back to previous behavior (conservative: not recent)
+                        adopted_record_is_recent = False
+
+                    if was_recently_available or adopted_record_is_recent:
                         # Check if not already in recently_adopted
                         if not any(dog['id'] == dog_id for dog in recently_adopted):
                             recently_adopted.append({
@@ -339,7 +360,7 @@ class DiffAnalyzer:
                                 'status': most_recent_record.get('status'),
                                 'location': most_recent_record.get('location')
                             })
-                            print(f"DEBUG: Found recently adopted dog: {most_recent_record.get('name')} (ID: {dog_id}) - was recently available, now adopted")
+                            print(f"DEBUG: Found recently adopted dog: {most_recent_record.get('name')} (ID: {dog_id}) - was recently available or has a recent adopted record (index: {most_recent_record_index})")
         
         # RETURNED DOGS: Dogs that are in current index AND have "status":"adopted" in some previous index
         # BUT were NOT in the previous index (meaning they returned today)
