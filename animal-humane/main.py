@@ -1,6 +1,6 @@
-from datetime import datetime
 import subprocess
 
+from datetime import datetime
 from shelterdog_tracker.shelter_scraper import ShelterScraper
 from shelterdog_tracker.elasticsearch_handler import ElasticsearchHandler
 from utils.logger import setup_logger

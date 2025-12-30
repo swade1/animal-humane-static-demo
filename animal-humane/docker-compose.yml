@@ -1,52 +1,54 @@
 services:
   elasticsearch:
-    image: elasticsearch:8.11.0
     container_name: animal-humane-elasticsearch
+    image: elasticsearch:8.11.0
     restart: unless-stopped
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx2g"
       - TZ=America/Denver
     ports:
       - "9200:9200"
+      - "9300:9300"
     volumes:
       - animal-humane_elasticsearch_data:/usr/share/elasticsearch/data
-      - ./deployment/docker/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
       interval: 30s
       timeout: 10s
-      retries: 3
+      retries: 5
       start_period: 30s
 
   scheduler:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: animal-humane-scheduler
-    restart: unless-stopped
-    depends_on:
-      elasticsearch:
-        condition: service_healthy
+    image: animal-humane-scheduler
     environment:
       - ELASTICSEARCH_HOST=http://elasticsearch:9200
-      - TZ=America/Denver  # Mountain Time timezone
+    volumes:
+      - .:/app 
+    working_dir: /app
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
+
+  api:
+    image: animal-humane-api
+    environment:
+      - ELASTICSEARCH_HOST=http://elasticsearch:9200
     ports:
       - "8000:8000"
-    volumes:
-      - ./logs:/app/logs
-      - ./diff_reports:/app/diff_reports
-      - .:/app
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
 
   frontend:
-    restart: unless-stopped
-    build:
-      context: ./react-app
-      dockerfile: Dockerfile
-    container_name: animal-humane-frontend
+    image: animal-humane-frontend
     ports:
       - "8080:80"
+    depends_on:
+      - api
+    restart: unless-stopped
 
 volumes:
   animal-humane_elasticsearch_data:
+    external: true
