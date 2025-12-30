@@ -4,6 +4,8 @@ import pytz
 import re
 import requests
 
+from typing import Dict, Any, List, Optional, Set, Tuple
+
 from elasticsearch import Elasticsearch, helpers, exceptions as es_exceptions
 from elasticsearch.helpers import scan
 
@@ -1727,109 +1729,108 @@ class ElasticsearchHandler:
                 }
             }
     def get_overview_stats(self) -> Dict[str, Any]:
-    """Get overview statistics from Elasticsearch"""
-    try:
-        # Query for total available dogs
-        total_query = {
-            "query": {"term": {"status": "Available"}},
-            "size": 0
-        }
-        total_response = self.es.search(index=self.index_name, body=total_query)
-        total_dogs = total_response['hits']['total']['value']
+        try:
+            # Query for total available dogs
+            total_query = {
+                "query": {"term": {"status": "Available"}},
+                "size": 0
+            }
+            total_response = self.es.search(index=self.index_name, body=total_query)
+            total_dogs = total_response['hits']['total']['value']
 
-        # Query for new dogs this week (intake_date within last 7 days)
-        week_ago = (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')
-        new_query = {
-            "query": {
-                "bool": {
-                    "must": [
-                        {"term": {"status": "Available"}},
-                        {"range": {"intake_date": {"gte": week_ago}}}
-                    ]
+            # Query for new dogs this week (intake_date within last 7 days)
+            week_ago = (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')
+            new_query = {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {"term": {"status": "Available"}},
+                            {"range": {"intake_date": {"gte": week_ago}}}
+                        ]
+                    }
+                },
+                "size": 0
+            }
+            new_response = self.es.search(index=self.index_name, body=new_query)
+            new_this_week = new_response['hits']['total']['value']
+
+            # Query for adopted dogs this week
+            adopted_query = {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {"term": {"status": "adopted"}},
+                            {"range": {"updated_at": {"gte": f"now-7d"}}}
+                        ]
+                    }
+                },
+                "size": 0
+            }
+            adopted_response = self.es.search(index=self.index_name, body=adopted_query)
+            adopted_this_week = adopted_response['hits']['total']['value']
+
+            # Query for trial adoptions
+            trial_query = {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {"term": {"status": "Available"}},
+                            {"wildcard": {"location": "*trial adoption*"}}
+                        ]
+                    }
+                },
+                "size": 0
+            }
+            trial_response = self.es.search(index=self.index_name, body=trial_query)
+            trial_adoptions = trial_response['hits']['total']['value']
+
+            # Query for age group counts
+            age_query = {
+                "query": {"term": {"status": "Available"}},
+                "aggs": {
+                    "age_groups": {
+                        "terms": {"field": "age_group"}
+                    }
+                },
+                "size": 0
+            }
+            age_response = self.es.search(index=self.index_name, body=age_query)
+            age_buckets = age_response['aggregations']['age_groups']['buckets']
+            
+            puppies_count = next((b['doc_count'] for b in age_buckets if b['key'] == 'puppy'), 0)
+            adults_count = next((b['doc_count'] for b in age_buckets if b['key'] == 'adult'), 0)
+            seniors_count = next((b['doc_count'] for b in age_buckets if b['key'] == 'senior'), 0)
+
+            # Query for longest resident
+            longest_query = {
+                "query": {"term": {"status": "Available"}},
+                "sort": [{"length_of_stay_days": {"order": "desc"}}],
+                "size": 1,
+                "_source": ["id", "name", "length_of_stay_days"]
+            }
+            longest_response = self.es.search(index=self.index_name, body=longest_query)
+            longest_resident = {}
+            if longest_response['hits']['hits']:
+                hit = longest_response['hits']['hits'][0]['_source']
+                longest_resident = {
+                    'name': hit.get('name', ''),
+                    'days': hit.get('length_of_stay_days', 0),
+                    'url': f"https://new.shelterluv.com/embed/animal/{hit.get('id', '')}"
                 }
-            },
-            "size": 0
-        }
-        new_response = self.es.search(index=self.index_name, body=new_query)
-        new_this_week = new_response['hits']['total']['value']
 
-        # Query for adopted dogs this week
-        adopted_query = {
-            "query": {
-                "bool": {
-                    "must": [
-                        {"term": {"status": "adopted"}},
-                        {"range": {"updated_at": {"gte": f"now-7d"}}}
-                    ]
-                }
-            },
-            "size": 0
-        }
-        adopted_response = self.es.search(index=self.index_name, body=adopted_query)
-        adopted_this_week = adopted_response['hits']['total']['value']
-
-        # Query for trial adoptions
-        trial_query = {
-            "query": {
-                "bool": {
-                    "must": [
-                        {"term": {"status": "Available"}},
-                        {"wildcard": {"location": "*trial adoption*"}}
-                    ]
-                }
-            },
-            "size": 0
-        }
-        trial_response = self.es.search(index=self.index_name, body=trial_query)
-        trial_adoptions = trial_response['hits']['total']['value']
-
-        # Query for age group counts
-        age_query = {
-            "query": {"term": {"status": "Available"}},
-            "aggs": {
-                "age_groups": {
-                    "terms": {"field": "age_group"}
-                }
-            },
-            "size": 0
-        }
-        age_response = self.es.search(index=self.index_name, body=age_query)
-        age_buckets = age_response['aggregations']['age_groups']['buckets']
-        
-        puppies_count = next((b['doc_count'] for b in age_buckets if b['key'] == 'puppy'), 0)
-        adults_count = next((b['doc_count'] for b in age_buckets if b['key'] == 'adult'), 0)
-        seniors_count = next((b['doc_count'] for b in age_buckets if b['key'] == 'senior'), 0)
-
-        # Query for longest resident
-        longest_query = {
-            "query": {"term": {"status": "Available"}},
-            "sort": [{"length_of_stay_days": {"order": "desc"}}],
-            "size": 1,
-            "_source": ["id", "name", "length_of_stay_days"]
-        }
-        longest_response = self.es.search(index=self.index_name, body=longest_query)
-        longest_resident = {}
-        if longest_response['hits']['hits']:
-            hit = longest_response['hits']['hits'][0]['_source']
-            longest_resident = {
-                'name': hit.get('name', ''),
-                'days': hit.get('length_of_stay_days', 0),
-                'url': f"https://new.shelterluv.com/embed/animal/{hit.get('id', '')}"
+            return {
+                'total_dogs': total_dogs,
+                'new_this_week': new_this_week,
+                'adopted_this_week': adopted_this_week,
+                'trial_adoptions': trial_adoptions,
+                'available_dogs_by_age_group': {
+                    'puppies': puppies_count,
+                    'adults': adults_count,
+                    'seniors': seniors_count
+                },
+                'longest_resident': longest_resident
             }
 
-        return {
-            'total_dogs': total_dogs,
-            'new_this_week': new_this_week,
-            'adopted_this_week': adopted_this_week,
-            'trial_adoptions': trial_adoptions,
-            'available_dogs_by_age_group': {
-                'puppies': puppies_count,
-                'adults': adults_count,
-                'seniors': seniors_count
-            },
-            'longest_resident': longest_resident
-        }
-
-    except Exception as e:
-        print(f"Error getting overview stats: {e}")
-        return {}
+        except Exception as e:
+            print(f"Error getting overview stats: {e}")
+            return {}

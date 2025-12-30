@@ -7,7 +7,7 @@ import traceback
 import asyncio
 from functools import wraps
 
-from fastapi import FastAPI, HTTPException, Depends, status
+from fastapi import FastAPI, HTTPException, Depends, status, Request, Header, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
@@ -19,6 +19,10 @@ from models.api_models import (
 from services.dog_service import DogService
 from services.elasticsearch_service import ElasticsearchService
 from utils.logger import setup_logger
+
+import os
+import re
+from pathlib import Path
 
 # Setup logging
 logger = setup_logger("api")
@@ -122,6 +126,55 @@ async def clear_cache():
     cache.clear()
     return APIResponse.success_response({"message": "Cache cleared successfully"})
 
+
+@app.post("/api/cache/refresh")
+async def refresh_cache(request: Request, key: str = Query(...)):
+    """Refresh a specific cache key (internal use only).
+
+    Authorization:
+      - If `config.api.internal_auth_token` is set, require header `X-Internal-Token` to match.
+      - Otherwise, allow only requests originating from localhost (127.0.0.1 or ::1).
+    """
+    try:
+        # Authorization
+        token = config.api.internal_auth_token
+        header_token = request.headers.get("X-Internal-Token")
+        client_host = request.client.host if request.client else None
+
+        authorized = False
+        if token:
+            if header_token and header_token == token:
+                authorized = True
+        else:
+            if client_host in ("127.0.0.1", "::1", "localhost"):
+                authorized = True
+
+        if not authorized:
+            raise HTTPException(status_code=403, detail="Forbidden")
+
+        # Remove cache entry and re-populate by calling the associated function
+        cache.pop(key, None)
+
+        # Map known keys to functions to repopulate
+        if key == "missing_dogs":
+            # Call the missing-dogs reader which will cache via decorator
+            await get_missing_dogs()
+        elif key == "diff_analysis":
+            from services.elasticsearch_service import ElasticsearchService
+            es_service = ElasticsearchService()
+            await es_service.get_diff_analysis()
+        elif key == "overview":
+            # trigger overview computation
+            # Note: get_overview depends on DogService; we call the endpoint indirectly
+            pass
+
+        return APIResponse.success_response({"key": key, "refreshed": True})
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error refreshing cache key {key}: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/debug/es-connection")
 async def debug_es_connection():
     """Debug endpoint to test Elasticsearch connection"""
@@ -219,6 +272,49 @@ async def get_adoptions(dog_service: DogService = Depends(get_dog_service)):
         logger.error(f"Error getting adoptions: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+
+@app.get("/api/missing-dogs", response_model=APIResponse)
+@cached("missing_dogs")
+async def get_missing_dogs():
+    """Return the missing dogs list parsed from react-app/public/missing_dogs.txt
+    If the file is not found, attempts to read a top-level missing_dogs.txt as a fallback.
+    Response: list of {id: int, name: str}
+    """
+    try:
+        project_root = Path(__file__).resolve().parents[1]
+        candidate_paths = [
+            project_root / 'react-app' / 'public' / 'missing_dogs.txt',
+            project_root / 'missing_dogs.txt'
+        ]
+
+        file_path = None
+        for p in candidate_paths:
+            if p.exists():
+                file_path = p
+                break
+
+        if not file_path:
+            # No file available - return empty list
+            return APIResponse.success_response([])
+
+        text = file_path.read_text(encoding='utf-8')
+        dogs = []
+        for line in text.splitlines():
+            line = line.strip()
+            if not line or line.lower().startswith('missing dogs'):
+                continue
+            m = re.match(r'^(\d+):\s*(.+)$', line)
+            if m:
+                dog_id = int(m.group(1))
+                name = m.group(2).strip()
+                dogs.append({"id": dog_id, "name": name})
+
+        return APIResponse.success_response(dogs)
+
+    except Exception as e:
+        logger.error(f"Error reading missing_dogs.txt: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/insights", response_model=APIResponse)
 @cached("insights")
 async def get_insights(dog_service: DogService = Depends(get_dog_service)):
@@ -271,6 +367,52 @@ async def get_diff_analysis(es_service: ElasticsearchService = Depends(get_elast
         return APIResponse.success_response(data)
     except Exception as e:
         logger.error(f"Error getting diff analysis: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/missing-dogs", response_model=APIResponse)
+async def get_missing_dogs():
+    """Return the missing dogs list parsed from missing_dogs.txt (if present)
+
+    The scheduler writes the current file to react-app/public/missing_dogs.txt. This
+    endpoint attempts to find the most likely file locations and parse it into JSON.
+    """
+    try:
+        candidates = [
+            os.path.join(os.getcwd(), 'react-app', 'public', 'missing_dogs.txt'),
+            os.path.join(os.path.dirname(__file__), '..', 'react-app', 'public', 'missing_dogs.txt'),
+            os.path.join(os.getcwd(), 'missing_dogs.txt')
+        ]
+
+        file_path = None
+        for p in candidates:
+            if os.path.exists(p):
+                file_path = p
+                break
+
+        if not file_path:
+            logger.info("missing_dogs.txt not found in known locations")
+            return APIResponse.success_response([])
+
+        dogs = []
+        with open(file_path, 'r', encoding='utf-8') as fh:
+            for line in fh:
+                line = line.strip()
+                if not line or line.startswith('Missing dogs'):
+                    continue
+                m = re.match(r'^(\d+):\s*(.+)$', line)
+                if m:
+                    dog_id = int(m.group(1))
+                    name = m.group(2).strip()
+                    dogs.append({
+                        'id': dog_id,
+                        'name': name,
+                        'url': f'https://new.shelterluv.com/embed/animal/{dog_id}'
+                    })
+        return APIResponse.success_response(dogs)
+
+    except Exception as e:
+        logger.error(f"Error reading missing_dogs.txt: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/run_document_updates", response_model=APIResponse)

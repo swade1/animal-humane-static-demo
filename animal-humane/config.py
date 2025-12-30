@@ -21,6 +21,8 @@ class APIConfig:
     def __post_init__(self):
         if self.cors_origins is None:
             self.cors_origins = ["http://localhost:3000"]
+        # Optional internal auth token for scheduler/API internal calls
+        self.internal_auth_token = os.getenv('INTERNAL_API_TOKEN') or None
 
 @dataclass
 class ScrapingConfig:

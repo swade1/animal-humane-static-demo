@@ -135,7 +135,8 @@ class AnimalHumaneScheduler:
                 "/api/insights",
                 "/api/diff-analysis",
                 "/api/weekly-age-group-adoptions",
-                "/api/dog-origins"
+                "/api/dog-origins",
+                "/api/missing-dogs"
             ]
             
             for endpoint in endpoints:
@@ -194,6 +195,25 @@ class AnimalHumaneScheduler:
                 if os.path.exists(source_file):
                     shutil.copy2(source_file, dest_file)
                     logger.info(f"Copied missing_dogs.txt to React app public directory: {dest_file}")
+
+                    # Call the API to refresh its cache for missing_dogs (internal endpoint)
+                    try:
+                        import requests
+                        api_base = "http://localhost:8000"
+                        refresh_url = f"{api_base}/api/cache/refresh"
+                        headers = {}
+                        token = os.getenv('INTERNAL_API_TOKEN')
+                        if token:
+                            headers['X-Internal-Token'] = token
+
+                        resp = requests.post(refresh_url, params={"key": "missing_dogs"}, headers=headers, timeout=15)
+                        if resp.status_code == 200:
+                            logger.info("Successfully refreshed missing_dogs cache via API")
+                        else:
+                            logger.warning(f"Failed to refresh missing_dogs cache: HTTP {resp.status_code} - {resp.text}")
+                    except Exception as e:
+                        logger.error(f"Error calling cache refresh endpoint: {e}")
+
                 else:
                     logger.warning(f"Source file not found: {source_file}")
                     

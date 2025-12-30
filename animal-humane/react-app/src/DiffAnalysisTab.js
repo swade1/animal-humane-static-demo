@@ -32,6 +32,21 @@ function DiffAnalysisTab() {
   useEffect(() => {
     const loadMissingDogs = async () => {
       try {
+        // Try API JSON endpoint first
+        const res = await fetch('/api/missing-dogs');
+        if (res.ok) {
+          const apiResp = await res.json();
+          // APIResponse wrapper => {data: [...]}
+          const dogs = apiResp && apiResp.data ? apiResp.data : apiResp;
+          if (Array.isArray(dogs)) {
+            // Normalize to include URL used by modal links
+            const normalized = dogs.map(d => ({ id: d.id, name: d.name, url: `https://new.shelterluv.com/embed/animal/${d.id}` }));
+            setMissingDogs(normalized);
+            return;
+          }
+        }
+
+        // Fallback to legacy text file if API fails or returns unexpected format
         const response = await fetch('/missing_dogs.txt');
         if (!response.ok) {
           throw new Error('Failed to load missing dogs file');
@@ -48,22 +63,78 @@ function DiffAnalysisTab() {
     loadMissingDogs();
   }, []);
 
-  // Filter missing dogs to exclude any that are in new_dogs
-  const filteredMissingDogs = React.useMemo(() => {
-    if (!data || !missingDogs.length) return missingDogs;
-    
-    // Extract dog IDs from new_dogs URLs
-    const newDogIds = new Set();
-    (data.new_dogs || []).forEach(dog => {
-      const url = dog.url || '';
-      const match = url.match(/\/animal\/(\d+)$/);
-      if (match) {
-        newDogIds.add(parseInt(match[1]));
-      }
+  // Compute display lists and ensure mutual exclusivity with "Available Soon"
+  const {
+    displayNewDogs,
+    displayReturnedDogs,
+    displayAdoptedDogs,
+    displayTrialDogs,
+    displayOtherUnlistedDogs,
+    filteredMissingDogs
+  } = React.useMemo(() => {
+    // If no data or no missing dogs, default to original lists
+    if (!data) {
+      return {
+        displayNewDogs: data ? (data.new_dogs || []) : [],
+        displayReturnedDogs: data ? (data.returned_dogs || []) : [],
+        displayAdoptedDogs: data ? (data.adopted_dogs || []) : [],
+        displayTrialDogs: data ? (data.trial_adoption_dogs || []) : [],
+        displayOtherUnlistedDogs: data ? (data.other_unlisted_dogs || []) : [],
+        filteredMissingDogs: missingDogs || []
+      };
+    }
+
+    // Helper: extract numeric ID from a Shelterluv embed URL
+    const extractIdFromUrl = (url) => {
+      const match = (url || '').match(/\/animal\/(\d+)$/);
+      return match ? parseInt(match[1], 10) : null;
+    };
+
+    const missingIds = new Set((missingDogs || []).map(d => d.id));
+
+    // Build sets of IDs from backend lists
+    const newIds = new Set((data.new_dogs || []).map(d => extractIdFromUrl(d.url)).filter(Boolean));
+    const returnedIds = new Set((data.returned_dogs || []).map(d => d.dog_id));
+    const adoptedIds = new Set((data.adopted_dogs || []).map(d => d.dog_id));
+    const trialIds = new Set((data.trial_adoption_dogs || []).map(d => d.dog_id));
+    const otherUnlistedIds = new Set((data.other_unlisted_dogs || []).map(d => d.dog_id));
+
+    // Union of IDs that should exclude missing dogs from appearing in "Available Soon"
+    const occupiedIds = new Set([
+      ...Array.from(newIds),
+      ...Array.from(returnedIds),
+      ...Array.from(adoptedIds),
+      ...Array.from(trialIds),
+      ...Array.from(otherUnlistedIds)
+    ].filter(Boolean));
+
+    // Now produce display lists by removing any missing-dog IDs from the other lists
+    const displayNew = (data.new_dogs || []).filter(dog => {
+      const id = extractIdFromUrl(dog.url);
+      return id && !missingIds.has(id);
     });
-    
-    // Filter out dogs that are in new_dogs
-    return missingDogs.filter(dog => !newDogIds.has(dog.id));
+
+    const displayReturned = (data.returned_dogs || []).filter(dog => !missingIds.has(dog.dog_id));
+    const displayAdopted = (data.adopted_dogs || []).filter(dog => !missingIds.has(dog.dog_id));
+    const displayTrial = (data.trial_adoption_dogs || []).filter(dog => !missingIds.has(dog.dog_id));
+
+    // For other unlisted dogs also avoid duplicates with new_dogs
+    const displayOther = (data.other_unlisted_dogs || []).filter(dog => {
+      const id = dog.dog_id;
+      return id && !missingIds.has(id) && !newIds.has(id);
+    });
+
+    // Filter missing dogs to exclude any ID that appears in other lists
+    const filteredMissing = (missingDogs || []).filter(dog => !occupiedIds.has(dog.id));
+
+    return {
+      displayNewDogs: displayNew,
+      displayReturnedDogs: displayReturned,
+      displayAdoptedDogs: displayAdopted,
+      displayTrialDogs: displayTrial,
+      displayOtherUnlistedDogs: displayOther,
+      filteredMissingDogs: filteredMissing
+    };
   }, [data, missingDogs]);
 
   const openModal = (url) => {
@@ -76,9 +147,18 @@ function DiffAnalysisTab() {
     setModalUrl('');
   };
 
-  const parseMissingDogs = (text) => {
+  const parseMissingDogs = (textOrArray) => {
+    // Accept either raw text from legacy file or an array from the API
+    if (Array.isArray(textOrArray)) {
+      return textOrArray.map(d => ({
+        id: d.id,
+        name: d.name,
+        url: d.url || `https://new.shelterluv.com/embed/animal/${d.id}`
+      }));
+    }
+
     const dogs = [];
-    const lines = text.split('\n').filter(line => line.trim() && !line.startsWith('Missing dogs'));
+    const lines = textOrArray.split('\n').filter(line => line.trim() && !line.startsWith('Missing dogs'));
 
     lines.forEach(line => {
       const match = line.match(/^(\d+):\s*(.+)$/);
@@ -157,11 +237,11 @@ function DiffAnalysisTab() {
       <h2 style={{ marginTop: '10px', textAlign: 'left' }}>Dog Movement Analysis</h2>
       <p style={{ marginBottom: '30px' }}>This tab shows changes in dog status between database updates.</p>
 
-      {renderDogList(data.new_dogs, "New Dogs")}
-      {renderDogList(data.returned_dogs, "Returned Dogs")}
-      {renderDogList(data.adopted_dogs, "Adopted/Reclaimed Dogs")}
-      {renderDogList(data.trial_adoption_dogs, "Trial Adoptions")}
-      {renderDogList(data.other_unlisted_dogs, "Available but Temporarily Unlisted")}
+      {renderDogList(displayNewDogs, "New Dogs")}
+      {renderDogList(displayReturnedDogs, "Returned Dogs")}
+      {renderDogList(displayAdoptedDogs, "Adopted/Reclaimed Dogs")}
+      {renderDogList(displayTrialDogs, "Trial Adoptions")}
+      {renderDogList(displayOtherUnlistedDogs, "Available but Temporarily Unlisted")}
       {renderDogList(filteredMissingDogs, "Available Soon")}
 
       <Modal
