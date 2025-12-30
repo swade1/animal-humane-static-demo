@@ -31,6 +31,10 @@ docker-compose down
 docker-compose pull && docker-compose up -d
 ```
 
+**Restart safety note:**
+- Use `deployment/docker/restart_all.sh` to restart the stack safely. The script now logs invocations to `/var/log/ah-restart.log` and, by default, avoids restarting the `scheduler` during protected scrape windows to prevent missed scheduled scrapes. Use `--with-scheduler` or `--force` to override when necessary.
+
+
 ## Option 2: System Service (Linux/macOS)
 
 **Pros**: Runs as system service, starts on boot, managed by OS
@@ -144,6 +148,11 @@ export LOG_DIR=./logs
 
 ### Schedule Customization:
 Edit `scheduler/background_scheduler.py` to modify:
+
+- Add signal handlers to log and gracefully handle SIGTERM/SIGINT (helps troubleshooting container stops).
+- Add startup "catch-up" behavior that runs missed scrapes if the scheduler was down during scheduled windows.
+- Add a basic healthcheck to the `scheduler` service in `docker-compose.yml` and use `docker inspect`/`docker events`/`dmesg` to correlate container restarts with system-level events.
+
 - Scraping frequency (currently 4 times daily)
 - Diff analysis frequency (currently twice daily)
 - Health check frequency (currently hourly)
