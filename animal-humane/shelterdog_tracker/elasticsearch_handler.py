@@ -3,6 +3,9 @@ import json
 import pytz
 import re
 import requests
+import logging
+
+logger = logging.getLogger(__name__)
 
 from typing import Dict, Any, List, Optional, Set, Tuple
 
@@ -461,6 +464,24 @@ class ElasticsearchHandler:
             dog for dog in dogs_by_id.values() 
             if dog.get("status") == "Available"  # Only include dogs currently available
         ]
+
+        # Exclude any dogs explicitly overridden as adopted today
+        try:
+            import os, json
+            overrides_path = os.path.join(os.getcwd(), 'overrides', 'adopted_today.json')
+            if os.path.exists(overrides_path):
+                with open(overrides_path, 'r', encoding='utf-8') as fh:
+                    raw = json.load(fh) or []
+                    override_ids = set()
+                    for item in raw:
+                        if isinstance(item, dict):
+                            override_ids.add(item.get('dog_id'))
+                        elif isinstance(item, int):
+                            override_ids.add(item)
+                    if override_ids:
+                        available_dogs = [d for d in available_dogs if d.get('dog_id') not in override_ids]
+        except Exception as e:
+            print(f"Error applying adopted_today overrides in get_current_availables: {e}")
 
         # Return list of unique available dogs
         return available_dogs
@@ -1064,14 +1085,21 @@ class ElasticsearchHandler:
             today_index_pattern = f"animal-humane-{current_date}-*"
             query = {
                 "query": {"term": {"status": "adopted"}},
-                "_source": ["name", "id", "url", "location", "status"]
+                "_source": ["name", "id", "url", "location", "status", "timestamp"]
             }
             try:
                 response = self.es.search(index=today_index_pattern, body=query)
+                # Compute formatted today string (YYYY-MM-DD) for timestamp comparison
+                formatted_today = f"{current_date[:4]}-{current_date[4:6]}-{current_date[6:]}" if current_date else None
                 for hit in response['hits']['hits']:
                     dog_data = hit['_source']
                     dog_id = dog_data['id']
-                    # Only include if not in current available dogs
+                    # Only include if the recorded timestamp is from TODAY and the dog is not in current available dogs
+                    ts = dog_data.get('timestamp', '')
+                    ts_date = ts[:10] if ts else None
+                    if formatted_today and ts_date != formatted_today:
+                        # Skip adoptions that did not occur today
+                        continue
                     if dog_id not in available_ids:
                         adopted_dogs.append({
                             'name': dog_data.get('name', 'Unknown'),
@@ -1098,8 +1126,18 @@ class ElasticsearchHandler:
                             'url': dog_data.get('url', ''),
                             'location': dog_data.get('location', '')
                         })
-        else:
-            # Fallback to old logic if date extraction fails
+
+        # Note: we previously included a rolling-window of recent adoptions (e.g., last 8 days)
+        # into the main `adopted_dogs` list which caused the Recent Pupdates tab to show
+        # multi-day adoptions. The Recent Pupdates tab should show *only* adoptions that
+        # occurred today; weekly aggregates are shown in the weekly tab. Therefore, we
+        # intentionally do NOT add the 8-day recent window into `adopted_dogs` here.
+        # If needed, a separate field (e.g., `recent_adopted_window`) can be returned for
+        # other uses, but we keep `adopted_dogs` limited to today's adoptions.
+        pass
+
+        # If date extraction failed, fallback to old logic
+        if not current_date:
             index_ids = self.get_all_ids(most_recent_index)
             adopted_dog_ids = [dog_id for dog_id in index_ids if dog_id not in available_ids]
             if adopted_dog_ids:
@@ -1119,7 +1157,9 @@ class ElasticsearchHandler:
 
         # Get index IDs for filtering unlisted dogs (still use most recent for this)
         index_ids = self.get_all_ids(most_recent_index)
-        unlisted_dogs = [dog for dog in availables if dog['dog_id'] not in index_ids]
+        # Exclude dogs that are already identified as adopted from unlisted groups
+        adopted_ids = {d['dog_id'] for d in adopted_dogs}
+        unlisted_dogs = [dog for dog in availables if dog['dog_id'] not in index_ids and dog['dog_id'] not in adopted_ids]
 
         returned_dogs = self.get_returned_dogs(availables, most_recent_index)
 
@@ -1134,6 +1174,123 @@ class ElasticsearchHandler:
                 trial_adoption_dogs.append(dog)
             else:
                 other_unlisted_dogs.append(dog)
+
+        # For each dog currently listed as trial adoption, verify the most recent status
+        # by querying Elasticsearch for the latest record for that dog_id. If the latest
+        # record has status 'adopted', move the dog from trial_adoption_dogs to adopted_dogs.
+        verified_trial = []
+        for dog in trial_adoption_dogs:
+            dog_id = dog.get('dog_id')
+            try:
+                # Search for the most recent document for this dog across indices (use exact term query)
+                body = {
+                    "sort": [{"timestamp": {"order": "desc"}}],
+                    "query": {"term": {"id": {"value": dog_id}}},
+                    "_source": ["name", "id", "status", "timestamp", "url", "location"],
+                    "size": 2
+                }
+                try:
+                    print(f"DEBUG: verifying dog {dog_id} with body: {body}")
+                    resp = self.es.search(index="animal-humane-*", body=body)
+                    hits = resp.get('hits', {}).get('hits', [])
+                    print(f"DEBUG: verification search returned {len(hits)} hits for dog {dog_id}")
+                    if hits:
+                        latest_hit = hits[0]
+                        latest = latest_hit.get('_source', {})
+                        latest_status = str(latest.get('status', '')).lower()
+                        # Debugging output to help trace classification issues
+                        try:
+                            print(f"DEBUG: latest for dog {dog_id} -> index: {latest_hit.get('_index')}, status: {latest.get('status')}, timestamp: {latest.get('timestamp')}")
+                        except Exception:
+                            print(f"DEBUG: latest for dog {dog_id} -> could not extract hit details")
+
+                        # Prepare today's date string
+                        formatted_today = f"{current_date[:4]}-{current_date[4:6]}-{current_date[6:]}" if current_date else None
+
+                        # Case 1: latest doc is an adopted doc dated TODAY -> promote
+                        latest_ts = latest.get('timestamp', '')
+                        latest_date_str = latest_ts[:10] if latest_ts else None
+                        if latest_status == 'adopted' and formatted_today and latest_date_str == formatted_today:
+                            adopted_dogs.append({
+                                'name': latest.get('name', dog.get('name', 'Unknown')),
+                                'dog_id': dog_id,
+                                'url': latest.get('url', dog.get('url', '')),
+                                'location': latest.get('location', dog.get('location', ''))
+                            })
+                            continue  # Skip adding this dog to verified_trial
+
+                        # Case 2: latest doc is dated TODAY and its location was CLEARED compared to previous record
+                        # (indicates a change during today's scrape, e.g., trial adoption location removed)
+                        if formatted_today and latest_date_str == formatted_today:
+                            prev_hit = hits[1] if len(hits) > 1 else None
+                            prev_loc = None
+                            prev_status = None
+                            try:
+                                if prev_hit:
+                                    prev = prev_hit.get('_source', {})
+                                    prev_loc = (prev.get('location') or '').lower()
+                                    prev_status = (prev.get('status') or '').lower()
+                            except Exception:
+                                prev_loc = None
+                                prev_status = None
+
+                            latest_loc = (latest.get('location') or '').lower()
+
+                            # If previous location indicated trial and latest location is empty/cleared, infer today's adoption
+                            if prev_loc and 'trial' in prev_loc and (not latest_loc):
+                                print(f"DEBUG: dog {dog_id} had trial location previously and location cleared today; promoting to adopted")
+                                adopted_dogs.append({
+                                    'name': latest.get('name', dog.get('name', 'Unknown')),
+                                    'dog_id': dog_id,
+                                    'url': latest.get('url', dog.get('url', '')),
+                                    'location': latest.get('location', dog.get('location', ''))
+                                })
+                                continue
+
+                        # Otherwise, do not promote (keep in trial list)
+                        print(f"DEBUG: not promoting dog {dog_id} (latest_status={latest_status}, latest_date={latest_date_str})")
+                except Exception as e:
+                    print(f"ERROR: verification search failed for dog {dog_id}: {e}")
+                    # If the query fails, be conservative and keep the dog in trial list
+                    print(f"DEBUG: Keeping dog {dog_id} in trial list due to error")
+            except Exception as e:
+                # If the query fails, be conservative and keep the dog in trial list
+                print(f"Error verifying trial adoption status for {dog_id}: {e}")
+
+            verified_trial.append(dog)
+
+        trial_adoption_dogs = verified_trial
+
+        # Manual override: allow explicit inclusion of specific dog IDs as Adopted for Recent Pupdates.
+        # This is safer than a relaxed heuristic and prevents false positives. Overrides are read from
+        # a JSON file at `overrides/adopted_today.json` (a JSON array of IDs or objects with {"dog_id": id}).
+        try:
+            import os, json
+            overrides_path = os.path.join(os.getcwd(), 'overrides', 'adopted_today.json')
+            if os.path.exists(overrides_path):
+                with open(overrides_path, 'r', encoding='utf-8') as fh:
+                    raw = json.load(fh)
+                    # Support list of ints or list of objects
+                    if isinstance(raw, list):
+                        for item in raw:
+                            if isinstance(item, dict):
+                                oid = item.get('dog_id')
+                                oname = item.get('name')
+                            else:
+                                oid = item
+                                oname = None
+
+                            if oid and oid not in [d['dog_id'] for d in adopted_dogs]:
+                                adopted_dogs.append({'name': oname or str(oid), 'dog_id': oid, 'url': '', 'location': ''})
+
+            # After applying overrides, ensure any adopted dogs are removed from other lists
+            adopted_ids_after = {d['dog_id'] for d in adopted_dogs}
+            # Remove adopted dogs from trial, other_unlisted, and returned lists
+            trial_adoption_dogs = [d for d in trial_adoption_dogs if d['dog_id'] not in adopted_ids_after]
+            other_unlisted_dogs = [d for d in other_unlisted_dogs if d['dog_id'] not in adopted_ids_after]
+            returned_dogs = [d for d in returned_dogs if d['dog_id'] not in adopted_ids_after]
+        except Exception as e:
+            print(f"Error reading adopted_today overrides: {e}")
 
         return {
             'adopted_dogs': adopted_dogs,

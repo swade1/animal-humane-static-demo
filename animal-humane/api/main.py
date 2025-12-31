@@ -364,6 +364,13 @@ async def get_diff_analysis(es_service: ElasticsearchService = Depends(get_elast
     """Get diff analysis data (new, returned, adopted, trial, unlisted dogs)"""
     try:
         data = await es_service.get_diff_analysis()
+        # Temporary debug: log counts to help diagnose discrepancy between service and API output
+        try:
+            adopted_count = len(data.get('adopted_dogs', [])) if data else 0
+            trial_count = len(data.get('trial_adoption_dogs', [])) if data else 0
+            logger.info(f"DEBUG: API diff_analysis computed: adopted={adopted_count}, trial={trial_count}")
+        except Exception:
+            logger.info("DEBUG: API diff_analysis computed: could not determine counts")
         return APIResponse.success_response(data)
     except Exception as e:
         logger.error(f"Error getting diff analysis: {e}")
@@ -413,6 +420,147 @@ async def get_missing_dogs():
 
     except Exception as e:
         logger.error(f"Error reading missing_dogs.txt: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# Debug endpoint: return raw diff analysis from ElasticsearchService (bypass cache and models)
+@app.get("/api/debug/raw-diff")
+async def debug_raw_diff():
+    try:
+        from services.elasticsearch_service import ElasticsearchService
+        es_service = ElasticsearchService()
+        # Run and return raw result
+        result = await es_service.get_diff_analysis()
+        return result
+    except Exception as e:
+        logger.error(f"Error in debug_raw_diff: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# Admin endpoints for manual overrides of today's Adopted list
+@app.get("/api/admin/overrides/adopted")
+async def get_adopted_overrides():
+    try:
+        import os, json
+        path = os.path.join(os.getcwd(), 'overrides', 'adopted_today.json')
+        if not os.path.exists(path):
+            return APIResponse.success_response([])
+        with open(path, 'r', encoding='utf-8') as fh:
+            data = json.load(fh)
+        return APIResponse.success_response(data)
+    except Exception as e:
+        logger.error(f"Error reading adopted overrides: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/admin/overrides/adopted")
+async def add_adopted_override(item: dict):
+    try:
+        import os, json
+        path = os.path.join(os.getcwd(), 'overrides')
+        os.makedirs(path, exist_ok=True)
+        file_path = os.path.join(path, 'adopted_today.json')
+        data = []
+        if os.path.exists(file_path):
+            with open(file_path, 'r', encoding='utf-8') as fh:
+                data = json.load(fh) or []
+        data.append(item)
+        with open(file_path, 'w', encoding='utf-8') as fh:
+            json.dump(data, fh)
+        return APIResponse.success_response(data)
+    except Exception as e:
+        logger.error(f"Error adding adopted override: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.delete("/api/admin/overrides/adopted")
+async def remove_adopted_override(dog_id: int = Query(...)):
+    try:
+        import os, json
+        path = os.path.join(os.getcwd(), 'overrides', 'adopted_today.json')
+        if not os.path.exists(path):
+            return APIResponse.success_response([])
+        with open(path, 'r', encoding='utf-8') as fh:
+            data = json.load(fh) or []
+        new = [d for d in data if not ((isinstance(d, dict) and d.get('dog_id') == dog_id) or (isinstance(d, int) and d == dog_id))]
+        with open(path, 'w', encoding='utf-8') as fh:
+            json.dump(new, fh)
+        return APIResponse.success_response(new)
+    except Exception as e:
+        logger.error(f"Error removing adopted override: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# Debug endpoint: inspect intermediate values used for diff analysis for Prince Charming
+@app.get("/api/debug/inspect-prince")
+async def debug_inspect_prince():
+    """Return intermediate values to help trace why Prince Charming is not in adopted list"""
+    try:
+        from services.elasticsearch_service import ElasticsearchService
+        es_service = ElasticsearchService()
+
+        # Get current availables
+        availables = await es_service.get_current_availables()
+        avail_count = len(availables)
+        prince_in_avail = any(d.get('id') == 212434888 or d.get('dog_id') == 212434888 for d in availables)
+
+        # Get most recent index
+        idx = await es_service.get_most_recent_index()
+
+        # Get dog_groups for a trial record
+        trial_record = {'name': 'Prince Charming', 'dog_id': 212434888, 'url': 'https://new.shelterluv.com/embed/animal/212434888', 'location': 'Trial Adoption'}
+        dog_groups_for_trial = await es_service.get_dog_groups([trial_record], idx)
+
+        # Full diff
+        full_diff = await es_service.get_diff_analysis()
+
+        # Run a direct "recent adopted" query (same as handler) to see raw hits
+        from datetime import datetime, timedelta
+        current_date = idx.split('animal-humane-')[1].split('-')[0]
+        current_dt = datetime.strptime(current_date, '%Y%m%d')
+        cutoff_dt = current_dt - timedelta(days=8)
+        cutoff_str = cutoff_dt.strftime('%Y-%m-%dT%H:%M:%S')
+        recent_query = {
+            "query": {
+                "bool": {
+                    "must": [
+                        {"term": {"status": "adopted"}},
+                        {"range": {"timestamp": {"gte": cutoff_str}}}
+                    ]
+                }
+            },
+            "_source": ["name", "id", "url", "location", "status", "timestamp"],
+            "size": 1000
+        }
+
+        raw_recent_resp = es_service.handler.es.search(index='animal-humane-*', body=recent_query)
+        raw_recent_ids = [hit.get('_source', {}).get('id') for hit in raw_recent_resp.get('hits', {}).get('hits', [])][:50]
+
+        # Run the verification search used for trial verification
+        verify_body = {
+            "sort": [{"timestamp": {"order": "desc"}}],
+            "query": {"term": {"id": {"value": 212434888}}},
+            "_source": ["name", "id", "status", "timestamp", "url", "location"],
+            "size": 1
+        }
+        verify_resp = es_service.handler.es.search(index='animal-humane-*', body=verify_body)
+        verify_hits = verify_resp.get('hits', {}).get('hits', [])
+        verify_top = None
+        if verify_hits:
+            verify_top = verify_hits[0]
+
+        return APIResponse.success_response({
+            'avail_count': avail_count,
+            'prince_in_avail': prince_in_avail,
+            'most_recent_index': idx,
+            'dog_groups_for_trial': dog_groups_for_trial,
+            'full_diff_has_prince': any(d.get('dog_id') == 212434888 or d.get('id') == 212434888 or d.get('name') == 'Prince Charming' for d in full_diff.get('adopted_dogs', [])),
+            'full_diff_sample_adopted': full_diff.get('adopted_dogs', [])[:10],
+            'raw_recent_ids_sample': raw_recent_ids,
+            'verify_top': verify_top
+        })
+    except Exception as e:
+        logger.error(f"Error in debug_inspect_prince: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/run_document_updates", response_model=APIResponse)

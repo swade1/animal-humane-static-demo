@@ -10,6 +10,7 @@ import sys
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
 
 # Add the parent directory to the path so we can import our modules
 sys.path.append(str(Path(__file__).parent.parent))
@@ -33,9 +34,18 @@ class AnimalHumaneScheduler:
     def __init__(self):
         self.scraper = ShelterScraper(main_url="https://animalhumanenm.org/adopt/adoptable-dogs/")
         self.diff_analyzer = DiffAnalyzer()
+        # Thread pool executor for running long tasks asynchronously
+        self.executor = ThreadPoolExecutor(max_workers=4)
         # Get Elasticsearch host from environment variable for Docker
         self.es_host = os.getenv('ELASTICSEARCH_HOST', 'http://localhost:9200')
         
+    def run_async(self, fn, *args, **kwargs):
+        """Submit a task to the executor so scheduled jobs don't block the scheduler loop"""
+        try:
+            self.executor.submit(fn, *args, **kwargs)
+        except Exception as e:
+            logger.error(f"Error submitting task to executor: {e}")
+
     def scrape_and_index(self):
         """Scrape current data and push to Elasticsearch"""
         try:
@@ -236,6 +246,21 @@ class AnimalHumaneScheduler:
             logger.error(f"Health check failed: {e}")
             return False
 
+import signal
+
+def _parse_index_datetime(index_name: str):
+    """Parse index name like animal-humane-YYYYMMDD-HHMM into a datetime or return None"""
+    import re
+    m = re.search(r"animal-humane-(\d{8})-(\d{4})", index_name)
+    if not m:
+        return None
+    date_part, time_part = m.groups()
+    try:
+        return datetime.strptime(f"{date_part}{time_part}", "%Y%m%d%H%M")
+    except Exception:
+        return None
+
+
 def main():
     logger.info("Starting Animal Humane Background Scheduler")
     
@@ -246,23 +271,23 @@ def main():
     # We'll set the container timezone to Mountain Time in docker-compose
     
     # Scrape at: 9am, 11am, 1pm, 3pm, 5pm, 7pm Mountain Time
-    schedule.every().day.at("09:00").do(scheduler.scrape_and_index)  # 9 AM MT
-    schedule.every().day.at("11:00").do(scheduler.scrape_and_index)  # 11 AM MT
-    schedule.every().day.at("13:00").do(scheduler.scrape_and_index)  # 1 PM MT
-    schedule.every().day.at("15:00").do(scheduler.scrape_and_index)  # 3 PM MT
-    schedule.every().day.at("17:00").do(scheduler.scrape_and_index)  # 5 PM MT
-    schedule.every().day.at("19:00").do(scheduler.scrape_and_index)  # 7 PM MT
+    schedule.every().day.at("09:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 9 AM MT
+    schedule.every().day.at("11:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 11 AM MT
+    schedule.every().day.at("13:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 1 PM MT
+    schedule.every().day.at("15:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 3 PM MT
+    schedule.every().day.at("17:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 5 PM MT
+    schedule.every().day.at("19:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 7 PM MT
     
     # Run diff analysis 10 minutes after each scrape
-    schedule.every().day.at("09:10").do(scheduler.run_diff_analysis)  # 9:10 AM MT
-    schedule.every().day.at("11:10").do(scheduler.run_diff_analysis)  # 11:10 AM MT
-    schedule.every().day.at("13:10").do(scheduler.run_diff_analysis)  # 1:10 PM MT
-    schedule.every().day.at("15:10").do(scheduler.run_diff_analysis)  # 3:10 PM MT
-    schedule.every().day.at("17:10").do(scheduler.run_diff_analysis)  # 5:10 PM MT
-    schedule.every().day.at("19:10").do(scheduler.run_diff_analysis)  # 7:10 PM MT
+    schedule.every().day.at("09:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 9:10 AM MT
+    schedule.every().day.at("11:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 11:10 AM MT
+    schedule.every().day.at("13:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 1:10 PM MT
+    schedule.every().day.at("15:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 3:10 PM MT
+    schedule.every().day.at("17:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 5:10 PM MT
+    schedule.every().day.at("19:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 7:10 PM MT
     
     # Health check every hour
-    schedule.every().hour.do(scheduler.health_check)
+    schedule.every().hour.do(scheduler.run_async, scheduler.health_check)  
     
     logger.info("Scheduler configured with the following jobs (Mountain Time):")
     logger.info("- Scraping: 9:00, 11:00, 13:00, 15:00, 17:00, 19:00")
@@ -284,16 +309,74 @@ def main():
         logger.info("Next scheduled jobs:")
         for job in sorted(jobs, key=lambda x: x.next_run)[:3]:
             logger.info(f"  - {job.job_func.__name__} at {job.next_run.strftime('%Y-%m-%d %H:%M:%S')}")
-    
+
+    # Catch up missed scrapes if any (use alias to determine last successful scrape)
+    try:
+        from elasticsearch import Elasticsearch
+        handler = ElasticsearchHandler(host=scheduler.es_host, index_name="animal-humane-latest")
+        alias_info = handler.es.indices.get_alias(name="animal-humane-latest", ignore=[404])
+        last_index_time = None
+        if alias_info and isinstance(alias_info, dict):
+            # alias_info maps index_name -> metadata
+            idx_name = list(alias_info.keys())[0]
+            parsed = _parse_index_datetime(idx_name)
+            last_index_time = parsed
+            logger.info(f"Last successful index detected: {idx_name} -> {parsed}")
+        else:
+            logger.warning("No alias 'animal-humane-latest' found - will perform an initial scrape")
+            scheduler.run_async(scheduler.scrape_and_index)
+    except Exception as e:
+        logger.error(f"Error while checking for last index time: {e}")
+        # As a conservative approach, run an initial scrape
+        scheduler.run_async(scheduler.scrape_and_index)
+        last_index_time = None
+
+    # If the last successful index is older than the last scheduled scrape window, perform catch-up
+    if last_index_time:
+        now = datetime.now()
+        # Build list of today's scheduled times (local timezone)
+        scheduled_hours = [9, 11, 13, 15, 17, 19]
+        missed = []
+        # Check today's and yesterday's schedules to cover boundary cases
+        for day_offset in [0, -1]:
+            day = (now + timedelta(days=day_offset)).replace(hour=0, minute=0, second=0, microsecond=0)
+            for hour in scheduled_hours:
+                sched_dt = day + timedelta(hours=hour)
+                if last_index_time < sched_dt <= now:
+                    missed.append(sched_dt)
+        if missed:
+            logger.info(f"Detected {len(missed)} missed scheduled scrapes since last index: {missed}")
+            for m in sorted(missed):
+                logger.info(f"Scheduling catch-up scrape for {m}")
+                scheduler.run_async(scheduler.scrape_and_index)
+
+    # Setup signal handlers to log SIGTERM and shutdown gracefully
+    def _handle_signal(signum, frame):
+        logger.warning(f"Received signal {signum}. Shutting down gracefully...")
+        try:
+            scheduler.executor.shutdown(wait=False)
+        except Exception as e:
+            logger.warning(f"Error shutting down executor during signal handling: {e}")
+        sys.exit(0)
+
+    signal.signal(signal.SIGTERM, _handle_signal)
+    signal.signal(signal.SIGINT, _handle_signal)
+
     # Main loop
     try:
         while True:
             schedule.run_pending()
-            time.sleep(60)  # Check every minute
+            time.sleep(5)  # Check every 5 seconds
     except KeyboardInterrupt:
         logger.info("Scheduler stopped by user")
     except Exception as e:
         logger.error(f"Scheduler error: {e}", exc_info=True)
+    finally:
+        logger.info("Shutting down scheduler executor")
+        try:
+            scheduler.executor.shutdown(wait=False)
+        except Exception as e:
+            logger.warning(f"Error shutting down executor: {e}")
 
 if __name__ == "__main__":
     main()
