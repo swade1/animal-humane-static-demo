@@ -142,6 +142,12 @@ export async function fetchDiffAnalysis() {
   return response.json();
 }
 
+export async function fetchRecentPupdates() {
+  const response = await fetch('/api/recent-pupdates');
+  if (!response.ok) throw new Error('Failed to fetch recent pupdates');
+  return response.json();
+}
+
 // Clear API cache
 export async function clearCache() {
   const res = await fetch('/api/cache/clear', { method: 'POST' });
