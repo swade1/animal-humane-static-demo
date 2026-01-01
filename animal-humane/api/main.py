@@ -377,6 +377,21 @@ async def get_diff_analysis(es_service: ElasticsearchService = Depends(get_elast
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.get("/api/recent-pupdates", response_model=APIResponse)
+@cached("recent_pupdates")
+async def get_recent_pupdates():
+    """Get recent pupdates data (new dogs, returned dogs, adoptions, etc.)"""
+    try:
+        from services.recent_pupdates_service import RecentPupdatesService
+        from dataclasses import asdict
+        service = RecentPupdatesService()
+        data = await service.get_recent_pupdates()
+        return APIResponse.success_response(asdict(data))
+    except Exception as e:
+        logger.error(f"Error getting recent pupdates: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get("/api/missing-dogs", response_model=APIResponse)
 async def get_missing_dogs():
     """Return the missing dogs list parsed from missing_dogs.txt (if present)
