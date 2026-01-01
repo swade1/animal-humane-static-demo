@@ -22,9 +22,11 @@ services:
 
   scheduler:
     image: animal-humane-scheduler
+    command: ["python", "scheduler/background_scheduler.py"]
     environment:
       - ELASTICSEARCH_HOST=http://elasticsearch:9200
       - TZ=America/Denver
+      - PYTHONPATH=/app
     volumes:
       - .:/app 
     working_dir: /app
