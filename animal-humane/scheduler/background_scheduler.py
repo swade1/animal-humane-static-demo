@@ -78,12 +78,56 @@ class AnimalHumaneScheduler:
             })
             logger.info(f"Updated alias to point to {index_name}")
             
+            # Update demo site timestamp after successful ingest
+            self._update_demo_timestamp(index_name)
+            
             return True
             
         except Exception as e:
             logger.error(f"Error in scrape_and_index: {e}", exc_info=True)
             return False
     
+    def _update_demo_timestamp(self, index_name):
+        """Update demo site timestamp after successful data ingest"""
+        try:
+            import subprocess
+            import os
+            
+            logger.info(f"Updating demo timestamp for index: {index_name}")
+            
+            # Run the timestamp update script
+            script_path = os.path.join(os.path.dirname(__file__), '..', 'update_static_data.py')
+            result = subprocess.run(['python', script_path], 
+                                  capture_output=True, text=True, cwd=os.path.dirname(script_path))
+            
+            if result.returncode == 0:
+                logger.info("✅ Demo timestamp updated successfully")
+                
+                # Git commit and push the changes
+                git_commands = [
+                    ['git', 'add', 'react-app/public/api/last-updated.json'],
+                    ['git', 'commit', '-m', f'Auto-update demo timestamp from scheduler - {index_name}'],
+                    ['git', 'push', 'origin', 'main']
+                ]
+                
+                for cmd in git_commands:
+                    git_result = subprocess.run(cmd, capture_output=True, text=True, 
+                                              cwd=os.path.dirname(script_path))
+                    if git_result.returncode != 0:
+                        logger.error(f"Git command failed: {' '.join(cmd)}")
+                        logger.error(f"Error: {git_result.stderr}")
+                        return False
+                
+                logger.info("✅ Demo timestamp changes pushed to GitHub - Vercel will auto-deploy")
+                return True
+            else:
+                logger.error(f"❌ Demo timestamp update failed: {result.stderr}")
+                return False
+                
+        except Exception as e:
+            logger.error(f"❌ Error updating demo timestamp: {e}")
+            return False
+
     def run_diff_analysis(self):
         """Run difference analysis and save results to file, update Diff Analysis tab data, and warm up API cache"""
         try:
