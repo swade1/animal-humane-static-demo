@@ -2,7 +2,7 @@ import './LivePopulationTab.css';
 
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';  // Add this import
-import { fetchDogs, fetchDogById, updateDog, fetchLatestIndex } from './api';
+import { fetchDogs, fetchDogById, updateDog, fetchLatestIndex, fetchLivePopulation } from './api';
 
 function LivePopulationTab() {
   const [availables, setAvailables] = useState([]); // Initialize as empty array
@@ -20,8 +20,7 @@ function LivePopulationTab() {
   const [form, setForm] = useState({ origin: '', latitude: '', longitude: '' });
 
   useEffect(() => {
-    fetch("/api/live_population")
-      .then((res) => res.json())
+    fetchLivePopulation()
       .then((response) => {
         const data = response.data || response;
         setAvailables(Array.isArray(data) ? data : []);

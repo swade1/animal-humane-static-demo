@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "data": [
+    {
+      "week": "12/01/2025",
+      "Puppy": 16,
+      "Adult": 7,
+      "Senior": 4
+    },
+    {
+      "week": "12/08/2025",
+      "Puppy": 12,
+      "Adult": 13,
+      "Senior": 1
+    },
+    {
+      "week": "12/15/2025",
+      "Puppy": 8,
+      "Adult": 16,
+      "Senior": 0
+    },
+    {
+      "week": "12/22/2025",
+      "Puppy": 13,
+      "Adult": 10,
+      "Senior": 0
+    },
+    {
+      "week": "12/29/2025",
+      "Puppy": 4,
+      "Adult": 3,
+      "Senior": 0
+    }
+  ],
+  "message": null,
+  "error": null
+}

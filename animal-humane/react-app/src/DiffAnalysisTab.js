@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { fetchRecentPupdates } from './api';
+import { fetchRecentPupdates, getApiMode } from './api';
 
 function DiffAnalysisTab() {
   const [data, setData] = useState(null);
@@ -131,7 +131,14 @@ function DiffAnalysisTab() {
         <div style={{ color: 'red', marginBottom: '10px' }}>
           Error loading recent pupdates: {error}
         </div>
-        <button onClick={() => window.location.reload()}>
+        <button onClick={() => {
+          const apiMode = getApiMode();
+          if (apiMode.isStatic) {
+            alert('🎯 Demo Mode: Page reload is not recommended in this static portfolio demonstration.\n\nThis demo uses static data from January 1, 2026. In the live version, this would reload data from the live API.');
+          } else {
+            window.location.reload();
+          }
+        }}>
           Retry
         </button>
       </div>

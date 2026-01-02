@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "data": {
+    "endpoint": "/api/recent-pupdates",
+    "description": "Recent status changes and updates for animals",
+    "total_count": 45,
+    "last_updated": "2026-01-01T16:16:49.895124",
+    "next_update": "2026-01-01T18:16:49.895124",
+    "update_frequency": "2 hours"
+  },
+  "timestamp": "2026-01-01T23:35:00.000Z",
+  "static_demo": true
+}

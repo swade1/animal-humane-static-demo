@@ -1,0 +1,1596 @@
+{
+  "success": true,
+  "data": {
+    "dailyAdoptions": [
+      {
+        "date": "07/14/2025",
+        "count": 1,
+        "names": [
+          "Bobby"
+        ]
+      },
+      {
+        "date": "07/15/2025",
+        "count": 6,
+        "names": [
+          "Amaya",
+          "Chama",
+          "Chuck",
+          "Crumb",
+          "Herman",
+          "Yuno"
+        ]
+      },
+      {
+        "date": "07/16/2025",
+        "count": 2,
+        "names": [
+          "Bronx",
+          "Zuni"
+        ]
+      },
+      {
+        "date": "07/17/2025",
+        "count": 1,
+        "names": [
+          "Peanut"
+        ]
+      },
+      {
+        "date": "07/18/2025",
+        "count": 5,
+        "names": [
+          "Clark",
+          "Iridium",
+          "Kash",
+          "Mustang",
+          "Pinto"
+        ]
+      },
+      {
+        "date": "07/19/2025",
+        "count": 6,
+        "names": [
+          "Dhillon",
+          "Ford",
+          "Gale",
+          "Hershey",
+          "Pearl",
+          "Xenia"
+        ]
+      },
+      {
+        "date": "07/20/2025",
+        "count": 9,
+        "names": [
+          "Alex",
+          "Cinna",
+          "Gimli",
+          "Jasper ",
+          "Marley",
+          "Meleni",
+          "Nala",
+          "Neon",
+          "Subwoofer"
+        ]
+      },
+      {
+        "date": "07/21/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "07/22/2025",
+        "count": 3,
+        "names": [
+          "Jasper ",
+          "Lewis",
+          "Thunder"
+        ]
+      },
+      {
+        "date": "07/23/2025",
+        "count": 4,
+        "names": [
+          "Burger",
+          "Eren",
+          "Koda",
+          "Sponge Bob"
+        ]
+      },
+      {
+        "date": "07/24/2025",
+        "count": 1,
+        "names": [
+          "Athena"
+        ]
+      },
+      {
+        "date": "07/25/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "07/26/2025",
+        "count": 4,
+        "names": [
+          "Alice",
+          "Andy",
+          "April",
+          "Smooch"
+        ]
+      },
+      {
+        "date": "07/27/2025",
+        "count": 1,
+        "names": [
+          "Sierra"
+        ]
+      },
+      {
+        "date": "07/28/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "07/29/2025",
+        "count": 4,
+        "names": [
+          "Bruce",
+          "Crumb",
+          "Jackson",
+          "Loaf"
+        ]
+      },
+      {
+        "date": "07/30/2025",
+        "count": 3,
+        "names": [
+          "Chantrelle",
+          "Mazey",
+          "Truffle"
+        ]
+      },
+      {
+        "date": "07/31/2025",
+        "count": 3,
+        "names": [
+          "Gloria",
+          "Ozzie",
+          "Tish"
+        ]
+      },
+      {
+        "date": "08/01/2025",
+        "count": 2,
+        "names": [
+          "Hershey",
+          "Nezuko"
+        ]
+      },
+      {
+        "date": "08/02/2025",
+        "count": 5,
+        "names": [
+          "Fry",
+          "Jack Frost",
+          "Princess Carolyn ",
+          "Sarah Lynn",
+          "Stray Hold -Chocolate"
+        ]
+      },
+      {
+        "date": "08/03/2025",
+        "count": 5,
+        "names": [
+          "Asta",
+          "Baxter",
+          "Cinna",
+          "Leela",
+          "Shiitake"
+        ]
+      },
+      {
+        "date": "08/04/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "08/05/2025",
+        "count": 2,
+        "names": [
+          "Milo",
+          "Portobello"
+        ]
+      },
+      {
+        "date": "08/06/2025",
+        "count": 4,
+        "names": [
+          "Callisto",
+          "Snoopy",
+          "Storm",
+          "Wilma"
+        ]
+      },
+      {
+        "date": "08/07/2025",
+        "count": 3,
+        "names": [
+          "Aspen",
+          "Nova",
+          "Shiitake"
+        ]
+      },
+      {
+        "date": "08/08/2025",
+        "count": 5,
+        "names": [
+          "Chip",
+          "Destiny",
+          "Midas",
+          "Plum ",
+          "Rosie"
+        ]
+      },
+      {
+        "date": "08/09/2025",
+        "count": 6,
+        "names": [
+          "Finn",
+          "Mary Kate",
+          "Messi",
+          "Mojo Jojo",
+          "Nickel",
+          "Wiley"
+        ]
+      },
+      {
+        "date": "08/10/2025",
+        "count": 2,
+        "names": [
+          "Daffy",
+          "Tuna"
+        ]
+      },
+      {
+        "date": "08/11/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "08/12/2025",
+        "count": 2,
+        "names": [
+          "Charmy",
+          "Raider"
+        ]
+      },
+      {
+        "date": "08/13/2025",
+        "count": 2,
+        "names": [
+          "Leafeon",
+          "Noelle"
+        ]
+      },
+      {
+        "date": "08/14/2025",
+        "count": 8,
+        "names": [
+          "Espeon",
+          "Flareon",
+          "Franklin",
+          "Hoagie",
+          "Jolteon",
+          "Sylveon",
+          "Trooper",
+          "Waffle"
+        ]
+      },
+      {
+        "date": "08/15/2025",
+        "count": 6,
+        "names": [
+          "Eevee",
+          "Jinu",
+          "Liam ",
+          "Major",
+          "Rumi",
+          "Zoey"
+        ]
+      },
+      {
+        "date": "08/16/2025",
+        "count": 3,
+        "names": [
+          "Chef",
+          "Ebony",
+          "Vaporeon"
+        ]
+      },
+      {
+        "date": "08/17/2025",
+        "count": 3,
+        "names": [
+          "Aylin",
+          "Starlight",
+          "Tank"
+        ]
+      },
+      {
+        "date": "08/18/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "08/19/2025",
+        "count": 3,
+        "names": [
+          "Benji",
+          "Maverick",
+          "Umbreon"
+        ]
+      },
+      {
+        "date": "08/20/2025",
+        "count": 6,
+        "names": [
+          "Ahsoka",
+          "Cherry",
+          "Leroy",
+          "Primrose",
+          "Strawberry",
+          "Watermelon"
+        ]
+      },
+      {
+        "date": "08/21/2025",
+        "count": 1,
+        "names": [
+          "Liam "
+        ]
+      },
+      {
+        "date": "08/22/2025",
+        "count": 9,
+        "names": [
+          "Alani",
+          "Chantrelle",
+          "Eve",
+          "Florence",
+          "Jade",
+          "Marina",
+          "Mira",
+          "Mystery",
+          "Romance"
+        ]
+      },
+      {
+        "date": "08/23/2025",
+        "count": 5,
+        "names": [
+          "Betty Boop",
+          "Dakota",
+          "Darla",
+          "Radish",
+          "Theo"
+        ]
+      },
+      {
+        "date": "08/24/2025",
+        "count": 2,
+        "names": [
+          "Lady",
+          "Natasha"
+        ]
+      },
+      {
+        "date": "08/25/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "08/26/2025",
+        "count": 4,
+        "names": [
+          "Alpha Dog",
+          "Avery",
+          "Mindy",
+          "Pancake"
+        ]
+      },
+      {
+        "date": "08/27/2025",
+        "count": 3,
+        "names": [
+          "Mila ",
+          "Nos",
+          "Yelena"
+        ]
+      },
+      {
+        "date": "08/28/2025",
+        "count": 4,
+        "names": [
+          "Jenna ",
+          "Littles ",
+          "Photon",
+          "Sinbad"
+        ]
+      },
+      {
+        "date": "08/29/2025",
+        "count": 2,
+        "names": [
+          "Abigail",
+          "Star"
+        ]
+      },
+      {
+        "date": "08/30/2025",
+        "count": 5,
+        "names": [
+          "Kiera",
+          "Pluto",
+          "Proteus ",
+          "Remington",
+          "Sproket"
+        ]
+      },
+      {
+        "date": "08/31/2025",
+        "count": 4,
+        "names": [
+          "Fili",
+          "Lasagna",
+          "Mars",
+          "Oca"
+        ]
+      },
+      {
+        "date": "09/01/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "09/02/2025",
+        "count": 5,
+        "names": [
+          "Ben",
+          "Florence",
+          "Lola ",
+          "Minna",
+          "Sylveon"
+        ]
+      },
+      {
+        "date": "09/03/2025",
+        "count": 1,
+        "names": [
+          "Prince"
+        ]
+      },
+      {
+        "date": "09/04/2025",
+        "count": 2,
+        "names": [
+          "Jerry",
+          "Nick Furry"
+        ]
+      },
+      {
+        "date": "09/05/2025",
+        "count": 2,
+        "names": [
+          "Falsetto",
+          "Fiona"
+        ]
+      },
+      {
+        "date": "09/06/2025",
+        "count": 6,
+        "names": [
+          "Brodie ",
+          "Bruno",
+          "Bucky Barnes",
+          "Clint",
+          "Marley",
+          "Scratch"
+        ]
+      },
+      {
+        "date": "09/07/2025",
+        "count": 4,
+        "names": [
+          "Arthur Morgan",
+          "Cadbury",
+          "Dr. Meatball",
+          "Esme "
+        ]
+      },
+      {
+        "date": "09/08/2025",
+        "count": 1,
+        "names": [
+          "Cosmo"
+        ]
+      },
+      {
+        "date": "09/09/2025",
+        "count": 4,
+        "names": [
+          "Bilbo Waggins",
+          "Bonnie",
+          "Cosmo",
+          "Minthara"
+        ]
+      },
+      {
+        "date": "09/10/2025",
+        "count": 3,
+        "names": [
+          "Astarion",
+          "Falcon",
+          "Peggy Carter"
+        ]
+      },
+      {
+        "date": "09/11/2025",
+        "count": 6,
+        "names": [
+          "Aries",
+          "Boba Fetch ",
+          "Dusty",
+          "Karlach",
+          "Shadowheart",
+          "Tina"
+        ]
+      },
+      {
+        "date": "09/12/2025",
+        "count": 6,
+        "names": [
+          "Allegretto",
+          "Amelia",
+          "Brulee",
+          "Gale",
+          "Lae'zel",
+          "Ravioli"
+        ]
+      },
+      {
+        "date": "09/13/2025",
+        "count": 3,
+        "names": [
+          "Captain America",
+          "Ramen",
+          "Winnie"
+        ]
+      },
+      {
+        "date": "09/14/2025",
+        "count": 3,
+        "names": [
+          "Muichiro",
+          "Noelle",
+          "Oca"
+        ]
+      },
+      {
+        "date": "09/15/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "09/16/2025",
+        "count": 2,
+        "names": [
+          "Belle",
+          "Wishbone"
+        ]
+      },
+      {
+        "date": "09/17/2025",
+        "count": 3,
+        "names": [
+          "Kiera",
+          "Muichiro",
+          "Vixie"
+        ]
+      },
+      {
+        "date": "09/18/2025",
+        "count": 3,
+        "names": [
+          "Cora",
+          "Rex",
+          "Thunder"
+        ]
+      },
+      {
+        "date": "09/19/2025",
+        "count": 4,
+        "names": [
+          "Crescendo",
+          "Pickle ",
+          "Rio",
+          "Umbreon"
+        ]
+      },
+      {
+        "date": "09/20/2025",
+        "count": 2,
+        "names": [
+          "Agent Hill",
+          "Celsius"
+        ]
+      },
+      {
+        "date": "09/21/2025",
+        "count": 2,
+        "names": [
+          "Duchess",
+          "Jenna "
+        ]
+      },
+      {
+        "date": "09/22/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "09/23/2025",
+        "count": 2,
+        "names": [
+          "Gus ",
+          "Isabella"
+        ]
+      },
+      {
+        "date": "09/24/2025",
+        "count": 1,
+        "names": [
+          "Izzy"
+        ]
+      },
+      {
+        "date": "09/25/2025",
+        "count": 3,
+        "names": [
+          "Gnocchi",
+          "Havana",
+          "Tim"
+        ]
+      },
+      {
+        "date": "09/26/2025",
+        "count": 4,
+        "names": [
+          "Aleu ",
+          "Elton",
+          "Tortellini",
+          "Vixie"
+        ]
+      },
+      {
+        "date": "09/27/2025",
+        "count": 2,
+        "names": [
+          "Falkor",
+          "Scout"
+        ]
+      },
+      {
+        "date": "09/28/2025",
+        "count": 9,
+        "names": [
+          "Captain Marvel",
+          "Cyclops",
+          "Dolly",
+          "Ferris",
+          "Floki",
+          "Jean Grey",
+          "Lae'zel",
+          "Rex",
+          "Skipper"
+        ]
+      },
+      {
+        "date": "09/29/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "09/30/2025",
+        "count": 5,
+        "names": [
+          "Alohomora",
+          "Harley",
+          "Lemon Drop",
+          "Ragnar",
+          "Rollo"
+        ]
+      },
+      {
+        "date": "10/01/2025",
+        "count": 5,
+        "names": [
+          "Diffindo",
+          "Gale",
+          "Lumos",
+          "Pippin",
+          "Taco "
+        ]
+      },
+      {
+        "date": "10/02/2025",
+        "count": 6,
+        "names": [
+          "Amortentia",
+          "Apple Crisp",
+          "Flower",
+          "Griffin",
+          "Samwise",
+          "Squish "
+        ]
+      },
+      {
+        "date": "10/03/2025",
+        "count": 3,
+        "names": [
+          "Posh Spice",
+          "Raphtalia",
+          "Winston"
+        ]
+      },
+      {
+        "date": "10/04/2025",
+        "count": 13,
+        "names": [
+          "Andi",
+          "Bambi",
+          "Hazel",
+          "Junebug",
+          "Novel",
+          "Oregano",
+          "Parsley",
+          "Rocco",
+          "Sissy",
+          "Vegeta",
+          "Wanda",
+          "Warbler",
+          "Ziggy "
+        ]
+      },
+      {
+        "date": "10/05/2025",
+        "count": 6,
+        "names": [
+          "Archie",
+          "Bumble",
+          "Goku",
+          "Mordecai",
+          "Rigby",
+          "Thumper"
+        ]
+      },
+      {
+        "date": "10/06/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "10/07/2025",
+        "count": 7,
+        "names": [
+          "Atlas",
+          "Benji",
+          "Chuckie",
+          "Daisy",
+          "Hemi",
+          "Jojo ",
+          "Lily Beth"
+        ]
+      },
+      {
+        "date": "10/08/2025",
+        "count": 2,
+        "names": [
+          "Elton",
+          "Merry"
+        ]
+      },
+      {
+        "date": "10/09/2025",
+        "count": 3,
+        "names": [
+          "Mojo ",
+          "Tikka",
+          "Wilbur"
+        ]
+      },
+      {
+        "date": "10/10/2025",
+        "count": 3,
+        "names": [
+          "Abigail",
+          "Amortentia",
+          "Paige"
+        ]
+      },
+      {
+        "date": "10/11/2025",
+        "count": 4,
+        "names": [
+          "Baxter",
+          "Pumpkin Patch ",
+          "Sweet Pea ",
+          "Todd"
+        ]
+      },
+      {
+        "date": "10/12/2025",
+        "count": 5,
+        "names": [
+          "Bowie ",
+          "Foxtrot",
+          "Girby",
+          "Lae'zel",
+          "Little Debbie"
+        ]
+      },
+      {
+        "date": "10/13/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "10/14/2025",
+        "count": 1,
+        "names": [
+          "Rhiannon"
+        ]
+      },
+      {
+        "date": "10/15/2025",
+        "count": 3,
+        "names": [
+          "Audrey Hepburn",
+          "Jenna ",
+          "Protego"
+        ]
+      },
+      {
+        "date": "10/16/2025",
+        "count": 1,
+        "names": [
+          "Burrow"
+        ]
+      },
+      {
+        "date": "10/17/2025",
+        "count": 1,
+        "names": [
+          "Santana"
+        ]
+      },
+      {
+        "date": "10/18/2025",
+        "count": 7,
+        "names": [
+          "Autumn",
+          "Bart",
+          "Denzel Washington",
+          "Herbert",
+          "Libby",
+          "Mahomes",
+          "Mateo"
+        ]
+      },
+      {
+        "date": "10/19/2025",
+        "count": 2,
+        "names": [
+          "Quinn",
+          "Tam"
+        ]
+      },
+      {
+        "date": "10/20/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "10/21/2025",
+        "count": 3,
+        "names": [
+          "Airpod",
+          "Stray Hold - Milo",
+          "Vinyl"
+        ]
+      },
+      {
+        "date": "10/22/2025",
+        "count": 1,
+        "names": [
+          "Stray Hold -Lita"
+        ]
+      },
+      {
+        "date": "10/23/2025",
+        "count": 3,
+        "names": [
+          "Beta max",
+          "Flint Lockwood ",
+          "Kitty"
+        ]
+      },
+      {
+        "date": "10/24/2025",
+        "count": 5,
+        "names": [
+          "Balto ",
+          "Rita",
+          "Simone",
+          "Tangerine ",
+          "Vanellope"
+        ]
+      },
+      {
+        "date": "10/25/2025",
+        "count": 10,
+        "names": [
+          "CD",
+          "Chazz",
+          "Cheyenne",
+          "Cochise",
+          "Honey Lemon",
+          "Legolas",
+          "Lily",
+          "Moto Moto",
+          "Radio",
+          "Tauriel"
+        ]
+      },
+      {
+        "date": "10/26/2025",
+        "count": 4,
+        "names": [
+          "Boombox",
+          "Henry",
+          "Walkman",
+          "Zane"
+        ]
+      },
+      {
+        "date": "10/27/2025",
+        "count": 1,
+        "names": [
+          "Ranger"
+        ]
+      },
+      {
+        "date": "10/28/2025",
+        "count": 4,
+        "names": [
+          "Bao",
+          "Cassette",
+          "Joker",
+          "Smokey"
+        ]
+      },
+      {
+        "date": "10/29/2025",
+        "count": 2,
+        "names": [
+          "Luna",
+          "MP3"
+        ]
+      },
+      {
+        "date": "10/30/2025",
+        "count": 4,
+        "names": [
+          "Kilo",
+          "Ophelia",
+          "Rex",
+          "Tali"
+        ]
+      },
+      {
+        "date": "10/31/2025",
+        "count": 2,
+        "names": [
+          "Charlotte",
+          "Garrus"
+        ]
+      },
+      {
+        "date": "11/01/2025",
+        "count": 8,
+        "names": [
+          "Bentley",
+          "Bing Bong",
+          "Clementine",
+          "Commander Shepard ",
+          "Mary",
+          "Rico",
+          "Rikku",
+          "Walkman"
+        ]
+      },
+      {
+        "date": "11/02/2025",
+        "count": 6,
+        "names": [
+          "Beemo",
+          "Blarney",
+          "Doe",
+          "Karma",
+          "Omega",
+          "Yuna"
+        ]
+      },
+      {
+        "date": "11/03/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "11/04/2025",
+        "count": 5,
+        "names": [
+          "April",
+          "Fennec",
+          "Jackson",
+          "Legolas",
+          "Shylo"
+        ]
+      },
+      {
+        "date": "11/05/2025",
+        "count": 3,
+        "names": [
+          "Dylan",
+          "Jake",
+          "Simba "
+        ]
+      },
+      {
+        "date": "11/06/2025",
+        "count": 6,
+        "names": [
+          "Gypsy",
+          "Pretty",
+          "Tails",
+          "Tulio ",
+          "Warden",
+          "Wild"
+        ]
+      },
+      {
+        "date": "11/07/2025",
+        "count": 3,
+        "names": [
+          "Canuck",
+          "Golden Knight",
+          "Ivy"
+        ]
+      },
+      {
+        "date": "11/08/2025",
+        "count": 7,
+        "names": [
+          "Miguel",
+          "Rowena",
+          "Snacks",
+          "Spice",
+          "Stray Hold - Lucy",
+          "Violet",
+          "Whisper"
+        ]
+      },
+      {
+        "date": "11/09/2025",
+        "count": 2,
+        "names": [
+          "Bandida",
+          "Junebug"
+        ]
+      },
+      {
+        "date": "11/10/2025",
+        "count": 1,
+        "names": [
+          "Stray Hold- Doug"
+        ]
+      },
+      {
+        "date": "11/11/2025",
+        "count": 4,
+        "names": [
+          "Fievel ",
+          "Kera",
+          "Rosie",
+          "Skully"
+        ]
+      },
+      {
+        "date": "11/12/2025",
+        "count": 6,
+        "names": [
+          "Autumn",
+          "Eleanor",
+          "Hank",
+          "Kraken",
+          "Mr. Chips",
+          "Oiler"
+        ]
+      },
+      {
+        "date": "11/13/2025",
+        "count": 2,
+        "names": [
+          "Saleen",
+          "Trish Stratus"
+        ]
+      },
+      {
+        "date": "11/14/2025",
+        "count": 5,
+        "names": [
+          "Dutchess",
+          "Elsa ",
+          "Pudding",
+          "Scotty Too Hotty",
+          "Stray Hold - Little Man"
+        ]
+      },
+      {
+        "date": "11/15/2025",
+        "count": 8,
+        "names": [
+          "Bean",
+          "Chai",
+          "Dewey",
+          "Knuckles",
+          "Mica",
+          "Rikishi",
+          "Snake",
+          "Stray Hold - Lucky"
+        ]
+      },
+      {
+        "date": "11/16/2025",
+        "count": 7,
+        "names": [
+          "Belle",
+          "Bruno",
+          "Freddy",
+          "Goofy",
+          "Gucci ",
+          "Ramen",
+          "Shadow"
+        ]
+      },
+      {
+        "date": "11/17/2025",
+        "count": 2,
+        "names": [
+          "Katniss",
+          "Stray Hold- Penny"
+        ]
+      },
+      {
+        "date": "11/18/2025",
+        "count": 3,
+        "names": [
+          "Bert",
+          "Flip",
+          "Turbo"
+        ]
+      },
+      {
+        "date": "11/19/2025",
+        "count": 2,
+        "names": [
+          "Elsa ",
+          "Fresita"
+        ]
+      },
+      {
+        "date": "11/20/2025",
+        "count": 3,
+        "names": [
+          "Blossom ",
+          "Elliot",
+          "Majesty"
+        ]
+      },
+      {
+        "date": "11/21/2025",
+        "count": 3,
+        "names": [
+          "Floppy",
+          "Pretty",
+          "Willow"
+        ]
+      },
+      {
+        "date": "11/22/2025",
+        "count": 6,
+        "names": [
+          "Benedict",
+          "China",
+          "Fresita",
+          "Jasper",
+          "Mozzie",
+          "Sonic"
+        ]
+      },
+      {
+        "date": "11/23/2025",
+        "count": 5,
+        "names": [
+          "Cassanova",
+          "Honeynut Cheerio",
+          "Queen",
+          "Stray Hold - Zia",
+          "Viva"
+        ]
+      },
+      {
+        "date": "11/24/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "11/25/2025",
+        "count": 3,
+        "names": [
+          "Bruce Lee",
+          "Poppy",
+          "Short Rib"
+        ]
+      },
+      {
+        "date": "11/26/2025",
+        "count": 4,
+        "names": [
+          "Ares",
+          "Gambit",
+          "Ra",
+          "Tej"
+        ]
+      },
+      {
+        "date": "11/27/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "11/28/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "11/29/2025",
+        "count": 7,
+        "names": [
+          "Jackie",
+          "Jackie Chan",
+          "Maple",
+          "Michelle Yeoh",
+          "Nicki",
+          "Noelle",
+          "Nugget"
+        ]
+      },
+      {
+        "date": "11/30/2025",
+        "count": 9,
+        "names": [
+          "Buck",
+          "Gucci ",
+          "Hazel",
+          "Jet Li",
+          "Peaches",
+          "Prairie ",
+          "Roo",
+          "Saki",
+          "Vixie"
+        ]
+      },
+      {
+        "date": "12/01/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "12/02/2025",
+        "count": 4,
+        "names": [
+          "Cecilia",
+          "Latte",
+          "Reese's Puff",
+          "Stray Hold - Angel"
+        ]
+      },
+      {
+        "date": "12/03/2025",
+        "count": 1,
+        "names": [
+          "Michelle Yeoh"
+        ]
+      },
+      {
+        "date": "12/04/2025",
+        "count": 4,
+        "names": [
+          "Cruz Azul",
+          "Espanyol",
+          "Florentina",
+          "Mount Rainier"
+        ]
+      },
+      {
+        "date": "12/05/2025",
+        "count": 5,
+        "names": [
+          "Crystal Palace",
+          "Mandy",
+          "Rayo Vallecano",
+          "Roxy",
+          "Zeus"
+        ]
+      },
+      {
+        "date": "12/06/2025",
+        "count": 10,
+        "names": [
+          "Blaze",
+          "Burrow",
+          "Celta Vigo",
+          "Clementine",
+          "Dahlia",
+          "Eeyore",
+          "Hallie",
+          "Missy",
+          "Mount Everest",
+          "Roz"
+        ]
+      },
+      {
+        "date": "12/07/2025",
+        "count": 3,
+        "names": [
+          "Azog",
+          "Patches",
+          "Vesuvius"
+        ]
+      },
+      {
+        "date": "12/08/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "12/09/2025",
+        "count": 4,
+        "names": [
+          "King George",
+          "Ladybird",
+          "Miku",
+          "Peter"
+        ]
+      },
+      {
+        "date": "12/10/2025",
+        "count": 2,
+        "names": [
+          "Darla ",
+          "Julia"
+        ]
+      },
+      {
+        "date": "12/11/2025",
+        "count": 7,
+        "names": [
+          "Fuji",
+          "Mauna Loa",
+          "Oscar",
+          "Rosita",
+          "Stray Hold- The Dude",
+          "Tyler",
+          "Yor"
+        ]
+      },
+      {
+        "date": "12/12/2025",
+        "count": 4,
+        "names": [
+          "Keebler",
+          "Pongo",
+          "Scottie",
+          "Stray Hold-Buu"
+        ]
+      },
+      {
+        "date": "12/13/2025",
+        "count": 4,
+        "names": [
+          " Love-A-Lot Bear",
+          "Brandy ",
+          "Star Fox",
+          "Tinkerbell"
+        ]
+      },
+      {
+        "date": "12/14/2025",
+        "count": 5,
+        "names": [
+          "Bourbon",
+          "Snowy",
+          "Socks",
+          "Sonic Cheeseburger",
+          "Stray Hold - Maria "
+        ]
+      },
+      {
+        "date": "12/15/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "12/16/2025",
+        "count": 2,
+        "names": [
+          "Lola",
+          "Star"
+        ]
+      },
+      {
+        "date": "12/17/2025",
+        "count": 1,
+        "names": [
+          "Archer"
+        ]
+      },
+      {
+        "date": "12/18/2025",
+        "count": 4,
+        "names": [
+          "Anya",
+          "Coal",
+          "Lily",
+          "Prince Charming"
+        ]
+      },
+      {
+        "date": "12/19/2025",
+        "count": 5,
+        "names": [
+          "Lala",
+          "Mowgli",
+          "Pippin",
+          "Plankton",
+          "Twinkle"
+        ]
+      },
+      {
+        "date": "12/20/2025",
+        "count": 8,
+        "names": [
+          "Apollo",
+          "Cyclone",
+          "Fletcher",
+          "Huckleberry",
+          "Molly",
+          "Sparrow",
+          "Tajin",
+          "Wiggles"
+        ]
+      },
+      {
+        "date": "12/21/2025",
+        "count": 4,
+        "names": [
+          "Einstein",
+          "Loid",
+          "Tootsie Roll",
+          "Zelda"
+        ]
+      },
+      {
+        "date": "12/22/2025",
+        "count": 1,
+        "names": [
+          "German Chocolate"
+        ]
+      },
+      {
+        "date": "12/23/2025",
+        "count": 6,
+        "names": [
+          "Black Forest",
+          "Blackberry",
+          "Carrot Cake",
+          "Chantilly",
+          "Crystal Palace",
+          "Prince Charming"
+        ]
+      },
+      {
+        "date": "12/24/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "12/25/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "12/26/2025",
+        "count": 9,
+        "names": [
+          "Airpod",
+          "Armadillo",
+          "Autumn",
+          "Blaze",
+          "Lil K",
+          "Ludo",
+          "Matlock",
+          "Moose",
+          "Stray Hold - Dolly"
+        ]
+      },
+      {
+        "date": "12/27/2025",
+        "count": 4,
+        "names": [
+          "Fen'len",
+          "Latte",
+          "Taranis",
+          "Triton"
+        ]
+      },
+      {
+        "date": "12/28/2025",
+        "count": 3,
+        "names": [
+          "Bucket",
+          "Little John",
+          "Lotus"
+        ]
+      },
+      {
+        "date": "12/29/2025",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "12/30/2025",
+        "count": 3,
+        "names": [
+          "Blue's Clues",
+          "Navy",
+          "Willow"
+        ]
+      },
+      {
+        "date": "12/31/2025",
+        "count": 4,
+        "names": [
+          "Chamoy",
+          "Cheese",
+          "Chimi",
+          "Eowyn"
+        ]
+      }
+    ]
+  },
+  "message": null,
+  "error": null
+}

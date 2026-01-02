@@ -1,0 +1,335 @@
+{
+  "success": true,
+  "data": [
+    {
+      "origin": "ABQ Animal Welfare Department",
+      "latitude": 35.1102,
+      "longitude": -106.5823,
+      "count": 51,
+      "adopted": 36,
+      "available": 15
+    },
+    {
+      "origin": "Humane Society of Lincoln County",
+      "latitude": 33.331749,
+      "longitude": -105.665,
+      "count": 37,
+      "adopted": 33,
+      "available": 4
+    },
+    {
+      "origin": "Espanola Humane",
+      "latitude": 36.0006,
+      "longitude": -106.0373,
+      "count": 17,
+      "adopted": 15,
+      "available": 1
+    },
+    {
+      "origin": "Bernalillo County Animal Care",
+      "latitude": 35.0561,
+      "longitude": -106.6646,
+      "count": 46,
+      "adopted": 44,
+      "available": 2
+    },
+    {
+      "origin": "Socorro Animal Shelter and Adoption Center",
+      "latitude": 34.0225,
+      "longitude": -106.9031,
+      "count": 8,
+      "adopted": 6,
+      "available": 1
+    },
+    {
+      "origin": "Corrales Animal Services",
+      "latitude": 35.2393,
+      "longitude": -106.6054,
+      "count": 4,
+      "adopted": 2,
+      "available": 2
+    },
+    {
+      "origin": "Gallup McKinley County Humane Society",
+      "latitude": 35.543605,
+      "longitude": -108.760272,
+      "count": 20,
+      "adopted": 19,
+      "available": 1
+    },
+    {
+      "origin": "The Animal Services Center",
+      "latitude": 32.3128,
+      "longitude": -106.7799,
+      "count": 24,
+      "adopted": 22,
+      "available": 2
+    },
+    {
+      "origin": "Bayard Animal Control",
+      "latitude": 32.7795,
+      "longitude": -108.1503,
+      "count": 8,
+      "adopted": 6,
+      "available": 2
+    },
+    {
+      "origin": "Rio Rancho Animal Control",
+      "latitude": 35.2748,
+      "longitude": -106.6681,
+      "count": 6,
+      "adopted": 4,
+      "available": 2
+    },
+    {
+      "origin": "Sandoval County Animal Services",
+      "latitude": 35.3515,
+      "longitude": -106.4694,
+      "count": 7,
+      "adopted": 7,
+      "available": 0
+    },
+    {
+      "origin": "Forever Homes Animal Rescue",
+      "latitude": 32.8985,
+      "longitude": -105.951,
+      "count": 11,
+      "adopted": 11,
+      "available": 0
+    },
+    {
+      "origin": "Mountainair Animal Control",
+      "latitude": 34.5197,
+      "longitude": -106.2433,
+      "count": 9,
+      "adopted": 9,
+      "available": 0
+    },
+    {
+      "origin": "Truth or Consequences Animal Shelter",
+      "latitude": 33.1347,
+      "longitude": -107.2425,
+      "count": 14,
+      "adopted": 13,
+      "available": 1
+    },
+    {
+      "origin": "Tucumcari Animal Shelter",
+      "latitude": 35.1927,
+      "longitude": -103.7197,
+      "count": 9,
+      "adopted": 7,
+      "available": 2
+    },
+    {
+      "origin": "Four Corners Animal League",
+      "latitude": 36.4072,
+      "longitude": -105.5731,
+      "count": 2,
+      "adopted": 1,
+      "available": 1
+    },
+    {
+      "origin": "Roswell Humane Society",
+      "latitude": 33.393,
+      "longitude": -104.5235,
+      "count": 18,
+      "adopted": 17,
+      "available": 1
+    },
+    {
+      "origin": "City of Las Vegas Animal Care Center",
+      "latitude": 35.5939,
+      "longitude": -105.2239,
+      "count": 12,
+      "adopted": 11,
+      "available": 1
+    },
+    {
+      "origin": "Paws & Claws Rescue of Quay County",
+      "latitude": 35.1911,
+      "longitude": -103.615,
+      "count": 12,
+      "adopted": 12,
+      "available": 0
+    },
+    {
+      "origin": "Otero County Animal Control",
+      "latitude": 32.8995,
+      "longitude": -105.9603,
+      "count": 6,
+      "adopted": 6,
+      "available": 0
+    },
+    {
+      "origin": "Valencia County Animal Shelter",
+      "latitude": 34.7945,
+      "longitude": -106.74,
+      "count": 3,
+      "adopted": 3,
+      "available": 0
+    },
+    {
+      "origin": "Santa Rosa Animal Control",
+      "latitude": 34.9387,
+      "longitude": -104.6825,
+      "count": 11,
+      "adopted": 11,
+      "available": 0
+    },
+    {
+      "origin": "Torrance County Animal Shelter",
+      "latitude": 34.8712,
+      "longitude": -106.0515,
+      "count": 9,
+      "adopted": 8,
+      "available": 1
+    },
+    {
+      "origin": "Clayton",
+      "latitude": 36.4517,
+      "longitude": -103.1841,
+      "count": 9,
+      "adopted": 9,
+      "available": 0
+    },
+    {
+      "origin": "Artesia Animal Shelter (Paws & Claws Humane Society)",
+      "latitude": 32.8423,
+      "longitude": -104.4033,
+      "count": 22,
+      "adopted": 22,
+      "available": 0
+    },
+    {
+      "origin": "Cindy's Hope for Precious Paws",
+      "latitude": 34.4214,
+      "longitude": -103.215,
+      "count": 2,
+      "adopted": 2,
+      "available": 0
+    },
+    {
+      "origin": "Bro & Tracy Animal Welfare",
+      "latitude": 35.2378,
+      "longitude": -106.6067,
+      "count": 4,
+      "adopted": 4,
+      "available": 0
+    },
+    {
+      "origin": "Corrales Kennels",
+      "latitude": 35.2378,
+      "longitude": -106.6067,
+      "count": 1,
+      "adopted": 1,
+      "available": 0
+    },
+    {
+      "origin": "Farmington Regional Animal Shelter",
+      "latitude": 36.7334,
+      "longitude": -108.1681,
+      "count": 5,
+      "adopted": 5,
+      "available": 0
+    },
+    {
+      "origin": "Edgewood Animal Control",
+      "latitude": 35.0913,
+      "longitude": -106.1945,
+      "count": 2,
+      "adopted": 1,
+      "available": 1
+    },
+    {
+      "origin": "DAGSHIP Rescue",
+      "latitude": 32.2655,
+      "longitude": -107.7582,
+      "count": 7,
+      "adopted": 5,
+      "available": 2
+    },
+    {
+      "origin": "RezDawg Rescue",
+      "latitude": 35.0142,
+      "longitude": -106.0846,
+      "count": 7,
+      "adopted": 6,
+      "available": 1
+    },
+    {
+      "origin": "Petroglyph Animal Hospital",
+      "latitude": 35.1728,
+      "longitude": -106.6737,
+      "count": 1,
+      "adopted": 1,
+      "available": 0
+    },
+    {
+      "origin": "ACTion Programs for Animals",
+      "latitude": 32.315292,
+      "longitude": -106.767102,
+      "count": 5,
+      "adopted": 5,
+      "available": 0
+    },
+    {
+      "origin": "Santa Clara Animal Control",
+      "latitude": 32.776773,
+      "longitude": -108.153132,
+      "count": 3,
+      "adopted": 3,
+      "available": 0
+    },
+    {
+      "origin": "Chama Valley Humane Society",
+      "latitude": 36.894318,
+      "longitude": -106.581931,
+      "count": 2,
+      "adopted": 2,
+      "available": 0
+    },
+    {
+      "origin": "County of Taos Animal Control",
+      "latitude": 36.3948,
+      "longitude": -105.5767,
+      "count": 4,
+      "adopted": 4,
+      "available": 0
+    },
+    {
+      "origin": "Moriarty Animal Control",
+      "latitude": 34.9996,
+      "longitude": -106.0183,
+      "count": 1,
+      "adopted": 1,
+      "available": 0
+    },
+    {
+      "origin": "Aztec Animal Shelter",
+      "latitude": 36.8305,
+      "longitude": -108.0095,
+      "count": 1,
+      "adopted": 1,
+      "available": 0
+    },
+    {
+      "origin": "Lovelace Biomedical Research",
+      "latitude": 35.0559,
+      "longitude": -106.5789,
+      "count": 5,
+      "adopted": 5,
+      "available": 0
+    },
+    {
+      "origin": "Stray Hearts Animal Shelter",
+      "latitude": 36.3849818,
+      "longitude": -105.5993335,
+      "count": 1,
+      "adopted": 1,
+      "available": 0
+    }
+  ],
+  "message": null,
+  "error": null
+}

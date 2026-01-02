@@ -1,8 +1,8 @@
 {
-  "name": "react-app",
-  "version": "0.1.0",
-  "private": true,
-  "proxy": "http://localhost:8000",
+  "name": "animal-humane-static-demo",
+  "version": "1.0.0",
+  "private": false,
+  "homepage": "https://swade.github.io/animal-humane-static-demo",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.6.4",

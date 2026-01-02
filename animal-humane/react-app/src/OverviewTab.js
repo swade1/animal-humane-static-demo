@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { fetchOverviewStats, clearCache } from './api';
+import { fetchOverviewStats, clearCache, getApiMode } from './api';
 
 function OverviewTab() {
   const [stats, setStats] = useState(null);
@@ -43,6 +43,12 @@ function OverviewTab() {
   };
 
   const handleRefresh = async () => {
+    const apiMode = getApiMode();
+    if (apiMode.isStatic) {
+      alert('🎯 Demo Mode: Data refresh is not available in this static portfolio demonstration.\n\nThis demo uses static data from January 1, 2026. In the live version, this button would refresh data from the live API.');
+      return;
+    }
+    
     try {
       setRefreshing(true);
       setError(null);

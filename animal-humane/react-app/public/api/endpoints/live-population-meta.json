@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "data": {
+    "endpoint": "/api/live-population",
+    "description": "Current live animal population statistics",
+    "total_count": 150,
+    "last_updated": "2026-01-01T23:35:00.000Z",
+    "next_update": "2026-01-02T01:35:00.000Z",
+    "update_frequency": "2 hours"
+  },
+  "timestamp": "2026-01-01T23:35:00.000Z",
+  "static_demo": true
+}

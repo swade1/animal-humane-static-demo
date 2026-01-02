@@ -1,0 +1,698 @@
+{
+  "success": true,
+  "data": {
+    "bins": [
+      {
+        "min": 0,
+        "max": 30,
+        "count": 26,
+        "dogs": [
+          {
+            "id": 212464324,
+            "name": "Athena",
+            "breed": "Husky",
+            "age_group": "Adult",
+            "length_of_stay_days": 14,
+            "intake_date": "2025-12-18",
+            "status": "Available",
+            "original_length_of_stay_days": 14
+          },
+          {
+            "id": 212457630,
+            "name": "Wiley",
+            "breed": "Terrier, Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 15,
+            "intake_date": "2025-12-17",
+            "status": "Available",
+            "original_length_of_stay_days": 15
+          },
+          {
+            "id": 208809197,
+            "name": "Kirby",
+            "breed": "Terrier, Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 6,
+            "intake_date": "2025-12-26",
+            "status": "Available",
+            "original_length_of_stay_days": 6
+          },
+          {
+            "id": 208809770,
+            "name": "Stella",
+            "breed": "Bulldog, Old English",
+            "age_group": "Adult",
+            "length_of_stay_days": 13,
+            "intake_date": "2025-12-19",
+            "status": "Available",
+            "original_length_of_stay_days": 13
+          },
+          {
+            "id": 210656727,
+            "name": "Buddy",
+            "breed": "Mixed Breed (Medium)",
+            "age_group": "Adult",
+            "length_of_stay_days": 28,
+            "intake_date": "2025-12-04",
+            "status": "Available",
+            "original_length_of_stay_days": 28
+          },
+          {
+            "id": 211015881,
+            "name": "Seren",
+            "breed": "Cattle Dog",
+            "age_group": "Puppy",
+            "length_of_stay_days": 2,
+            "intake_date": "2025-12-30",
+            "status": "Available",
+            "original_length_of_stay_days": 2
+          },
+          {
+            "id": 211038271,
+            "name": "Littles ",
+            "breed": "Boxer",
+            "age_group": "Adult",
+            "length_of_stay_days": 20,
+            "intake_date": "2025-12-12",
+            "status": "Available",
+            "original_length_of_stay_days": 20
+          },
+          {
+            "id": 211686957,
+            "name": "Dahlia",
+            "breed": "Terrier, American Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 12,
+            "intake_date": "2025-12-20",
+            "status": "Available",
+            "original_length_of_stay_days": 12
+          },
+          {
+            "id": 212408808,
+            "name": "Armadillo",
+            "breed": "Cattle Dog",
+            "age_group": "Adult",
+            "length_of_stay_days": 2,
+            "intake_date": "2025-12-30",
+            "status": "Available",
+            "original_length_of_stay_days": 2
+          },
+          {
+            "id": 212418519,
+            "name": "Kyla",
+            "breed": "Shepherd",
+            "age_group": "Adult",
+            "length_of_stay_days": 24,
+            "intake_date": "2025-12-08",
+            "status": "Available",
+            "original_length_of_stay_days": 24
+          },
+          {
+            "id": 212428206,
+            "name": "Scottie",
+            "breed": "Carolina Dog",
+            "age_group": "Puppy",
+            "length_of_stay_days": 6,
+            "intake_date": "2025-12-26",
+            "status": "Available",
+            "original_length_of_stay_days": 6
+          },
+          {
+            "id": 212428576,
+            "name": "Loki",
+            "breed": "Mastiff, Bullmastiff",
+            "age_group": "Adult",
+            "length_of_stay_days": 22,
+            "intake_date": "2025-12-10",
+            "status": "Available",
+            "original_length_of_stay_days": 22
+          },
+          {
+            "id": 212448974,
+            "name": "Robin Hood",
+            "breed": "Husky, Siberian",
+            "age_group": "Puppy",
+            "length_of_stay_days": 17,
+            "intake_date": "2025-12-15",
+            "status": "Available",
+            "original_length_of_stay_days": 17
+          },
+          {
+            "id": 212464162,
+            "name": "Hercules",
+            "breed": "Retriever, Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 14,
+            "intake_date": "2025-12-18",
+            "status": "Available",
+            "original_length_of_stay_days": 14
+          },
+          {
+            "id": 212481029,
+            "name": "Bucket",
+            "breed": "Terrier, Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 2,
+            "intake_date": "2025-12-30",
+            "status": "Available",
+            "original_length_of_stay_days": 2
+          },
+          {
+            "id": 212467941,
+            "name": "Frankie",
+            "breed": "Chihuahua, Short Coat",
+            "age_group": "Senior",
+            "length_of_stay_days": 13,
+            "intake_date": "2025-12-19",
+            "status": "Available",
+            "original_length_of_stay_days": 13
+          },
+          {
+            "id": 212454268,
+            "name": "Harvest",
+            "breed": "Shepherd",
+            "age_group": "Adult",
+            "length_of_stay_days": 16,
+            "intake_date": "2025-12-16",
+            "status": "Available",
+            "original_length_of_stay_days": 16
+          },
+          {
+            "id": 208811366,
+            "name": "Finn",
+            "breed": "Retriever, Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 16,
+            "intake_date": "2025-12-16",
+            "status": "Available",
+            "original_length_of_stay_days": 15
+          },
+          {
+            "id": 211623887,
+            "name": "Destiny",
+            "breed": "Terrier",
+            "age_group": "Adult",
+            "length_of_stay_days": 12,
+            "intake_date": "2025-12-20",
+            "status": "Available",
+            "original_length_of_stay_days": 11
+          },
+          {
+            "id": 212451899,
+            "name": "Scrappy Doo",
+            "breed": "Malinois, Belgian",
+            "age_group": "Puppy",
+            "length_of_stay_days": 16,
+            "intake_date": "2025-12-16",
+            "status": "Available",
+            "original_length_of_stay_days": 14
+          },
+          {
+            "id": 212435043,
+            "name": "Echo",
+            "breed": "Terrier, Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 21,
+            "intake_date": "2025-12-11",
+            "status": "Available",
+            "original_length_of_stay_days": 16
+          },
+          {
+            "id": 210758903,
+            "name": "Winnie",
+            "breed": "Shepherd, Anatolian",
+            "age_group": "Adult",
+            "length_of_stay_days": 9,
+            "intake_date": "2025-12-23",
+            "status": "Available",
+            "original_length_of_stay_days": 4
+          },
+          {
+            "id": 212478247,
+            "name": "Milo",
+            "breed": "Shepherd",
+            "age_group": "Adult",
+            "length_of_stay_days": 10,
+            "intake_date": "2025-12-22",
+            "status": "Available",
+            "original_length_of_stay_days": 4
+          },
+          {
+            "id": 212454118,
+            "name": "Stray Hold- Tina Fey",
+            "breed": "Chihuahua",
+            "age_group": "Puppy",
+            "length_of_stay_days": 16,
+            "intake_date": "2025-12-16",
+            "status": "Available",
+            "original_length_of_stay_days": 1
+          },
+          {
+            "id": 212454079,
+            "name": "Stray Hold- Chris Farley",
+            "breed": "Chihuahua",
+            "age_group": "Puppy",
+            "length_of_stay_days": 16,
+            "intake_date": "2025-12-16",
+            "status": "Available",
+            "original_length_of_stay_days": 1
+          },
+          {
+            "id": 212454142,
+            "name": "Stray Hold- Amy Poehler",
+            "breed": "Chihuahua",
+            "age_group": "Puppy",
+            "length_of_stay_days": 16,
+            "intake_date": "2025-12-16",
+            "status": "Available",
+            "original_length_of_stay_days": 1
+          }
+        ]
+      },
+      {
+        "min": 31,
+        "max": 60,
+        "count": 15,
+        "dogs": [
+          {
+            "id": 212386443,
+            "name": "Harper ",
+            "breed": "Terrier, Pit Bull",
+            "age_group": "Puppy",
+            "length_of_stay_days": 31,
+            "intake_date": "2025-12-01",
+            "status": "Available",
+            "original_length_of_stay_days": 31
+          },
+          {
+            "id": 208818210,
+            "name": "Tanya",
+            "breed": "Terrier, Manchester",
+            "age_group": "Adult",
+            "length_of_stay_days": 44,
+            "intake_date": "2025-11-18",
+            "status": "Available",
+            "original_length_of_stay_days": 44
+          },
+          {
+            "id": 211680482,
+            "name": "Primrose",
+            "breed": "Retriever, Black Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 48,
+            "intake_date": "2025-11-14",
+            "status": "Available",
+            "original_length_of_stay_days": 48
+          },
+          {
+            "id": 212134120,
+            "name": "Eleanor",
+            "breed": "Retriever, Black Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 36,
+            "intake_date": "2025-11-26",
+            "status": "Available",
+            "original_length_of_stay_days": 36
+          },
+          {
+            "id": 212257643,
+            "name": "Jessie",
+            "breed": "Shepherd",
+            "age_group": "Adult",
+            "length_of_stay_days": 49,
+            "intake_date": "2025-11-13",
+            "status": "Available",
+            "original_length_of_stay_days": 49
+          },
+          {
+            "id": 212383951,
+            "name": "Dexter ",
+            "breed": "Shepherd",
+            "age_group": "Adult",
+            "length_of_stay_days": 31,
+            "intake_date": "2025-12-01",
+            "status": "Available",
+            "original_length_of_stay_days": 31
+          },
+          {
+            "id": 208812286,
+            "name": "Theo",
+            "breed": "Terrier, American Staffordshire",
+            "age_group": "Adult",
+            "length_of_stay_days": 44,
+            "intake_date": "2025-11-18",
+            "status": "Available",
+            "original_length_of_stay_days": 44
+          },
+          {
+            "id": 212169691,
+            "name": "Bandit ",
+            "breed": "Cattle Dog",
+            "age_group": "Senior",
+            "length_of_stay_days": 55,
+            "intake_date": "2025-11-07",
+            "status": "Available",
+            "original_length_of_stay_days": 55
+          },
+          {
+            "id": 212175617,
+            "name": "Noah",
+            "breed": "Chihuahua",
+            "age_group": "Adult",
+            "length_of_stay_days": 54,
+            "intake_date": "2025-11-08",
+            "status": "Available",
+            "original_length_of_stay_days": 54
+          },
+          {
+            "id": 212175628,
+            "name": "Nubbin",
+            "breed": "Chihuahua",
+            "age_group": "Adult",
+            "length_of_stay_days": 54,
+            "intake_date": "2025-11-08",
+            "status": "Available",
+            "original_length_of_stay_days": 54
+          },
+          {
+            "id": 210919404,
+            "name": "Freddy",
+            "breed": "Retriever, Labrador",
+            "age_group": "Senior",
+            "length_of_stay_days": 45,
+            "intake_date": "2025-11-17",
+            "status": "Available",
+            "original_length_of_stay_days": 45
+          },
+          {
+            "id": 212363036,
+            "name": "Captain Kidd",
+            "breed": "Mixed Breed (Large)",
+            "age_group": "Adult",
+            "length_of_stay_days": 37,
+            "intake_date": "2025-11-25",
+            "status": "Available",
+            "original_length_of_stay_days": 37
+          },
+          {
+            "id": 210495598,
+            "name": "Wilbur",
+            "breed": "Retriever, Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 53,
+            "intake_date": "2025-11-09",
+            "status": "Available",
+            "original_length_of_stay_days": 53
+          },
+          {
+            "id": 212182878,
+            "name": "Buttercup ",
+            "breed": "Terrier, American Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 52,
+            "intake_date": "2025-11-10",
+            "status": "Available",
+            "original_length_of_stay_days": 47
+          },
+          {
+            "id": 212383949,
+            "name": "Goober",
+            "breed": "Mixed Breed (Large)",
+            "age_group": "Adult",
+            "length_of_stay_days": 31,
+            "intake_date": "2025-12-01",
+            "status": "Available",
+            "original_length_of_stay_days": 20
+          }
+        ]
+      },
+      {
+        "min": 61,
+        "max": 90,
+        "count": 6,
+        "dogs": [
+          {
+            "id": 212086172,
+            "name": "Prescott",
+            "breed": "Retriever, Chocolate Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 72,
+            "intake_date": "2025-10-21",
+            "status": "Available",
+            "original_length_of_stay_days": 72
+          },
+          {
+            "id": 212095229,
+            "name": "Gandalf",
+            "breed": "Shepherd",
+            "age_group": "Adult",
+            "length_of_stay_days": 70,
+            "intake_date": "2025-10-23",
+            "status": "Available",
+            "original_length_of_stay_days": 70
+          },
+          {
+            "id": 212097486,
+            "name": "Sandshrew",
+            "breed": "Terrier, American Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 70,
+            "intake_date": "2025-10-23",
+            "status": "Available",
+            "original_length_of_stay_days": 70
+          },
+          {
+            "id": 212019521,
+            "name": "Stromboli",
+            "breed": "Shepherd",
+            "age_group": "Adult",
+            "length_of_stay_days": 84,
+            "intake_date": "2025-10-09",
+            "status": "Available",
+            "original_length_of_stay_days": 84
+          },
+          {
+            "id": 208806839,
+            "name": "Hachi",
+            "breed": "Retriever, Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 76,
+            "intake_date": "2025-10-17",
+            "status": "Available",
+            "original_length_of_stay_days": 76
+          },
+          {
+            "id": 208810001,
+            "name": "Wess",
+            "breed": "Cattle Dog, Australian (Blue Heeler)",
+            "age_group": "Adult",
+            "length_of_stay_days": 71,
+            "intake_date": "2025-10-22",
+            "status": "Available",
+            "original_length_of_stay_days": 71
+          }
+        ]
+      },
+      {
+        "min": 91,
+        "max": 120,
+        "count": 2,
+        "dogs": [
+          {
+            "id": 208808287,
+            "name": "Ping",
+            "breed": "Shepherd",
+            "age_group": "Adult",
+            "length_of_stay_days": 111,
+            "intake_date": "2025-09-12",
+            "status": "Available",
+            "original_length_of_stay_days": 111
+          },
+          {
+            "id": 208812347,
+            "name": "Zoe",
+            "breed": "Terrier, American Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 115,
+            "intake_date": "2025-09-08",
+            "status": "Available",
+            "original_length_of_stay_days": 115
+          }
+        ]
+      },
+      {
+        "min": 121,
+        "max": 150,
+        "count": 4,
+        "dogs": [
+          {
+            "id": 208809271,
+            "name": "Short King",
+            "breed": "Retriever, Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 127,
+            "intake_date": "2025-08-27",
+            "status": "Available",
+            "original_length_of_stay_days": 127
+          },
+          {
+            "id": 211032775,
+            "name": "Jane ",
+            "breed": "Retriever, Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 148,
+            "intake_date": "2025-08-06",
+            "status": "Available",
+            "original_length_of_stay_days": 148
+          },
+          {
+            "id": 211721069,
+            "name": "Jango",
+            "breed": "Boxer",
+            "age_group": "Adult",
+            "length_of_stay_days": 133,
+            "intake_date": "2025-08-21",
+            "status": "Available",
+            "original_length_of_stay_days": 133
+          },
+          {
+            "id": 211762689,
+            "name": "Josie",
+            "breed": "Cattle Dog, Australian (Blue Heeler)",
+            "age_group": "Senior",
+            "length_of_stay_days": 129,
+            "intake_date": "2025-08-25",
+            "status": "Available",
+            "original_length_of_stay_days": 129
+          }
+        ]
+      },
+      {
+        "min": 151,
+        "max": 180,
+        "count": 4,
+        "dogs": [
+          {
+            "id": 211460888,
+            "name": "Polly Pocket",
+            "breed": "Terrier, American Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 174,
+            "intake_date": "2025-07-11",
+            "status": "Available",
+            "original_length_of_stay_days": 174
+          },
+          {
+            "id": 211590344,
+            "name": "Hermione",
+            "breed": "Retriever, Black Labrador",
+            "age_group": "Senior",
+            "length_of_stay_days": 153,
+            "intake_date": "2025-08-01",
+            "status": "Available",
+            "original_length_of_stay_days": 153
+          },
+          {
+            "id": 211590452,
+            "name": "Ginny",
+            "breed": "Retriever, Black Labrador",
+            "age_group": "Senior",
+            "length_of_stay_days": 153,
+            "intake_date": "2025-08-01",
+            "status": "Available",
+            "original_length_of_stay_days": 153
+          },
+          {
+            "id": 211460756,
+            "name": "Tom Hardy",
+            "breed": "Boxer",
+            "age_group": "Adult",
+            "length_of_stay_days": 174,
+            "intake_date": "2025-07-11",
+            "status": "Available",
+            "original_length_of_stay_days": 174
+          }
+        ]
+      },
+      {
+        "min": 181,
+        "max": 210,
+        "count": 1,
+        "dogs": [
+          {
+            "id": 211281108,
+            "name": "Billy",
+            "breed": "Terrier, American Pit Bull",
+            "age_group": "Adult",
+            "length_of_stay_days": 195,
+            "intake_date": "2025-06-20",
+            "status": "Available",
+            "original_length_of_stay_days": 195
+          }
+        ]
+      },
+      {
+        "min": 211,
+        "max": 240,
+        "count": 0,
+        "dogs": []
+      },
+      {
+        "min": 241,
+        "max": 270,
+        "count": 0,
+        "dogs": []
+      },
+      {
+        "min": 271,
+        "max": 300,
+        "count": 1,
+        "dogs": [
+          {
+            "id": 210698425,
+            "name": "Phelps",
+            "breed": "Kelpie, Australian",
+            "age_group": "Adult",
+            "length_of_stay_days": 282,
+            "intake_date": "2025-03-25",
+            "status": "Available",
+            "original_length_of_stay_days": 282
+          }
+        ]
+      },
+      {
+        "min": 301,
+        "max": 330,
+        "count": 0,
+        "dogs": []
+      },
+      {
+        "min": 331,
+        "max": 360,
+        "count": 0,
+        "dogs": []
+      },
+      {
+        "min": 361,
+        "max": 390,
+        "count": 0,
+        "dogs": []
+      },
+      {
+        "min": 391,
+        "max": 420,
+        "count": 0,
+        "dogs": []
+      }
+    ],
+    "metadata": {
+      "n": 59,
+      "bin_algorithm": "30_day_intervals_all_indices_deduplicated_dynamic_los",
+      "index_used": "animal-humane-*",
+      "generated_at": "2026-01-01T16:57:04.236891",
+      "calculation_method": "dynamic_from_intake_date"
+    }
+  },
+  "message": null,
+  "error": null
+}

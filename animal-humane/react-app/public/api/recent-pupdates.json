@@ -1,0 +1,869 @@
+{
+  "success": true,
+  "data": {
+    "new_dogs": [],
+    "returned_dogs": [],
+    "adopted_dogs": [],
+    "trial_dogs": [
+      {
+        "id": 211623887,
+        "name": "Destiny",
+        "url": "https://new.shelterluv.com/embed/animal/211623887",
+        "status": "Available",
+        "location": "Main Campus, Trial Adoption",
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
+      },
+      {
+        "id": 212435043,
+        "name": "Echo",
+        "url": "https://new.shelterluv.com/embed/animal/212435043",
+        "status": "Available",
+        "location": "Main Campus, Trial Adoption",
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
+      },
+      {
+        "id": 212182878,
+        "name": "Buttercup ",
+        "url": "https://new.shelterluv.com/embed/animal/212182878",
+        "status": "Available",
+        "location": "Main Campus, Trial Adoption",
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
+      },
+      {
+        "id": 210758903,
+        "name": "Winnie",
+        "url": "https://new.shelterluv.com/embed/animal/210758903",
+        "status": "Available",
+        "location": "Main Campus, Trial Adoption",
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
+      }
+    ],
+    "unlisted_dogs": [
+      {
+        "id": 212383949,
+        "name": "Goober",
+        "url": "https://new.shelterluv.com/embed/animal/212383949",
+        "status": "Available",
+        "location": "Main Kennel North, Main Campus - MKN-01",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212451899,
+        "name": "Scrappy Doo",
+        "url": "https://new.shelterluv.com/embed/animal/212451899",
+        "status": "Available",
+        "location": "Main Kennel North, Main Campus - MKN-12",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 208811366,
+        "name": "Finn",
+        "url": "https://new.shelterluv.com/embed/animal/208811366",
+        "status": "Available",
+        "location": "Main Campus - Main Kennel South, MKS-14",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212454118,
+        "name": "Stray Hold- Tina Fey",
+        "url": "https://new.shelterluv.com/embed/animal/212454118",
+        "status": "Available",
+        "location": "Foster Home",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212454079,
+        "name": "Stray Hold- Chris Farley",
+        "url": "https://new.shelterluv.com/embed/animal/212454079",
+        "status": "Available",
+        "location": "Foster Home",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212454142,
+        "name": "Stray Hold- Amy Poehler",
+        "url": "https://new.shelterluv.com/embed/animal/212454142",
+        "status": "Available",
+        "location": "Foster Home",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212478247,
+        "name": "Milo",
+        "url": "https://new.shelterluv.com/embed/animal/212478247",
+        "status": "Available",
+        "location": "Main Campus - Main Kennel South, MKS-05",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      }
+    ],
+    "available_soon": [
+      {
+        "id": 212532991,
+        "name": "Agave",
+        "url": "https://new.shelterluv.com/embed/animal/212532991",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 999999,
+        "name": "Alpha Dog",
+        "url": "https://new.shelterluv.com/embed/animal/999999",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533756,
+        "name": "Apricot",
+        "url": "https://new.shelterluv.com/embed/animal/212533756",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534357,
+        "name": "Aurora",
+        "url": "https://new.shelterluv.com/embed/animal/212534357",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533023,
+        "name": "Bearberry",
+        "url": "https://new.shelterluv.com/embed/animal/212533023",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533931,
+        "name": "Berry",
+        "url": "https://new.shelterluv.com/embed/animal/212533931",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533938,
+        "name": "Brontosaurus",
+        "url": "https://new.shelterluv.com/embed/animal/212533938",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212477943,
+        "name": "Bulbasaur",
+        "url": "https://new.shelterluv.com/embed/animal/212477943",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212477913,
+        "name": "Charmander",
+        "url": "https://new.shelterluv.com/embed/animal/212477913",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533036,
+        "name": "Chive",
+        "url": "https://new.shelterluv.com/embed/animal/212533036",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534442,
+        "name": "Daenerys",
+        "url": "https://new.shelterluv.com/embed/animal/212534442",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534307,
+        "name": "Daffy Duck",
+        "url": "https://new.shelterluv.com/embed/animal/212534307",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533086,
+        "name": "Evergreen",
+        "url": "https://new.shelterluv.com/embed/animal/212533086",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533042,
+        "name": "Feathertop",
+        "url": "https://new.shelterluv.com/embed/animal/212533042",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212477861,
+        "name": "Ferb",
+        "url": "https://new.shelterluv.com/embed/animal/212477861",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533063,
+        "name": "Fig",
+        "url": "https://new.shelterluv.com/embed/animal/212533063",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533055,
+        "name": "Goldenrod",
+        "url": "https://new.shelterluv.com/embed/animal/212533055",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533742,
+        "name": "Honeydew",
+        "url": "https://new.shelterluv.com/embed/animal/212533742",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533081,
+        "name": "Indigo",
+        "url": "https://new.shelterluv.com/embed/animal/212533081",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534346,
+        "name": "Izzy",
+        "url": "https://new.shelterluv.com/embed/animal/212534346",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534334,
+        "name": "Kimchi",
+        "url": "https://new.shelterluv.com/embed/animal/212534334",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533857,
+        "name": "Kiwi",
+        "url": "https://new.shelterluv.com/embed/animal/212533857",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534230,
+        "name": "Koala",
+        "url": "https://new.shelterluv.com/embed/animal/212534230",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533826,
+        "name": "Lemon",
+        "url": "https://new.shelterluv.com/embed/animal/212533826",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533685,
+        "name": "Lily",
+        "url": "https://new.shelterluv.com/embed/animal/212533685",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534294,
+        "name": "Lola Bunny",
+        "url": "https://new.shelterluv.com/embed/animal/212534294",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533808,
+        "name": "Mango",
+        "url": "https://new.shelterluv.com/embed/animal/212533808",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533727,
+        "name": "Melon",
+        "url": "https://new.shelterluv.com/embed/animal/212533727",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534329,
+        "name": "Missy",
+        "url": "https://new.shelterluv.com/embed/animal/212534329",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534221,
+        "name": "Panda",
+        "url": "https://new.shelterluv.com/embed/animal/212534221",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533764,
+        "name": "Peach",
+        "url": "https://new.shelterluv.com/embed/animal/212533764",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534335,
+        "name": "Penelope",
+        "url": "https://new.shelterluv.com/embed/animal/212534335",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534432,
+        "name": "Pepper",
+        "url": "https://new.shelterluv.com/embed/animal/212534432",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212477845,
+        "name": "Phineas",
+        "url": "https://new.shelterluv.com/embed/animal/212477845",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533004,
+        "name": "Pine",
+        "url": "https://new.shelterluv.com/embed/animal/212533004",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533005,
+        "name": "Pinon",
+        "url": "https://new.shelterluv.com/embed/animal/212533005",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533836,
+        "name": "Plum",
+        "url": "https://new.shelterluv.com/embed/animal/212533836",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534308,
+        "name": "Pocky",
+        "url": "https://new.shelterluv.com/embed/animal/212534308",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534248,
+        "name": "Polar Bear",
+        "url": "https://new.shelterluv.com/embed/animal/212534248",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533962,
+        "name": "Pookie",
+        "url": "https://new.shelterluv.com/embed/animal/212533962",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212478123,
+        "name": "Princess Bubble Gum",
+        "url": "https://new.shelterluv.com/embed/animal/212478123",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533948,
+        "name": "Pterodactyl",
+        "url": "https://new.shelterluv.com/embed/animal/212533948",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534398,
+        "name": "Rhino",
+        "url": "https://new.shelterluv.com/embed/animal/212534398",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534379,
+        "name": "Rose",
+        "url": "https://new.shelterluv.com/embed/animal/212534379",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534190,
+        "name": "Sake",
+        "url": "https://new.shelterluv.com/embed/animal/212534190",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534322,
+        "name": "Sakura",
+        "url": "https://new.shelterluv.com/embed/animal/212534322",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534419,
+        "name": "Salt",
+        "url": "https://new.shelterluv.com/embed/animal/212534419",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534264,
+        "name": "Sloth Bear",
+        "url": "https://new.shelterluv.com/embed/animal/212534264",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533104,
+        "name": "Snapdragon",
+        "url": "https://new.shelterluv.com/embed/animal/212533104",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534338,
+        "name": "Soju",
+        "url": "https://new.shelterluv.com/embed/animal/212534338",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212459749,
+        "name": "Sparkles",
+        "url": "https://new.shelterluv.com/embed/animal/212459749",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212477928,
+        "name": "Squirtle",
+        "url": "https://new.shelterluv.com/embed/animal/212477928",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533939,
+        "name": "Stegosaurus",
+        "url": "https://new.shelterluv.com/embed/animal/212533939",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533784,
+        "name": "Strawberry",
+        "url": "https://new.shelterluv.com/embed/animal/212533784",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533079,
+        "name": "Sumac",
+        "url": "https://new.shelterluv.com/embed/animal/212533079",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534235,
+        "name": "Sun Bear",
+        "url": "https://new.shelterluv.com/embed/animal/212534235",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534254,
+        "name": "Takoyaki",
+        "url": "https://new.shelterluv.com/embed/animal/212534254",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534355,
+        "name": "Toad",
+        "url": "https://new.shelterluv.com/embed/animal/212534355",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534217,
+        "name": "Tonkatsu",
+        "url": "https://new.shelterluv.com/embed/animal/212534217",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533969,
+        "name": "Triceratops",
+        "url": "https://new.shelterluv.com/embed/animal/212533969",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533941,
+        "name": "Tyrannasaurus",
+        "url": "https://new.shelterluv.com/embed/animal/212533941",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534313,
+        "name": "Tweety Bird",
+        "url": "https://new.shelterluv.com/embed/animal/212534313",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534232,
+        "name": "Udon",
+        "url": "https://new.shelterluv.com/embed/animal/212534232",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 208821491,
+        "name": "Velma",
+        "url": "https://new.shelterluv.com/embed/animal/208821491",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533966,
+        "name": "Velociraptor",
+        "url": "https://new.shelterluv.com/embed/animal/212533966",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212534291,
+        "name": "Yakitori",
+        "url": "https://new.shelterluv.com/embed/animal/212534291",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212533017,
+        "name": "Yucca",
+        "url": "https://new.shelterluv.com/embed/animal/212533017",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      }
+    ],
+    "last_updated": "2026-01-01T16:56:46.777670",
+    "data_freshness": {
+      "elasticsearch_last_update": "2026-01-01T15:00:00",
+      "missing_dogs_last_update": "2025-12-29T22:51:48",
+      "analysis_timestamp": "2026-01-01T16:57:00.134307",
+      "cache_timestamp": null
+    },
+    "section_configs": {
+      "new_dogs": {
+        "name": "new_dogs",
+        "title": "New Dogs",
+        "description": "Dogs that have recently arrived and are now available for adoption",
+        "data_source": "diff_analysis.new_dogs",
+        "exclusions": [
+          "available_soon"
+        ],
+        "enabled": true
+      },
+      "returned_dogs": {
+        "name": "returned_dogs",
+        "title": "Returned Dogs",
+        "description": "Dogs that have returned from previous adoptions or placements",
+        "data_source": "diff_analysis.returned_dogs",
+        "exclusions": [
+          "available_soon"
+        ],
+        "enabled": true
+      },
+      "adopted_dogs": {
+        "name": "adopted_dogs",
+        "title": "Adopted/Reclaimed Dogs",
+        "description": "Dogs that have been successfully adopted or reclaimed",
+        "data_source": "diff_analysis.adopted_dogs",
+        "exclusions": [
+          "available_soon"
+        ],
+        "enabled": true
+      },
+      "trial_dogs": {
+        "name": "trial_dogs",
+        "title": "Trial Adoptions",
+        "description": "Dogs currently in trial adoption periods",
+        "data_source": "diff_analysis.trial_adoption_dogs",
+        "exclusions": [
+          "available_soon"
+        ],
+        "enabled": true
+      },
+      "unlisted_dogs": {
+        "name": "unlisted_dogs",
+        "title": "Available but Temporarily Unlisted",
+        "description": "Dogs that are available but temporarily not listed on the website",
+        "data_source": "diff_analysis.other_unlisted_dogs",
+        "exclusions": [
+          "new_dogs",
+          "available_soon"
+        ],
+        "enabled": true
+      },
+      "available_soon": {
+        "name": "available_soon",
+        "title": "Available Soon",
+        "description": "Dogs at the shelter but not yet listed on the website",
+        "data_source": "missing_dogs",
+        "exclusions": [
+          "new_dogs"
+        ],
+        "enabled": true
+      }
+    },
+    "total_dogs": 78,
+    "data_quality_score": 1.0,
+    "warnings": []
+  },
+  "message": null,
+  "error": null
+}

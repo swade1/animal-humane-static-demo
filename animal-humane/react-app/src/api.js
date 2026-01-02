@@ -1,6 +1,20 @@
 // api.js
 
-const API_BASE = "/api"; // Base URL prefix for your backend API
+// Static mode detection - checks if we're running in static demo mode
+const isStaticMode = () => {
+  // Force static mode if REACT_APP_STATIC_DEMO is set
+  if (process.env.REACT_APP_STATIC_DEMO === 'true') {
+    return true;
+  }
+  
+  // Auto-detect: if not on development port, assume static mode
+  return window.location.hostname !== 'localhost' || 
+         window.location.port === '3000' ||
+         !window.location.port;
+};
+
+// Base URL configuration - uses relative paths for static files when in static mode
+const API_BASE = isStaticMode() ? "/api" : "/api"; // Both use relative paths now
 
 // Simple error handling function
 const handleResponse = async (response) => {
@@ -82,7 +96,8 @@ export async function runDocumentUpdates() {
 
 // Fetch overview statistics for the shelter dashboard
 export async function fetchOverviewStats() {
-  const res = await fetch('/api/overview');
+  const endpoint = isStaticMode() ? '/api/overview.json' : '/api/overview';
+  const res = await fetch(endpoint);
   if (!res.ok) {
     throw new Error('Failed to fetch overview stats');
   }
@@ -91,7 +106,8 @@ export async function fetchOverviewStats() {
 
 // Fetch live population data of animals currently in the shelter
 export async function fetchLivePopulation() {
-  const res = await fetch('/api/live_population');
+  const endpoint = isStaticMode() ? '/api/live-population.json' : '/api/live_population';
+  const res = await fetch(endpoint);
   if (!res.ok) {
     throw new Error('Failed to fetch live population');
   }
@@ -100,7 +116,8 @@ export async function fetchLivePopulation() {
 
 // Fetch recent adoption movement events (adopted, returned, trial)
 export async function fetchAdoptions() {
-  const res = await fetch('/api/adoptions');
+  const endpoint = isStaticMode() ? '/api/adoptions.json' : '/api/adoptions';
+  const res = await fetch(endpoint);
 
   if (!res.ok) {
     throw new Error('Failed to fetch adoption movement');
@@ -110,7 +127,8 @@ export async function fetchAdoptions() {
 
 // Fetch insights & spotlight data for advanced analytics and reporting
 export async function fetchInsights() {
-  const res = await fetch('/api/insights');
+  const endpoint = isStaticMode() ? '/api/insights.json' : '/api/insights';
+  const res = await fetch(endpoint);
   if (!res.ok) {
     throw new Error('Failed to fetch insights');
   }
@@ -119,42 +137,71 @@ export async function fetchInsights() {
 
 // Fetch length of stay histogram data
 export async function fetchLengthOfStayData() {
-  const response = await fetch('/api/length-of-stay');
+  const endpoint = isStaticMode() ? '/api/length-of-stay.json' : '/api/length-of-stay';
+  const response = await fetch(endpoint);
   if (!response.ok) throw new Error('Failed to fetch length of stay data');
   return response.json();
 }
 export async function fetchWeeklyAgeGroupAdoptions() {
-  const response = await fetch('/api/weekly-age-group-adoptions');
+  const endpoint = isStaticMode() ? '/api/weekly-age-group-adoptions.json' : '/api/weekly-age-group-adoptions';
+  const response = await fetch(endpoint);
   if (!response.ok) throw new Error('Failed to fetch weekly age group adoptions');
   return response.json();
 }
 
 export async function fetchDogOrigins() {
   console.log("fetchDogOrigins called");
-  const response = await fetch('/api/dog-origins');
+  const endpoint = isStaticMode() ? '/api/dog-origins.json' : '/api/dog-origins';
+  const response = await fetch(endpoint);
   if (!response.ok) throw new Error('Failed to fetch dog origins');
   return await response.json();
 }
 
 export async function fetchDiffAnalysis() {
-  const response = await fetch('/api/diff-analysis');
+  const endpoint = isStaticMode() ? '/api/diff-analysis.json' : '/api/diff-analysis';
+  const response = await fetch(endpoint);
   if (!response.ok) throw new Error('Failed to fetch diff analysis');
   return response.json();
 }
 
 export async function fetchRecentPupdates() {
-  const response = await fetch('/api/recent-pupdates');
+  const endpoint = isStaticMode() ? '/api/recent-pupdates.json' : '/api/recent-pupdates';
+  const response = await fetch(endpoint);
   if (!response.ok) throw new Error('Failed to fetch recent pupdates');
   return response.json();
 }
 
 // Clear API cache
 export async function clearCache() {
+  // In static mode, cache clearing is not applicable
+  if (isStaticMode()) {
+    console.log('[STATIC MODE] Cache clearing not available in static demo');
+    return { message: 'Cache clearing not available in static demo mode', static_demo: true };
+  }
+  
   const res = await fetch('/api/cache/clear', { method: 'POST' });
   if (!res.ok) {
     throw new Error('Failed to clear cache');
   }
   return res.json();
+}
+
+// Utility function to check current API mode
+export function getApiMode() {
+  return {
+    isStatic: isStaticMode(),
+    baseUrl: API_BASE,
+    environment: process.env.NODE_ENV,
+    hostname: window.location.hostname,
+    port: window.location.port
+  };
+}
+
+// Log current API configuration on load
+if (isStaticMode()) {
+  console.log('[STATIC DEMO MODE] Using static JSON files for API responses');
+} else {
+  console.log('[LIVE MODE] Using backend API endpoints');
 }
 
 
