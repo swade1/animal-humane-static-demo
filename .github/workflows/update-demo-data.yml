@@ -4,23 +4,30 @@ on:
   schedule:
     - cron: '0 */2 * * *'  # Every 2 hours
   workflow_dispatch:  # Manual trigger
-  push:
-    branches: [ main ]
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Update timestamp
       run: |
-        echo "Static demo data updated at: $(date)" > animal-humane/last-update.txt
+        mkdir -p animal-humane/react-app/public/api/
+        echo "{\"lastUpdated\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}" > animal-humane/react-app/public/api/last-updated.json
         
     - name: Commit updated data
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add animal-humane/last-update.txt
-        git diff --staged --quiet || git commit -m "Update static demo data timestamp $(date)"
-        git push
+        git add animal-humane/react-app/public/api/last-updated.json
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🤖 Update static demo data timestamp $(date)"
+          git push
+        fi
