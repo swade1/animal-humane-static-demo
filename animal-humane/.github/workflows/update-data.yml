@@ -3,7 +3,7 @@ name: Update Static Demo Data
 on:
   # Re-enabled with timestamp protection
   schedule:
-    - cron: '0 17,19,21,23,1,3 * * *'  # 9am, 11am, 1pm, 3pm, 5pm, 7pm MST
+    - cron: '9,15 10,11,13,15,17,19 * * *'  # 9am, 11am, 1pm, 3pm, 5pm, 7pm MST
   
   # Allow manual triggering
   workflow_dispatch:
