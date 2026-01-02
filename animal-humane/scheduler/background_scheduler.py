@@ -78,8 +78,8 @@ class AnimalHumaneScheduler:
             })
             logger.info(f"Updated alias to point to {index_name}")
             
-            # Update demo site timestamp after successful ingest
-            self._update_demo_timestamp(index_name)
+            # Update demo site timestamp after successful ingest - DISABLED for manual control
+            # self._update_demo_timestamp(index_name)
             
             return True
             
