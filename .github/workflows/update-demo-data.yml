@@ -29,5 +29,6 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m "🤖 Update static demo data timestamp $(date)"
+          git pull --rebase origin main
           git push
         fi
