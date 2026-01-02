@@ -41,7 +41,7 @@ const DataTimestamp = ({ className = '' }) => {
       borderRadius: '4px',
       display: 'inline-block'
     }}>
-      📊 Data last updated: {lastUpdated.human_readable}
+      📊 Data last updated: {lastUpdated.human_readable?.replace(' UTC', '')}
     </div>
   );
 };
