@@ -17,4 +17,4 @@ xpack.graph.enabled: false
 xpack.ml.enabled: false
 
 reindex.remote.whitelist:
-  - "localhost:9201"
+  - "127.0.0.1:9201"
