@@ -103,6 +103,18 @@ class AnimalHumaneScheduler:
             if result.returncode == 0:
                 logger.info("✅ Demo timestamp updated successfully")
                 
+                # Configure git and commit/push changes
+                repo_dir = os.path.dirname(script_path)
+                
+                # Set git config first
+                git_config_commands = [
+                    ['git', 'config', 'user.name', 'Animal Humane Scheduler'],
+                    ['git', 'config', 'user.email', 'scheduler@animalhumane.local'],
+                ]
+                
+                for cmd in git_config_commands:
+                    subprocess.run(cmd, cwd=repo_dir, capture_output=True)
+                
                 # Git commit and push the changes
                 git_commands = [
                     ['git', 'add', 'react-app/public/api/last-updated.json'],
@@ -111,11 +123,11 @@ class AnimalHumaneScheduler:
                 ]
                 
                 for cmd in git_commands:
-                    git_result = subprocess.run(cmd, capture_output=True, text=True, 
-                                              cwd=os.path.dirname(script_path))
+                    git_result = subprocess.run(cmd, capture_output=True, text=True, cwd=repo_dir)
                     if git_result.returncode != 0:
                         logger.error(f"Git command failed: {' '.join(cmd)}")
                         logger.error(f"Error: {git_result.stderr}")
+                        logger.error(f"Output: {git_result.stdout}")
                         return False
                 
                 logger.info("✅ Demo timestamp changes pushed to GitHub - Vercel will auto-deploy")
