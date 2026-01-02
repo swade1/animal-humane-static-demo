@@ -1,9 +1,9 @@
 name: Update Static Demo Data
 
 on:
-  # Run every 2 hours to keep demo data fresh
-  schedule:
-    - cron: '0 */2 * * *'
+  # Disabled automatic updates - uncomment to re-enable
+  # schedule:
+  - cron: '0 */2 * * *'  # Every 2 hours
   
   # Allow manual triggering for testing
   workflow_dispatch:
