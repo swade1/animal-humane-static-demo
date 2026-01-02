@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { runDocumentUpdates } from './api';
 import Tabs from './Tabs'; // import your new Tabs component
 import DataTimestamp from './components/DataTimestamp';
+import PasswordGate from './components/PasswordGate';
 import './App.css'
 import 'leaflet/dist/leaflet.css'
 
@@ -23,27 +24,29 @@ function App() {
   };
 
   return (
-    <div style={{padding:20}}>
-      <h1>Animal Humane New Mexico: Pet Status and Updates</h1>
-      
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <DataTimestamp />
-        <button 
-           onClick={handleUpdate} 
-           disabled={loading}
-           style={{display:"none"}}>
-          {loading ? "Updating..." : "Run Updates"}
-        </button>
+    <PasswordGate>
+      <div style={{padding:20}}>
+        <h1>Animal Humane New Mexico: Pet Status and Updates</h1>
+        
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+          <DataTimestamp />
+          <button 
+             onClick={handleUpdate} 
+             disabled={loading}
+             style={{display:"none"}}>
+            {loading ? "Updating..." : "Run Updates"}
+          </button>
+        </div>
+        
+        {result && (
+          <pre style={{whiteSpace: 'pre-wrap', marginTop:20}}>
+            {typeof result === 'string' ? result : JSON.stringify(result, null, 2)}
+          </pre>
+        )}
+        {/*Add 5-tab UI here */}
+        <Tabs />
       </div>
-      
-      {result && (
-        <pre style={{whiteSpace: 'pre-wrap', marginTop:20}}>
-          {typeof result === 'string' ? result : JSON.stringify(result, null, 2)}
-        </pre>
-      )}
-      {/*Add 5-tab UI here */}
-      <Tabs />
-    </div>
+    </PasswordGate>
   );
 }
 
