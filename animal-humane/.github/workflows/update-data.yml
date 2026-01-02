@@ -68,12 +68,12 @@ jobs:
         run: |
           echo "🚀 Starting data export process..."
           
-          # Use our dynamic timestamp script that queries actual ES data
-          echo "🚀 Running dynamic timestamp update based on latest Elasticsearch index..."
+          # Use our comprehensive static data update script
+          echo "🚀 Running comprehensive static data update (timestamp + location_info)..."
           
-          # Run our update_timestamp.py script that queries for the latest ES index
-          python update_timestamp.py || {
-              echo "⚠️ Dynamic timestamp script failed, using fallback..."
+          # Run our update_static_data.py script that updates both timestamp and location data
+          python update_static_data.py || {
+              echo "⚠️ Static data update script failed, using fallback..."
               
               # Fallback: Update with current time if ES is unavailable
               timestamp_data="{
