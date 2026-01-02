@@ -8,31 +8,19 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
     - uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0
     
-    - name: Pull latest changes first
-      run: |
-        git pull origin main
-    
-    - name: Update timestamp
+    - name: Update timestamp JSON
       run: |
         mkdir -p animal-humane/react-app/public/api/
-        echo "{\"lastUpdated\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}" > animal-humane/react-app/public/api/last-updated.json
+        echo "{\"lastUpdated\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\", \"timestamp\": $(date +%s)}" > animal-humane/react-app/public/api/last-updated.json
+        cat animal-humane/react-app/public/api/last-updated.json
         
-    - name: Commit and push updated data
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add animal-humane/react-app/public/api/last-updated.json
-        if git diff --staged --quiet; then
-          echo "No changes to commit"
-        else
-          git commit -m "🤖 Update static demo data timestamp $(date)"
-          git push origin main
-        fi
+    - name: Auto-commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: '🤖 Update static demo data timestamp'
+        file_pattern: 'animal-humane/react-app/public/api/last-updated.json'
