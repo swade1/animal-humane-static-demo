@@ -1,0 +1,301 @@
+name: Update Static Demo Data
+
+on:
+  # Run every 2 hours to keep demo data fresh
+  schedule:
+    - cron: '0 */2 * * *'
+  
+  # Allow manual triggering for testing
+  workflow_dispatch:
+  
+  # Run on pushes to main branch for testing
+  push:
+    branches: [ main ]
+    paths: [ 'scripts/**', '.github/workflows/**' ]
+
+env:
+  # Python version to use
+  PYTHON_VERSION: '3.11'
+  # Node.js version for React build
+  NODE_VERSION: '18'
+
+jobs:
+  update-data:
+    name: Export Live Data to Static Files
+    runs-on: ubuntu-latest
+    
+    # Set timeout to prevent hanging jobs
+    timeout-minutes: 15
+    
+    permissions:
+      contents: write  # To commit updated data files
+      pages: write     # To deploy to GitHub Pages
+      id-token: write  # For GitHub Pages deployment
+    
+    steps:
+      - name: 🛒 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for proper commits
+          
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          
+      - name: 📦 Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests elasticsearch python-dotenv
+          
+      - name: 🌐 Test Network Connectivity
+        run: |
+          echo "Testing connectivity to data source..."
+          # Test if we can reach the Elasticsearch/API endpoint
+          curl -f --max-time 10 --retry 3 ${{ secrets.API_BASE_URL }}/health || {
+            echo "❌ Cannot connect to data source"
+            echo "This is expected for the static demo - data source is not publicly accessible"
+            exit 0
+          }
+          
+      - name: 📊 Export Live Data
+        id: export
+        continue-on-error: true
+        env:
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          ES_HOST: ${{ secrets.ELASTICSEARCH_HOST }}
+          ES_USERNAME: ${{ secrets.ELASTICSEARCH_USERNAME }}
+          ES_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
+        run: |
+          echo "🚀 Starting data export process..."
+          
+          # Create a custom export script that handles remote connections
+          cat > scripts/export_for_actions.py << 'EOF'
+          import os
+          import sys
+          import requests
+          import json
+          from datetime import datetime
+          from pathlib import Path
+          
+          def main():
+              api_base = os.environ.get('API_BASE_URL', 'http://localhost:8000')
+              output_dir = Path('react-app/public/api')
+              output_dir.mkdir(parents=True, exist_ok=True)
+              
+              print(f"📡 Connecting to API at: {api_base}")
+              
+              # Test connection
+              try:
+                  response = requests.get(f"{api_base}/health", timeout=10)
+                  if response.status_code == 200:
+                      print("✅ Successfully connected to API")
+                  else:
+                      print(f"⚠️ API returned status {response.status_code}")
+                      print("Using fallback: keeping existing static data")
+                      return True
+              except Exception as e:
+                  print(f"⚠️ Cannot connect to API: {e}")
+                  print("Using fallback: keeping existing static data with updated timestamp")
+                  
+                  # Update timestamp only
+                  timestamp_data = {
+                      "timestamp": datetime.utcnow().isoformat() + "Z",
+                      "human_readable": datetime.now().strftime("%B %d, %Y at %I:%M %p UTC"),
+                      "export_version": "1.0",
+                      "status": "fallback_mode",
+                      "note": "Data source unavailable - using cached static data"
+                  }
+                  
+                  with open(output_dir / 'last-updated.json', 'w') as f:
+                      json.dump(timestamp_data, f, indent=2)
+                  
+                  print("📅 Updated timestamp file in fallback mode")
+                  return True
+              
+              # If we get here, API is accessible - run full export
+              # (This would only work if API is publicly accessible)
+              endpoints = [
+                  ('/api/recent-pupdates', 'recent-pupdates.json'),
+                  ('/api/live_population', 'live-population.json'),
+                  ('/api/diff-analysis', 'diff-analysis.json'),
+                  ('/api/overview', 'overview.json'),
+              ]
+              
+              success_count = 0
+              for endpoint, filename in endpoints:
+                  try:
+                      response = requests.get(f"{api_base}{endpoint}", timeout=30)
+                      response.raise_for_status()
+                      data = response.json()
+                      
+                      with open(output_dir / filename, 'w') as f:
+                          json.dump(data, f, indent=2)
+                      
+                      print(f"✅ Updated {filename}")
+                      success_count += 1
+                      
+                  except Exception as e:
+                      print(f"❌ Failed to update {filename}: {e}")
+              
+              # Create timestamp file
+              timestamp_data = {
+                  "timestamp": datetime.utcnow().isoformat() + "Z",
+                  "human_readable": datetime.now().strftime("%B %d, %Y at %I:%M %p UTC"),
+                  "export_version": "1.0",
+                  "files_updated": success_count,
+                  "status": "success" if success_count > 0 else "partial_failure",
+                  "note": "Static export for portfolio demonstration"
+              }
+              
+              with open(output_dir / 'last-updated.json', 'w') as f:
+                  json.dump(timestamp_data, f, indent=2)
+              
+              print(f"📊 Export complete: {success_count} files updated")
+              return True
+          
+          if __name__ == "__main__":
+              success = main()
+              sys.exit(0 if success else 1)
+          EOF
+          
+          # Run the export script
+          python scripts/export_for_actions.py
+          
+      - name: 📋 Check for Changes
+        id: changes
+        run: |
+          # Check if any data files were modified
+          if git diff --quiet react-app/public/api/; then
+            echo "No changes detected in static data files"
+            echo "changes_detected=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in static data files"
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+            
+            # Show what changed
+            echo "📝 Files modified:"
+            git diff --name-only react-app/public/api/ || true
+          fi
+          
+      - name: 🔧 Set up Node.js for Build
+        if: steps.changes.outputs.changes_detected == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: react-app/package-lock.json
+          
+      - name: 📦 Install Node.js Dependencies
+        if: steps.changes.outputs.changes_detected == 'true'
+        working-directory: ./react-app
+        run: npm ci
+        
+      - name: 🏗️ Build React App
+        if: steps.changes.outputs.changes_detected == 'true'
+        working-directory: ./react-app
+        env:
+          REACT_APP_STATIC_DEMO: true
+          CI: false  # Don't treat warnings as errors
+        run: |
+          echo "🏗️ Building React app for static demo..."
+          npm run build
+          
+      - name: 📝 Commit Updated Data
+        if: steps.changes.outputs.changes_detected == 'true'
+        run: |
+          # Configure git
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Add changed files
+          git add react-app/public/api/
+          git add react-app/build/ || true  # Build directory might not exist
+          
+          # Create commit with timestamp
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          git commit -m "🤖 Auto-update static demo data - $TIMESTAMP" \
+                     -m "Updated by GitHub Actions workflow" \
+                     -m "Data exported at: $TIMESTAMP"
+          
+          echo "✅ Committed updated static data files"
+          
+      - name: 🚀 Push Changes
+        if: steps.changes.outputs.changes_detected == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          
+      - name: 📊 Workflow Summary
+        run: |
+          echo "## 🎯 Static Demo Data Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Workflow Run:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "- **Repository:** ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Triggered by:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.changes.outputs.changes_detected }}" == "true" ]; then
+            echo "- **Status:** ✅ Data updated and committed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- **Status:** ℹ️ No changes detected" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📁 Static Files Status" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          ls -la react-app/public/api/*.json | head -10 >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          
+      - name: 🔔 Notify on Failure
+        if: failure()
+        run: |
+          echo "❌ Workflow failed - but this is expected for demo purposes"
+          echo "In a real deployment, this would send notifications about failures"
+          
+  # Deploy to GitHub Pages after successful data update
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: update-data
+    if: needs.update-data.outputs.changes_detected == 'true'
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    steps:
+      - name: 🛒 Checkout Updated Code
+        uses: actions/checkout@v4
+        with:
+          ref: main  # Get the updated code
+          
+      - name: 🔧 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: react-app/package-lock.json
+          
+      - name: 📦 Install Dependencies
+        working-directory: ./react-app
+        run: npm ci
+        
+      - name: 🏗️ Build for Production
+        working-directory: ./react-app
+        env:
+          REACT_APP_STATIC_DEMO: true
+          CI: false
+        run: npm run build
+        
+      - name: 📋 Setup Pages
+        uses: actions/configure-pages@v3
+        
+      - name: 📤 Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './react-app/build'
+          
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
