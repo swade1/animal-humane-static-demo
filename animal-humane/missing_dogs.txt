@@ -1,0 +1,68 @@
+Missing dogs (ID: Name):
+999999: Alpha Dog
+208821491: Velma
+212459749: Sparkles
+212477845: Phineas
+212477861: Ferb
+212477913: Charmander
+212477928: Squirtle
+212477943: Bulbasaur
+212478123: Princess Bubble Gum
+212532991: Agave
+212533004: Pine
+212533005: Pinon
+212533017: Yucca
+212533023: Bearberry
+212533036: Chive
+212533042: Feathertop
+212533055: Goldenrod
+212533063: Fig
+212533079: Sumac
+212533081: Indigo
+212533086: Evergreen
+212533104: Snapdragon
+212533685: Lily
+212533727: Melon
+212533742: Honeydew
+212533756: Apricot
+212533764: Peach
+212533784: Strawberry
+212533808: Mango
+212533826: Lemon
+212533836: Plum
+212533857: Kiwi
+212533931: Berry
+212533938: Brontosaurus
+212533939: Stegosaurus
+212533941: Tyrannasaurus
+212533948: Pterodactyl
+212533962: Pookie
+212533966: Velociraptor
+212533969: Triceratops
+212534190: Sake
+212534217: Tonkatsu
+212534221: Panda
+212534230: Koala
+212534232: Udon
+212534235: Sun Bear
+212534248: Polar Bear
+212534254: Takoyaki
+212534264: Sloth Bear
+212534291: Yakitori
+212534294: Lola Bunny
+212534307: Daffy Duck
+212534308: Pocky
+212534313: Tweety Bird
+212534322: Sakura
+212534329: Missy
+212534334: Kimchi
+212534335: Penelope
+212534338: Soju
+212534346: Izzy
+212534355: Toad
+212534357: Aurora
+212534379: Rose
+212534398: Rhino
+212534419: Salt
+212534432: Pepper
+212534442: Daenerys
