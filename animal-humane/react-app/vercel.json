@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/api/:path*", "destination": "https://kiro-animal-humane-production.up.railway.app/api/:path*" }
-  ]
-}

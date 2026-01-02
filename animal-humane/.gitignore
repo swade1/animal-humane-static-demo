@@ -1,15 +1,30 @@
 
+# Static hosting build artifacts
+react-app/build/
+react-app/dist/
+
+# Node.js dependencies
+react-app/node_modules/
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Generated data files
-diff_reports/
-logs/
 *.log
-*.json
-*.bak
 
-# Python cache files
-__pycache__/
-*.pyc
-*.pyo
+# System files
+.DS_Store
+.vscode/
+.idea/
 
-# Virtual environment
-venv/
+# Temporary files
+*.tmp
+*.temp
+*.swp
+.continue/
+

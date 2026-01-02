@@ -1,1 +1,0 @@
-# Animal Humane package initializer

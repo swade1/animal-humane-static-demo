@@ -1,23 +1,52 @@
-# Animal Humane Project
+# Animal Humane New Mexico - Static Demo
 
-## Overview
-This project involves managing data related to animal adoption, shelter intake, and tracking using Elasticsearch and Python automation scripts. 
-It supports efficient querying, indexing, and snapshot management for shelter dogs.
+A static portfolio demonstration of a real-time animal shelter dashboard built for Animal Humane New Mexico.
 
-It includes an AI component that (purpose)
+## 🎯 Purpose
 
-## Features
-- Automatic ingest of animal data into Elasticsearch
-- User friend front-end for search and filter of animals based on status, location, or other attributes
-- Data cleansing and update scripts for improved and enriched data quality - 
+This is a **static export version** of a full-stack application that tracks adoptable dogs at Animal Humane New Mexico. Created for portfolio and demonstration purposes, this version showcases the frontend interface with real data snapshots.
 
-## Technologies Used
-- Python 3.11
-- Elasticsearch 9.x
-- Bash for automation (cron jobs, snapshot management)
-- JSON for data interchange
+## 🏗️ Architecture Overview
 
-## Setup Instructions
+**Original Full-Stack System:**
+- React frontend with real-time data visualization
+- Python FastAPI backend with caching layer
+- Elasticsearch data store with automated scraping
+- Background scheduler for data updates every 2 hours
 
-1. **Clone the repository (if standalone)**  
+**This Static Demo:**
+- React frontend (identical to production)
+- Pre-exported JSON data files
+- Automated GitHub Actions for periodic data updates
+- Deployed on free static hosting
 
+## 📊 Features Demonstrated
+
+- **Recent Pupdates Tab**: Shows new adoptions, trial adoptions, and available dogs
+- **Live Population Tab**: Current shelter population with location tracking
+- **Data Analytics**: Insights into adoption patterns and shelter metrics
+- **Responsive Design**: Mobile-friendly interface
+- **Real Data**: Actual data from Animal Humane New Mexico (updated automatically)
+
+## 🔄 Data Updates
+
+Data is automatically updated every 2 hours via GitHub Actions, maintaining the same schedule as the production system while using static hosting.
+
+## 🚀 Technologies
+
+- **Frontend**: React, JavaScript, CSS
+- **Data**: Static JSON files with automated updates
+- **Hosting**: Static hosting (Netlify/Vercel/GitHub Pages)
+- **Automation**: GitHub Actions for data refresh
+
+## 📱 View Live Demo
+
+[Live Demo Link - To be added after deployment]
+
+## 👨‍💻 Developer
+
+Created by [Your Name] - [Portfolio Link]
+
+---
+
+*This is a portfolio demonstration. For the full production system with real-time updates, see the main repository.*
