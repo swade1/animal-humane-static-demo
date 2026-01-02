@@ -68,98 +68,28 @@ jobs:
         run: |
           echo "🚀 Starting data export process..."
           
-          # Create a custom export script that handles remote connections
-          cat > scripts/export_for_actions.py << 'EOF'
-          import os
-          import sys
-          import requests
-          import json
-          from datetime import datetime
-          from pathlib import Path
+          # Use our dynamic timestamp script that queries actual ES data
+          echo "🚀 Running dynamic timestamp update based on latest Elasticsearch index..."
           
-          def main():
-              api_base = os.environ.get('API_BASE_URL', 'http://localhost:8000')
-              output_dir = Path('react-app/public/api')
-              output_dir.mkdir(parents=True, exist_ok=True)
+          # Run our update_timestamp.py script that queries for the latest ES index
+          python update_timestamp.py || {
+              echo "⚠️ Dynamic timestamp script failed, using fallback..."
               
-              print(f"📡 Connecting to API at: {api_base}")
+              # Fallback: Update with current time if ES is unavailable
+              timestamp_data="{
+                \"lastUpdated\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",
+                \"human_readable\": \"$(date -u +'%B %d, %Y at %I:%M %p UTC')\",
+                \"timestamp\": $(date +%s),
+                \"source\": \"github_actions_fallback\",
+                \"note\": \"Elasticsearch unavailable - using current time\"
+              }"
               
-              # Test connection
-              try:
-                  response = requests.get(f"{api_base}/health", timeout=10)
-                  if response.status_code == 200:
-                      print("✅ Successfully connected to API")
-                  else:
-                      print(f"⚠️ API returned status {response.status_code}")
-                      print("Using fallback: keeping existing static data")
-                      return True
-              except Exception as e:
-                  print(f"⚠️ Cannot connect to API: {e}")
-                  print("Using fallback: keeping existing static data with updated timestamp")
-                  
-                  # Update timestamp only
-                  timestamp_data = {
-                      "timestamp": datetime.utcnow().isoformat() + "Z",
-                      "human_readable": datetime.now().strftime("%B %d, %Y at %I:%M %p UTC"),
-                      "export_version": "1.0",
-                      "status": "fallback_mode",
-                      "note": "Data source unavailable - using cached static data"
-                  }
-                  
-                  with open(output_dir / 'last-updated.json', 'w') as f:
-                      json.dump(timestamp_data, f, indent=2)
-                  
-                  print("📅 Updated timestamp file in fallback mode")
-                  return True
-              
-              # If we get here, API is accessible - run full export
-              # (This would only work if API is publicly accessible)
-              endpoints = [
-                  ('/api/recent-pupdates', 'recent-pupdates.json'),
-                  ('/api/live_population', 'live-population.json'),
-                  ('/api/diff-analysis', 'diff-analysis.json'),
-                  ('/api/overview', 'overview.json'),
-              ]
-              
-              success_count = 0
-              for endpoint, filename in endpoints:
-                  try:
-                      response = requests.get(f"{api_base}{endpoint}", timeout=30)
-                      response.raise_for_status()
-                      data = response.json()
-                      
-                      with open(output_dir / filename, 'w') as f:
-                          json.dump(data, f, indent=2)
-                      
-                      print(f"✅ Updated {filename}")
-                      success_count += 1
-                      
-                  except Exception as e:
-                      print(f"❌ Failed to update {filename}: {e}")
-              
-              # Create timestamp file
-              timestamp_data = {
-                  "timestamp": datetime.utcnow().isoformat() + "Z",
-                  "human_readable": datetime.now().strftime("%B %d, %Y at %I:%M %p UTC"),
-                  "export_version": "1.0",
-                  "files_updated": success_count,
-                  "status": "success" if success_count > 0 else "partial_failure",
-                  "note": "Static export for portfolio demonstration"
-              }
-              
-              with open(output_dir / 'last-updated.json', 'w') as f:
-                  json.dump(timestamp_data, f, indent=2)
-              
-              print(f"📊 Export complete: {success_count} files updated")
-              return True
+              echo "$timestamp_data" > react-app/public/api/last-updated.json
+              echo "📅 Updated timestamp file in fallback mode"
+              exit 0
+          }
           
-          if __name__ == "__main__":
-              success = main()
-              sys.exit(0 if success else 1)
-          EOF
-          
-          # Run the export script
-          python scripts/export_for_actions.py
+          echo "✅ Dynamic timestamp update complete"
           
       - name: 📋 Check for Changes
         id: changes
