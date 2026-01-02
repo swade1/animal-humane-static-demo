@@ -31,7 +31,7 @@ const DemoBanner = () => {
   }
 
   const displayDate = lastUpdated ? 
-    new Date(lastUpdated.timestamp).toLocaleDateString('en-US', { 
+    new Date(lastUpdated.timestamp * 1000).toLocaleDateString('en-US', { 
       year: 'numeric', 
       month: 'long', 
       day: 'numeric' 
