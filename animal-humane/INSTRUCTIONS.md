@@ -265,6 +265,13 @@ curl -X GET "localhost:9200/_cat/indices/animal-humane-*?v"
    
    # Run migration (check available scripts)
    python migrate_specific_indices.py
+ 
+   # If docker container for Elasticsearch isn't running, start it with: 
+   cd deployment/docker && docker-compose up -d elasticsearch
+
+   # Verify it's running
+   curl http://localhost:9200/_cluster/health
+
    
    # OR for all data
    python migrate_data_to_docker.py

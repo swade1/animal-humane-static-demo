@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Migrate specific Elasticsearch indices to Docker container
-Usage: python migrate_specific_indices.py [options]
+Usage: python3 migrate_specific_indices.py [options]
 """
 import json
 import requests
