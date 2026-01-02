@@ -17,9 +17,9 @@ jobs:
       run: |
         mkdir -p animal-humane/react-app/public/api/
         # Use the actual data date (when static data was captured)
-        data_date="2026-01-01T15:00:00Z"
+        data_date="2025-01-01T15:00:00Z"
         data_timestamp=1735740000
-        human_date="January 1, 2026 at 3:00 PM UTC"
+        human_date="January 1, 2025 at 3:00 PM UTC"
         echo "{
           \"lastUpdated\": \"$data_date\",
           \"human_readable\": \"$human_date\",
