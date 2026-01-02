@@ -102,23 +102,10 @@ def sync_location_info():
         return False
 
 def main():
-    """Main function to update all static data"""
-    print("🔄 Updating static data for portfolio demo...")
-    
-    # Update timestamp from Elasticsearch
-    timestamp_result = get_latest_index_timestamp()
-    if timestamp_result:
-        dt, source_index = timestamp_result
-        update_timestamp_file(dt, source_index)
-    else:
-        print("⚠️  Using fallback timestamp (current time)")
-        dt = datetime.utcnow()
-        update_timestamp_file(dt, "fallback_current_time")
-    
-    # Sync location info
-    sync_location_info()
-    
-    print("🎉 Static data update complete!")
+    """Main function to update all static data - DISABLED for manual timestamp control"""
+    print("🔄 Static data update DISABLED - manual timestamp control active...")
+    print("⚠️  Skipping all updates to preserve manual timestamp settings")
+    print("🎉 Static data update complete (no changes made)!")
 
 if __name__ == "__main__":
     main()
