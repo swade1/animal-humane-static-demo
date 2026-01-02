@@ -16,8 +16,14 @@ jobs:
     - name: Create timestamp file
       run: |
         mkdir -p animal-humane/react-app/public/api/
-        echo "{\"lastUpdated\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}" > animal-humane/react-app/public/api/last-updated.json
-        echo "Created file:"
+        current_date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+        human_date=$(date -u +"%B %d, %Y at %I:%M %p UTC")
+        echo "{
+          \"lastUpdated\": \"$current_date\",
+          \"human_readable\": \"$human_date\",
+          \"timestamp\": $(date +%s)
+        }" > animal-humane/react-app/public/api/last-updated.json
+        echo "Created timestamp file:"
         cat animal-humane/react-app/public/api/last-updated.json
         
     - name: Commit and push
