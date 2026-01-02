@@ -63,6 +63,7 @@ Missing dogs (ID: Name):
 212534357: Aurora
 212534379: Rose
 212534398: Rhino
+212534399: Theodore
 212534419: Salt
 212534432: Pepper
 212534442: Daenerys

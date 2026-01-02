@@ -102,10 +102,16 @@ def sync_location_info():
         return False
 
 def main():
-    """Main function to update all static data - DISABLED for manual timestamp control"""
-    print("🔄 Static data update DISABLED - manual timestamp control active...")
-    print("⚠️  Skipping all updates to preserve manual timestamp settings")
-    print("🎉 Static data update complete (no changes made)!")
+    """Main function to update all static data - TIMESTAMP UPDATES DISABLED"""
+    print("🔄 Updating static data for portfolio demo...")
+    
+    # SKIP timestamp updates to preserve manual control
+    print("⚠️  Skipping timestamp update (manual control active)")
+    
+    # Keep location data sync active
+    sync_location_info()
+    
+    print("🎉 Static data update complete (timestamp preserved)!")
 
 if __name__ == "__main__":
     main()
