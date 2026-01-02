@@ -134,7 +134,7 @@ const LengthOfStayHistogram = ({ onBarClick, refreshTrigger }) => {
         return (
             <div>
                 <div style={{ color: 'red', marginBottom: '10px' }}>Failed to load data</div>
-                <button onClick={refreshData} style={{ padding: '5px 10px', cursor: 'pointer' }}>
+                <button onClick={refreshData} style={{ display: 'none', padding: '5px 10px', cursor: 'pointer' }}>
                     Retry
                 </button>
             </div>

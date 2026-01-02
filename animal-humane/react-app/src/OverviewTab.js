@@ -119,6 +119,7 @@ function OverviewTab() {
           onClick={handleRefresh} 
           disabled={refreshing || loading}
           style={{ 
+            display: 'none', // Hidden but not removed
             padding: '8px 16px', 
             backgroundColor: 'transparent', 
             color: '#007bff', 
