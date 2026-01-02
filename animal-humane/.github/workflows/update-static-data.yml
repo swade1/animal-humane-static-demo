@@ -2,10 +2,10 @@ name: Update Static Demo Data
 
 on:
   # Temporarily disabled all triggers to prevent timestamp override
-  # schedule:
-  #   - cron: '0 */2 * * *'  # Every 2 hours
-  # push:
-  #   branches: [ main ]
+   schedule:
+     - cron: '0 */2 * * *'  # Every 2 hours
+   push:
+     branches: [ main ]
   workflow_dispatch:  # Manual trigger only
 
 jobs:
