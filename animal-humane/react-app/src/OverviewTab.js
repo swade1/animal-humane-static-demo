@@ -137,7 +137,7 @@ function OverviewTab() {
       <table style={{ width: "50%", marginTop: "16px", textAlign: "left", borderCollapse: "collapse" }}>
         <tbody>
           <tr>
-            <td><strong>Dogs in Shelter:</strong></td>
+            <td><strong>Available Dogs:</strong></td>
             <td>{stats.total}</td>
           </tr>
           <br />  {/* Added to preserve original line spacing */}
