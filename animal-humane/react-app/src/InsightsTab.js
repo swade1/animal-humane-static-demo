@@ -302,7 +302,7 @@ function InsightsTab() {
                     <strong>{origins.length} shelters and rescues</strong> throughout New Mexico have partnered with Animal Humane to find homes for their dogs
                 </p>
                 <p style={{ margin: '5px 0 0 0', color: '#6c757d', fontSize: '13px' }}>
-                    Each pin represents a shelter that has transferred at least one dog to our care
+                    Each pin represents a shelter that has transferred at least one dog to our care since July, 2025.
                 </p>
                 <p style={{ margin: '3px 0 0 0', color: '#6c757d', fontSize: '12px' }}>
                     Click on each pin to view shelter/rescue name and the number of dogs transferred from that location
