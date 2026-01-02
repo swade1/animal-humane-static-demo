@@ -7,10 +7,6 @@ on:
   
   # Allow manual triggering for testing
   workflow_dispatch:
-  
-  # Run on pushes to main branch for testing
-  push:
-    branches: [ main ]
 
 env:
   # Python version to use
