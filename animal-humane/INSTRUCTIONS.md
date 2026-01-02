@@ -1,0 +1,430 @@
+# Animal Humane Static Portfolio Demo - Complete Instructions
+
+## Overview
+This document provides comprehensive instructions for maintaining and updating the Animal Humane static portfolio demo. This system converts a live dashboard into a static version suitable for portfolio demonstration.
+
+Vercel URL:         https://animal-humane-static-demo.vercel.app/
+GitHub Workflows:   https://github.com/swade1/animal-humane-static-demo/actions
+Vercel Dashboard:   https://vercel.com/susanwade09-6829s-projects
+Vercel Deployments: https://vercel.com/susanwade09-6829s-projects/animal-humane-static-demo/deployments 
+
+---
+
+## 1. Technology Stack
+
+### Core Technologies
+- **React Frontend**: JavaScript web application built with React 18
+- **Vercel**: Cloud platform for static site hosting and deployment
+- **GitHub**: Version control and repository hosting with automated workflows
+- **Elasticsearch**: Document database running on two instances (ports 9200 and 9201)
+- **Python 3**: Backend scripts for data processing and updates
+- **GitHub Actions**: Automated CI/CD workflows for continuous updates
+
+### Key Files and Components
+- **React App**: `react-app/` - The frontend application
+- **Static API**: `react-app/public/api/` - JSON files that simulate API responses
+- **Location Data**: `location_info.jsonl` - Master file containing dog location/origin data
+- **Update Scripts**: `update_static_data.py` - Comprehensive data update automation
+  - Updates these 2 things:
+    1. last-updated.json - Updates timestamp based on latest Elasticsearch index
+    2. location_info.jsonl - Copies from root directory to public directory
+- **GitHub Workflows**: `.github/workflows/` - Automated deployment and update processes
+
+### Deployment Architecture
+```
+Local Development → GitHub Repository → GitHub Actions → Vercel Deployment
+      ↓                    ↓                 ↓              ↓
+Elasticsearch(9200)   Version Control   Auto Updates   Live Demo Site
+      ↑
+Elasticsearch(9201) 
+  (Backup)
+```
+
+---
+
+## 2. System Workflow and Component Interactions
+
+### Data Flow Process
+
+1. **Data Source**: Elasticsearch indices contain live animal data
+   - Primary instance: `localhost:9200` (Docker)
+   - Backup instance: `localhost:9201` (Secondary)
+
+2. **Data Processing**: Python scripts query Elasticsearch and generate static files
+   - Queries latest animal-humane index for timestamp information
+   - Processes location_info.jsonl for "Available Soon" dogs
+   - Generates JSON files for React app consumption
+
+3. **Static Generation**: React app reads static JSON files instead of live API
+   - `last-updated.json`: Contains timestamp from latest ES index
+   - `recent-pupdates.json`: Dog status and change information
+   - `location_info.jsonl`: Geographic and origin data for dogs
+
+4. **Deployment Pipeline**: 
+   - Local changes → Git commit → GitHub repository
+   - GitHub Actions automatically run update scripts every 2 hours
+   - Vercel deploys updated static files to live demo site
+
+### Component Interactions
+
+**Elasticsearch ↔ Python Scripts**
+- Scripts query ES indices using REST API on port 9200
+- Extract timestamps from index names (format: animal-humane-YYYYMMDD-HHMM)
+- Generate accurate "last updated" information for portfolio demo
+
+**Python Scripts ↔ React App**
+- Scripts generate JSON files in `react-app/public/api/`
+- React components consume these static files as if they were live API responses
+- Demo banner shows data freshness based on ES index timestamps
+
+**GitHub ↔ Vercel**
+- Git pushes trigger Vercel deployments automatically
+- GitHub Actions run scheduled updates to keep demo current
+- Vercel serves the static React build with updated data files
+
+---
+
+## 3. Detailed Update Instructions
+
+### A. Updating the code: Example - Removing Blue Banner
+1. **Edit the App.js file** - remove the import for the DemoBanner component and the <DemoBanner/> element
+2. **Commit and push the changes**
+   ```
+   git add react-app/src/App.js
+   git commit -m "Remove blue demo banner from portfolio site"
+   git push origin main
+   # after getting a reject message because the remote contains work I don't have locally.
+   git pull origin main --rebase && git push origin main
+   ```
+   What happens next: 
+   GitHub Side  
+   1. Git push completes. The changes are in the GitHub repo
+   2. GitHub actions may trigger - since you pushed to the main branch, it could trigger the workflow
+   3. Repo is updated. The main branch contains the App.js change without DemoBanner.
+   Vercel Side  
+   1. Webhook triggers - Vercel detects the new commit on the main branch 
+   2. Build starts automatically 
+      - Runs npm install to install dependencies
+      - Runs npm run build to create production build
+      - The build uses the updated App.js (without DemoBanner)
+   3. Deployment - new version is deployed to the live URL
+   4. Live site updates - within 1-2 minutes, https://animal-humane-static-demo.vercel.app will show the version without the blue banner. 
+
+### A. Updating location_info.jsonl
+
+The `location_info.jsonl` file contains critical data for identifying dogs in the "Available Soon" category. These are dogs that exist in your location database but haven't yet appeared in the main Elasticsearch indices.
+
+#### Step-by-Step Process:
+
+1. **Navigate to Project Directory**
+   ```bash
+   cd /Users/swade/KIRO-project/professional-portfolio/animal-humane
+   ```
+
+2. **Edit the Master Location File**
+   ```bash
+   # Open in your preferred editor (example with vim)
+   vim location_info.jsonl
+   
+   # OR use VS Code
+   code location_info.jsonl
+   ```
+
+3. **Update Dog Records**
+   Each line should be a valid JSON object with this structure:
+   ```json
+   {"name":"DogName","id":123456789,"origin":"Shelter Name","returned":0,"bite_quarantine":0,"latitude":35.1234,"longitude":-106.5678}
+   ```
+   
+   **Required Fields:**
+   - `name`: Dog's name (string)
+   - `id`: Unique shelter ID (integer)  
+   - `origin`: Source shelter or "Owner Surrender"/"Stray" (string)
+   - `returned`: 1 if previously returned, 0 if not (integer)
+   - `bite_quarantine`: 1 if in quarantine, 0 if not (integer)
+   
+   **Optional Fields:**
+   - `latitude`: GPS latitude (float)
+   - `longitude`: GPS longitude (float)
+
+4. **Run the Update Script**
+   ```bash
+   # Activate Python environment
+   source .venv/bin/activate
+   
+   # Run comprehensive update script
+   python update_static_data.py
+   ```
+   
+   **Expected Output:**
+   ```
+   🔄 Updating static data for portfolio demo...
+   📊 Latest index: animal-humane-20260101-1951
+   ✅ Updated timestamp file:
+      📅 Date: January 01, 2026 at 07:51 PM UTC
+      🔍 Source: animal-humane-20260101-1951
+   ✅ Synced location_info.jsonl to React public directory
+      📊 634 dog records synchronized
+   🎉 Static data update complete!
+   ```
+
+5. **Commit and Deploy Changes**
+   ```bash
+   # Add all changes to git
+   git add location_info.jsonl react-app/public/location_info.jsonl react-app/public/api/last-updated.json
+   
+   # Commit with descriptive message
+   git commit -m "Update location info with new dog data - $(date +%Y-%m-%d)"
+   
+   # Push to trigger deployment
+   git push origin main
+   ```
+
+6. **Verify Deployment**
+   - Check the live site: https://animal-humane-static-demo.vercel.app
+   - Look for updated timestamp in the demo banner
+   - Verify "Available Soon" section shows correct dogs
+
+### B. Migrating Elasticsearch Indices from Backup (9201) to Primary (9200)
+
+When you need to move data from your backup Elasticsearch instance (port 9201) to your primary instance (port 9200):
+
+#### Prerequisites Check:
+```bash
+# Verify both Elasticsearch instances are running
+curl -X GET "localhost:9200/_cluster/health?pretty"
+curl -X GET "localhost:9201/_cluster/health?pretty"
+
+# Both should return status "green" or "yellow"
+```
+
+#### Step 1: List Available Indices
+
+**Check what's available on backup (9201):**
+```bash
+curl -X GET "localhost:9201/_cat/indices/animal-humane-*?v"
+```
+
+**Check what exists on primary (9200):**
+```bash
+curl -X GET "localhost:9200/_cat/indices/animal-humane-*?v"
+```
+
+#### Step 2: Choose Migration Method
+
+**Option A: Manual Index Copy (Recommended for single indices)**
+
+1. **Create snapshot repository on source (9201):**
+   ```bash
+   curl -X PUT "localhost:9201/_snapshot/migrate_repo" -H 'Content-Type: application/json' -d'
+   {
+     "type": "fs",
+     "settings": {
+       "location": "/tmp/elasticsearch-snapshots"
+     }
+   }'
+   ```
+
+2. **Create matching repository on destination (9200):**
+   ```bash
+   curl -X PUT "localhost:9200/_snapshot/migrate_repo" -H 'Content-Type: application/json' -d'
+   {
+     "type": "fs",
+     "settings": {
+       "location": "/tmp/elasticsearch-snapshots"
+     }
+   }'
+   ```
+
+3. **Create snapshot of specific index on source:**
+   ```bash
+   # Replace YYYYMMDD-HHMM with actual index date/time
+   curl -X PUT "localhost:9201/_snapshot/migrate_repo/migration_$(date +%Y%m%d_%H%M%S)" -H 'Content-Type: application/json' -d'
+   {
+     "indices": "animal-humane-YYYYMMDD-HHMM",
+     "ignore_unavailable": true,
+     "include_global_state": false
+   }'
+   ```
+
+4. **Restore snapshot to destination:**
+   ```bash
+   curl -X POST "localhost:9200/_snapshot/migrate_repo/migration_$(date +%Y%m%d_%H%M%S)/_restore" -H 'Content-Type: application/json' -d'
+   {
+     "ignore_unavailable": true,
+     "include_global_state": false
+   }'
+   ```
+
+**Option B: Using Existing Migration Scripts**
+
+1. **Run the migration script:**
+   ```bash
+   # Activate Python environment
+   source .venv/bin/activate
+   
+   # Run migration (check available scripts)
+   python migrate_specific_indices.py
+   
+   # OR for all data
+   python migrate_data_to_docker.py
+   ```
+
+2. **Follow script prompts** to select which indices to migrate
+
+#### Step 3: Verify Migration Success
+
+1. **Check index was copied:**
+   ```bash
+   curl -X GET "localhost:9200/_cat/indices/animal-humane-*?v"
+   ```
+
+2. **Compare document counts:**
+   ```bash
+   # Count documents in source
+   curl -X GET "localhost:9201/animal-humane-YYYYMMDD-HHMM/_count"
+   
+   # Count documents in destination  
+   curl -X GET "localhost:9200/animal-humane-YYYYMMDD-HHMM/_count"
+   
+   # Numbers should match
+   ```
+
+3. **Test data integrity:**
+   ```bash
+   # Sample a few documents from both indices
+   curl -X GET "localhost:9201/animal-humane-YYYYMMDD-HHMM/_search?size=5&pretty"
+   curl -X GET "localhost:9200/animal-humane-YYYYMMDD-HHMM/_search?size=5&pretty"
+   ```
+
+#### Step 4: Update Static Demo Data
+
+After successful migration, update your demo with the new data:
+
+```bash
+# Run comprehensive update to capture new timestamp
+python update_static_data.py
+
+# Commit changes
+git add react-app/public/api/last-updated.json
+git commit -m "Update demo timestamp after ES migration"
+git push origin main
+```
+
+---
+
+## 4. Troubleshooting Common Issues
+
+### GitHub Actions Overwriting Timestamps
+**Problem**: GitHub Actions runs every 2 hours and may overwrite your timestamp with fallback data.
+
+**Solution**: 
+```bash
+git add .
+git commit -m "Your message"
+git pull origin main --rebase
+git push origin main
+```
+
+### Elasticsearch Connection Refused
+**Problem**: Scripts can't connect to Elasticsearch.
+
+**Diagnosis**:
+```bash
+# Check if ES is running
+curl -XGET "localhost:9200/"
+
+# Check Docker containers
+docker ps | grep elasticsearch
+```
+
+**Solution**:
+```bash
+# Start Docker Elasticsearch if needed
+docker-compose up -d elasticsearch
+```
+
+### Vercel Not Deploying Changes
+**Problem**: Changes aren't appearing on live site.
+
+**Solution**:
+```bash
+# Force deployment with dummy change
+echo "# Deploy trigger $(date)" > react-app/public/deploy.txt
+git add react-app/public/deploy.txt
+git commit -m "Force Vercel deployment"
+git push origin main
+```
+
+### Location Data Not Loading
+**Problem**: "Available Soon" section shows no dogs despite location_info.jsonl having data.
+
+**Check**:
+```bash
+# Verify file was copied to React public directory
+ls -la react-app/public/location_info.jsonl
+
+# Check file format
+head -5 react-app/public/location_info.jsonl
+```
+
+---
+
+## 5. Maintenance Schedule
+
+### Daily (Automatic)
+- GitHub Actions runs every 2 hours to update timestamps
+- Vercel automatically deploys any changes
+
+### Weekly (Manual)
+- Review error logs in GitHub Actions
+- Check demo site functionality
+- Update location_info.jsonl if new dogs arrive
+
+### Monthly (Manual)
+- Clean up old Elasticsearch snapshots
+- Review and update documentation
+- Test backup Elasticsearch instance
+
+---
+
+## 6. Important File Locations
+
+### Configuration Files
+- `react-app/package.json` - React app dependencies
+- `.github/workflows/update-data.yml` - Automated update workflow
+- `docker-compose.yml` - Elasticsearch container configuration
+
+### Data Files
+- `location_info.jsonl` - Master location database
+- `react-app/public/location_info.jsonl` - Copy for React app
+- `react-app/public/api/*.json` - Static API response files
+
+### Scripts
+- `update_static_data.py` - Main data update script
+- `update_timestamp.py` - Legacy timestamp-only script
+- `migrate_*.py` - Various Elasticsearch migration utilities
+
+### Deployment
+- `react-app/build/` - Production React build (auto-generated)
+- Live site: https://animal-humane-static-demo.vercel.app
+
+### Cron Schedule
+- .github/workflows/update-data.yml 
+---
+
+## 7. Contact Information
+
+For technical issues or questions about this system:
+- GitHub Repository: https://github.com/swade1/animal-humane-static-demo
+- Vercel Dashboard: https://vercel.com/dashboard
+- Local development: `localhost:3000` (when running `npm start`)
+
+---
+
+*Last updated: January 1, 2026*
+*System version: Static Portfolio Demo v1.0*
+
+
+
+
