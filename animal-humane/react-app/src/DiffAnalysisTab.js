@@ -165,7 +165,6 @@ function DiffAnalysisTab() {
       <h2 style={{ marginTop: '10px', textAlign: 'left' }}>Recent Pupdates</h2>
       <p style={{ marginBottom: '20px' }}>
         This tab shows recent changes in dog status and availability. 
-        Last updated: {data.metadata?.last_updated ? new Date(data.metadata.last_updated).toLocaleString() : 'Unknown'}
         {data.metadata?.total_dogs && <span> • Total: {data.metadata.total_dogs} dogs</span>}
       </p>
 
