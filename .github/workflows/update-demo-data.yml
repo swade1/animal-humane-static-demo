@@ -14,13 +14,18 @@ jobs:
     - uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Pull latest changes first
+      run: |
+        git pull origin main
     
     - name: Update timestamp
       run: |
         mkdir -p animal-humane/react-app/public/api/
         echo "{\"lastUpdated\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}" > animal-humane/react-app/public/api/last-updated.json
         
-    - name: Commit updated data
+    - name: Commit and push updated data
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
@@ -29,6 +34,5 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m "🤖 Update static demo data timestamp $(date)"
-          git pull --rebase origin main
-          git push
+          git push origin main
         fi
