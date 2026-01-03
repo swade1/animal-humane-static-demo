@@ -4,6 +4,7 @@ diff_reports/
 logs/
 *.log
 *.json
+!react-app/public/api/*.json
 *.bak
 
 # Python cache files
@@ -12,4 +13,4 @@ __pycache__/
 *.pyo
 
 # Virtual environment
-venv/
+.venv/

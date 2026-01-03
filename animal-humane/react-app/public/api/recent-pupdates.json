@@ -24,26 +24,6 @@
         "section_metadata": {
           "source": "diff_analysis_trial"
         }
-      },
-      {
-        "id": 212182878,
-        "name": "Buttercup ",
-        "url": "https://new.shelterluv.com/embed/animal/212182878",
-        "status": "Available",
-        "location": "Main Campus, Trial Adoption",
-        "section_metadata": {
-          "source": "diff_analysis_trial"
-        }
-      },
-      {
-        "id": 210758903,
-        "name": "Winnie",
-        "url": "https://new.shelterluv.com/embed/animal/210758903",
-        "status": "Available",
-        "location": "Main Campus, Trial Adoption",
-        "section_metadata": {
-          "source": "diff_analysis_trial"
-        }
       }
     ],
     "unlisted_dogs": [
@@ -123,16 +103,6 @@
         "id": 212532991,
         "name": "Agave",
         "url": "https://new.shelterluv.com/embed/animal/212532991",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
-        "id": 999999,
-        "name": "Alpha Dog",
-        "url": "https://new.shelterluv.com/embed/animal/999999",
         "status": null,
         "location": null,
         "section_metadata": {

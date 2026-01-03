@@ -13,6 +13,7 @@
 {"name":"Alpha Dog","id":999999,"origin":"Space","bite_quarantine":0,"returned":0}
 {"name":"Amelia","id":211254014,"origin":"Roswell Humane Society","bite_quarantine":0,"returned":1,"latitude":33.3930,"longitude":-104.5235}
 {"name":"Amortencia","id":211576638,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
+{"name":"Andor","id":211125286,"origin":"Labor of Love Project NM","bite_quarantine":1,"returned":0,"latitude":34.1827,"longitude":-103.3245}
 {"name":"Andi","id":211903055,"origin":"Humane Society of Lincoln County","bite_quarantine":0,"returned":0,"latitude":33.3436,"longitude":-105.6650}
 {"name":"Andy","id":210782959,"origin":"Espanola Humane","bite_quarantine":0,"returned":0,"latitude":36.0006,"longitude":-106.0373}
 {"name":"Anya","id":212413585,"origin":"Paws & Claws Rescue of Quay County","bite_quarantine":0,"returned":0,"latitude":35.1911,"longitude":-103.6150}

@@ -4,9 +4,13 @@ services:
     image: elasticsearch:8.11.0
     restart: unless-stopped
     environment:
-      - discovery.type=single-node
+      - cluster.name=docker-cluster
+      - node.name=elasticsearch
+      - network.host=0.0.0.0
+      - discovery.seed_hosts=elasticsearch,elasticsearch2
+      - cluster.initial_master_nodes=elasticsearch,elasticsearch2
       - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms1g -Xmx2g"
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
       - TZ=America/Denver
     ports:
       - "9200:9200"
@@ -19,7 +23,30 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-
+  elasticsearch2:
+    container_name: animal-humane-elasticsearch2
+    image: elasticsearch:8.11.0
+    restart: unless-stopped
+    environment:
+      - cluster.name=docker-cluster
+      - node.name=elasticsearch2
+      - network.host=0.0.0.0
+      - discovery.seed_hosts=elasticsearch,elasticsearch2
+      - cluster.initial_master_nodes=elasticsearch,elasticsearch2
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+      - TZ=America/Denver
+    ports:
+      - "9210:9200"
+      - "9310:9300"
+    volumes:
+      - animal-humane_elasticsearch_data2:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
   scheduler:
     image: animal-humane-scheduler
     command: ["python", "scheduler/background_scheduler.py"]
@@ -39,7 +66,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
-
   api:
     image: animal-humane-api
     environment:
@@ -60,4 +86,6 @@ services:
 
 volumes:
   animal-humane_elasticsearch_data:
+    external: true
+  animal-humane_elasticsearch_data2:
     external: true

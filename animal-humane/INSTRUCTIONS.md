@@ -428,12 +428,38 @@ head -5 react-app/public/location_info.jsonl
 4. curl -XPOST 'localhost:9200/_bulk?pretty' -H 'Content-Type:application/x-ndjson' --data-binary "@index-name.jsonl"
 
 
-## Docker Operations 
+## 8. Docker Operations 
 1. List all files in the container matching the id given: docker exec -it 584ff75a3171 ls /app  
 2. Find matching file names: docker exec -it <container_name_or_id> find /app -name "*.py"
 3. Search for references to recent-pupdates.json in the /app directory. docker exec -it 584ff75a3171 grep -i "recent-pupdates.json" -r /app
 
-## 8. Contact Information
+
+## 9. Running manually
+1. From the animal-humane directory in the virtual environment (source .venv/bin/activate) run 'python scheduler/background_scheduler.py'
+    * Index created
+    * animal-humane-latest alias created to point to this index
+    * scraping and ingestion executes
+2. Check scheduler.log in the animal-humane directory for any log such as:
+    * "Starting diff analysis"
+    * "Diff analysis completed. Found X changes"
+    * Any errors or warnings related to diff analysis
+3. If the diff analysis didn't kick off 10 minutes after index creation/scraping/ingest, try this:
+   ```
+   # In a Python shell, from the project root and inside the virtual environment:
+   from scheduler.background_scheduler import AnimalHumaneScheduler
+   scheduler = AnimalHumaneScheduler()
+   scheduler.run_diff_analysis()
+   ```
+4. Push updates to the repo
+   ```
+   git add react-app/public/api/* react-app/public/missing_dogs.txt
+   git commit -m "Update frontend data files with latest adoption/status changes"
+   git push origin main
+   ```
+
+
+
+## 9. Contact Information
 
 For technical issues or questions about this system:
 - GitHub Repository: https://github.com/swade1/animal-humane-static-demo
@@ -447,4 +473,36 @@ For technical issues or questions about this system:
 
 
 
+Command to make the alias animal-humane-latest is pointing to last index (most current)
+```
+curl -X POST "localhost:9200/_aliases" -H 'Content-Type: application/json' -d'
+{
+  "actions": [
+    { "remove": { "index": "*", "alias": "animal-humane-latest" } },
+    { "add":    { "index": "animal-humane-20260102-1900", "alias": "animal-humane-latest" } }
+  ]
+}'
+```
 
+
+Steps to convert older indices to _bulk compatible format 
+1. Output index contents to file: `curl -XGET 'localhost:9201/animal-humane-2025MMDD-HHmm/_search?pretty'&size=100' > animal-humane-2025MMDD-HHmm.json
+2. Use the bulk_conversion.py script to convert the .json file to a _bulk POST compatible .jsonl file
+   `bulk_conversion.py animal-humane-2025MMDD-HHmm.json animal-humane-2025MMDD-HHmm.jsonl animal-humane-2025MMDD-HHmm
+3. Verify you have all the docs by checking number of lines in the file and that they match the number of docs in the corresponding index on 9200
+4. Copy the .jsonl file to ~/Scripts/professional-portfolio/animal-humane/backups
+5. Delete the .json file 
+4. Delete both indices in 9201 and 9200.
+
+
+Clear the api container cache
+curl -sS -X POST http://127.0.0.1:8000/api/cache/clear | jq '.'
+
+
+
+All documents indexed successfully.
+Refreshing Elasticsearch to ensure doc availability
+Index refreshed successfully.
+2026-01-03 11:30:07,273 - INFO - Pushed 69 dogs to Elasticsearch (Indes only shows 63)
+2026-01-03 11:30:07,294 - INFO - POST http://localhost:9200/_aliases [status:200 duration:0.020s]
+2026-01-03 11:30:07,294 - INFO - Updated alias to point to animal-humane-20260103-1128

@@ -5,6 +5,8 @@ import os
 from dataclasses import dataclass
 from typing import Dict, Any
 
+print("--------------------------------------------LOADING config.py from", __file__)
+
 @dataclass
 class ElasticsearchConfig:
     host: str = "http://localhost:9200"
@@ -17,8 +19,10 @@ class APIConfig:
     port: int = 8000
     debug: bool = False
     cors_origins: list = None
+    internal_auth_token: str = None
 
     def __post_init__(self):
+        print("+++++++++++++++++++++++++++++++++++++APIConfig loaded, internal_auth_token:", getattr(self, "internal_auth_token", "NOT SET"))
         if self.cors_origins is None:
             self.cors_origins = ["http://localhost:3000"]
         # Optional internal auth token for scheduler/API internal calls

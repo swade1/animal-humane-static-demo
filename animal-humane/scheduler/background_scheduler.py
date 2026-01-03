@@ -192,7 +192,7 @@ class AnimalHumaneScheduler:
             import requests
             
             # API base URL (assuming it's running on the same host)
-            api_base = "http://localhost:8000"  # Adjust if needed
+            api_base = "http://api:8000"  # Adjust if needed
             
             # Endpoints to warm up
             endpoints = [
@@ -265,7 +265,7 @@ class AnimalHumaneScheduler:
                     # Call the API to refresh its cache for missing_dogs (internal endpoint)
                     try:
                         import requests
-                        api_base = "http://localhost:8000"
+                        api_base = "http://api:8000"
                         refresh_url = f"{api_base}/api/cache/refresh"
                         headers = {}
                         token = os.getenv('INTERNAL_API_TOKEN')
@@ -335,12 +335,12 @@ def main():
     schedule.every().day.at("19:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 7 PM MT
     
     # Run diff analysis 10 minutes after each scrape
-    schedule.every().day.at("09:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 9:10 AM MT
-    schedule.every().day.at("11:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 11:10 AM MT
-    schedule.every().day.at("13:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 1:10 PM MT
-    schedule.every().day.at("15:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 3:10 PM MT
-    schedule.every().day.at("17:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 5:10 PM MT
-    schedule.every().day.at("19:10").do(scheduler.run_async, scheduler.run_diff_analysis)  # 7:10 PM MT
+    schedule.every().day.at("09:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 9:05 AM MT
+    schedule.every().day.at("11:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 11:05 AM MT
+    schedule.every().day.at("13:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 1:05 PM MT
+    schedule.every().day.at("15:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 3:05 PM MT
+    schedule.every().day.at("17:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 5:05 PM MT
+    schedule.every().day.at("19:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 7:05 PM MT
     
     # Health check every hour
     schedule.every().hour.do(scheduler.run_async, scheduler.health_check)  
