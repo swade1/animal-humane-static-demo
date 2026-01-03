@@ -420,7 +420,20 @@ head -5 react-app/public/location_info.jsonl
 - .github/workflows/update-data.yml 
 ---
 
-## 7. Contact Information
+## 7. Migrating Indices from 9201 to 9200 after migrate_specific_indices.py stopped working
+0. Make sure index is updated before you start this process
+1. curl search for all docs in the index and output to index-name.json
+2. Run bulk_conversion.py on raw output in index-name.json and output to index.name.jsonl (see usage in script)
+3. Save index-name.jsonl file to ~/Scripts/professional-portfolio/animal/backups
+4. curl -XPOST 'localhost:9200/_bulk?pretty' -H 'Content-Type:application/x-ndjson' --data-binary "@index-name.jsonl"
+
+
+## Docker Operations 
+1. List all files in the container matching the id given: docker exec -it 584ff75a3171 ls /app  
+2. Find matching file names: docker exec -it <container_name_or_id> find /app -name "*.py"
+3. Search for references to recent-pupdates.json in the /app directory. docker exec -it 584ff75a3171 grep -i "recent-pupdates.json" -r /app
+
+## 8. Contact Information
 
 For technical issues or questions about this system:
 - GitHub Repository: https://github.com/swade1/animal-humane-static-demo
