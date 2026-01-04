@@ -2,16 +2,16 @@
   "success": true,
   "data": [
     {
-      "name": "Ludo",
-      "date": "12/26/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212449215",
-      "los": 11
+      "name": "Robin Hood",
+      "date": "01/03/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212448974",
+      "los": 19
     },
     {
-      "name": "Blaze",
-      "date": "12/26/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212454141",
-      "los": 10
+      "name": "Takoyaki",
+      "date": "01/04/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534254",
+      "los": 5
     },
     {
       "name": "Blue's Clues",
@@ -24,18 +24,6 @@
       "date": "12/30/2025",
       "url": "https://new.shelterluv.com/embed/animal/212428689",
       "los": 20
-    },
-    {
-      "name": "Latte",
-      "date": "12/27/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212363168",
-      "los": 24
-    },
-    {
-      "name": "Triton",
-      "date": "12/27/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212464499",
-      "los": 9
     },
     {
       "name": "Willow",
@@ -62,40 +50,28 @@
       "los": 12
     },
     {
-      "name": "Lil K",
-      "date": "12/26/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212459145",
-      "los": 9
+      "name": "Wilbur",
+      "date": "01/03/2026",
+      "url": "https://new.shelterluv.com/embed/animal/210495598",
+      "los": 55
     },
     {
-      "name": "Stray Hold - Dolly",
-      "date": "12/26/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212460116",
-      "los": 9
+      "name": "Buddy",
+      "date": "01/03/2026",
+      "url": "https://new.shelterluv.com/embed/animal/210656727",
+      "los": 30
     },
     {
-      "name": "Moose",
-      "date": "12/26/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212464022",
-      "los": 8
+      "name": "Yakitori",
+      "date": "01/04/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534291",
+      "los": 4
     },
     {
-      "name": "Armadillo",
-      "date": "12/26/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212408808",
-      "los": 21
-    },
-    {
-      "name": "Taranis",
-      "date": "12/27/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212452957",
-      "los": 11
-    },
-    {
-      "name": "Fen'len",
-      "date": "12/27/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212452974",
-      "los": 11
+      "name": "Sake",
+      "date": "01/04/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534190",
+      "los": 5
     },
     {
       "name": "Eowyn",
@@ -110,6 +86,24 @@
       "los": 14
     },
     {
+      "name": "Fig",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212533063",
+      "los": 4
+    },
+    {
+      "name": "Panda",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534221",
+      "los": 4
+    },
+    {
+      "name": "Sun Bear",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534235",
+      "los": 4
+    },
+    {
       "name": "Chamoy",
       "date": "12/31/2025",
       "url": "https://new.shelterluv.com/embed/animal/212459240",
@@ -122,22 +116,82 @@
       "los": 14
     },
     {
-      "name": "Airpod",
-      "date": "12/26/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212084180",
-      "los": 11
+      "name": "Prescott",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212086172",
+      "los": 73
     },
     {
-      "name": "Autumn",
-      "date": "12/26/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212454362",
-      "los": 11
+      "name": "Harper ",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212386443",
+      "los": 32
     },
     {
-      "name": "Matlock",
-      "date": "12/26/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212457866",
-      "los": 10
+      "name": "Sumac",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212533079",
+      "los": 3
+    },
+    {
+      "name": "Polar Bear",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534248",
+      "los": 3
+    },
+    {
+      "name": "Dexter ",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212383951",
+      "los": 32
+    },
+    {
+      "name": "Evergreen",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212533086",
+      "los": 3
+    },
+    {
+      "name": "Koala",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534230",
+      "los": 3
+    },
+    {
+      "name": "Chive",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212533036",
+      "los": 3
+    },
+    {
+      "name": "Captain Kidd",
+      "date": "01/02/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212363036",
+      "los": 38
+    },
+    {
+      "name": "Sloth Bear",
+      "date": "01/03/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534264",
+      "los": 3
+    },
+    {
+      "name": "Snapdragon",
+      "date": "01/03/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212533095",
+      "los": 4
+    },
+    {
+      "name": "Pinon",
+      "date": "01/03/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212533005",
+      "los": 4
+    },
+    {
+      "name": "Udon",
+      "date": "01/03/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534232",
+      "los": 4
     }
   ],
   "message": null,

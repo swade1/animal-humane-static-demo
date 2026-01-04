@@ -87,6 +87,25 @@ jobs:
           
           echo "✅ Dynamic timestamp update complete"
           
+      - name: 📝 Generate Static JSON Files
+        run: |
+          python generate_overview_json.py
+          python generate_adoptions_json.py
+          python generate_diff_analysis_json.py
+          python generate_dog_origins_json.py
+          python generate_insights_json.py
+          python generate_length_of_stay_json.py
+          python generate_live_population_json.py
+          python generate_live_population_meta_json.py
+          python generate_overview_endpoints_json.py
+          python generate_recent_pupdates_json.py
+          python generate_recent_pupdates_meta_json.py
+          python generate_weekly_age_group_adoptions_json.py
+          python generate_live_population_meta_json.py
+          python generate_overview_endpoints_json.py
+          python generate_recent_pupdates_meta_json.py
+        # Add more scripts here as needed
+          
       - name: 📋 Check for Changes
         id: changes
         run: |

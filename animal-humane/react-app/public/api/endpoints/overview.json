@@ -4,7 +4,7 @@
     "shelter_info": {
       "shelter_name": "City of Albuquerque Animal Welfare Department",
       "location": "Albuquerque, NM",
-      "last_updated": "2026-01-01T23:35:00.000Z"
+      "last_updated": "2026-01-04T15:00:00.000Z"
     },
     "summary": {
       "total_animals": 150,
@@ -19,6 +19,6 @@
       }
     }
   },
-  "timestamp": "2026-01-01T23:35:00.000Z",
+  "timestamp": "2026-01-04T15:00:00.000Z",
   "static_demo": true
 }

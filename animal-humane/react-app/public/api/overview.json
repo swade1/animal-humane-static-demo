@@ -1,28 +1,15 @@
 {
   "success": true,
   "data": {
-    "total": 59,
-    "newThisWeek": 7,
-    "adoptedThisWeek": 23,
-    "trialAdoptions": 4,
-    "ageGroups": [
-      {
-        "age_group": "Adult",
-        "count": 38
-      },
-      {
-        "age_group": "Senior",
-        "count": 6
-      },
-      {
-        "age_group": "Puppy",
-        "count": 4
-      }
-    ],
-    "avgStay": 39,
+    "total": 61,
+    "newThisWeek": 16,
+    "adoptedThisWeek": 32,
+    "trialAdoptions": 1,
+    "ageGroups": [],
+    "avgStay": 40,
     "longestStay": {
       "name": "Phelps",
-      "days": 282,
+      "days": 285,
       "url": "https://new.shelterluv.com/embed/animal/210698425"
     }
   },

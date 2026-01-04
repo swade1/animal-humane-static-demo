@@ -3,33 +3,6 @@
   "data": {
     "dailyAdoptions": [
       {
-        "date": "07/14/2025",
-        "count": 1,
-        "names": [
-          "Bobby"
-        ]
-      },
-      {
-        "date": "07/15/2025",
-        "count": 6,
-        "names": [
-          "Amaya",
-          "Chama",
-          "Chuck",
-          "Crumb",
-          "Herman",
-          "Yuno"
-        ]
-      },
-      {
-        "date": "07/16/2025",
-        "count": 2,
-        "names": [
-          "Bronx",
-          "Zuni"
-        ]
-      },
-      {
         "date": "07/17/2025",
         "count": 1,
         "names": [
@@ -1533,7 +1506,7 @@
       },
       {
         "date": "12/26/2025",
-        "count": 9,
+        "count": 10,
         "names": [
           "Airpod",
           "Armadillo",
@@ -1543,13 +1516,16 @@
           "Ludo",
           "Matlock",
           "Moose",
-          "Stray Hold - Dolly"
+          "Stray Hold - Dolly",
+          "Winnie"
         ]
       },
       {
         "date": "12/27/2025",
-        "count": 4,
+        "count": 6,
         "names": [
+          "Buttercup ",
+          "Echo",
           "Fen'len",
           "Latte",
           "Taranis",
@@ -1587,6 +1563,50 @@
           "Cheese",
           "Chimi",
           "Eowyn"
+        ]
+      },
+      {
+        "date": "01/01/2026",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "01/02/2026",
+        "count": 10,
+        "names": [
+          "Fig",
+          "Panda",
+          "Sun Bear",
+          "Prescott",
+          "Harper",
+          "Sumac",
+          "Polar Bear",
+          "Dexter",
+          "Evergreen",
+          "Koala"
+        ]
+      },
+      {
+        "date": "01/03/2026",
+        "count": 8,
+        "names": [
+          "Robin Hood",
+          "Wilbur",
+          "Buddy",
+          "Pinon",
+          "Snapdragon",
+          "Sloth Bear",
+          "Udon",
+          "Scottie"
+        ]
+      },
+      {
+        "date":"01/04/2026",
+        "count": 3,
+        "names": [
+          "Takoyaki",
+          "Yakitori",
+          "Sake"
         ]
       }
     ]

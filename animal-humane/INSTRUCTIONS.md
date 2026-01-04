@@ -444,6 +444,8 @@ head -5 react-app/public/location_info.jsonl
     * "Diff analysis completed. Found X changes"
     * Any errors or warnings related to diff analysis
 3. If the diff analysis didn't kick off 10 minutes after index creation/scraping/ingest, try this:
+   This is the way to run just diff-analysis on existing indices instead of creating a new index 
+   at the same time.
    ```
    # In a Python shell, from the project root and inside the virtual environment:
    from scheduler.background_scheduler import AnimalHumaneScheduler
@@ -506,3 +508,17 @@ Index refreshed successfully.
 2026-01-03 11:30:07,273 - INFO - Pushed 69 dogs to Elasticsearch (Indes only shows 63)
 2026-01-03 11:30:07,294 - INFO - POST http://localhost:9200/_aliases [status:200 duration:0.020s]
 2026-01-03 11:30:07,294 - INFO - Updated alias to point to animal-humane-20260103-1128
+
+
+
+Strategy
+Write scripts that collect your latest data (e.g., from Elasticsearch or your backend API) and output it to JSON files (like overview.json) in your React app’s public/api directory.
+
+
+Limit docker output 
+docker ps --format "table {{.Names}}\t{{.Image}}"
+
+Install vim-tiny in a container 
+apt-get update && apt-get install -y vim-tiny
+
+
