@@ -27,18 +27,6 @@
     "adopted_dogs": [],
     "trial_dogs": [
       {
-        "id": 211623887,
-        "name": "Destiny",
-        "url": "https://new.shelterluv.com/embed/animal/211623887",
-        "status": "Available",
-        "location": "Main Campus, Trial Adoption",
-        "section_metadata": {
-          "source": "diff_analysis_trial"
-        }
-      }
-    ],
-    "unlisted_dogs": [
-      {
         "id": 212175617,
         "name": "Noah",
         "url": "https://new.shelterluv.com/embed/animal/212175617",
@@ -58,6 +46,18 @@
           "source": "diff_analysis_unlisted"
         }
       },
+      {
+        "id": 211623887,
+        "name": "Destiny",
+        "url": "https://new.shelterluv.com/embed/animal/211623887",
+        "status": "Available",
+        "location": "Main Campus, Trial Adoption",
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
+      }
+    ],
+    "unlisted_dogs": [
       {
         "id": 211590344,
         "name": "Hermione",
