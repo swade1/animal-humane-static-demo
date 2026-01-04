@@ -1,39 +1,49 @@
 {
   "success": true,
   "data": {
-    "new_dogs": [
+    "new_dogs": [],
+    "returned_dogs": [],
+    "adopted_dogs": [
       {
-        "id": null,
-        "name": "Sparkles",
-        "url": "https://new.shelterluv.com/embed/animal/212459749",
+        "id": 212534291,
+        "name": "Yakitori",
+        "url": "https://new.shelterluv.com/embed/animal/212534291",
         "status": null,
-        "location": null,
+        "location": "",
         "section_metadata": {
-          "source": "diff_analysis_new"
+          "source": "diff_analysis_adopted"
         }
       },
       {
-        "id": null,
-        "name": "Andor",
-        "url": "https://new.shelterluv.com/embed/animal/211125286",
+        "id": 212534254,
+        "name": "Takoyaki",
+        "url": "https://new.shelterluv.com/embed/animal/212534254",
         "status": null,
-        "location": null,
+        "location": "",
         "section_metadata": {
-          "source": "diff_analysis_new"
+          "source": "diff_analysis_adopted"
+        }
+      },
+      {
+        "id": 212534190,
+        "name": "Sake",
+        "url": "https://new.shelterluv.com/embed/animal/212534190",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
         }
       }
     ],
-    "returned_dogs": [],
-    "adopted_dogs": [],
     "trial_dogs": [
       {
         "id": 212175617,
         "name": "Noah",
         "url": "https://new.shelterluv.com/embed/animal/212175617",
         "status": "Available",
-        "location": "Foster Home",
+        "location": "Main Campus, Trial Adoption",
         "section_metadata": {
-          "source": "diff_analysis_unlisted"
+          "source": "diff_analysis_trial"
         }
       },
       {
@@ -41,9 +51,9 @@
         "name": "Nubbin",
         "url": "https://new.shelterluv.com/embed/animal/212175628",
         "status": "Available",
-        "location": "Foster Home",
+        "location": "Main Campus, Trial Adoption",
         "section_metadata": {
-          "source": "diff_analysis_unlisted"
+          "source": "diff_analysis_trial"
         }
       },
       {
@@ -69,11 +79,61 @@
         }
       },
       {
+        "id": 211686957,
+        "name": "Dahlia",
+        "url": "https://new.shelterluv.com/embed/animal/211686957",
+        "status": "Available",
+        "location": "Main Kennel North, Main Campus - MKN-16",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212532991,
+        "name": "Agave",
+        "url": "https://new.shelterluv.com/embed/animal/212532991",
+        "status": "Available",
+        "location": "Main Campus- Big Blue, BB-05",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212533017,
+        "name": "Yucca",
+        "url": "https://new.shelterluv.com/embed/animal/212533017",
+        "status": "Available",
+        "location": "Main Campus- Big Blue, BB-05",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
         "id": 212534322,
         "name": "Sakura",
         "url": "https://new.shelterluv.com/embed/animal/212534322",
         "status": "Available",
         "location": "Main Campus- Big Blue, BB-09",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212534291,
+        "name": "Yakitori",
+        "url": "https://new.shelterluv.com/embed/animal/212534291",
+        "status": "Available",
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212534190,
+        "name": "Sake",
+        "url": "https://new.shelterluv.com/embed/animal/212534190",
+        "status": "Available",
+        "location": "",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -94,6 +154,16 @@
         "url": "https://new.shelterluv.com/embed/animal/212534338",
         "status": "Available",
         "location": "Main Campus- Big Blue, BB-09",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212459749,
+        "name": "Sparkles",
+        "url": "https://new.shelterluv.com/embed/animal/212459749",
+        "status": "Available",
+        "location": "Main Campus - Main Kennel South, MKS-15",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -391,6 +461,16 @@
         }
       },
       {
+        "id": 212533939,
+        "name": "Stegosaurus",
+        "url": "https://new.shelterluv.com/embed/animal/212533939",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
         "id": 212533941,
         "name": "Tyrannasaurus",
         "url": "https://new.shelterluv.com/embed/animal/212533941",
@@ -591,7 +671,7 @@
         }
       }
     ],
-    "total_dogs": 106
+    "total_dogs": 64
   },
   "message": null,
   "error": null
