@@ -144,10 +144,23 @@ class AnimalHumaneScheduler:
         """Run difference analysis and save results to file, update Diff Analysis tab data, and warm up API cache"""
         try:
             logger.info("Starting diff analysis")
-            
+
+            # Clear API cache before running analysis
+            try:
+                import requests
+                api_base = "http://api:8000"  # Adjust if needed
+                clear_url = f"{api_base}/api/cache/clear"
+                resp = requests.post(clear_url, timeout=15)
+                if resp.status_code == 200:
+                    logger.info("✅ API cache cleared successfully before diff analysis.")
+                else:
+                    logger.warning(f"Failed to clear API cache: HTTP {resp.status_code} - {resp.text}")
+            except Exception as e:
+                logger.error(f"Error clearing API cache: {e}")
+
             # Run the analysis
             results = self.diff_analyzer.analyze_differences()
-            
+
             if results:
                 logger.info(f"Diff analysis completed. Found {len(results.get('changes', []))} changes")
                 
@@ -171,10 +184,24 @@ class AnimalHumaneScheduler:
                 
                 # Update missing dogs list
                 self.update_missing_dogs_list()
-                
+
+                # Run the adoptions JSON generator script (disabled; frontend does not use adoptions.json)
+                # try:
+                #     import subprocess
+                #     import os
+                #     script_path = os.path.join(os.path.dirname(__file__), '..', 'generate_adoptions_json.py')
+                #     result = subprocess.run(['python', script_path], capture_output=True, text=True, cwd=os.path.dirname(script_path))
+                #     if result.returncode == 0:
+                #         logger.info("✅ Adoptions JSON file updated successfully.")
+                #         logger.info(result.stdout)
+                #     else:
+                #         logger.error(f"❌ Failed to update adoptions JSON file: {result.stderr}")
+                # except Exception as e:
+                #     logger.error(f"❌ Error running generate_adoptions_json.py: {e}")
+
                 # Warm up the API cache with fresh data
                 self._warm_up_api_cache()
-                
+
                 return True
             else:
                 logger.warning("Diff analysis returned no results")

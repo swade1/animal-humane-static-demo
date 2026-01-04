@@ -1,5 +1,5 @@
 #run this script from the command line with:
-# docker exec -it animal-humane-scheduler python diff_indices_runner.py
+# docker exec -it animal-humane-scheduler-1 python diff_indices_runner.py
 from datetime import datetime
 import json
     
