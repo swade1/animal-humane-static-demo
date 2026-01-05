@@ -535,3 +535,6 @@ Query to verify weekly adoptions by age group
 ```
 curl -X POST "http://localhost:9200/animal-humane-*/_search?pretty&_source=name,age_group" -H 'Content-Type: application/json' -d '{"size": 10000,"query": {"bool": {"must": [{ "term": { "status": "adopted" } },{ "range": { "timestamp": { "gt": "2025-12-29" } } }]}}}'
 ```
+
+Query to verify shelter counts (available/adopted per shelter)
+curl -XGET 'localhost:9200/animal-humane-*/_search?pretty&size=0' -H 'Content-Type:application/json' -d '{"query":{"match":{"origin.keyword":"City of Las Vegas Animal Care Center"}},"aggs":{"1":{"terms":{"field":"id","size":500},"aggs":{"2":{"terms":{"field":"status.keyword"}}}}}}' > LVACC_Count.json
