@@ -421,11 +421,19 @@ head -5 react-app/public/location_info.jsonl
 ---
 
 ## 7. Migrating Indices from 9201 to 9200 after migrate_specific_indices.py stopped working
-0. Make sure index is updated before you start this process
-1. curl search for all docs in the index and output to index-name.json
-2. Run bulk_conversion.py on raw output in index-name.json and output to index.name.jsonl (see usage in script)
-3. Save index-name.jsonl file to ~/Scripts/professional-portfolio/animal/backups
-4. curl -XPOST 'localhost:9200/_bulk?pretty' -H 'Content-Type:application/x-ndjson' --data-binary "@index-name.jsonl"
+0. Make sure index is updated before you start this process (all adoptions/location changes, etc.)
+1. curl search for all docs in the index and output to index-name.json. 
+   ```
+   curl -XGET 'localhost:9201/index-name/_search?pretty&size=100' > index-name.json`
+   ```
+2. Run bulk_conversion.py 
+   ```
+    python bulk_conversion.py [raw output file] [bulk formatted output] [index name for {"index":{"_index":...}}]
+    python bulk_conversion.py index-name.json index-name.jsonl index-name
+   ```
+3. Save output (index-name.jsonl) file to ~/Scripts/professional-portfolio/animal-humane/backups
+4. Delete index_name.json 
+5. To re-ingest into 9200, `curl -XPOST 'localhost:9200/_bulk?pretty' -H 'Content-Type:application/x-ndjson' --data-binary "@index-name.jsonl"`
 
 
 ## 8. Docker Operations 
@@ -522,3 +530,8 @@ Install vim-tiny in a container
 apt-get update && apt-get install -y vim-tiny
 
 
+## Verification of Visualization Output
+Query to verify weekly adoptions by age group
+```
+curl -X POST "http://localhost:9200/animal-humane-*/_search?pretty&_source=name,age_group" -H 'Content-Type: application/json' -d '{"size": 10000,"query": {"bool": {"must": [{ "term": { "status": "adopted" } },{ "range": { "timestamp": { "gt": "2025-12-29" } } }]}}}'
+```
