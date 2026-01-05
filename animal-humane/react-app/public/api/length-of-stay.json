@@ -11,7 +11,7 @@
             "name": "Dahlia",
             "breed": "Terrier, American Pit Bull",
             "age_group": "Adult",
-            "length_of_stay_days": 15
+            "length_of_stay_days": 16
           },
           {
             "name": "Littles ",
@@ -71,7 +71,7 @@
             "name": "Destiny",
             "breed": "Terrier",
             "age_group": "Adult",
-            "length_of_stay_days": 11
+            "length_of_stay_days": 16
           },
           {
             "name": "Loki",
@@ -119,31 +119,31 @@
             "name": "Stella",
             "breed": "Bulldog, Old English",
             "age_group": "Adult",
-            "length_of_stay_days": 15
+            "length_of_stay_days": 17
           },
           {
             "name": "Verbena",
             "breed": "Shepherd",
             "age_group": "Puppy",
-            "length_of_stay_days": 5
+            "length_of_stay_days": 6
           },
           {
             "name": "Agave",
             "breed": "Shepherd",
             "age_group": "Puppy",
-            "length_of_stay_days": 5
+            "length_of_stay_days": 6
           },
           {
             "name": "Yucca",
             "breed": "Shepherd",
             "age_group": "Puppy",
-            "length_of_stay_days": 5
+            "length_of_stay_days": 6
           },
           {
             "name": "Sakura",
             "breed": "Hound",
             "age_group": "Puppy",
-            "length_of_stay_days": 4
+            "length_of_stay_days": 5
           },
           {
             "name": "Andor",
@@ -155,31 +155,31 @@
             "name": "Soju",
             "breed": "Hound",
             "age_group": "Puppy",
-            "length_of_stay_days": 3
+            "length_of_stay_days": 5
           },
           {
             "name": "Stray Hold- Tina Fey",
             "breed": "Chihuahua",
             "age_group": "Puppy",
-            "length_of_stay_days": 19
+            "length_of_stay_days": 20
           },
           {
             "name": "Stray Hold- Chris Farley",
             "breed": "Chihuahua",
             "age_group": "Puppy",
-            "length_of_stay_days": 19
+            "length_of_stay_days": 20
           },
           {
             "name": "Stray Hold- Amy Poehler",
             "breed": "Chihuahua",
             "age_group": "Puppy",
-            "length_of_stay_days": 19
+            "length_of_stay_days": 20
           },
           {
             "name": "Sparkles",
             "breed": "Coonhound",
             "age_group": "Senior",
-            "length_of_stay_days": 17
+            "length_of_stay_days": 19
           }
         ]
       },
@@ -234,19 +234,19 @@
             "name": "Noah",
             "breed": "Chihuahua",
             "age_group": "Adult",
-            "length_of_stay_days": 57
+            "length_of_stay_days": 58
           },
           {
             "name": "Nubbin",
             "breed": "Chihuahua",
             "age_group": "Adult",
-            "length_of_stay_days": 57
+            "length_of_stay_days": 58
           },
           {
             "name": "Goober",
             "breed": "Mixed Breed (Large)",
             "age_group": "Adult",
-            "length_of_stay_days": 33
+            "length_of_stay_days": 35
           }
         ]
       },
@@ -271,7 +271,7 @@
             "name": "Sandshrew",
             "breed": "Terrier, American Pit Bull",
             "age_group": "Adult",
-            "length_of_stay_days": 72
+            "length_of_stay_days": 74
           },
           {
             "name": "Stromboli",
@@ -283,7 +283,7 @@
             "name": "Gandalf",
             "breed": "Shepherd",
             "age_group": "Adult",
-            "length_of_stay_days": 72
+            "length_of_stay_days": 74
           }
         ]
       },
@@ -346,7 +346,7 @@
             "name": "Hermione",
             "breed": "Retriever, Black Labrador",
             "age_group": "Senior",
-            "length_of_stay_days": 156
+            "length_of_stay_days": 157
           },
           {
             "name": "Jane ",
