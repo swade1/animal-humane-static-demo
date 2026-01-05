@@ -28,15 +28,8 @@ function App() {
       <div style={{padding:20}}>
         <h1>Animal Humane New Mexico: Pet Status and Updates</h1>
         
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <DataTimestamp />
-          <button 
-             onClick={handleUpdate} 
-             disabled={loading}
-             style={{display:"none"}}>
-            {loading ? "Updating..." : "Run Updates"}
-          </button>
-        </div>
+        {/* Removed DataTimestamp and update button */}
+        <div style={{ marginBottom: '20px' }}></div>
         
         {result && (
           <pre style={{whiteSpace: 'pre-wrap', marginTop:20}}>
