@@ -5,16 +5,6 @@
     "returned_dogs": [],
     "adopted_dogs": [
       {
-        "id": 212534291,
-        "name": "Yakitori",
-        "url": "https://new.shelterluv.com/embed/animal/212534291",
-        "status": null,
-        "location": "",
-        "section_metadata": {
-          "source": "diff_analysis_adopted"
-        }
-      },
-      {
         "id": 212534254,
         "name": "Takoyaki",
         "url": "https://new.shelterluv.com/embed/animal/212534254",
@@ -25,9 +15,39 @@
         }
       },
       {
+        "id": 212534291,
+        "name": "Yakitori",
+        "url": "https://new.shelterluv.com/embed/animal/212534291",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
+        }
+      },
+      {
         "id": 212534190,
         "name": "Sake",
         "url": "https://new.shelterluv.com/embed/animal/212534190",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
+        }
+      },
+      {
+        "id": 212534217,
+        "name": "Tonkatsu",
+        "url": "https://new.shelterluv.com/embed/animal/212534217",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
+        }
+      },
+      {
+        "id": 212534334,
+        "name": "Kimchi",
+        "url": "https://new.shelterluv.com/embed/animal/212534334",
         "status": null,
         "location": "",
         "section_metadata": {
@@ -69,6 +89,16 @@
     ],
     "unlisted_dogs": [
       {
+        "id": 212533104,
+        "name": "Verbena",
+        "url": "https://new.shelterluv.com/embed/animal/212533104",
+        "status": "Available",
+        "location": "Westside Adoption Center, Dog Kennel 6",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
         "id": 211590344,
         "name": "Hermione",
         "url": "https://new.shelterluv.com/embed/animal/211590344",
@@ -89,26 +119,6 @@
         }
       },
       {
-        "id": 212532991,
-        "name": "Agave",
-        "url": "https://new.shelterluv.com/embed/animal/212532991",
-        "status": "Available",
-        "location": "Main Campus- Big Blue, BB-05",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 212533017,
-        "name": "Yucca",
-        "url": "https://new.shelterluv.com/embed/animal/212533017",
-        "status": "Available",
-        "location": "Main Campus- Big Blue, BB-05",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
         "id": 212534322,
         "name": "Sakura",
         "url": "https://new.shelterluv.com/embed/animal/212534322",
@@ -119,21 +129,21 @@
         }
       },
       {
-        "id": 212534291,
-        "name": "Yakitori",
-        "url": "https://new.shelterluv.com/embed/animal/212534291",
+        "id": 212532991,
+        "name": "Agave",
+        "url": "https://new.shelterluv.com/embed/animal/212532991",
         "status": "Available",
-        "location": "",
+        "location": "Parvo Ward, PW-2",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
       },
       {
-        "id": 212534190,
-        "name": "Sake",
-        "url": "https://new.shelterluv.com/embed/animal/212534190",
+        "id": 212533017,
+        "name": "Yucca",
+        "url": "https://new.shelterluv.com/embed/animal/212533017",
         "status": "Available",
-        "location": "",
+        "location": "Parvo Ward, PW-2",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -671,7 +681,7 @@
         }
       }
     ],
-    "total_dogs": 64
+    "total_dogs": 67
   },
   "message": null,
   "error": null

@@ -1564,50 +1564,6 @@
           "Chimi",
           "Eowyn"
         ]
-      },
-      {
-        "date": "01/01/2026",
-        "count": 0,
-        "names": []
-      },
-      {
-        "date": "01/02/2026",
-        "count": 10,
-        "names": [
-          "Fig",
-          "Panda",
-          "Sun Bear",
-          "Prescott",
-          "Harper",
-          "Sumac",
-          "Polar Bear",
-          "Dexter",
-          "Evergreen",
-          "Koala"
-        ]
-      },
-      {
-        "date": "01/03/2026",
-        "count": 8,
-        "names": [
-          "Robin Hood",
-          "Wilbur",
-          "Buddy",
-          "Pinon",
-          "Snapdragon",
-          "Sloth Bear",
-          "Udon",
-          "Scottie"
-        ]
-      },
-      {
-        "date":"01/04/2026",
-        "count": 3,
-        "names": [
-          "Takoyaki",
-          "Yakitori",
-          "Sake"
-        ]
       }
     ]
   },

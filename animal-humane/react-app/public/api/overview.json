@@ -1,12 +1,25 @@
 {
   "success": true,
   "data": {
-    "total": 61,
-    "newThisWeek": 16,
-    "adoptedThisWeek": 32,
-    "trialAdoptions": 1,
-    "ageGroups": [],
-    "avgStay": 40,
+    "total": 56,
+    "newThisWeek": 11,
+    "adoptedThisWeek": 33,
+    "trialAdoptions": 3,
+    "ageGroups": [
+      {
+        "age_group": "Adult",
+        "count": 30
+      },
+      {
+        "age_group": "Senior",
+        "count": 5
+      },
+      {
+        "age_group": "Puppy",
+        "count": 3
+      }
+    ],
+    "avgStay": 39,
     "longestStay": {
       "name": "Phelps",
       "days": 285,

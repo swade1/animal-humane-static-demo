@@ -32,18 +32,6 @@
       "los": 3
     },
     {
-      "name": "Bucket",
-      "date": "12/28/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212481029",
-      "los": 5
-    },
-    {
-      "name": "Little John",
-      "date": "12/28/2025",
-      "url": "https://new.shelterluv.com/embed/animal/212449099",
-      "los": 13
-    },
-    {
       "name": "Lotus",
       "date": "12/28/2025",
       "url": "https://new.shelterluv.com/embed/animal/212457826",
@@ -114,6 +102,18 @@
       "date": "12/31/2025",
       "url": "https://new.shelterluv.com/embed/animal/212459433",
       "los": 14
+    },
+    {
+      "name": "Tonkatsu",
+      "date": "01/04/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534217",
+      "los": 5
+    },
+    {
+      "name": "Kimchi",
+      "date": "01/04/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534334",
+      "los": 4
     },
     {
       "name": "Prescott",
@@ -192,6 +192,12 @@
       "date": "01/03/2026",
       "url": "https://new.shelterluv.com/embed/animal/212534232",
       "los": 4
+    },
+    {
+      "name": "Scottie",
+      "date": "01/03/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212428206",
+      "los": 8
     }
   ],
   "message": null,

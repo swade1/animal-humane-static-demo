@@ -6,16 +6,16 @@
       "latitude": 35.1102,
       "longitude": -106.5823,
       "count": 51,
-      "adopted": 36,
-      "available": 15
+      "adopted": 39,
+      "available": 12
     },
     {
       "origin": "Humane Society of Lincoln County",
       "latitude": 33.331749,
       "longitude": -105.665,
       "count": 37,
-      "adopted": 33,
-      "available": 4
+      "adopted": 34,
+      "available": 3
     },
     {
       "origin": "Espanola Humane",
@@ -46,8 +46,8 @@
       "latitude": 35.2393,
       "longitude": -106.6054,
       "count": 4,
-      "adopted": 2,
-      "available": 2
+      "adopted": 3,
+      "available": 1
     },
     {
       "origin": "Gallup McKinley County Humane Society",
@@ -62,16 +62,16 @@
       "latitude": 32.3128,
       "longitude": -106.7799,
       "count": 24,
-      "adopted": 22,
-      "available": 2
+      "adopted": 23,
+      "available": 1
     },
     {
       "origin": "Bayard Animal Control",
       "latitude": 32.7795,
       "longitude": -108.1503,
       "count": 8,
-      "adopted": 6,
-      "available": 2
+      "adopted": 7,
+      "available": 1
     },
     {
       "origin": "Rio Rancho Animal Control",
@@ -82,14 +82,6 @@
       "available": 2
     },
     {
-      "origin": "Sandoval County Animal Services",
-      "latitude": 35.3515,
-      "longitude": -106.4694,
-      "count": 7,
-      "adopted": 7,
-      "available": 0
-    },
-    {
       "origin": "Forever Homes Animal Rescue",
       "latitude": 32.8985,
       "longitude": -105.951,
@@ -98,28 +90,44 @@
       "available": 0
     },
     {
+      "origin": "Sandoval County Animal Services",
+      "latitude": 35.3515,
+      "longitude": -106.4694,
+      "count": 7,
+      "adopted": 7,
+      "available": 0
+    },
+    {
       "origin": "Mountainair Animal Control",
       "latitude": 34.5197,
       "longitude": -106.2433,
-      "count": 9,
-      "adopted": 9,
+      "count": 10,
+      "adopted": 10,
       "available": 0
+    },
+    {
+      "origin": "City of Las Vegas Animal Care Center",
+      "latitude": 35.5939,
+      "longitude": -105.2239,
+      "count": 33,
+      "adopted": 27,
+      "available": 6
+    },
+    {
+      "origin": "Tucumcari Animal Shelter",
+      "latitude": 35.1926,
+      "longitude": -103.7197,
+      "count": 9,
+      "adopted": 8,
+      "available": 1
     },
     {
       "origin": "Truth or Consequences Animal Shelter",
       "latitude": 33.1347,
       "longitude": -107.2425,
       "count": 14,
-      "adopted": 13,
-      "available": 1
-    },
-    {
-      "origin": "Tucumcari Animal Shelter",
-      "latitude": 35.1927,
-      "longitude": -103.7197,
-      "count": 9,
-      "adopted": 7,
-      "available": 2
+      "adopted": 14,
+      "available": 0
     },
     {
       "origin": "Four Corners Animal League",
@@ -138,11 +146,19 @@
       "available": 1
     },
     {
-      "origin": "City of Las Vegas Animal Care Center",
-      "latitude": 35.5939,
-      "longitude": -105.2239,
-      "count": 12,
-      "adopted": 11,
+      "origin": "Otero County Animal Control",
+      "latitude": 32.8995,
+      "longitude": -105.9603,
+      "count": 6,
+      "adopted": 6,
+      "available": 0
+    },
+    {
+      "origin": "Torrance County Animal Shelter",
+      "latitude": 34.8712,
+      "longitude": -106.0515,
+      "count": 9,
+      "adopted": 8,
       "available": 1
     },
     {
@@ -154,11 +170,11 @@
       "available": 0
     },
     {
-      "origin": "Otero County Animal Control",
-      "latitude": 32.8995,
-      "longitude": -105.9603,
-      "count": 6,
-      "adopted": 6,
+      "origin": "Santa Rosa Animal Control",
+      "latitude": 34.9387,
+      "longitude": -104.6825,
+      "count": 11,
+      "adopted": 11,
       "available": 0
     },
     {
@@ -168,22 +184,6 @@
       "count": 3,
       "adopted": 3,
       "available": 0
-    },
-    {
-      "origin": "Santa Rosa Animal Control",
-      "latitude": 34.9387,
-      "longitude": -104.6825,
-      "count": 11,
-      "adopted": 11,
-      "available": 0
-    },
-    {
-      "origin": "Torrance County Animal Shelter",
-      "latitude": 34.8712,
-      "longitude": -106.0515,
-      "count": 9,
-      "adopted": 8,
-      "available": 1
     },
     {
       "origin": "Clayton",
@@ -218,19 +218,19 @@
       "available": 0
     },
     {
+      "origin": "DAGSHIP Rescue",
+      "latitude": 32.2655,
+      "longitude": -107.7582,
+      "count": 7,
+      "adopted": 5,
+      "available": 2
+    },
+    {
       "origin": "Corrales Kennels",
       "latitude": 35.2378,
       "longitude": -106.6067,
       "count": 1,
       "adopted": 1,
-      "available": 0
-    },
-    {
-      "origin": "Farmington Regional Animal Shelter",
-      "latitude": 36.7334,
-      "longitude": -108.1681,
-      "count": 5,
-      "adopted": 5,
       "available": 0
     },
     {
@@ -242,20 +242,20 @@
       "available": 1
     },
     {
-      "origin": "DAGSHIP Rescue",
-      "latitude": 32.2655,
-      "longitude": -107.7582,
-      "count": 7,
+      "origin": "Farmington Regional Animal Shelter",
+      "latitude": 36.7334,
+      "longitude": -108.1681,
+      "count": 5,
       "adopted": 5,
-      "available": 2
+      "available": 0
     },
     {
       "origin": "RezDawg Rescue",
       "latitude": 35.0142,
       "longitude": -106.0846,
-      "count": 7,
+      "count": 8,
       "adopted": 6,
-      "available": 1
+      "available": 2
     },
     {
       "origin": "Petroglyph Animal Hospital",
@@ -298,17 +298,17 @@
       "available": 0
     },
     {
-      "origin": "Moriarty Animal Control",
-      "latitude": 34.9996,
-      "longitude": -106.0183,
+      "origin": "Aztec Animal Shelter",
+      "latitude": 36.8305,
+      "longitude": -108.0095,
       "count": 1,
       "adopted": 1,
       "available": 0
     },
     {
-      "origin": "Aztec Animal Shelter",
-      "latitude": 36.8305,
-      "longitude": -108.0095,
+      "origin": "Moriarty Animal Control",
+      "latitude": 34.9996,
+      "longitude": -106.0183,
       "count": 1,
       "adopted": 1,
       "available": 0
@@ -328,6 +328,14 @@
       "count": 1,
       "adopted": 1,
       "available": 0
+    },
+    {
+      "origin": "Labor of Love Project NM",
+      "latitude": 34.1827,
+      "longitude": -103.3245,
+      "count": 1,
+      "adopted": 0,
+      "available": 1
     }
   ],
   "message": null,
