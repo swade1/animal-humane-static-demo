@@ -3,38 +3,7 @@
   "data": {
     "new_dogs": [],
     "returned_dogs": [],
-    "adopted_dogs": [
-      {
-        "name": "Takoyaki",
-        "dog_id": 212534254,
-        "url": "https://new.shelterluv.com/embed/animal/212534254",
-        "location": ""
-      },
-      {
-        "name": "Yakitori",
-        "dog_id": 212534291,
-        "url": "https://new.shelterluv.com/embed/animal/212534291",
-        "location": ""
-      },
-      {
-        "name": "Sake",
-        "dog_id": 212534190,
-        "url": "https://new.shelterluv.com/embed/animal/212534190",
-        "location": ""
-      },
-      {
-        "name": "Tonkatsu",
-        "dog_id": 212534217,
-        "url": "https://new.shelterluv.com/embed/animal/212534217",
-        "location": ""
-      },
-      {
-        "name": "Kimchi",
-        "dog_id": 212534334,
-        "url": "https://new.shelterluv.com/embed/animal/212534334",
-        "location": ""
-      }
-    ],
+    "adopted_dogs": [],
     "trial_adoption_dogs": [
       {
         "name": "Noah",
@@ -102,7 +71,7 @@
         "name": "Verbena",
         "dog_id": 212533104,
         "url": "https://new.shelterluv.com/embed/animal/212533104",
-        "location": "Westside Adoption Center, Dog Kennel 6",
+        "location": "Westside Adoption Center, Dog Kennel 4",
         "origin": "City of Las Vegas Animal Care Center",
         "status": "Available",
         "intake_date": "2025-12-30",
@@ -117,46 +86,6 @@
         "returned": 0,
         "latitude": 35.5939,
         "longitude": -105.2239
-      },
-      {
-        "name": "Hermione",
-        "dog_id": 211590344,
-        "url": "https://new.shelterluv.com/embed/animal/211590344",
-        "location": "Main Campus- Big Blue, BB-08",
-        "origin": "ABQ Animal Welfare Department",
-        "status": "Available",
-        "intake_date": "2025-08-01",
-        "length_of_stay_days": 156,
-        "birthdate": "2017-08-01",
-        "age_group": "Senior",
-        "breed": "Retriever, Black Labrador",
-        "secondary_breed": "Mixed Breed (Large)",
-        "weight_group": "Large (60-99)",
-        "color": "Black and White",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 35.1102,
-        "longitude": -106.5823
-      },
-      {
-        "name": "Dahlia",
-        "dog_id": 211686957,
-        "url": "https://new.shelterluv.com/embed/animal/211686957",
-        "location": "Main Kennel North, Main Campus - MKN-16",
-        "origin": "Rio Rancho Animal Control",
-        "status": "Available",
-        "intake_date": "2025-12-20",
-        "length_of_stay_days": 15,
-        "birthdate": "2022-04-15",
-        "age_group": "Adult",
-        "breed": "Terrier, American Pit Bull",
-        "secondary_breed": "Mixed Breed (Large)",
-        "weight_group": "Large (60-99)",
-        "color": "Grey and White",
-        "bite_quarantine": 0,
-        "returned": 1,
-        "latitude": 35.2748,
-        "longitude": -106.6681
       },
       {
         "name": "Sakura",

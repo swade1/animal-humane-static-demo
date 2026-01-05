@@ -537,4 +537,9 @@ curl -X POST "http://localhost:9200/animal-humane-*/_search?pretty&_source=name,
 ```
 
 Query to verify shelter counts (available/adopted per shelter)
+#Note: This query does not account for dogs that have been adopted and then returned like Littles. The output 
+#will show 9 dogs in Tucumcari have been adopted (which is true) but one was returned so there are really 
+#8 adopted and 1 available. The bar chart is picking up on this though and is correct. 
+```
 curl -XGET 'localhost:9200/animal-humane-*/_search?pretty&size=0' -H 'Content-Type:application/json' -d '{"query":{"match":{"origin.keyword":"City of Las Vegas Animal Care Center"}},"aggs":{"1":{"terms":{"field":"id","size":500},"aggs":{"2":{"terms":{"field":"status.keyword"}}}}}}' > LVACC_Count.json
+```

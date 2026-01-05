@@ -3,68 +3,7 @@
   "data": {
     "new_dogs": [],
     "returned_dogs": [],
-    "adopted_dogs": [
-      {
-        "id": 212534254,
-        "name": "Takoyaki",
-        "url": "https://new.shelterluv.com/embed/animal/212534254",
-        "status": null,
-        "location": "",
-        "section_metadata": {
-          "source": "diff_analysis_adopted"
-        }
-      },
-      {
-        "id": 211460756,
-        "name": "Tom Hardy",
-        "url": "https://new.shelterluv.com/embed/animal/211460756",
-        "status": null,
-        "location": "",
-        "section_metadata": {
-          "source": "diff_analysis_adopted"
-        }
-      },
-      {
-        "id": 212534291,
-        "name": "Yakitori",
-        "url": "https://new.shelterluv.com/embed/animal/212534291",
-        "status": null,
-        "location": "",
-        "section_metadata": {
-          "source": "diff_analysis_adopted"
-        }
-      },
-      {
-        "id": 212534190,
-        "name": "Sake",
-        "url": "https://new.shelterluv.com/embed/animal/212534190",
-        "status": null,
-        "location": "",
-        "section_metadata": {
-          "source": "diff_analysis_adopted"
-        }
-      },
-      {
-        "id": 212534217,
-        "name": "Tonkatsu",
-        "url": "https://new.shelterluv.com/embed/animal/212534217",
-        "status": null,
-        "location": "",
-        "section_metadata": {
-          "source": "diff_analysis_adopted"
-        }
-      },
-      {
-        "id": 212534334,
-        "name": "Kimchi",
-        "url": "https://new.shelterluv.com/embed/animal/212534334",
-        "status": null,
-        "location": "",
-        "section_metadata": {
-          "source": "diff_analysis_adopted"
-        }
-      }
-    ],
+    "adopted_dogs": [],
     "trial_dogs": [
       {
         "id": 212175617,
@@ -103,27 +42,7 @@
         "name": "Verbena",
         "url": "https://new.shelterluv.com/embed/animal/212533104",
         "status": "Available",
-        "location": "Westside Adoption Center, Dog Kennel 6",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 211590344,
-        "name": "Hermione",
-        "url": "https://new.shelterluv.com/embed/animal/211590344",
-        "status": "Available",
-        "location": "Main Campus- Big Blue, BB-08",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 211686957,
-        "name": "Dahlia",
-        "url": "https://new.shelterluv.com/embed/animal/211686957",
-        "status": "Available",
-        "location": "Main Kennel North, Main Campus - MKN-16",
+        "location": "Westside Adoption Center, Dog Kennel 4",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -691,7 +610,7 @@
         }
       }
     ],
-    "total_dogs": 67
+    "total_dogs": 60
   },
   "message": null,
   "error": null
