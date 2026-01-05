@@ -12,6 +12,7 @@
 {"name":"Alohomora","id":211576547,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":1,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Amelia","id":211254014,"origin":"Roswell Humane Society","bite_quarantine":0,"returned":1,"latitude":33.3930,"longitude":-104.5235}
 {"name":"Amortencia","id":211576638,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
+{"name":"Amy Poehler","id":212454142,"origin":"Stray","bite_quarantine":0,"returned":0}
 {"name":"Andor","id":211125286,"origin":"Labor of Love Project NM","bite_quarantine":1,"returned":0,"latitude":34.1827,"longitude":-103.3245}
 {"name":"Andi","id":211903055,"origin":"Humane Society of Lincoln County","bite_quarantine":0,"returned":0,"latitude":33.3436,"longitude":-105.6650}
 {"name":"Andy","id":210782959,"origin":"Espanola Humane","bite_quarantine":0,"returned":0,"latitude":36.0006,"longitude":-106.0373}
@@ -121,6 +122,7 @@
 {"name":"Chip","id":211471411,"origin":"Roswell Humane Society","bite_quarantine":0,"returned":0,"latitude":33.3930,"longitude":-104.5235}
 {"name":"Chive","id":212533036,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
 {"name":"Chocolate","id":211552425,"origin":"Stray","bite_quarantine":0,"returned":0}
+{"name":"Chris Farley","id":212454079,"origin":"Stray","bite_quarantine":0,"returned":0}
 {"name":"Chuckie","id":208818048,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Cinna","id":211461826,"origin":"Humane Society of Lincoln County","bite_quarantine":0,"returned":1,"latitude":33.331749,"longitude":-105.6650}
 {"name":"Clark","id":211459856,"origin":"Humane Society of Lincoln County","bite_quarantine":0,"returned":1,"latitude":33.331749,"longitude":-105.6650}
@@ -334,6 +336,7 @@
 {"name":"Major","id":210384420,"origin":"Bro & Tracy Animal Welfare","bite_quarantine":0,"returned":0,"latitude":35.2378,"longitude":-106.6067}
 {"name":"Mandy","id":212009221,"origin":"Gallup McKinley County Humane Society","bite_quarantine":0,"returned":0,"latitude":35.543605,"longitude":-108.760272}
 {"name":"Mango","id":212533808,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
+{"name":"Maria","id":212444650,"bite_quarantine":0,"returned":0,"origin":"Stray"}
 {"name":"Mauna Loa","id":212019459,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Maple","id":212358209,"origin":"Santa Rosa Animal Control","bite_quarantine":0,"returned":0,"latitude":34.9387,"longitude":-104.6825}
 {"name":"Marina","id":211706560,"origin":"Farmington Regional Animal Shelter","bite_quarantine":0,"returned":0,"latitude":36.7334,"longitude":-108.1681}
@@ -538,10 +541,6 @@
 {"name":"Strawberry","id":212533784,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
 {"name":"Sumac","id":212533079,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
 {"name":"Sun Bear","id":212534235,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
-{"name":"Stray Hold- Amy Poehler","id":212454142,"origin":"Stray","bite_quarantine":0,"returned":0}
-{"name":"Stray Hold- Chris Farley","id":212454079,"origin":"Stray","bite_quarantine":0,"returned":0}
-{"name":"Stray Hold - Maria","id":212444650,"bite_quarantine":0,"returned":0,"origin":"Stray"}
-{"name":"Stray Hold- Tina Fey","id":212454118,"origin":"Stray","bite_quarantine":0,"returned":0}
 {"name":"Stromboli","id":212019521,"origin":"ABQ Animal Welfare Department","latitude":35.1102,"longitude":-106.5823,"bite_quarantine":0,"returned":0}
 {"name":"Subwoofer","id":211502395,"origin":"Espanola Humane","bite_quarantine":0,"returned":0,"latitude":36.0006,"longitude":-106.0373}
 {"name":"Star Fox","id":212418745,"origin":"Roswell Humane Society","bite_quarantine":0,"returned":0,"latitude":33.3930,"longitude":-104.5235}
@@ -567,6 +566,7 @@
 {"name":"Tikka","id":211980729,"origin":"Sandoval County Animal Services","bite_quarantine":0,"returned":0,"latitude":35.3515,"longitude":-106.4694}
 {"name":"Tim","id":211808307,"origin":"Espanola Humane","bite_quarantine":0,"returned":0,"latitude":36.0006,"longitude":-106.0373}
 {"name":"Tina","id":211789992,"origin":"ACTion Programs for Animals","bite_quarantine":0,"returned":0,"latitude":32.315292,"longitude":-106.767102}
+{"name":"Tina Fey","id":212454118,"origin":"Stray","bite_quarantine":0,"returned":0}
 {"name":"Tinkerbell","id":212412737,"origin":"Owner Surrender","bite_quarantine":0,"returned":0}
 {"name":"Tish","id":211537630,"origin":"DAGSHIP Rescue","bite_quarantine":0,"returned":0,"latitude":32.2655,"longitude":-107.7582}
 {"name":"Toad","id":212534355,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
