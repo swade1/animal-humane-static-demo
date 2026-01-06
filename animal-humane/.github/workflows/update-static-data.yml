@@ -38,19 +38,20 @@ jobs:
         run: echo "Workflow started: $(date)"
 
       - name: Generate static JSON files
+        working-directory: animal-humane
         run: |
-          python animal-humane/generate_overview_json.py && echo "Ran generate_overview_json.py"
-          python animal-humane/generate_adoptions_json.py && echo "Ran generate_adoptions_json.py"
-          python animal-humane/generate_diff_analysis_json.py && echo "Ran generate_diff_analysis_json.py"
-          python animal-humane/generate_dog_origins_json.py && echo "Ran generate_dog_origins_json.py"
-          python animal-humane/generate_insights_json.py && echo "Ran generate_insights_json.py"
-          python animal-humane/generate_length_of_stay_json.py && echo "Ran generate_length_of_stay_json.py"
-          python animal-humane/generate_live_population_json.py && echo "Ran generate_live_population_json.py"
-          python animal-humane/generate_live_population_meta_json.py && echo "Ran generate_live_population_meta_json.py"
-          python animal-humane/generate_overview_endpoints_json.py && echo "Ran generate_overview_endpoints_json.py"
-          python animal-humane/generate_recent_pupdates_json.py && echo "Ran generate_recent_pupdates_json.py"
-          python animal-humane/generate_recent_pupdates_meta_json.py && echo "Ran generate_recent_pupdates_meta_json.py"
-          python animal-humane/generate_weekly_age_group_adoptions_json.py && echo "Ran generate_weekly_age_group_adoptions_json.py"
+          python generate_overview_json.py && echo "Ran generate_overview_json.py"
+          python generate_adoptions_json.py && echo "Ran generate_adoptions_json.py"
+          python generate_diff_analysis_json.py && echo "Ran generate_diff_analysis_json.py"
+          python generate_dog_origins_json.py && echo "Ran generate_dog_origins_json.py"
+          python generate_insights_json.py && echo "Ran generate_insights_json.py"
+          python generate_length_of_stay_json.py && echo "Ran generate_length_of_stay_json.py"
+          python generate_live_population_json.py && echo "Ran generate_live_population_json.py"
+          python generate_live_population_meta_json.py && echo "Ran generate_live_population_meta_json.py"
+          python generate_overview_endpoints_json.py && echo "Ran generate_overview_endpoints_json.py"
+          python generate_recent_pupdates_json.py && echo "Ran generate_recent_pupdates_json.py"
+          python generate_recent_pupdates_meta_json.py && echo "Ran generate_recent_pupdates_meta_json.py"
+          python generate_weekly_age_group_adoptions_json.py && echo "Ran generate_weekly_age_group_adoptions_json.py"
 
       - name: Checkout repository (again)
         uses: actions/checkout@v4
