@@ -173,7 +173,7 @@ function DiffAnalysisTab() {
       {renderDogList(data.adopted_dogs, "Adopted/Reclaimed Dogs", "Dogs that have been successfully adopted or reclaimed")}
       {renderDogList(data.trial_dogs, "Trial Adoptions", "Dogs currently in trial adoption periods")}
       {renderDogList(data.unlisted_dogs, "Available but Temporarily Unlisted", "Dogs that are available but temporarily not listed on the website")}
-      {renderDogList(data.available_soon, "Available Soon", "Dogs expected to become available but not yet in the main database")}
+      {renderDogList(data.available_soon, "Available Soon", "Dogs currently getting settled in and primping for their closeups.")}
 
       <Modal
         isOpen={isModalOpen}
