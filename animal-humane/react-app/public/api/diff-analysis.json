@@ -1,7 +1,28 @@
 {
   "success": true,
   "data": {
-    "new_dogs": [],
+    "new_dogs": [
+      {
+        "name": "Squirtle",
+        "url": "https://new.shelterluv.com/embed/animal/212477928"
+      },
+      {
+        "name": "Changa",
+        "url": "https://new.shelterluv.com/embed/animal/212459481"
+      },
+      {
+        "name": "Mama",
+        "url": "https://new.shelterluv.com/embed/animal/212553383"
+      },
+      {
+        "name": "Charmander",
+        "url": "https://new.shelterluv.com/embed/animal/212477913"
+      },
+      {
+        "name": "Bulbasaur",
+        "url": "https://new.shelterluv.com/embed/animal/212477943"
+      }
+    ],
     "returned_dogs": [],
     "adopted_dogs": [],
     "trial_adoption_dogs": [
@@ -202,26 +223,6 @@
         "secondary_breed": "Mixed Breed (Large)",
         "weight_group": "Large (60-99)",
         "color": "White and Sable",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 0,
-        "longitude": 0
-      },
-      {
-        "name": "Stella",
-        "dog_id": 208809770,
-        "url": "https://new.shelterluv.com/embed/animal/208809770",
-        "location": "Main Campus- Big Blue, BB-25",
-        "origin": "Owner Surrender",
-        "status": "Available",
-        "intake_date": "2025-12-19",
-        "length_of_stay_days": 15,
-        "birthdate": "2022-03-21",
-        "age_group": "Adult",
-        "breed": "Bulldog, Old English",
-        "secondary_breed": "Boxer",
-        "weight_group": "Large (60-99)",
-        "color": "White and Grey",
         "bite_quarantine": 0,
         "returned": 0,
         "latitude": 0,

@@ -1,7 +1,58 @@
 {
   "success": true,
   "data": {
-    "new_dogs": [],
+    "new_dogs": [
+      {
+        "id": null,
+        "name": "Squirtle",
+        "url": "https://new.shelterluv.com/embed/animal/212477928",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Changa",
+        "url": "https://new.shelterluv.com/embed/animal/212459481",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Mama",
+        "url": "https://new.shelterluv.com/embed/animal/212553383",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Charmander",
+        "url": "https://new.shelterluv.com/embed/animal/212477913",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Bulbasaur",
+        "url": "https://new.shelterluv.com/embed/animal/212477943",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      }
+    ],
     "returned_dogs": [],
     "adopted_dogs": [],
     "trial_dogs": [
@@ -103,16 +154,6 @@
         "url": "https://new.shelterluv.com/embed/animal/212459749",
         "status": "Available",
         "location": "Main Campus - Main Kennel South, MKS-15",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 208809770,
-        "name": "Stella",
-        "url": "https://new.shelterluv.com/embed/animal/208809770",
-        "status": "Available",
-        "location": "Main Campus- Big Blue, BB-25",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -611,56 +652,56 @@
       },
       {
         "id": 212545856,
-        "name":"Bruce",
+        "name": "Bruce",
         "url": "https://new.shelterluv.com/embed/animal/212545856",
-        "status":null,
-        "location": "Main Kennel North, Main Campus - MKN-14",
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
-        "id": 212553904,
-        "name":"Dozer",
-        "url": "https://new.shelterluv.com/embed/animal/212553904",
         "status": null,
-        "location": "Main Kennel North, Main Campus - MKN-18",
-        "section_metadata": {  
-          "source": "missing_dogs"
-        }
-      },
-      {
-        "id": 212553383,
-        "name":"Mama",
-        "url": "https://new.shelterluv.com/embed/animal/212553383",
-        "location": "Main Kennel North, Main Campus - MKN-25",
-        "status": null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
-        "id": 212553623,
-        "name":"Mozzy",
-        "url":"https://new.shelterluv.com/embed/animal/212553623",
-        "location": "Main Kennel North, Main Campus - MKN-23",
-        "status": null,
+        "location": null,
         "section_metadata": {
           "source": "missing_dogs"
         }
       },
       {
         "id": 212546331,
-        "name":"Simba",
-        "url":"https://new.shelterluv.com/embed/animal/212546331",
-        "location":"Main Kennel North, Main Campus - MKN-11",
+        "name": "Simba",
+        "url": "https://new.shelterluv.com/embed/animal/212546331",
         "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212553383,
+        "name": "Mama",
+        "url": "https://new.shelterluv.com/embed/animal/212553383",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212553623,
+        "name": "Mozzy",
+        "url": "https://new.shelterluv.com/embed/animal/212553623",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212553904,
+        "name": "Dozer",
+        "url": "https://new.shelterluv.com/embed/animal/212553904",
+        "status": null,
+        "location": null,
         "section_metadata": {
           "source": "missing_dogs"
         }
       }
     ],
-    "total_dogs": 60
+    "total_dogs": 69
   },
   "message": null,
   "error": null
