@@ -1,7 +1,7 @@
 {
   "success": true,
   "data": {
-    "total": 56,
+    "total": 55,
     "newThisWeek": 11,
     "adoptedThisWeek": 33,
     "trialAdoptions": 3,
@@ -12,14 +12,14 @@
       },
       {
         "age_group": "Senior",
-        "count": 5
+        "count": 6
       },
       {
         "age_group": "Puppy",
         "count": 3
       }
     ],
-    "avgStay": 39,
+    "avgStay": 37,
     "longestStay": {
       "name": "Phelps",
       "days": 286,
