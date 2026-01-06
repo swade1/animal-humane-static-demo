@@ -1,3 +1,5 @@
+      - name: List all files in workspace
+        run: ls -lR
 jobs:
 
 ---
