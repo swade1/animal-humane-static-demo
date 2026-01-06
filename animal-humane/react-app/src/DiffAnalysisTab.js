@@ -168,12 +168,12 @@ function DiffAnalysisTab() {
         {data.metadata?.total_dogs && <span> • Total: {data.metadata.total_dogs} dogs</span>}
       </p>
 
-      {renderDogList(data.new_dogs, "New Dogs", "Dogs that have recently arrived and are now available for adoption")}
-      {renderDogList(data.returned_dogs, "Returned Dogs", "Dogs that have returned from previous adoptions or placements")}
-      {renderDogList(data.adopted_dogs, "Adopted/Reclaimed Dogs", "Dogs that have been successfully adopted or reclaimed")}
-      {renderDogList(data.trial_dogs, "Trial Adoptions", "Dogs currently in trial adoption periods")}
-      {renderDogList(data.unlisted_dogs, "Available but Temporarily Unlisted", "Dogs that are available but temporarily not listed on the website")}
-      {renderDogList(data.available_soon, "Available Soon", "Dogs currently getting settled in and primping for their closeups.")}
+      {renderDogList(data.new_dogs, "New Dogs", "We're new and making our debut!")}
+      {renderDogList(data.returned_dogs, "Returned Dogs", "We're Back!")}
+      {renderDogList(data.adopted_dogs, "Adopted/Reclaimed Dogs", "We've been adopted!!!")}
+      {renderDogList(data.trial_dogs, "Trial Adoptions", "We're checking out a potential new home and evaluating the quality of the treats and toys")}
+      {renderDogList(data.unlisted_dogs, "Available but Temporarily Unlisted", "We're taking a short break but we'll be back soon!")}
+      {renderDogList(data.available_soon, "Available Soon", "We're settling in and getting ready for our close-ups!")}
 
       <Modal
         isOpen={isModalOpen}
