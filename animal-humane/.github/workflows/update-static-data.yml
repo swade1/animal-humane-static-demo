@@ -1,5 +1,6 @@
 jobs:
 
+---
 name: Update Static Demo Data
 
 on:
