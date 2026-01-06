@@ -44,7 +44,12 @@ Missing dogs (ID: Name):
 212534432: Pepper
 212534442: Daenerys
 212545856: Bruce
-212553904: Dozer
+212546331: Simba
 212553383: Mama
 212553623: Mozzy
-212546331: Simba
+212553904: Dozer
+212459376: Allsups
+212459394: Bean
+212459505: Burrito
+212459528: Hatch
+212459546: Taquito
