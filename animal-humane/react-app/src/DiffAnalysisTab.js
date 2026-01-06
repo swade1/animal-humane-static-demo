@@ -168,7 +168,7 @@ function DiffAnalysisTab() {
         {data.metadata?.total_dogs && <span> • Total: {data.metadata.total_dogs} dogs</span>}
       </p>
 
-      {renderDogList(data.new_dogs, "New Dogs", "We're new and making our debut!")}
+      {renderDogList(data.new_dogs, "New Dogs", "We're new and making our debut!!")}
       {renderDogList(data.returned_dogs, "Returned Dogs", "We're Back!")}
       {renderDogList(data.adopted_dogs, "Adopted/Reclaimed Dogs", "We've been adopted!!!")}
       {renderDogList(data.trial_dogs, "Trial Adoptions", "We're checking out a potential new home and evaluating the quality of the treats and toys")}
