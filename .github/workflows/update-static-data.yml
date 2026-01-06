@@ -32,7 +32,8 @@ jobs:
         ls -l
 
     - name: Echo test for log visibility
-      run: echo "Workflow started: $(date)"
+      run: |
+        echo "Workflow started: $(date)"
 
     - name: Generate static JSON files
       run: |
