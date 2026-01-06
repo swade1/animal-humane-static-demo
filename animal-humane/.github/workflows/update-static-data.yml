@@ -38,8 +38,8 @@ jobs:
         run: echo "Workflow started: $(date)"
 
       - name: Generate static JSON files
-        working-directory: animal-humane
         run: |
+          cd animal-humane
           python generate_overview_json.py && echo "Ran generate_overview_json.py"
           python generate_adoptions_json.py && echo "Ran generate_adoptions_json.py"
           python generate_diff_analysis_json.py && echo "Ran generate_diff_analysis_json.py"
