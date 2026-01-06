@@ -44,6 +44,16 @@
       },
       {
         "id": null,
+        "name": "Pocky",
+        "url": "https://new.shelterluv.com/embed/animal/212534308",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
         "name": "Bulbasaur",
         "url": "https://new.shelterluv.com/embed/animal/212477943",
         "status": null,
@@ -89,21 +99,21 @@
     ],
     "unlisted_dogs": [
       {
-        "id": 212533104,
-        "name": "Verbena",
-        "url": "https://new.shelterluv.com/embed/animal/212533104",
+        "id": 212481029,
+        "name": "Bucket",
+        "url": "https://new.shelterluv.com/embed/animal/212481029",
         "status": "Available",
-        "location": "Westside Adoption Center, Dog Kennel 4",
+        "location": "Main Kennel North, Main Campus - MKN-02",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
       },
       {
-        "id": 212534322,
-        "name": "Sakura",
-        "url": "https://new.shelterluv.com/embed/animal/212534322",
+        "id": 212533104,
+        "name": "Verbena",
+        "url": "https://new.shelterluv.com/embed/animal/212533104",
         "status": "Available",
-        "location": "Main Campus- Big Blue, BB-09",
+        "location": "Westside Adoption Center, Dog Kennel 4",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -124,26 +134,6 @@
         "url": "https://new.shelterluv.com/embed/animal/212533017",
         "status": "Available",
         "location": "Parvo Ward, PW-2",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 212095229,
-        "name": "Gandalf",
-        "url": "https://new.shelterluv.com/embed/animal/212095229",
-        "status": "Available",
-        "location": "Main Campus- Big Blue, BB-01",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 212534338,
-        "name": "Soju",
-        "url": "https://new.shelterluv.com/embed/animal/212534338",
-        "status": "Available",
-        "location": "Main Campus- Big Blue, BB-09",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -491,16 +481,6 @@
         }
       },
       {
-        "id": 212534308,
-        "name": "Pocky",
-        "url": "https://new.shelterluv.com/embed/animal/212534308",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
         "id": 212534313,
         "name": "Tweety Bird",
         "url": "https://new.shelterluv.com/embed/animal/212534313",
@@ -659,53 +639,9 @@
         "section_metadata": {
           "source": "missing_dogs"
         }
-      },
-      {
-        "id":212459376,
-        "name":"Allsups",
-        "url": "https://new.shelterluv.com/embed/animal/212459376",
-        "status": null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
-        "id":212459394,
-        "name":"Bean",
-        "url":"https://new.shelterluv.com/embed/animal/212459394",
-        "status":null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
-        "id":212459505,
-        "name":"Burrito",
-        "url":"https://new.shelterluv.com/embed/animal/212459505",
-        "status":null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
-        "id":212459528,
-        "name":"Hatch",
-        "url":"https://new.shelterluv.com/embed/animal/212459528",
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
-        "id":212459546,
-        "name":"Taquito",
-        "url":"https://new.shelterluv.com/embed/animal/212459546",
-        "status":null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
       }
     ],
-    "total_dogs": 70
+    "total_dogs": 63
   },
   "message": null,
   "error": null

@@ -27,7 +27,6 @@ Missing dogs (ID: Name):
 212533969: Triceratops
 212534294: Lola Bunny
 212534307: Daffy Duck
-212534308: Pocky
 212534313: Tweety Bird
 212534329: Missy
 212534335: Penelope
