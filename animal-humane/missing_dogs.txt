@@ -2,9 +2,6 @@ Missing dogs (ID: Name):
 208821491: Velma
 212477845: Phineas
 212477861: Ferb
-212477913: Charmander
-212477928: Squirtle
-212477943: Bulbasaur
 212533004: Pine
 212533023: Bearberry
 212533042: Feathertop
@@ -45,7 +42,6 @@ Missing dogs (ID: Name):
 212534442: Daenerys
 212545856: Bruce
 212546331: Simba
-212553383: Mama
 212553623: Mozzy
 212553904: Dozer
 212459376: Allsups
