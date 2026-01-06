@@ -81,6 +81,7 @@
 {"name":"Brodie","id":211761261,"origin":"Mountainair Animal Control","bite_quarantine":0,"returned":0,"latitude":34.5197,"longitude":-106.2433}
 {"name":"Brontosaurus","id":212533938,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
 {"name":"Bruce (Arlo)","id":208812426,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":1,"latitude":35.1102,"longitude":-106.5823}
+{"name":"Bruce","id":212545856,"origin":"","bite_quarantine":0,"returned":0}
 {"name":"Bruce Lee","id":212332663,"origin":"Lovelace Biomedical Research","latitude":35.0559,"longitude":-106.5789,"returned":0,"bite_quarantine":0}
 {"name":"Brulee","id":211689729,"origin":"Stray","bite_quarantine":0,"returned":0}
 {"name":"Bruno","id":208817014,"origin":"Owner Surrender","bite_quarantine":0,"returned":1,"latitude":0,"longitude":0}
@@ -157,6 +158,7 @@
 {"name":"Dolly","id":211795622,"origin":"Santa Clara Animal Control","bite_quarantine":0,"returned":0,"latitude":32.776773,"longitude":-108.153132}
 {"name":"Dolly","id":212460116,"origin":"Stray","bite_quarantine":0,"returned":0}
 {"name":"Doug","id":208811865,"origin":"Stray","bite_quarantine":0,"returned":0}
+{"name":"Dozer","id":212553904,"origin":"","bite_quarantine":0,"returned":0}
 {"name":"Duchess","id":211814172,"origin":"Owner Surrender","bite_quarantine":0,"returned":0}
 {"name":"The Dude","id":212423024,"origin":"Stray","bite_quarantine":0,"returned":0}
 {"name":"Dutchess","id":212186533,"origin":"Paws & Claws Rescue of Quay County","bite_quarantine":0,"returned":0,"latitude":35.1911,"longitude":-103.6150}
@@ -334,6 +336,7 @@
 {"name":"Mahomes","id":211974729,"origin":"County of Taos Animal Control","bite_quarantine":0,"returned":0,"latitude":36.3948,"longitude":-105.5767}
 {"name":"Majesty","id":212186798,"origin":"Paws & Claws Rescue of Quay County","bite_quarantine":0,"returned":0,"latitude":35.1911,"longitude":-103.6150}
 {"name":"Major","id":210384420,"origin":"Bro & Tracy Animal Welfare","bite_quarantine":0,"returned":0,"latitude":35.2378,"longitude":-106.6067}
+{"name":"Mama","id":212553383,"origin":"","bite_quarantine":0,"returned":0}
 {"name":"Mandy","id":212009221,"origin":"Gallup McKinley County Humane Society","bite_quarantine":0,"returned":0,"latitude":35.543605,"longitude":-108.760272}
 {"name":"Mango","id":212533808,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
 {"name":"Maria","id":212444650,"bite_quarantine":0,"returned":0,"origin":"Stray"}
@@ -375,6 +378,7 @@
 {"name":"Mount Everest","id":212019497,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Mount Rainier","id":212019446,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Mowgli","id":208819751,"origin":"Sandoval County Animal Services","bite_quarantine":1,"returned":0,"latitude":35.3515,"longitude":-106.4694}
+{"name":"Mozzy","id":212553623,"origin":"","bite_quarantine":0,"returned":0}
 {"name":"MP3","id":212084270,"origin":"Grants Animal Care","bite_quarantine":0,"returned":0,"latitude":35.7985,"longitude":-106.6920}
 {"name":"Mr Chips","id":212131580,"origin":"Stray","bite_quarantine":0,"returned":0}
 {"name":"Muichiro","id":211840174,"origin":"Four Corners Animal League","bite_quarantine":0,"returned":1,"latitude":36.4072,"longitude":-105.5731}
@@ -508,6 +512,7 @@
 {"name":"Shylo","id":212042414,"origin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823} 
 {"name":"Sierra","id":208819449,"origin":"Moriarty Animal Control","bite_quarantine":0,"returned":1,"latitude":34.9996,"longitude":-106.0183}
 {"name":"Simba","id":212150610,"origin":"Artesia Animal Shelter (Paws & Claws Humane Society)","bite_quarantine":0,"returned":0,"latitude":32.8423,"longitude":-104.4033}
+{"name":"Simba","id":212546331,"origin":"","bite_quarantine":0,"returned":0}
 {"name":"Simone","id":212009157,"origin":"Gallup McKinley County Humane Society","bite_quarantine":0,"returned":0,"latitude":35.543605,"longitude":-108.760272}
 {"name":"Sinbad","id":211720318,"origin":"Humane Society of Lincoln County","bite_quarantine":0,"returned":0,"latitude":33.331749,"longitude":-105.6650}
 {"name":"Sissy","id":211981484,"origin":"Owner Surrender","bite_quarantine":0,"returned":0}

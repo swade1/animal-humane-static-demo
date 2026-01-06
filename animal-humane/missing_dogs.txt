@@ -43,3 +43,8 @@ Missing dogs (ID: Name):
 212534419: Salt
 212534432: Pepper
 212534442: Daenerys
+212545856: Bruce
+212553904: Dozer
+212553383: Mama
+212553623: Mozzy
+212546331: Simba
