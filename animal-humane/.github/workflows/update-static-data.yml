@@ -2,11 +2,11 @@ name: Update Static Demo Data
 
 on:
   # Temporarily disabled all triggers to prevent timestamp override
-   schedule:
-     - cron: '0 */2 * * *'  # Every 2 hours
-   push:
-     branches: [ main ]
-  workflow_dispatch:  # Manual trigger only
+  schedule:
+    - cron: '0 16,18,20,22,0,2 * * *'  # 9am, 11am, 1pm, 3pm, 5pm, 7pm MST
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   update-data:
@@ -17,21 +17,50 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.9'
-        
+        python-version: '3.11'
+
     - name: Install dependencies
       run: |
-        pip install requests
-        
-    - name: Update static data
+        python -m pip install --upgrade pip
+        pip install requests elasticsearch python-dotenv
+
+    - name: Debug: Show working directory and files
       run: |
-        echo "This is a test workflow - static data update would run here"
-        date > test-update-$(date +%Y%m%d-%H%M%S).txt
-        
-    - name: Commit updated data
+        echo "Current working directory:"
+        pwd
+        echo "Files in working directory:"
+        ls -l
+
+    - name: Echo test for log visibility
+      run: echo "Workflow started: $(date)"
+
+    - name: Generate static JSON files
+      run: |
+        python generate_overview_json.py && echo "Ran generate_overview_json.py"
+        python generate_adoptions_json.py && echo "Ran generate_adoptions_json.py"
+        python generate_diff_analysis_json.py && echo "Ran generate_diff_analysis_json.py"
+        python generate_dog_origins_json.py && echo "Ran generate_dog_origins_json.py"
+        python generate_insights_json.py && echo "Ran generate_insights_json.py"
+        python generate_length_of_stay_json.py && echo "Ran generate_length_of_stay_json.py"
+        python generate_live_population_json.py && echo "Ran generate_live_population_json.py"
+        python generate_live_population_meta_json.py && echo "Ran generate_live_population_meta_json.py"
+        python generate_overview_endpoints_json.py && echo "Ran generate_overview_endpoints_json.py"
+        python generate_recent_pupdates_json.py && echo "Ran generate_recent_pupdates_json.py"
+        python generate_recent_pupdates_meta_json.py && echo "Ran generate_recent_pupdates_meta_json.py"
+        python generate_weekly_age_group_adoptions_json.py && echo "Ran generate_weekly_age_group_adoptions_json.py"
+
+    - uses: actions/checkout@v4
+
+    - name: Commit and push updated data
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .
-        git diff --staged --quiet || git commit -m "Update static demo data $(date)"
-        git push
+        if ! git diff --staged --quiet; then
+          git commit -m "Update static demo data $(date)"
+          git push https://$GH_PAT@github.com/swade1/animal-humane-static-demo.git HEAD:main
+        else
+          echo "No changes to commit."
+        fi
