@@ -543,3 +543,10 @@ Query to verify shelter counts (available/adopted per shelter)
 ```
 curl -XGET 'localhost:9200/animal-humane-*/_search?pretty&size=0' -H 'Content-Type:application/json' -d '{"query":{"match":{"origin.keyword":"City of Las Vegas Animal Care Center"}},"aggs":{"1":{"terms":{"field":"id","size":500},"aggs":{"2":{"terms":{"field":"status.keyword"}}}}}}' > LVACC_Count.json
 ```
+
+To update available_soon section of Recent Pupdates tab:
+Run find_missing_dogs.py
+Copy missing_dogs.txt in animal-humane directory to react-app/public/missing_dogs.txt
+run generate_recent_pupdates_json.py
+
+Add, commit, and push to the repo.
