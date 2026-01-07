@@ -30,6 +30,7 @@ jobs:
           pwd
           echo "Files in working directory:"
           ls -l
+        working-directory: animal-humane
 
       - name: Echo test for log visibility
         run: echo "Workflow started: $(date)"
