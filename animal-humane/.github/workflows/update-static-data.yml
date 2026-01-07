@@ -49,7 +49,7 @@ jobs:
           python generate_recent_pupdates_json.py && echo "Ran generate_recent_pupdates_json.py"
           python generate_recent_pupdates_meta_json.py && echo "Ran generate_recent_pupdates_meta_json.py"
           python generate_weekly_age_group_adoptions_json.py && echo "Ran generate_weekly_age_group_adoptions_json.py"
-        working-directory: animal-humane
+        working-directory: animal-humane/animal-humane
 
       - name: Checkout repository (again)
         uses: actions/checkout@v4
