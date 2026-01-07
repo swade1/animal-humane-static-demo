@@ -109,6 +109,16 @@
     ],
     "unlisted_dogs": [
       {
+        "id": 212481029,
+        "name": "Bucket",
+        "url": "https://new.shelterluv.com/embed/animal/212481029",
+        "status": "Available",
+        "location": "Westside Adoption Center, Dog Kennel 6",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
         "id": 212533104,
         "name": "Verbena",
         "url": "https://new.shelterluv.com/embed/animal/212533104",
@@ -631,7 +641,7 @@
         }
       }
     ],
-    "total_dogs": 62
+    "total_dogs": 63
   },
   "message": null,
   "error": null
