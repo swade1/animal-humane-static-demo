@@ -1,5 +1,6 @@
 name: Update Static Demo Data
 
+
 on:
   schedule:
     - cron: '0 16,18,20,22,0,2 * * *' # 9am, 11am, 1pm, 3pm, 5pm, 7pm MST
@@ -13,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        
+        
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -33,6 +36,9 @@ jobs:
 
       - name: Echo test for log visibility
         run: echo "Workflow started: $(date)"
+
+      - name: Show workflow file used in this run
+        run: cat .github/workflows/update-static-data.yml
 
       - name: Generate static JSON files
         run: |
