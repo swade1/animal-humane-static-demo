@@ -19,6 +19,10 @@
         "url": "https://new.shelterluv.com/embed/animal/212477913"
       },
       {
+        "name": "Astro",
+        "url": "https://new.shelterluv.com/embed/animal/212557508"
+      },
+      {
         "name": "Pocky",
         "url": "https://new.shelterluv.com/embed/animal/212534308"
       },
@@ -92,26 +96,6 @@
       }
     ],
     "other_unlisted_dogs": [
-      {
-        "name": "Bucket",
-        "dog_id": 212481029,
-        "url": "https://new.shelterluv.com/embed/animal/212481029",
-        "location": "Main Kennel North, Main Campus - MKN-02",
-        "origin": "Owner Surrender",
-        "status": "Available",
-        "intake_date": "2025-12-30",
-        "length_of_stay_days": 7,
-        "birthdate": "2024-12-23",
-        "age_group": "Adult",
-        "breed": "Terrier, Pit Bull",
-        "secondary_breed": "",
-        "weight_group": "Large (60-99)",
-        "color": "Sable and White",
-        "bite_quarantine": 0,
-        "returned": 1,
-        "latitude": 0,
-        "longitude": 0
-      },
       {
         "name": "Verbena",
         "dog_id": 212533104,
@@ -191,26 +175,6 @@
         "returned": 0,
         "latitude": 0,
         "longitude": 0
-      },
-      {
-        "name": "Sandshrew",
-        "dog_id": 212097486,
-        "url": "https://new.shelterluv.com/embed/animal/212097486",
-        "location": "Main Campus - Main Kennel South, MKS-19",
-        "origin": "Edgewood Animal Control",
-        "status": "Available",
-        "intake_date": "2025-10-23",
-        "length_of_stay_days": 72,
-        "birthdate": "2022-10-23",
-        "age_group": "Adult",
-        "breed": "Terrier, American Pit Bull",
-        "secondary_breed": "Mixed Breed (Medium)",
-        "weight_group": "Medium (25-59)",
-        "color": "Black and White",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 35.0913,
-        "longitude": -106.1945
       },
       {
         "name": "Goober",

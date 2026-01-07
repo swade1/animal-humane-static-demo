@@ -44,6 +44,16 @@
       },
       {
         "id": null,
+        "name": "Astro",
+        "url": "https://new.shelterluv.com/embed/animal/212557508",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
         "name": "Pocky",
         "url": "https://new.shelterluv.com/embed/animal/212534308",
         "status": null,
@@ -99,16 +109,6 @@
     ],
     "unlisted_dogs": [
       {
-        "id": 212481029,
-        "name": "Bucket",
-        "url": "https://new.shelterluv.com/embed/animal/212481029",
-        "status": "Available",
-        "location": "Main Kennel North, Main Campus - MKN-02",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
         "id": 212533104,
         "name": "Verbena",
         "url": "https://new.shelterluv.com/embed/animal/212533104",
@@ -144,16 +144,6 @@
         "url": "https://new.shelterluv.com/embed/animal/212459749",
         "status": "Available",
         "location": "Main Campus - Main Kennel South, MKS-15",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 212097486,
-        "name": "Sandshrew",
-        "url": "https://new.shelterluv.com/embed/animal/212097486",
-        "status": "Available",
-        "location": "Main Campus - Main Kennel South, MKS-19",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -639,25 +629,9 @@
         "section_metadata": {
           "source": "missing_dogs"
         }
-      },
-      {"id":212459505,"name":"Burrito","url":"https://new.shelterluv.com/embed/animal/212459505","status":null,"section_metadata": {
-          "source": "missing_dogs"
-        }},
-      {"id":212459528,"name":"Hatch","url":"https://new.shelterluv.com/embed/animal/212459528","status":null,"section_metadata": {
-          "source": "missing_dogs"
-        }},
-      {"id":212459546,"name":"Taquito","url":"https://new.shelterluv.com/embed/animal/212459546","status":null,"section_metadata": {
-          "source": "missing_dogs"
-        }},
-      {"id":212459376,"name":"Allsups","url":"https://new.shelterluv.com/embed/animal/212459376","status":null,"section_metadata": {
-          "source": "missing_dogs"
-        }},
-      {"id":212459394,"name":"Bean","url":"https://new.shelterluv.com/embed/animal/212459394","status":null,"section_metadata": {
-          "source": "missing_dogs"
-        }}
-
+      }
     ],
-    "total_dogs": 63
+    "total_dogs": 62
   },
   "message": null,
   "error": null
