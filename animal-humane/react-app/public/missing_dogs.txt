@@ -1,5 +1,10 @@
 Missing dogs (ID: Name):
 208821491: Velma
+212459376: Allsups
+212459394: Bean
+212459505: Burrito
+212459528: Hatch
+212459546: Taquito
 212477845: Phineas
 212477861: Ferb
 212533004: Pine
