@@ -3,36 +3,58 @@
   "data": {
     "new_dogs": [
       {
-        "name": "Squirtle",
-        "url": "https://new.shelterluv.com/embed/animal/212477928"
+        "name": "Monica",
+        "url": "https://new.shelterluv.com/embed/animal/212559811"
       },
       {
-        "name": "Changa",
-        "url": "https://new.shelterluv.com/embed/animal/212459481"
+        "name": "Dozer ",
+        "url": "https://new.shelterluv.com/embed/animal/212553904"
       },
       {
-        "name": "Mama",
-        "url": "https://new.shelterluv.com/embed/animal/212553383"
+        "name": "Toad",
+        "url": "https://new.shelterluv.com/embed/animal/212534355"
       },
       {
-        "name": "Charmander",
-        "url": "https://new.shelterluv.com/embed/animal/212477913"
+        "name": "Bean",
+        "url": "https://new.shelterluv.com/embed/animal/212459394"
       },
       {
-        "name": "Astro",
-        "url": "https://new.shelterluv.com/embed/animal/212557508"
+        "name": "Allsups",
+        "url": "https://new.shelterluv.com/embed/animal/212459376"
       },
       {
-        "name": "Pocky",
-        "url": "https://new.shelterluv.com/embed/animal/212534308"
+        "name": "Mozzy",
+        "url": "https://new.shelterluv.com/embed/animal/212553623"
       },
       {
-        "name": "Bulbasaur",
-        "url": "https://new.shelterluv.com/embed/animal/212477943"
+        "name": "Simba",
+        "url": "https://new.shelterluv.com/embed/animal/212546331"
+      },
+      {
+        "name": "Penelope",
+        "url": "https://new.shelterluv.com/embed/animal/212534335"
+      },
+      {
+        "name": "Missy",
+        "url": "https://new.shelterluv.com/embed/animal/212534329"
       }
     ],
-    "returned_dogs": [],
-    "adopted_dogs": [],
+    "returned_dogs": [
+      {
+        "name": "Koala",
+        "dog_id": 212534230,
+        "url": "https://new.shelterluv.com/embed/animal/212534230",
+        "location": "Westside Adoption Center, Dog Kennel 5"
+      }
+    ],
+    "adopted_dogs": [
+      {
+        "name": "Kyla",
+        "dog_id": 212418519,
+        "url": "https://new.shelterluv.com/embed/animal/212418519",
+        "location": ""
+      }
+    ],
     "trial_adoption_dogs": [
       {
         "name": "Noah",
@@ -73,29 +95,29 @@
         "returned": 0,
         "latitude": 0,
         "longitude": 0
-      },
-      {
-        "name": "Destiny",
-        "dog_id": 211623887,
-        "url": "https://new.shelterluv.com/embed/animal/211623887",
-        "location": "Main Campus, Trial Adoption",
-        "origin": "Unknown",
-        "status": "Available",
-        "intake_date": "2025-12-20",
-        "length_of_stay_days": 11,
-        "birthdate": "2023-02-06",
-        "age_group": "Adult",
-        "breed": "Terrier",
-        "secondary_breed": "Mixed Breed (Medium)",
-        "weight_group": "Medium (25-59)",
-        "color": "Black and White",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 0,
-        "longitude": 0
       }
     ],
     "other_unlisted_dogs": [
+      {
+        "name": "Theo",
+        "dog_id": 208812286,
+        "url": "https://new.shelterluv.com/embed/animal/208812286",
+        "location": "Main Kennel North, Main Campus - MKN-02",
+        "origin": "ABQ Animal Welfare Department",
+        "status": "Available",
+        "intake_date": "2025-11-18",
+        "length_of_stay_days": 50,
+        "birthdate": "2024-10-30",
+        "age_group": "Adult",
+        "breed": "Terrier, American Staffordshire",
+        "secondary_breed": "",
+        "weight_group": "Medium (25-59)",
+        "color": "Brown and White",
+        "bite_quarantine": 0,
+        "returned": 0,
+        "latitude": 35.1102,
+        "longitude": -106.5823
+      },
       {
         "name": "Bucket",
         "dog_id": 212481029,
@@ -120,7 +142,7 @@
         "name": "Verbena",
         "dog_id": 212533104,
         "url": "https://new.shelterluv.com/embed/animal/212533104",
-        "location": "Parvo Ward, PW-3",
+        "location": "Main Kennel North, Main Campus - MKN-17",
         "origin": "City of Las Vegas Animal Care Center",
         "status": "Available",
         "intake_date": "2025-12-30",
@@ -175,26 +197,6 @@
         "returned": 0,
         "latitude": 35.5939,
         "longitude": -105.2239
-      },
-      {
-        "name": "Sparkles",
-        "dog_id": 212459749,
-        "url": "https://new.shelterluv.com/embed/animal/212459749",
-        "location": "Main Campus - Main Kennel South, MKS-15",
-        "origin": "Owner Surrender",
-        "status": "Available",
-        "intake_date": "2025-12-17",
-        "length_of_stay_days": 17,
-        "birthdate": "2017-12-17",
-        "age_group": "Senior",
-        "breed": "Coonhound",
-        "secondary_breed": "Mixed Breed (Large)",
-        "weight_group": "Large (60-99)",
-        "color": "White and Sable",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 0,
-        "longitude": 0
       },
       {
         "name": "Goober",

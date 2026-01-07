@@ -1,7 +1,5 @@
 Missing dogs (ID: Name):
 208821491: Velma
-212459376: Allsups
-212459394: Bean
 212459505: Burrito
 212459528: Hatch
 212459546: Taquito
@@ -33,10 +31,7 @@ Missing dogs (ID: Name):
 212534294: Lola Bunny
 212534307: Daffy Duck
 212534313: Tweety Bird
-212534329: Missy
-212534335: Penelope
 212534346: Izzy
-212534355: Toad
 212534357: Aurora
 212534379: Rose
 212534398: Rhino
@@ -45,6 +40,3 @@ Missing dogs (ID: Name):
 212534432: Pepper
 212534442: Daenerys
 212545856: Bruce
-212546331: Simba
-212553623: Mozzy
-212553904: Dozer
