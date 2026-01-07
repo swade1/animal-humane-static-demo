@@ -1,3 +1,10 @@
+            - name: Debug: Show working directory and files
+              run: |
+                echo "Current working directory:"
+                pwd
+                echo "Files in this directory:"
+                ls -l
+              working-directory: animal-humane
       - name: List all files in workspace
         run: ls -lR
 jobs:
