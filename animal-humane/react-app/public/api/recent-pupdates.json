@@ -2,13 +2,13 @@
   "success": true,
   "data": {
     "new_dogs": [
-       "name":"Indigo","url":"https://new.shelterluv.com/embed/animal/212533081",
-       "name":"Tweety Bird","url":"https://new.shelterluv.com/embed/animal/212534313",
-       "name":"Lola Bunny","https://new.shelterluv.com/embed/animal/212534294",
-       "name":"Goldenrod","url":"https://new.shelterluv.com/embed/animal/212533055",
-       "name":"Phoebe","url":"https://new.shelterluv.com/embed/animal/212559656",
-       "name":"Daffy Duck","url":"https://new.shelterluv.com/embed/animal/212534307",
-       "name":"Feathertop","url":"https://new.shelterluv.com/embed/animal/212533042"
+       {"name":"Indigo","url":"https://new.shelterluv.com/embed/animal/212533081"},
+       {"name":"Tweety Bird","url":"https://new.shelterluv.com/embed/animal/212534313"},
+       {"name":"Lola Bunny","https://new.shelterluv.com/embed/animal/212534294"},
+       {"name":"Goldenrod","url":"https://new.shelterluv.com/embed/animal/212533055"},
+       {"name":"Phoebe","url":"https://new.shelterluv.com/embed/animal/212559656"},
+       {"name":"Daffy Duck","url":"https://new.shelterluv.com/embed/animal/212534307"},
+       {"name":"Feathertop","url":"https://new.shelterluv.com/embed/animal/212533042"}
     ],
     "returned_dogs": [],
     "adopted_dogs": [],
