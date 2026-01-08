@@ -42,6 +42,7 @@ class ElasticsearchHandler:
         "Otero County Animal Control":{"latitude":32.8995,"longitude":-105.9603},
         "Paws & Claws Rescue of Quay County":{"latitude":35.1911,"longitude":-103.6150},
         "Petroglyph Animal Hospital":{"latitude":35.1728,"longitude":-106.6737},
+        "Raton Humane Society":{"latitude":36.8705,"longitude":-104.4309},
         "RezDawg Rescue":{"latitude":35.0142,"longitude":-106.0846},
         "Rio Rancho Animal Control":{"latitude":35.2748, "longitude":-106.6681},
         "Roswell Humane Society":{"latitude":33.3930,"longitude":-104.5235},
@@ -135,7 +136,6 @@ class ElasticsearchHandler:
                     new_location = scraper.scrape_dog_location(url) or ''
                 else:
                     new_location = ''  # fallback if no URL is present
-                print(g"group_name":{group_name}")
                 if group_name == 'adopted_dogs':
                     new_status = 'adopted'
                     doc_update = {"location":new_location,"status":new_status}
@@ -1147,9 +1147,8 @@ class ElasticsearchHandler:
         query = {"size":0, "query":{"term":{"status":"adopted"}},"aggs":{"adoptions_over_time":{"date_histogram":{"field":"timestamp","calendar_interval":"day","format":"MM/dd/yyyy","time_zone":"-07:00"},"aggs":{"dog_names":{"terms":{"field":"name.keyword","size":100}}}}}}
         # Use index pattern that includes all years
         response = self.es.search(index="animal-humane-*", body=query)
-
-        #for bucket in response["aggregations"]["adoptions_over_time"]["buckets"]:
-        #    print({"date": bucket["key_as_string"], "count":bucket["doc_count"]})
+        print("[DEBUG] Raw ES response for adoptions_per_day:")
+        print(json.dumps(response, indent=2))
 
         chart_data = [
             {
@@ -1159,6 +1158,7 @@ class ElasticsearchHandler:
             }
             for bucket in response["aggregations"]["adoptions_over_time"]["buckets"]
         ]
+        print("[DEBUG] Processed chart_data for adoptions_per_day:")
         print(json.dumps(chart_data, indent=2))
         return chart_data
 
@@ -1251,6 +1251,8 @@ class ElasticsearchHandler:
         }
         # Use index pattern that includes all years
         response = self.es.search(index="animal-humane-*", body=query_body)
+        print("[DEBUG] Raw ES response for weekly_age_group_adoptions:")
+        print(json.dumps(response, indent=2))
         weekly_buckets=response['aggregations']['weekly']['buckets']
         result = []
 
@@ -1267,9 +1269,10 @@ class ElasticsearchHandler:
                 count = age_bucket['doc_count']
                 week_data[age_group] = count
             result.append(week_data)
-        print(f"Returning results from get_weekly_age_group_adoptions: {result}")
-        #Return the most recent 5 weeks to prevent chart crowding
-        return result[-5:]
+        print("[DEBUG] Processed result for weekly_age_group_adoptions:")
+        print(json.dumps(result, indent=2))
+        # Return the most recent 10 weeks to prevent chart crowding
+        return result[-10:]
 
     def get_adoption_percentages_per_origin(self):
         query_body={"size":0,"aggs":{"origins":{"terms":{"field":"origin.keyword","size":10000},"aggs": {"total_count": {"cardinality": {"field": "id","precision_threshold": 10000}},"adopted_count": {"filter": {"term": {"status.keyword": "adopted"}},"aggs": {"unique_adopted": {"cardinality": {"field": "id","precision_threshold": 10000}}}},"adoption_rate": {"bucket_script": {"buckets_path": {"adopted": "adopted_count>unique_adopted","total": "total_count"},"script": "params.total > 0 ? (params.adopted / params.total) * 100 : 0"}}}}}}
