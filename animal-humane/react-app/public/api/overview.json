@@ -12,7 +12,7 @@
       },
       {
         "age_group": "Puppy",
-        "count": 14
+        "count": 13
       },
       {
         "age_group": "Senior",
@@ -22,7 +22,7 @@
     "avgStay": 35,
     "longestStay": {
       "name": "Phelps",
-      "days": 288,
+      "days": 289,
       "url": "https://new.shelterluv.com/embed/animal/210698425"
     }
   },
