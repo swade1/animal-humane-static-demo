@@ -114,6 +114,16 @@
       },
       {
         "id": null,
+        "name": "Monica",
+        "url": "https://new.shelterluv.com/embed/animal/212559811",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
         "name": "Gambit",
         "url": "https://new.shelterluv.com/embed/animal/212624022",
         "status": null,
@@ -310,16 +320,6 @@
       }
     ],
     "available_soon": [
-      {
-        "id": 999999,
-        "name": "Alpha Dog",
-        "url": "https://new.shelterluv.com/embed/animal/999999",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
       {
         "id": 212459505,
         "name": "Burrito",
@@ -594,6 +594,16 @@
         "id": 212559039,
         "name": "Parzival",
         "url": "https://new.shelterluv.com/embed/animal/212559039",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212624209,
+        "name": "Lover",
+        "url": "https://new.shelterluv.com/embed/animal/212624209",
         "status": null,
         "location": null,
         "section_metadata": {
