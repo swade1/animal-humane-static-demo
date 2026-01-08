@@ -4,98 +4,8 @@
     "new_dogs": [
       {
         "id": null,
-        "name": "Feathertop",
-        "url": "https://new.shelterluv.com/embed/animal/212533042",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Lola Bunny",
-        "url": "https://new.shelterluv.com/embed/animal/212534294",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Pepper",
-        "url": "https://new.shelterluv.com/embed/animal/212534432",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Tweety Bird",
-        "url": "https://new.shelterluv.com/embed/animal/212534313",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Salt",
-        "url": "https://new.shelterluv.com/embed/animal/212534419",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Rose",
-        "url": "https://new.shelterluv.com/embed/animal/212534379",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Goldenrod",
-        "url": "https://new.shelterluv.com/embed/animal/212533055",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Millie",
-        "url": "https://new.shelterluv.com/embed/animal/212624341",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Izzy",
-        "url": "https://new.shelterluv.com/embed/animal/212534346",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Rhino",
-        "url": "https://new.shelterluv.com/embed/animal/212534398",
+        "name": "Aurora",
+        "url": "https://new.shelterluv.com/embed/animal/212534357",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -114,8 +24,8 @@
       },
       {
         "id": null,
-        "name": "Monica",
-        "url": "https://new.shelterluv.com/embed/animal/212559811",
+        "name": "Salt",
+        "url": "https://new.shelterluv.com/embed/animal/212534419",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -124,8 +34,28 @@
       },
       {
         "id": null,
-        "name": "Gambit",
-        "url": "https://new.shelterluv.com/embed/animal/212624022",
+        "name": "Lola Bunny",
+        "url": "https://new.shelterluv.com/embed/animal/212534294",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Rhino",
+        "url": "https://new.shelterluv.com/embed/animal/212534398",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Feathertop",
+        "url": "https://new.shelterluv.com/embed/animal/212533042",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -144,8 +74,28 @@
       },
       {
         "id": null,
-        "name": "Indigo",
-        "url": "https://new.shelterluv.com/embed/animal/212533081",
+        "name": "Izzy",
+        "url": "https://new.shelterluv.com/embed/animal/212534346",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Goldenrod",
+        "url": "https://new.shelterluv.com/embed/animal/212533055",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Tweety Bird",
+        "url": "https://new.shelterluv.com/embed/animal/212534313",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -164,8 +114,48 @@
       },
       {
         "id": null,
-        "name": "Aurora",
-        "url": "https://new.shelterluv.com/embed/animal/212534357",
+        "name": "Pepper",
+        "url": "https://new.shelterluv.com/embed/animal/212534432",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Rose",
+        "url": "https://new.shelterluv.com/embed/animal/212534379",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Millie",
+        "url": "https://new.shelterluv.com/embed/animal/212624341",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Gambit",
+        "url": "https://new.shelterluv.com/embed/animal/212624022",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Indigo",
+        "url": "https://new.shelterluv.com/embed/animal/212533081",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -198,6 +188,36 @@
       }
     ],
     "unlisted_dogs": [
+      {
+        "id": 212477913,
+        "name": "Charmander",
+        "url": "https://new.shelterluv.com/embed/animal/212477913",
+        "status": "Available",
+        "location": "Westside Adoption Center, Dog Kennel 4",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212477928,
+        "name": "Squirtle",
+        "url": "https://new.shelterluv.com/embed/animal/212477928",
+        "status": "Available",
+        "location": "Westside Adoption Center, Dog Kennel 4",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212477943,
+        "name": "Bulbasaur",
+        "url": "https://new.shelterluv.com/embed/animal/212477943",
+        "status": "Available",
+        "location": "Westside Adoption Center, Dog Kennel 4",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
       {
         "id": 212451899,
         "name": "Scrappy Doo",
@@ -601,16 +621,6 @@
         }
       },
       {
-        "id": 212624209,
-        "name": "Lover",
-        "url": "https://new.shelterluv.com/embed/animal/212624209",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
         "id": 212559176,
         "name": "Aech",
         "url": "https://new.shelterluv.com/embed/animal/212559176",
@@ -619,9 +629,29 @@
         "section_metadata": {
           "source": "missing_dogs"
         }
+      },
+      {
+        "id": 212559448,
+        "name": "Phoebe",
+        "url": "https://new.shelterluv.com/embed/animal/212559448",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
+      },
+      {
+        "id": 212624209,
+        "name": "Lover",
+        "url": "https://new.shelterluv.com/embed/animal/212624209",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "missing_dogs"
+        }
       }
     ],
-    "total_dogs": 60
+    "total_dogs": 64
   },
   "message": null,
   "error": null

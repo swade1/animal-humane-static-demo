@@ -3,68 +3,68 @@
   "data": {
     "new_dogs": [
       {
-        "name": "Feathertop",
-        "url": "https://new.shelterluv.com/embed/animal/212533042"
-      },
-      {
-        "name": "Lola Bunny",
-        "url": "https://new.shelterluv.com/embed/animal/212534294"
-      },
-      {
-        "name": "Pepper",
-        "url": "https://new.shelterluv.com/embed/animal/212534432"
-      },
-      {
-        "name": "Tweety Bird",
-        "url": "https://new.shelterluv.com/embed/animal/212534313"
-      },
-      {
-        "name": "Salt",
-        "url": "https://new.shelterluv.com/embed/animal/212534419"
-      },
-      {
-        "name": "Rose",
-        "url": "https://new.shelterluv.com/embed/animal/212534379"
-      },
-      {
-        "name": "Goldenrod",
-        "url": "https://new.shelterluv.com/embed/animal/212533055"
-      },
-      {
-        "name": "Millie",
-        "url": "https://new.shelterluv.com/embed/animal/212624341"
-      },
-      {
-        "name": "Izzy",
-        "url": "https://new.shelterluv.com/embed/animal/212534346"
-      },
-      {
-        "name": "Rhino",
-        "url": "https://new.shelterluv.com/embed/animal/212534398"
+        "name": "Aurora",
+        "url": "https://new.shelterluv.com/embed/animal/212534357"
       },
       {
         "name": "Phoebe",
         "url": "https://new.shelterluv.com/embed/animal/212559656"
       },
       {
-        "name": "Gambit",
-        "url": "https://new.shelterluv.com/embed/animal/212624022"
+        "name": "Salt",
+        "url": "https://new.shelterluv.com/embed/animal/212534419"
+      },
+      {
+        "name": "Lola Bunny",
+        "url": "https://new.shelterluv.com/embed/animal/212534294"
+      },
+      {
+        "name": "Rhino",
+        "url": "https://new.shelterluv.com/embed/animal/212534398"
+      },
+      {
+        "name": "Feathertop",
+        "url": "https://new.shelterluv.com/embed/animal/212533042"
       },
       {
         "name": "Daffy Duck",
         "url": "https://new.shelterluv.com/embed/animal/212534307"
       },
       {
-        "name": "Indigo",
-        "url": "https://new.shelterluv.com/embed/animal/212533081"
+        "name": "Izzy",
+        "url": "https://new.shelterluv.com/embed/animal/212534346"
+      },
+      {
+        "name": "Goldenrod",
+        "url": "https://new.shelterluv.com/embed/animal/212533055"
+      },
+      {
+        "name": "Tweety Bird",
+        "url": "https://new.shelterluv.com/embed/animal/212534313"
       },
       {
         "name": "Theodore",
         "url": "https://new.shelterluv.com/embed/animal/212534399"
       },
       {
-        "name": "Aurora",
-        "url": "https://new.shelterluv.com/embed/animal/212534357"
+        "name": "Pepper",
+        "url": "https://new.shelterluv.com/embed/animal/212534432"
+      },
+      {
+        "name": "Rose",
+        "url": "https://new.shelterluv.com/embed/animal/212534379"
+      },
+      {
+        "name": "Millie",
+        "url": "https://new.shelterluv.com/embed/animal/212624341"
+      },
+      {
+        "name": "Gambit",
+        "url": "https://new.shelterluv.com/embed/animal/212624022"
+      },
+      {
+        "name": "Indigo",
+        "url": "https://new.shelterluv.com/embed/animal/212533081"
       }
     ],
     "returned_dogs": [],
@@ -112,6 +112,66 @@
       }
     ],
     "other_unlisted_dogs": [
+      {
+        "name": "Charmander",
+        "dog_id": 212477913,
+        "url": "https://new.shelterluv.com/embed/animal/212477913",
+        "location": "Westside Adoption Center, Dog Kennel 4",
+        "origin": "RezDawg Rescue",
+        "status": "Available",
+        "intake_date": "2025-12-22",
+        "length_of_stay_days": 17,
+        "birthdate": "2025-10-22",
+        "age_group": "Puppy",
+        "breed": "Shepherd",
+        "secondary_breed": "Mixed Breed (Medium)",
+        "weight_group": "Small (0-24)",
+        "color": "Brindle",
+        "bite_quarantine": 0,
+        "returned": 0,
+        "latitude": 35.0142,
+        "longitude": -106.0846
+      },
+      {
+        "name": "Squirtle",
+        "dog_id": 212477928,
+        "url": "https://new.shelterluv.com/embed/animal/212477928",
+        "location": "Westside Adoption Center, Dog Kennel 4",
+        "origin": "RezDawg Rescue",
+        "status": "Available",
+        "intake_date": "2025-12-22",
+        "length_of_stay_days": 17,
+        "birthdate": "2025-10-22",
+        "age_group": "Puppy",
+        "breed": "Shepherd",
+        "secondary_breed": "Mixed Breed (Medium)",
+        "weight_group": "Small (0-24)",
+        "color": "Brown and Black",
+        "bite_quarantine": 0,
+        "returned": 0,
+        "latitude": 35.0142,
+        "longitude": -106.0846
+      },
+      {
+        "name": "Bulbasaur",
+        "dog_id": 212477943,
+        "url": "https://new.shelterluv.com/embed/animal/212477943",
+        "location": "Westside Adoption Center, Dog Kennel 4",
+        "origin": "RezDawg Rescue",
+        "status": "Available",
+        "intake_date": "2025-12-22",
+        "length_of_stay_days": 17,
+        "birthdate": "2025-10-22",
+        "age_group": "Puppy",
+        "breed": "Shepherd",
+        "secondary_breed": "Mixed Breed (Medium)",
+        "weight_group": "Small (0-24)",
+        "color": "Brown and Black",
+        "bite_quarantine": 0,
+        "returned": 0,
+        "latitude": 35.0142,
+        "longitude": -106.0846
+      },
       {
         "name": "Scrappy Doo",
         "dog_id": 212451899,

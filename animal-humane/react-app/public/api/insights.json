@@ -1680,11 +1680,19 @@
       },
       {
         "date": "01/07/2026",
-        "count": 3,
+        "count": 4,
         "names": [
           "Kyla",
           "Changa",
-          "Verbena"
+          "Verbena",
+          "Simba"
+        ]
+      },
+      {
+        "date": "01/08/2026",
+        "count": 1,
+        "names": [
+          "Goldenrod"
         ]
       }
     ]

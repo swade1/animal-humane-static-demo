@@ -5,9 +5,9 @@
       "origin": "ABQ Animal Welfare Department",
       "latitude": 35.1102,
       "longitude": -106.5823,
-      "count": 53,
+      "count": 55,
       "adopted": 39,
-      "available": 14
+      "available": 16
     },
     {
       "origin": "Humane Society of Lincoln County",
@@ -117,9 +117,9 @@
       "origin": "Tucumcari Animal Shelter",
       "latitude": 35.1926,
       "longitude": -103.7197,
-      "count": 9,
+      "count": 10,
       "adopted": 8,
-      "available": 1
+      "available": 2
     },
     {
       "origin": "Truth or Consequences Animal Shelter",
