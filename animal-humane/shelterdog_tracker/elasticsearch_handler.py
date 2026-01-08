@@ -135,7 +135,7 @@ class ElasticsearchHandler:
                     new_location = scraper.scrape_dog_location(url) or ''
                 else:
                     new_location = ''  # fallback if no URL is present
-
+                print(g"group_name":{group_name}")
                 if group_name == 'adopted_dogs':
                     new_status = 'adopted'
                     doc_update = {"location":new_location,"status":new_status}
@@ -1145,8 +1145,8 @@ class ElasticsearchHandler:
         }
     def get_adoptions_per_day(self):
         query = {"size":0, "query":{"term":{"status":"adopted"}},"aggs":{"adoptions_over_time":{"date_histogram":{"field":"timestamp","calendar_interval":"day","format":"MM/dd/yyyy","time_zone":"-07:00"},"aggs":{"dog_names":{"terms":{"field":"name.keyword","size":100}}}}}}
-        # Use index pattern that only includes 2025 indices to avoid timestamp mapping conflicts
-        response = self.es.search(index="animal-humane-2025*", body=query)
+        # Use index pattern that includes all years
+        response = self.es.search(index="animal-humane-*", body=query)
 
         #for bucket in response["aggregations"]["adoptions_over_time"]["buckets"]:
         #    print({"date": bucket["key_as_string"], "count":bucket["doc_count"]})
@@ -1249,8 +1249,8 @@ class ElasticsearchHandler:
                 }
             }
         }
-        # Use index pattern that only includes 2025 indices to avoid mapping conflicts
-        response = self.es.search(index="animal-humane-2025*", body=query_body)
+        # Use index pattern that includes all years
+        response = self.es.search(index="animal-humane-*", body=query_body)
         weekly_buckets=response['aggregations']['weekly']['buckets']
         result = []
 
