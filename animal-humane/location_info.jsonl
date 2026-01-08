@@ -617,7 +617,7 @@
 {"name":"Wess","id":208810001,"origin":"Owner Surrender","bite_quarantine":0,"returned":0}
 {"name":"Whisper","id":211274212,"origin":"Humane Society of Lincoln County","bite_quarantine":0,"returned":1,"latitude":33.331749,"longitude":-105.6650}
 {"name":"Wiggles","id":212042495,"origin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
-{"name":"Wilbur","id":210495598,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":1,"latitude":35.1102,"longitude":-106.5823}
+{"name":"Wilbur","id":210495598,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":2,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Wild","id":212042360,"orgin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":0,"latitude":35.0561,"longitude":-106.6646}
 {"name":"Wiley","id":211606525,"origin":"Otero County Animal Control","bite_quarantine":0,"returned":0,"latitude":32.8995,"longitude":-105.9603}
 {"name":"Wiley","id":212457630,"origin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":0,"latitude":35.0561,"longitude":-106.6646}

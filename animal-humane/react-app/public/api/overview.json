@@ -1,9 +1,9 @@
 {
   "success": true,
   "data": {
-    "total": 71,
-    "newThisWeek": 28,
-    "adoptedThisWeek": 33,
+    "total": 72,
+    "newThisWeek": 26,
+    "adoptedThisWeek": 27,
     "trialAdoptions": 2,
     "ageGroups": [
       {
@@ -16,7 +16,7 @@
       },
       {
         "age_group": "Senior",
-        "count": 7
+        "count": 8
       }
     ],
     "avgStay": 35,

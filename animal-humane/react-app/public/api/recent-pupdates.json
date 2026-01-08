@@ -44,6 +44,16 @@
       },
       {
         "id": null,
+        "name": "Velma",
+        "url": "https://new.shelterluv.com/embed/animal/208821491",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
         "name": "Allsups",
         "url": "https://new.shelterluv.com/embed/animal/212459376",
         "status": null,
@@ -141,6 +151,26 @@
     ],
     "unlisted_dogs": [
       {
+        "id": 210495598,
+        "name": "Wilbur",
+        "url": "https://new.shelterluv.com/embed/animal/210495598",
+        "status": "Available",
+        "location": "Main Campus - Main Kennel South, MKS-20",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212459481,
+        "name": "Changa",
+        "url": "https://new.shelterluv.com/embed/animal/212459481",
+        "status": "Available",
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
         "id": 208812286,
         "name": "Theo",
         "url": "https://new.shelterluv.com/embed/animal/208812286",
@@ -151,31 +181,11 @@
         }
       },
       {
-        "id": 212481029,
-        "name": "Bucket",
-        "url": "https://new.shelterluv.com/embed/animal/212481029",
-        "status": "Available",
-        "location": "Westside Adoption Center, Dog Kennel 6",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 212533104,
-        "name": "Verbena",
-        "url": "https://new.shelterluv.com/embed/animal/212533104",
-        "status": "Available",
-        "location": "Main Kennel North, Main Campus - MKN-17",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
         "id": 212532991,
         "name": "Agave",
         "url": "https://new.shelterluv.com/embed/animal/212532991",
         "status": "Available",
-        "location": "Parvo Ward, PW-2",
+        "location": "Dog Treatment, T-07",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -185,7 +195,7 @@
         "name": "Yucca",
         "url": "https://new.shelterluv.com/embed/animal/212533017",
         "status": "Available",
-        "location": "Parvo Ward, PW-2",
+        "location": "Dog Treatment, T-07",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -232,16 +242,6 @@
       }
     ],
     "available_soon": [
-      {
-        "id": 208821491,
-        "name": "Velma",
-        "url": "https://new.shelterluv.com/embed/animal/208821491",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
       {
         "id": 212459505,
         "name": "Burrito",

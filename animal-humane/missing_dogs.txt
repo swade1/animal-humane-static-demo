@@ -1,5 +1,4 @@
 Missing dogs (ID: Name):
-208821491: Velma
 212459505: Burrito
 212459528: Hatch
 212459546: Taquito
