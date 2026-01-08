@@ -1618,7 +1618,12 @@
           "Destiny",
           "Eowyn"
         ]
-      }
+      },
+      {"date":"01/01/2026","count":0,"names":[]}
+      {"date":"01/02/2026","count":12,"names":["Fig","Panda","Sun Bear","Prescott","Harper","Sumac","Polar Bear","Dexter","Evergreen","Koala","Chive","Captain Kidd"]},
+      {"date":"01/03/2026","count":8,"names":["Robin Hood","Wilbur","Buddy","Sloth Bear","Snapdragon","Pinon","Udon","Scottie"]},
+      {"date":"01/04/2026","count":6,"names":["Tom Hardy","Yakitori","Sake","Tonkatsu","Kimchi"]},
+      {"date":"01/07/2026","count":3,"names":["Kyla","Changa","Verbena"]}
     ]
   },
   "message": null,

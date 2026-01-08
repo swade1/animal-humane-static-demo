@@ -1222,26 +1222,6 @@
       "longitude": -106.5823
     },
     {
-      "name": "Changa",
-      "dog_id": 212459481,
-      "url": "https://new.shelterluv.com/embed/animal/212459481",
-      "location": "",
-      "origin": "Unknown",
-      "status": "Available",
-      "intake_date": "2025-12-17",
-      "length_of_stay_days": 21,
-      "birthdate": "2025-11-03",
-      "age_group": "Puppy",
-      "breed": "Shepherd, German",
-      "secondary_breed": "Mixed Breed (Large)",
-      "weight_group": null,
-      "color": "Brown and Black",
-      "bite_quarantine": 0,
-      "returned": 0,
-      "latitude": 0,
-      "longitude": 0
-    },
-    {
       "name": "Simba",
       "dog_id": 212546331,
       "url": "https://new.shelterluv.com/embed/animal/212546331",
