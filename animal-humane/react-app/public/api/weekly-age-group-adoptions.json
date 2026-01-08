@@ -2,6 +2,30 @@
   "success": true,
   "data": [
     {
+      "week": "11/03/2025",
+      "Puppy": 13,
+      "Adult": 13,
+      "Senior": 0
+    },
+    {
+      "week": "11/10/2025",
+      "Puppy": 10,
+      "Adult": 18,
+      "Senior": 5
+    },
+    {
+      "week": "11/17/2025",
+      "Puppy": 11,
+      "Adult": 13,
+      "Senior": 0
+    },
+    {
+      "week": "11/24/2025",
+      "Puppy": 9,
+      "Adult": 13,
+      "Senior": 1
+    },
+    {
       "week": "12/01/2025",
       "Puppy": 16,
       "Adult": 7,
@@ -27,17 +51,16 @@
     },
     {
       "week": "12/29/2025",
-      "Puppy": 4,
-      "Adult": 4,
+      "Puppy": 24,
+      "Adult": 10,
       "Senior": 0
     },
     {
       "week": "01/05/2026",
       "Puppy": 2,
-      "Adult":1,
-      "Senior":0
+      "Adult": 1,
+      "Senior": 0
     }
-
   ],
   "message": null,
   "error": null

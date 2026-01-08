@@ -3,12 +3,12 @@
   "data": {
     "new_dogs": [
       {
-        "name": "Monica",
-        "url": "https://new.shelterluv.com/embed/animal/212559811"
-      },
-      {
         "name": "Dozer ",
         "url": "https://new.shelterluv.com/embed/animal/212553904"
+      },
+      {
+        "name": "Missy",
+        "url": "https://new.shelterluv.com/embed/animal/212534329"
       },
       {
         "name": "Toad",
@@ -27,20 +27,20 @@
         "url": "https://new.shelterluv.com/embed/animal/212459376"
       },
       {
-        "name": "Mozzy",
-        "url": "https://new.shelterluv.com/embed/animal/212553623"
-      },
-      {
-        "name": "Simba",
-        "url": "https://new.shelterluv.com/embed/animal/212546331"
+        "name": "Monica",
+        "url": "https://new.shelterluv.com/embed/animal/212559811"
       },
       {
         "name": "Penelope",
         "url": "https://new.shelterluv.com/embed/animal/212534335"
       },
       {
-        "name": "Missy",
-        "url": "https://new.shelterluv.com/embed/animal/212534329"
+        "name": "Simba",
+        "url": "https://new.shelterluv.com/embed/animal/212546331"
+      },
+      {
+        "name": "Mozzy",
+        "url": "https://new.shelterluv.com/embed/animal/212553623"
       }
     ],
     "returned_dogs": [
@@ -56,6 +56,18 @@
         "name": "Kyla",
         "dog_id": 212418519,
         "url": "https://new.shelterluv.com/embed/animal/212418519",
+        "location": ""
+      },
+      {
+        "name": "Changa",
+        "dog_id": 212459481,
+        "url": "https://new.shelterluv.com/embed/animal/212459481",
+        "location": ""
+      },
+      {
+        "name": "Verbena",
+        "dog_id": 212533104,
+        "url": "https://new.shelterluv.com/embed/animal/212533104",
         "location": ""
       }
     ],
@@ -103,6 +115,26 @@
     ],
     "other_unlisted_dogs": [
       {
+        "name": "Bucket",
+        "dog_id": 212481029,
+        "url": "https://new.shelterluv.com/embed/animal/212481029",
+        "location": "Westside Adoption Center, Dog Kennel 6",
+        "origin": "Owner Surrender",
+        "status": "Available",
+        "intake_date": "2025-12-30",
+        "length_of_stay_days": 9,
+        "birthdate": "2024-12-23",
+        "age_group": "Adult",
+        "breed": "Terrier, Pit Bull",
+        "secondary_breed": "",
+        "weight_group": "Large (60-99)",
+        "color": "Sable and White",
+        "bite_quarantine": 0,
+        "returned": 1,
+        "latitude": 0,
+        "longitude": 0
+      },
+      {
         "name": "Wilbur",
         "dog_id": 210495598,
         "url": "https://new.shelterluv.com/embed/animal/210495598",
@@ -121,26 +153,6 @@
         "returned": 1,
         "latitude": 35.1102,
         "longitude": -106.5823
-      },
-      {
-        "name": "Changa",
-        "dog_id": 212459481,
-        "url": "https://new.shelterluv.com/embed/animal/212459481",
-        "location": "",
-        "origin": "Unknown",
-        "status": "Available",
-        "intake_date": "2025-12-17",
-        "length_of_stay_days": 21,
-        "birthdate": "2025-11-03",
-        "age_group": "Puppy",
-        "breed": "Shepherd, German",
-        "secondary_breed": "Mixed Breed (Large)",
-        "weight_group": null,
-        "color": "Brown and Black",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 0,
-        "longitude": 0
       },
       {
         "name": "Theo",

@@ -4,8 +4,8 @@
     "new_dogs": [
       {
         "id": null,
-        "name": "Monica",
-        "url": "https://new.shelterluv.com/embed/animal/212559811",
+        "name": "Dozer ",
+        "url": "https://new.shelterluv.com/embed/animal/212553904",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -14,8 +14,8 @@
       },
       {
         "id": null,
-        "name": "Dozer ",
-        "url": "https://new.shelterluv.com/embed/animal/212553904",
+        "name": "Missy",
+        "url": "https://new.shelterluv.com/embed/animal/212534329",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -64,18 +64,8 @@
       },
       {
         "id": null,
-        "name": "Mozzy",
-        "url": "https://new.shelterluv.com/embed/animal/212553623",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Simba",
-        "url": "https://new.shelterluv.com/embed/animal/212546331",
+        "name": "Monica",
+        "url": "https://new.shelterluv.com/embed/animal/212559811",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -94,8 +84,18 @@
       },
       {
         "id": null,
-        "name": "Missy",
-        "url": "https://new.shelterluv.com/embed/animal/212534329",
+        "name": "Simba",
+        "url": "https://new.shelterluv.com/embed/animal/212546331",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Mozzy",
+        "url": "https://new.shelterluv.com/embed/animal/212553623",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -120,6 +120,26 @@
         "id": 212418519,
         "name": "Kyla",
         "url": "https://new.shelterluv.com/embed/animal/212418519",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
+        }
+      },
+      {
+        "id": 212459481,
+        "name": "Changa",
+        "url": "https://new.shelterluv.com/embed/animal/212459481",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
+        }
+      },
+      {
+        "id": 212533104,
+        "name": "Verbena",
+        "url": "https://new.shelterluv.com/embed/animal/212533104",
         "status": null,
         "location": "",
         "section_metadata": {
@@ -151,21 +171,21 @@
     ],
     "unlisted_dogs": [
       {
-        "id": 210495598,
-        "name": "Wilbur",
-        "url": "https://new.shelterluv.com/embed/animal/210495598",
+        "id": 212481029,
+        "name": "Bucket",
+        "url": "https://new.shelterluv.com/embed/animal/212481029",
         "status": "Available",
-        "location": "Main Campus - Main Kennel South, MKS-20",
+        "location": "Westside Adoption Center, Dog Kennel 6",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
       },
       {
-        "id": 212459481,
-        "name": "Changa",
-        "url": "https://new.shelterluv.com/embed/animal/212459481",
+        "id": 210495598,
+        "name": "Wilbur",
+        "url": "https://new.shelterluv.com/embed/animal/210495598",
         "status": "Available",
-        "location": "",
+        "location": "Main Campus - Main Kennel South, MKS-20",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -643,7 +663,7 @@
         }
       }
     ],
-    "total_dogs": 63
+    "total_dogs": 65
   },
   "message": null,
   "error": null
