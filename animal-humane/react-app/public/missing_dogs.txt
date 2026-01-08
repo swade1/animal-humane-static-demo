@@ -28,5 +28,4 @@ Missing dogs (ID: Name):
 212545856: Bruce
 212559039: Parzival
 212559176: Aech
-212559448: Phoebe
-212624209: Lover
+212559448: Jack 

@@ -3,28 +3,24 @@
   "data": {
     "new_dogs": [
       {
-        "name": "Aurora",
-        "url": "https://new.shelterluv.com/embed/animal/212534357"
-      },
-      {
-        "name": "Phoebe",
-        "url": "https://new.shelterluv.com/embed/animal/212559656"
-      },
-      {
-        "name": "Salt",
-        "url": "https://new.shelterluv.com/embed/animal/212534419"
-      },
-      {
-        "name": "Lola Bunny",
-        "url": "https://new.shelterluv.com/embed/animal/212534294"
+        "name": "Millie",
+        "url": "https://new.shelterluv.com/embed/animal/212624341"
       },
       {
         "name": "Rhino",
         "url": "https://new.shelterluv.com/embed/animal/212534398"
       },
       {
-        "name": "Feathertop",
-        "url": "https://new.shelterluv.com/embed/animal/212533042"
+        "name": "Theodore",
+        "url": "https://new.shelterluv.com/embed/animal/212534399"
+      },
+      {
+        "name": "Phoebe",
+        "url": "https://new.shelterluv.com/embed/animal/212559656"
+      },
+      {
+        "name": "Rose",
+        "url": "https://new.shelterluv.com/embed/animal/212534379"
       },
       {
         "name": "Daffy Duck",
@@ -39,28 +35,36 @@
         "url": "https://new.shelterluv.com/embed/animal/212533055"
       },
       {
-        "name": "Tweety Bird",
-        "url": "https://new.shelterluv.com/embed/animal/212534313"
+        "name": "Gambit",
+        "url": "https://new.shelterluv.com/embed/animal/212624022"
       },
       {
-        "name": "Theodore",
-        "url": "https://new.shelterluv.com/embed/animal/212534399"
+        "name": "Lover",
+        "url": "https://new.shelterluv.com/embed/animal/212624209"
+      },
+      {
+        "name": "Aurora",
+        "url": "https://new.shelterluv.com/embed/animal/212534357"
       },
       {
         "name": "Pepper",
         "url": "https://new.shelterluv.com/embed/animal/212534432"
       },
       {
-        "name": "Rose",
-        "url": "https://new.shelterluv.com/embed/animal/212534379"
+        "name": "Lola Bunny",
+        "url": "https://new.shelterluv.com/embed/animal/212534294"
       },
       {
-        "name": "Millie",
-        "url": "https://new.shelterluv.com/embed/animal/212624341"
+        "name": "Tweety Bird",
+        "url": "https://new.shelterluv.com/embed/animal/212534313"
       },
       {
-        "name": "Gambit",
-        "url": "https://new.shelterluv.com/embed/animal/212624022"
+        "name": "Feathertop",
+        "url": "https://new.shelterluv.com/embed/animal/212533042"
+      },
+      {
+        "name": "Salt",
+        "url": "https://new.shelterluv.com/embed/animal/212534419"
       },
       {
         "name": "Indigo",
@@ -139,6 +143,26 @@
       }
     ],
     "other_unlisted_dogs": [
+      {
+        "name": "Sandshrew",
+        "dog_id": 212097486,
+        "url": "https://new.shelterluv.com/embed/animal/212097486",
+        "location": "Main Campus - Main Kennel South, MKS-19",
+        "origin": "Edgewood Animal Control",
+        "status": "Available",
+        "intake_date": "2025-10-23",
+        "length_of_stay_days": 77,
+        "birthdate": "2022-10-23",
+        "age_group": "Adult",
+        "breed": "Terrier, American Pit Bull",
+        "secondary_breed": "Mixed Breed (Medium)",
+        "weight_group": "Medium (25-59)",
+        "color": "Black and White",
+        "bite_quarantine": 0,
+        "returned": 0,
+        "latitude": 35.0913,
+        "longitude": -106.1945
+      },
       {
         "name": "Charmander",
         "dog_id": 212477913,
@@ -255,7 +279,7 @@
         "weight_group": "Medium (25-59)",
         "color": "Black",
         "bite_quarantine": 0,
-        "returned": 1,
+        "returned": 2,
         "latitude": 35.1102,
         "longitude": -106.5823
       },

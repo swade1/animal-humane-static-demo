@@ -4,38 +4,8 @@
     "new_dogs": [
       {
         "id": null,
-        "name": "Aurora",
-        "url": "https://new.shelterluv.com/embed/animal/212534357",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Phoebe",
-        "url": "https://new.shelterluv.com/embed/animal/212559656",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Salt",
-        "url": "https://new.shelterluv.com/embed/animal/212534419",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
-        "name": "Lola Bunny",
-        "url": "https://new.shelterluv.com/embed/animal/212534294",
+        "name": "Millie",
+        "url": "https://new.shelterluv.com/embed/animal/212624341",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -54,8 +24,28 @@
       },
       {
         "id": null,
-        "name": "Feathertop",
-        "url": "https://new.shelterluv.com/embed/animal/212533042",
+        "name": "Theodore",
+        "url": "https://new.shelterluv.com/embed/animal/212534399",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Phoebe",
+        "url": "https://new.shelterluv.com/embed/animal/212559656",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Rose",
+        "url": "https://new.shelterluv.com/embed/animal/212534379",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -94,8 +84,8 @@
       },
       {
         "id": null,
-        "name": "Tweety Bird",
-        "url": "https://new.shelterluv.com/embed/animal/212534313",
+        "name": "Gambit",
+        "url": "https://new.shelterluv.com/embed/animal/212624022",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -104,8 +94,18 @@
       },
       {
         "id": null,
-        "name": "Theodore",
-        "url": "https://new.shelterluv.com/embed/animal/212534399",
+        "name": "Lover",
+        "url": "https://new.shelterluv.com/embed/animal/212624209",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Aurora",
+        "url": "https://new.shelterluv.com/embed/animal/212534357",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -124,8 +124,8 @@
       },
       {
         "id": null,
-        "name": "Rose",
-        "url": "https://new.shelterluv.com/embed/animal/212534379",
+        "name": "Lola Bunny",
+        "url": "https://new.shelterluv.com/embed/animal/212534294",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -134,8 +134,8 @@
       },
       {
         "id": null,
-        "name": "Millie",
-        "url": "https://new.shelterluv.com/embed/animal/212624341",
+        "name": "Tweety Bird",
+        "url": "https://new.shelterluv.com/embed/animal/212534313",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -144,8 +144,18 @@
       },
       {
         "id": null,
-        "name": "Gambit",
-        "url": "https://new.shelterluv.com/embed/animal/212624022",
+        "name": "Feathertop",
+        "url": "https://new.shelterluv.com/embed/animal/212533042",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
+        }
+      },
+      {
+        "id": null,
+        "name": "Salt",
+        "url": "https://new.shelterluv.com/embed/animal/212534419",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -209,6 +219,16 @@
       }
     ],
     "unlisted_dogs": [
+      {
+        "id": 212097486,
+        "name": "Sandshrew",
+        "url": "https://new.shelterluv.com/embed/animal/212097486",
+        "status": "Available",
+        "location": "Main Campus - Main Kennel South, MKS-19",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
       {
         "id": 212477913,
         "name": "Charmander",
@@ -633,18 +653,8 @@
       },
       {
         "id": 212559448,
-        "name": "Phoebe",
+        "name": "Jack",
         "url": "https://new.shelterluv.com/embed/animal/212559448",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "missing_dogs"
-        }
-      },
-      {
-        "id": 212624209,
-        "name": "Lover",
-        "url": "https://new.shelterluv.com/embed/animal/212624209",
         "status": null,
         "location": null,
         "section_metadata": {
@@ -652,7 +662,7 @@
         }
       }
     ],
-    "total_dogs": 64
+    "total_dogs": 65
   },
   "message": null,
   "error": null

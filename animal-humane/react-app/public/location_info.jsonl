@@ -301,7 +301,7 @@
 {"name":"Kitty","id":212009192,"origin":"Gallup McKinley County Humane Society","bite_quarantine":0,"returned":0,"latitude":35.543605,"longitude":-108.760272}
 {"name":"Kiwi","id":212533857,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
 {"name":"Knuckles","id":212150312,"origin":"Artesia Animal Shelter (Paws & Claws Humane Society)","bite_quarantine":0,"returned":0,"latitude":32.8423,"longitude":-104.4033}
-{"name":"Koala","id":212534230,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
+{"name":"Koala","id":212534230,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":1,"latitude":35.5939,"longitude":-105.2239}
 {"name":"Koda","id":210614408,"origin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":1,"latitude":35.0561,"longitude":-106.6646}
 {"name":"Kraken","id":212042228,"orgin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":0,"latitude":35.0561,"longitude":-106.6646}
 {"name":"Kyla","id":212418519,"origin":"Roswell Humane Society","bite_quarantine":0,"returned":0,"latitude":33.3930,"longitude":-104.5235} 
@@ -434,7 +434,7 @@
 {"name":"Phelps","id":210698425,"origin":"ABQ Animal Welfare Department","bite_quarantine":2,"returned":0,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Phill","id":210468592,"origin":"Stray","bite_quarantine":0,"returned":0}
 {"name":"Phineas","id":212477845,"origin":"RezDawg Rescue","latitude":35.0142,"longitude":-106.0846,"bite_quarantine":0,"returned":0}
-{"name":"Phoebe","id":212559448,"origin":"Tucumcari Animal Shelter","bite_quarantine":0,"returned":0,"latitude":35.1927,"longitude":-103.7197}
+{"name":"Phoebe","id":212559656,"origin":"Tucumcari Animal Shelter","bite_quarantine":0,"returned":0,"latitude":35.1927,"longitude":-103.7197}
 {"name":"Photon","id":211696559,"origin":"Forever Homes Animal Rescue","bite_quarantine":0,"returned":0,"latitude":32.8985,"longitude":-105.9510}
 {"name":"Pickle","id":211834394,"origin":"The Animal Services Center","bite_quarantine":0,"returned":0,"latitude":32.3128,"longitude":-106.7799}
 {"name":"Pine","id":212533004,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
@@ -627,7 +627,7 @@
 {"name":"Wess","id":208810001,"origin":"Owner Surrender","bite_quarantine":0,"returned":0}
 {"name":"Whisper","id":211274212,"origin":"Humane Society of Lincoln County","bite_quarantine":0,"returned":1,"latitude":33.331749,"longitude":-105.6650}
 {"name":"Wiggles","id":212042495,"origin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
-{"name":"Wilbur","id":210495598,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":1,"latitude":35.1102,"longitude":-106.5823}
+{"name":"Wilbur","id":210495598,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":2,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Wild","id":212042360,"orgin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":0,"latitude":35.0561,"longitude":-106.6646}
 {"name":"Wiley","id":211606525,"origin":"Otero County Animal Control","bite_quarantine":0,"returned":0,"latitude":32.8995,"longitude":-105.9603}
 {"name":"Wiley","id":212457630,"origin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":0,"latitude":35.0561,"longitude":-106.6646}
