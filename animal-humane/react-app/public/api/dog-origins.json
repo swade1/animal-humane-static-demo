@@ -5,17 +5,17 @@
       "origin": "ABQ Animal Welfare Department",
       "latitude": 35.1102,
       "longitude": -106.5823,
-      "count": 51,
+      "count": 53,
       "adopted": 39,
-      "available": 12
+      "available": 14
     },
     {
       "origin": "Humane Society of Lincoln County",
       "latitude": 33.331749,
       "longitude": -105.665,
       "count": 37,
-      "adopted": 34,
-      "available": 3
+      "adopted": 35,
+      "available": 2
     },
     {
       "origin": "Espanola Humane",
@@ -29,15 +29,15 @@
       "origin": "Bernalillo County Animal Care",
       "latitude": 35.0561,
       "longitude": -106.6646,
-      "count": 46,
+      "count": 48,
       "adopted": 44,
-      "available": 2
+      "available": 4
     },
     {
       "origin": "Socorro Animal Shelter and Adoption Center",
       "latitude": 34.0225,
       "longitude": -106.9031,
-      "count": 7,
+      "count": 8,
       "adopted": 6,
       "available": 1
     },
@@ -82,12 +82,12 @@
       "available": 2
     },
     {
-      "origin": "Forever Homes Animal Rescue",
-      "latitude": 32.8985,
-      "longitude": -105.951,
-      "count": 11,
-      "adopted": 11,
-      "available": 0
+      "origin": "City of Las Vegas Animal Care Center",
+      "latitude": 35.5939,
+      "longitude": -105.2239,
+      "count": 50,
+      "adopted": 27,
+      "available": 23
     },
     {
       "origin": "Sandoval County Animal Services",
@@ -98,20 +98,20 @@
       "available": 0
     },
     {
+      "origin": "Forever Homes Animal Rescue",
+      "latitude": 32.8985,
+      "longitude": -105.951,
+      "count": 11,
+      "adopted": 11,
+      "available": 0
+    },
+    {
       "origin": "Mountainair Animal Control",
       "latitude": 34.5197,
       "longitude": -106.2433,
       "count": 10,
       "adopted": 10,
       "available": 0
-    },
-    {
-      "origin": "City of Las Vegas Animal Care Center",
-      "latitude": 35.5939,
-      "longitude": -105.2239,
-      "count": 33,
-      "adopted": 27,
-      "available": 6
     },
     {
       "origin": "Tucumcari Animal Shelter",
@@ -142,8 +142,16 @@
       "latitude": 33.393,
       "longitude": -104.5235,
       "count": 18,
-      "adopted": 17,
-      "available": 1
+      "adopted": 18,
+      "available": 0
+    },
+    {
+      "origin": "Paws & Claws Rescue of Quay County",
+      "latitude": 35.1911,
+      "longitude": -103.615,
+      "count": 12,
+      "adopted": 12,
+      "available": 0
     },
     {
       "origin": "Otero County Animal Control",
@@ -162,11 +170,11 @@
       "available": 1
     },
     {
-      "origin": "Paws & Claws Rescue of Quay County",
-      "latitude": 35.1911,
-      "longitude": -103.615,
-      "count": 12,
-      "adopted": 12,
+      "origin": "Valencia County Animal Shelter",
+      "latitude": 34.7945,
+      "longitude": -106.74,
+      "count": 3,
+      "adopted": 3,
       "available": 0
     },
     {
@@ -175,14 +183,6 @@
       "longitude": -104.6825,
       "count": 11,
       "adopted": 11,
-      "available": 0
-    },
-    {
-      "origin": "Valencia County Animal Shelter",
-      "latitude": 34.7945,
-      "longitude": -106.74,
-      "count": 3,
-      "adopted": 3,
       "available": 0
     },
     {
@@ -197,8 +197,8 @@
       "origin": "Artesia Animal Shelter (Paws & Claws Humane Society)",
       "latitude": 32.8423,
       "longitude": -104.4033,
-      "count": 22,
-      "adopted": 22,
+      "count": 23,
+      "adopted": 23,
       "available": 0
     },
     {
@@ -216,6 +216,14 @@
       "count": 4,
       "adopted": 4,
       "available": 0
+    },
+    {
+      "origin": "RezDawg Rescue",
+      "latitude": 35.0142,
+      "longitude": -106.0846,
+      "count": 11,
+      "adopted": 6,
+      "available": 5
     },
     {
       "origin": "DAGSHIP Rescue",
@@ -248,14 +256,6 @@
       "count": 5,
       "adopted": 5,
       "available": 0
-    },
-    {
-      "origin": "RezDawg Rescue",
-      "latitude": 35.0142,
-      "longitude": -106.0846,
-      "count": 8,
-      "adopted": 6,
-      "available": 2
     },
     {
       "origin": "Petroglyph Animal Hospital",
@@ -298,17 +298,17 @@
       "available": 0
     },
     {
-      "origin": "Aztec Animal Shelter",
-      "latitude": 36.8305,
-      "longitude": -108.0095,
+      "origin": "Moriarty Animal Control",
+      "latitude": 34.9996,
+      "longitude": -106.0183,
       "count": 1,
       "adopted": 1,
       "available": 0
     },
     {
-      "origin": "Moriarty Animal Control",
-      "latitude": 34.9996,
-      "longitude": -106.0183,
+      "origin": "Aztec Animal Shelter",
+      "latitude": 36.8305,
+      "longitude": -108.0095,
       "count": 1,
       "adopted": 1,
       "available": 0
@@ -322,20 +322,20 @@
       "available": 0
     },
     {
-      "origin": "Stray Hearts Animal Shelter",
-      "latitude": 36.3849818,
-      "longitude": -105.5993335,
-      "count": 1,
-      "adopted": 1,
-      "available": 0
-    },
-    {
       "origin": "Labor of Love Project NM",
       "latitude": 34.1827,
       "longitude": -103.3245,
       "count": 1,
       "adopted": 0,
       "available": 1
+    },
+    {
+      "origin": "Stray Hearts Animal Shelter",
+      "latitude": 36.3849818,
+      "longitude": -105.5993335,
+      "count": 1,
+      "adopted": 1,
+      "available": 0
     }
   ],
   "message": null,
