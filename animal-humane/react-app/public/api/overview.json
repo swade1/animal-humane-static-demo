@@ -1,10 +1,10 @@
 {
   "success": true,
   "data": {
-    "total": 86,
-    "newThisWeek": 40,
-    "adoptedThisWeek": 29,
-    "trialAdoptions": 2,
+    "total": 84,
+    "newThisWeek": 38,
+    "adoptedThisWeek": 31,
+    "trialAdoptions": 3,
     "ageGroups": [
       {
         "age_group": "Adult",
