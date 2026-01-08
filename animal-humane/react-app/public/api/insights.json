@@ -6,18 +6,18 @@
         "date": "07/11/2025",
         "count": 12,
         "names": [
-          "Amelia",
-          "Ashley",
-          "Bella Michele",
-          "Dottie",
-          "Inky",
-          "Jack Sparrow",
-          "Kia ",
-          "King",
-          "Royce",
           "Ruby",
+          "Bella Michele",
+          "King",
+          "ZZ Top ",
+          "Ashley",
+          "Kia ",
+          "Amelia",
+          "Inky",
+          "Dottie",
           "Rumi",
-          "ZZ Top "
+          "Jack Sparrow",
+          "Royce"
         ]
       },
       {
@@ -41,10 +41,10 @@
         "date": "07/15/2025",
         "count": 4,
         "names": [
-          "Chama",
           "Chuck",
           "Herman",
-          "Yuno"
+          "Yuno",
+          "Chama"
         ]
       },
       {
@@ -66,37 +66,37 @@
         "date": "07/18/2025",
         "count": 5,
         "names": [
-          "Clark",
-          "Iridium",
           "Kash",
+          "Pinto",
           "Mustang",
-          "Pinto"
+          "Clark",
+          "Iridium"
         ]
       },
       {
         "date": "07/19/2025",
         "count": 6,
         "names": [
+          "Xenia",
           "Dhillon",
+          "Hershey",
           "Ford",
           "Gale",
-          "Hershey",
-          "Pearl",
-          "Xenia"
+          "Pearl"
         ]
       },
       {
         "date": "07/20/2025",
         "count": 9,
         "names": [
-          "Alex",
-          "Cinna",
-          "Gimli",
-          "Jasper ",
           "Marley",
-          "Meleni",
-          "Nala",
+          "Jasper ",
+          "Gimli",
           "Neon",
+          "Meleni",
+          "Cinna",
+          "Nala",
+          "Alex",
           "Subwoofer"
         ]
       },
@@ -110,17 +110,17 @@
         "count": 3,
         "names": [
           "Jasper ",
-          "Lewis",
-          "Thunder"
+          "Thunder",
+          "Lewis"
         ]
       },
       {
         "date": "07/23/2025",
         "count": 4,
         "names": [
-          "Burger",
-          "Eren",
           "Koda",
+          "Eren",
+          "Burger",
           "Sponge Bob"
         ]
       },
@@ -140,10 +140,10 @@
         "date": "07/26/2025",
         "count": 4,
         "names": [
-          "Alice",
           "Andy",
-          "April",
-          "Smooch"
+          "Alice",
+          "Smooch",
+          "April"
         ]
       },
       {
@@ -163,17 +163,17 @@
         "count": 4,
         "names": [
           "Bruce",
-          "Crumb",
           "Jackson",
-          "Loaf"
+          "Loaf",
+          "Crumb"
         ]
       },
       {
         "date": "07/30/2025",
         "count": 3,
         "names": [
-          "Chantrelle",
           "Mazey",
+          "Chantrelle",
           "Truffle"
         ]
       },
@@ -181,8 +181,8 @@
         "date": "07/31/2025",
         "count": 3,
         "names": [
-          "Gloria",
           "Ozzie",
+          "Gloria",
           "Tish"
         ]
       },
@@ -198,21 +198,21 @@
         "date": "08/02/2025",
         "count": 5,
         "names": [
-          "Fry",
           "Jack Frost",
+          "Fry",
+          "Stray Hold -Chocolate",
           "Princess Carolyn ",
-          "Sarah Lynn",
-          "Stray Hold -Chocolate"
+          "Sarah Lynn"
         ]
       },
       {
         "date": "08/03/2025",
         "count": 5,
         "names": [
-          "Asta",
           "Baxter",
           "Cinna",
           "Leela",
+          "Asta",
           "Shiitake"
         ]
       },
@@ -233,18 +233,18 @@
         "date": "08/06/2025",
         "count": 4,
         "names": [
-          "Callisto",
+          "Wilma",
           "Snoopy",
           "Storm",
-          "Wilma"
+          "Callisto"
         ]
       },
       {
         "date": "08/07/2025",
         "count": 3,
         "names": [
-          "Aspen",
           "Nova",
+          "Aspen",
           "Shiitake"
         ]
       },
@@ -252,22 +252,22 @@
         "date": "08/08/2025",
         "count": 5,
         "names": [
-          "Chip",
-          "Destiny",
-          "Midas",
           "Plum ",
-          "Rosie"
+          "Chip",
+          "Rosie",
+          "Destiny",
+          "Midas"
         ]
       },
       {
         "date": "08/09/2025",
         "count": 6,
         "names": [
-          "Finn",
           "Mary Kate",
-          "Messi",
-          "Mojo Jojo",
           "Nickel",
+          "Mojo Jojo",
+          "Finn",
+          "Messi",
           "Wiley"
         ]
       },
@@ -296,21 +296,21 @@
         "date": "08/13/2025",
         "count": 2,
         "names": [
-          "Leafeon",
-          "Noelle"
+          "Noelle",
+          "Leafeon"
         ]
       },
       {
         "date": "08/14/2025",
         "count": 8,
         "names": [
-          "Espeon",
-          "Flareon",
-          "Franklin",
+          "Trooper",
           "Hoagie",
+          "Franklin",
+          "Flareon",
           "Jolteon",
           "Sylveon",
-          "Trooper",
+          "Espeon",
           "Waffle"
         ]
       },
@@ -318,12 +318,12 @@
         "date": "08/15/2025",
         "count": 6,
         "names": [
-          "Eevee",
-          "Jinu",
-          "Liam ",
           "Major",
+          "Jinu",
           "Rumi",
-          "Zoey"
+          "Zoey",
+          "Eevee",
+          "Liam "
         ]
       },
       {
@@ -339,8 +339,8 @@
         "date": "08/17/2025",
         "count": 3,
         "names": [
-          "Aylin",
           "Starlight",
+          "Aylin",
           "Tank"
         ]
       },
@@ -353,9 +353,9 @@
         "date": "08/19/2025",
         "count": 3,
         "names": [
-          "Benji",
           "Maverick",
-          "Umbreon"
+          "Umbreon",
+          "Benji"
         ]
       },
       {
@@ -363,11 +363,11 @@
         "count": 6,
         "names": [
           "Ahsoka",
-          "Cherry",
           "Leroy",
-          "Primrose",
           "Strawberry",
-          "Watermelon"
+          "Watermelon",
+          "Cherry",
+          "Primrose"
         ]
       },
       {
@@ -381,25 +381,25 @@
         "date": "08/22/2025",
         "count": 9,
         "names": [
-          "Alani",
-          "Chantrelle",
-          "Eve",
           "Florence",
-          "Jade",
-          "Marina",
+          "Eve",
+          "Chantrelle",
           "Mira",
           "Mystery",
-          "Romance"
+          "Romance",
+          "Jade",
+          "Marina",
+          "Alani"
         ]
       },
       {
         "date": "08/23/2025",
         "count": 5,
         "names": [
-          "Betty Boop",
           "Dakota",
-          "Darla",
+          "Betty Boop",
           "Radish",
+          "Darla",
           "Theo"
         ]
       },
@@ -421,9 +421,9 @@
         "count": 4,
         "names": [
           "Alpha Dog",
-          "Avery",
+          "Pancake",
           "Mindy",
-          "Pancake"
+          "Avery"
         ]
       },
       {
@@ -431,16 +431,16 @@
         "count": 3,
         "names": [
           "Mila ",
-          "Nos",
-          "Yelena"
+          "Yelena",
+          "Nos"
         ]
       },
       {
         "date": "08/28/2025",
         "count": 4,
         "names": [
-          "Jenna ",
           "Littles ",
+          "Jenna ",
           "Photon",
           "Sinbad"
         ]
@@ -449,19 +449,19 @@
         "date": "08/29/2025",
         "count": 2,
         "names": [
-          "Abigail",
-          "Star"
+          "Star",
+          "Abigail"
         ]
       },
       {
         "date": "08/30/2025",
         "count": 5,
         "names": [
-          "Kiera",
+          "Remington",
+          "Sproket",
           "Pluto",
           "Proteus ",
-          "Remington",
-          "Sproket"
+          "Kiera"
         ]
       },
       {
@@ -470,8 +470,8 @@
         "names": [
           "Fili",
           "Lasagna",
-          "Mars",
-          "Oca"
+          "Oca",
+          "Mars"
         ]
       },
       {
@@ -483,11 +483,11 @@
         "date": "09/02/2025",
         "count": 5,
         "names": [
-          "Ben",
           "Florence",
-          "Lola ",
+          "Sylveon",
           "Minna",
-          "Sylveon"
+          "Lola ",
+          "Ben"
         ]
       },
       {
@@ -501,27 +501,27 @@
         "date": "09/04/2025",
         "count": 2,
         "names": [
-          "Jerry",
-          "Nick Furry"
+          "Nick Furry",
+          "Jerry"
         ]
       },
       {
         "date": "09/05/2025",
         "count": 2,
         "names": [
-          "Falsetto",
-          "Fiona"
+          "Fiona",
+          "Falsetto"
         ]
       },
       {
         "date": "09/06/2025",
         "count": 6,
         "names": [
-          "Brodie ",
           "Bruno",
-          "Bucky Barnes",
-          "Clint",
           "Marley",
+          "Clint",
+          "Bucky Barnes",
+          "Brodie ",
           "Scratch"
         ]
       },
@@ -529,10 +529,10 @@
         "date": "09/07/2025",
         "count": 4,
         "names": [
-          "Arthur Morgan",
-          "Cadbury",
           "Dr. Meatball",
-          "Esme "
+          "Esme ",
+          "Arthur Morgan",
+          "Cadbury"
         ]
       },
       {
@@ -546,19 +546,19 @@
         "date": "09/09/2025",
         "count": 4,
         "names": [
-          "Bilbo Waggins",
           "Bonnie",
-          "Cosmo",
-          "Minthara"
+          "Bilbo Waggins",
+          "Minthara",
+          "Cosmo"
         ]
       },
       {
         "date": "09/10/2025",
         "count": 3,
         "names": [
-          "Astarion",
+          "Peggy Carter",
           "Falcon",
-          "Peggy Carter"
+          "Astarion"
         ]
       },
       {
@@ -567,21 +567,21 @@
         "names": [
           "Aries",
           "Boba Fetch ",
+          "Tina",
           "Dusty",
           "Karlach",
-          "Shadowheart",
-          "Tina"
+          "Shadowheart"
         ]
       },
       {
         "date": "09/12/2025",
         "count": 6,
         "names": [
-          "Allegretto",
           "Amelia",
           "Brulee",
-          "Gale",
           "Lae'zel",
+          "Gale",
+          "Allegretto",
           "Ravioli"
         ]
       },
@@ -589,8 +589,8 @@
         "date": "09/13/2025",
         "count": 3,
         "names": [
-          "Captain America",
           "Ramen",
+          "Captain America",
           "Winnie"
         ]
       },
@@ -598,9 +598,9 @@
         "date": "09/14/2025",
         "count": 3,
         "names": [
-          "Muichiro",
           "Noelle",
-          "Oca"
+          "Oca",
+          "Muichiro"
         ]
       },
       {
@@ -621,27 +621,27 @@
         "count": 3,
         "names": [
           "Kiera",
-          "Muichiro",
-          "Vixie"
+          "Vixie",
+          "Muichiro"
         ]
       },
       {
         "date": "09/18/2025",
         "count": 3,
         "names": [
+          "Thunder",
           "Cora",
-          "Rex",
-          "Thunder"
+          "Rex"
         ]
       },
       {
         "date": "09/19/2025",
         "count": 4,
         "names": [
-          "Crescendo",
-          "Pickle ",
           "Rio",
-          "Umbreon"
+          "Umbreon",
+          "Crescendo",
+          "Pickle "
         ]
       },
       {
@@ -656,8 +656,8 @@
         "date": "09/21/2025",
         "count": 2,
         "names": [
-          "Duchess",
-          "Jenna "
+          "Jenna ",
+          "Duchess"
         ]
       },
       {
@@ -669,8 +669,8 @@
         "date": "09/23/2025",
         "count": 2,
         "names": [
-          "Gus ",
-          "Isabella"
+          "Isabella",
+          "Gus "
         ]
       },
       {
@@ -684,9 +684,9 @@
         "date": "09/25/2025",
         "count": 3,
         "names": [
+          "Tim",
           "Gnocchi",
-          "Havana",
-          "Tim"
+          "Havana"
         ]
       },
       {
@@ -703,23 +703,23 @@
         "date": "09/27/2025",
         "count": 2,
         "names": [
-          "Falkor",
-          "Scout"
+          "Scout",
+          "Falkor"
         ]
       },
       {
         "date": "09/28/2025",
         "count": 9,
         "names": [
-          "Captain Marvel",
-          "Cyclops",
-          "Dolly",
           "Ferris",
-          "Floki",
-          "Jean Grey",
+          "Captain Marvel",
+          "Dolly",
           "Lae'zel",
           "Rex",
-          "Skipper"
+          "Skipper",
+          "Jean Grey",
+          "Cyclops",
+          "Floki"
         ]
       },
       {
@@ -731,32 +731,32 @@
         "date": "09/30/2025",
         "count": 5,
         "names": [
-          "Alohomora",
           "Harley",
-          "Lemon Drop",
+          "Alohomora",
           "Ragnar",
-          "Rollo"
+          "Rollo",
+          "Lemon Drop"
         ]
       },
       {
         "date": "10/01/2025",
         "count": 5,
         "names": [
+          "Taco ",
+          "Lumos",
           "Diffindo",
           "Gale",
-          "Lumos",
-          "Pippin",
-          "Taco "
+          "Pippin"
         ]
       },
       {
         "date": "10/02/2025",
         "count": 6,
         "names": [
+          "Griffin",
           "Amortentia",
           "Apple Crisp",
           "Flower",
-          "Griffin",
           "Samwise",
           "Squish "
         ]
@@ -765,8 +765,8 @@
         "date": "10/03/2025",
         "count": 3,
         "names": [
-          "Posh Spice",
           "Raphtalia",
+          "Posh Spice",
           "Winston"
         ]
       },
@@ -774,31 +774,31 @@
         "date": "10/04/2025",
         "count": 13,
         "names": [
-          "Andi",
-          "Bambi",
+          "Rocco",
+          "Warbler",
           "Hazel",
           "Junebug",
-          "Novel",
+          "Wanda",
+          "Ziggy ",
+          "Andi",
+          "Vegeta",
           "Oregano",
           "Parsley",
-          "Rocco",
-          "Sissy",
-          "Vegeta",
-          "Wanda",
-          "Warbler",
-          "Ziggy "
+          "Bambi",
+          "Novel",
+          "Sissy"
         ]
       },
       {
         "date": "10/05/2025",
         "count": 6,
         "names": [
-          "Archie",
-          "Bumble",
           "Goku",
-          "Mordecai",
           "Rigby",
-          "Thumper"
+          "Mordecai",
+          "Thumper",
+          "Bumble",
+          "Archie"
         ]
       },
       {
@@ -810,11 +810,11 @@
         "date": "10/07/2025",
         "count": 7,
         "names": [
+          "Chuckie",
+          "Hemi",
           "Atlas",
           "Benji",
-          "Chuckie",
           "Daisy",
-          "Hemi",
           "Jojo ",
           "Lily Beth"
         ]
@@ -823,25 +823,25 @@
         "date": "10/08/2025",
         "count": 2,
         "names": [
-          "Elton",
-          "Merry"
+          "Merry",
+          "Elton"
         ]
       },
       {
         "date": "10/09/2025",
         "count": 3,
         "names": [
+          "Wilbur",
           "Mojo ",
-          "Tikka",
-          "Wilbur"
+          "Tikka"
         ]
       },
       {
         "date": "10/10/2025",
         "count": 3,
         "names": [
-          "Abigail",
           "Amortentia",
+          "Abigail",
           "Paige"
         ]
       },
@@ -850,8 +850,8 @@
         "count": 4,
         "names": [
           "Baxter",
-          "Pumpkin Patch ",
           "Sweet Pea ",
+          "Pumpkin Patch ",
           "Todd"
         ]
       },
@@ -859,11 +859,11 @@
         "date": "10/12/2025",
         "count": 5,
         "names": [
-          "Bowie ",
-          "Foxtrot",
           "Girby",
           "Lae'zel",
-          "Little Debbie"
+          "Little Debbie",
+          "Bowie ",
+          "Foxtrot"
         ]
       },
       {
@@ -882,9 +882,9 @@
         "date": "10/15/2025",
         "count": 3,
         "names": [
-          "Audrey Hepburn",
+          "Protego",
           "Jenna ",
-          "Protego"
+          "Audrey Hepburn"
         ]
       },
       {
@@ -905,21 +905,21 @@
         "date": "10/18/2025",
         "count": 7,
         "names": [
-          "Autumn",
-          "Bart",
-          "Denzel Washington",
-          "Herbert",
-          "Libby",
+          "Mateo",
           "Mahomes",
-          "Mateo"
+          "Herbert",
+          "Autumn",
+          "Denzel Washington",
+          "Bart",
+          "Libby"
         ]
       },
       {
         "date": "10/19/2025",
         "count": 2,
         "names": [
-          "Quinn",
-          "Tam"
+          "Tam",
+          "Quinn"
         ]
       },
       {
@@ -931,9 +931,9 @@
         "date": "10/21/2025",
         "count": 3,
         "names": [
-          "Airpod",
           "Stray Hold - Milo",
-          "Vinyl"
+          "Vinyl",
+          "Airpod"
         ]
       },
       {
@@ -947,19 +947,19 @@
         "date": "10/23/2025",
         "count": 3,
         "names": [
-          "Beta max",
+          "Kitty",
           "Flint Lockwood ",
-          "Kitty"
+          "Beta max"
         ]
       },
       {
         "date": "10/24/2025",
         "count": 5,
         "names": [
+          "Tangerine ",
+          "Simone",
           "Balto ",
           "Rita",
-          "Simone",
-          "Tangerine ",
           "Vanellope"
         ]
       },
@@ -967,26 +967,26 @@
         "date": "10/25/2025",
         "count": 10,
         "names": [
-          "CD",
-          "Chazz",
-          "Cheyenne",
+          "Tauriel",
           "Cochise",
-          "Honey Lemon",
+          "Moto Moto",
+          "Cheyenne",
           "Legolas",
           "Lily",
-          "Moto Moto",
-          "Radio",
-          "Tauriel"
+          "Chazz",
+          "Honey Lemon",
+          "CD",
+          "Radio"
         ]
       },
       {
         "date": "10/26/2025",
         "count": 4,
         "names": [
-          "Boombox",
+          "Zane",
           "Henry",
           "Walkman",
-          "Zane"
+          "Boombox"
         ]
       },
       {
@@ -1001,9 +1001,9 @@
         "count": 4,
         "names": [
           "Bao",
+          "Smokey",
           "Cassette",
-          "Joker",
-          "Smokey"
+          "Joker"
         ]
       },
       {
@@ -1018,9 +1018,9 @@
         "date": "10/30/2025",
         "count": 4,
         "names": [
+          "Rex",
           "Kilo",
           "Ophelia",
-          "Rex",
           "Tali"
         ]
       },
@@ -1037,13 +1037,13 @@
         "count": 8,
         "names": [
           "Bentley",
-          "Bing Bong",
           "Clementine",
-          "Commander Shepard ",
-          "Mary",
           "Rico",
-          "Rikku",
-          "Walkman"
+          "Mary",
+          "Bing Bong",
+          "Walkman",
+          "Commander Shepard ",
+          "Rikku"
         ]
       },
       {
@@ -1051,11 +1051,11 @@
         "count": 6,
         "names": [
           "Beemo",
+          "Karma",
           "Blarney",
           "Doe",
-          "Karma",
-          "Omega",
-          "Yuna"
+          "Yuna",
+          "Omega"
         ]
       },
       {
@@ -1067,19 +1067,19 @@
         "date": "11/04/2025",
         "count": 5,
         "names": [
-          "April",
-          "Fennec",
           "Jackson",
+          "April",
+          "Shylo",
           "Legolas",
-          "Shylo"
+          "Fennec"
         ]
       },
       {
         "date": "11/05/2025",
         "count": 3,
         "names": [
-          "Dylan",
           "Jake",
+          "Dylan",
           "Simba "
         ]
       },
@@ -1087,42 +1087,42 @@
         "date": "11/06/2025",
         "count": 6,
         "names": [
-          "Gypsy",
           "Pretty",
-          "Tails",
-          "Tulio ",
+          "Wild",
           "Warden",
-          "Wild"
+          "Gypsy",
+          "Tails",
+          "Tulio "
         ]
       },
       {
         "date": "11/07/2025",
         "count": 3,
         "names": [
-          "Canuck",
+          "Ivy",
           "Golden Knight",
-          "Ivy"
+          "Canuck"
         ]
       },
       {
         "date": "11/08/2025",
         "count": 7,
         "names": [
-          "Miguel",
           "Rowena",
-          "Snacks",
-          "Spice",
-          "Stray Hold - Lucy",
+          "Whisper",
           "Violet",
-          "Whisper"
+          "Snacks",
+          "Miguel",
+          "Stray Hold - Lucy",
+          "Spice"
         ]
       },
       {
         "date": "11/09/2025",
         "count": 2,
         "names": [
-          "Bandida",
-          "Junebug"
+          "Junebug",
+          "Bandida"
         ]
       },
       {
@@ -1136,9 +1136,9 @@
         "date": "11/11/2025",
         "count": 4,
         "names": [
-          "Fievel ",
           "Kera",
           "Rosie",
+          "Fievel ",
           "Skully"
         ]
       },
@@ -1147,43 +1147,43 @@
         "count": 6,
         "names": [
           "Autumn",
-          "Eleanor",
-          "Hank",
           "Kraken",
+          "Oiler",
+          "Hank",
           "Mr. Chips",
-          "Oiler"
+          "Eleanor"
         ]
       },
       {
         "date": "11/13/2025",
         "count": 2,
         "names": [
-          "Saleen",
-          "Trish Stratus"
+          "Trish Stratus",
+          "Saleen"
         ]
       },
       {
         "date": "11/14/2025",
         "count": 5,
         "names": [
-          "Dutchess",
-          "Elsa ",
           "Pudding",
           "Scotty Too Hotty",
-          "Stray Hold - Little Man"
+          "Elsa ",
+          "Stray Hold - Little Man",
+          "Dutchess"
         ]
       },
       {
         "date": "11/15/2025",
         "count": 8,
         "names": [
-          "Bean",
-          "Chai",
           "Dewey",
-          "Knuckles",
-          "Mica",
           "Rikishi",
+          "Chai",
+          "Knuckles",
           "Snake",
+          "Bean",
+          "Mica",
           "Stray Hold - Lucky"
         ]
       },
@@ -1193,11 +1193,11 @@
         "names": [
           "Belle",
           "Bruno",
-          "Freddy",
-          "Goofy",
-          "Gucci ",
           "Ramen",
-          "Shadow"
+          "Freddy",
+          "Shadow",
+          "Goofy",
+          "Gucci "
         ]
       },
       {
@@ -1213,8 +1213,8 @@
         "count": 3,
         "names": [
           "Bert",
-          "Flip",
-          "Turbo"
+          "Turbo",
+          "Flip"
         ]
       },
       {
@@ -1229,17 +1229,17 @@
         "date": "11/20/2025",
         "count": 3,
         "names": [
+          "Majesty",
           "Blossom ",
-          "Elliot",
-          "Majesty"
+          "Elliot"
         ]
       },
       {
         "date": "11/21/2025",
         "count": 3,
         "names": [
-          "Floppy",
           "Pretty",
+          "Floppy",
           "Willow"
         ]
       },
@@ -1247,23 +1247,23 @@
         "date": "11/22/2025",
         "count": 6,
         "names": [
-          "Benedict",
-          "China",
-          "Fresita",
+          "Sonic",
           "Jasper",
-          "Mozzie",
-          "Sonic"
+          "Fresita",
+          "China",
+          "Benedict",
+          "Mozzie"
         ]
       },
       {
         "date": "11/23/2025",
         "count": 5,
         "names": [
-          "Cassanova",
-          "Honeynut Cheerio",
           "Queen",
+          "Viva",
+          "Cassanova",
           "Stray Hold - Zia",
-          "Viva"
+          "Honeynut Cheerio"
         ]
       },
       {
@@ -1275,8 +1275,8 @@
         "date": "11/25/2025",
         "count": 3,
         "names": [
-          "Bruce Lee",
           "Poppy",
+          "Bruce Lee",
           "Short Rib"
         ]
       },
@@ -1284,9 +1284,9 @@
         "date": "11/26/2025",
         "count": 4,
         "names": [
-          "Ares",
           "Gambit",
           "Ra",
+          "Ares",
           "Tej"
         ]
       },
@@ -1304,28 +1304,28 @@
         "date": "11/29/2025",
         "count": 7,
         "names": [
-          "Jackie",
-          "Jackie Chan",
-          "Maple",
-          "Michelle Yeoh",
+          "Nugget",
           "Nicki",
           "Noelle",
-          "Nugget"
+          "Jackie",
+          "Jackie Chan",
+          "Michelle Yeoh",
+          "Maple"
         ]
       },
       {
         "date": "11/30/2025",
         "count": 9,
         "names": [
+          "Vixie",
           "Buck",
+          "Peaches",
+          "Roo",
           "Gucci ",
           "Hazel",
-          "Jet Li",
-          "Peaches",
-          "Prairie ",
-          "Roo",
           "Saki",
-          "Vixie"
+          "Jet Li",
+          "Prairie "
         ]
       },
       {
@@ -1338,9 +1338,9 @@
         "count": 4,
         "names": [
           "Cecilia",
-          "Latte",
           "Reese's Puff",
-          "Stray Hold - Angel"
+          "Stray Hold - Angel",
+          "Latte"
         ]
       },
       {
@@ -1354,36 +1354,36 @@
         "date": "12/04/2025",
         "count": 4,
         "names": [
-          "Cruz Azul",
-          "Espanyol",
+          "Mount Rainier",
           "Florentina",
-          "Mount Rainier"
+          "Espanyol",
+          "Cruz Azul"
         ]
       },
       {
         "date": "12/05/2025",
         "count": 5,
         "names": [
-          "Crystal Palace",
           "Mandy",
-          "Rayo Vallecano",
+          "Zeus",
           "Roxy",
-          "Zeus"
+          "Rayo Vallecano",
+          "Crystal Palace"
         ]
       },
       {
         "date": "12/06/2025",
         "count": 10,
         "names": [
-          "Blaze",
-          "Burrow",
-          "Celta Vigo",
-          "Clementine",
           "Dahlia",
-          "Eeyore",
-          "Hallie",
-          "Missy",
+          "Clementine",
+          "Burrow",
           "Mount Everest",
+          "Missy",
+          "Blaze",
+          "Hallie",
+          "Celta Vigo",
+          "Eeyore",
           "Roz"
         ]
       },
@@ -1391,9 +1391,9 @@
         "date": "12/07/2025",
         "count": 3,
         "names": [
+          "Vesuvius",
           "Azog",
-          "Patches",
-          "Vesuvius"
+          "Patches"
         ]
       },
       {
@@ -1405,18 +1405,18 @@
         "date": "12/09/2025",
         "count": 4,
         "names": [
-          "King George",
           "Ladybird",
           "Miku",
-          "Peter"
+          "Peter",
+          "King George"
         ]
       },
       {
         "date": "12/10/2025",
         "count": 2,
         "names": [
-          "Darla ",
-          "Julia"
+          "Julia",
+          "Darla "
         ]
       },
       {
@@ -1427,9 +1427,9 @@
           "Mauna Loa",
           "Oscar",
           "Rosita",
-          "Stray Hold- The Dude",
           "Tyler",
-          "Yor"
+          "Yor",
+          "Stray Hold- The Dude"
         ]
       },
       {
@@ -1437,28 +1437,28 @@
         "count": 4,
         "names": [
           "Keebler",
+          "Stray Hold-Buu",
           "Pongo",
-          "Scottie",
-          "Stray Hold-Buu"
+          "Scottie"
         ]
       },
       {
         "date": "12/13/2025",
         "count": 4,
         "names": [
-          " Love-A-Lot Bear",
           "Brandy ",
-          "Star Fox",
-          "Tinkerbell"
+          "Tinkerbell",
+          " Love-A-Lot Bear",
+          "Star Fox"
         ]
       },
       {
         "date": "12/14/2025",
         "count": 5,
         "names": [
-          "Bourbon",
-          "Snowy",
           "Socks",
+          "Snowy",
+          "Bourbon",
           "Sonic Cheeseburger",
           "Stray Hold - Maria "
         ]
@@ -1489,42 +1489,42 @@
         "names": [
           "Anya",
           "Coal",
-          "Lily",
-          "Prince Charming"
+          "Prince Charming",
+          "Lily"
         ]
       },
       {
         "date": "12/19/2025",
         "count": 5,
         "names": [
-          "Lala",
+          "Plankton",
           "Mowgli",
           "Pippin",
-          "Plankton",
-          "Twinkle"
+          "Twinkle",
+          "Lala"
         ]
       },
       {
         "date": "12/20/2025",
         "count": 8,
         "names": [
-          "Apollo",
-          "Cyclone",
-          "Fletcher",
           "Huckleberry",
+          "Wiggles",
+          "Apollo",
           "Molly",
+          "Fletcher",
           "Sparrow",
-          "Tajin",
-          "Wiggles"
+          "Cyclone",
+          "Tajin"
         ]
       },
       {
         "date": "12/21/2025",
         "count": 4,
         "names": [
-          "Einstein",
-          "Loid",
           "Tootsie Roll",
+          "Loid",
+          "Einstein",
           "Zelda"
         ]
       },
@@ -1539,10 +1539,10 @@
         "date": "12/23/2025",
         "count": 6,
         "names": [
-          "Black Forest",
+          "Chantilly",
           "Blackberry",
           "Carrot Cake",
-          "Chantilly",
+          "Black Forest",
           "Crystal Palace",
           "Prince Charming"
         ]
@@ -1561,16 +1561,16 @@
         "date": "12/26/2025",
         "count": 10,
         "names": [
+          "Winnie",
           "Airpod",
           "Armadillo",
-          "Autumn",
-          "Blaze",
-          "Lil K",
           "Ludo",
+          "Blaze",
+          "Autumn",
           "Matlock",
-          "Moose",
+          "Lil K",
           "Stray Hold - Dolly",
-          "Winnie"
+          "Moose"
         ]
       },
       {
@@ -1578,10 +1578,10 @@
         "count": 6,
         "names": [
           "Buttercup ",
-          "Echo",
-          "Fen'len",
           "Latte",
+          "Echo",
           "Taranis",
+          "Fen'len",
           "Triton"
         ]
       },
@@ -1589,9 +1589,9 @@
         "date": "12/28/2025",
         "count": 3,
         "names": [
-          "Bucket",
           "Little John",
-          "Lotus"
+          "Lotus",
+          "Bucket"
         ]
       },
       {
@@ -1603,20 +1603,88 @@
         "date": "12/30/2025",
         "count": 3,
         "names": [
+          "Willow",
           "Blue's Clues",
-          "Navy",
-          "Willow"
+          "Navy"
         ]
       },
       {
         "date": "12/31/2025",
         "count": 5,
         "names": [
-          "Chamoy",
-          "Cheese",
-          "Chimi",
           "Destiny",
-          "Eowyn"
+          "Eowyn",
+          "Chamoy",
+          "Chimi",
+          "Cheese"
+        ]
+      },
+      {
+        "date": "01/01/2026",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "01/02/2026",
+        "count": 12,
+        "names": [
+          "Prescott",
+          "Captain Kidd",
+          "Dexter ",
+          "Harper ",
+          "Chive",
+          "Fig",
+          "Sumac",
+          "Evergreen",
+          "Panda",
+          "Koala",
+          "Sun Bear",
+          "Polar Bear"
+        ]
+      },
+      {
+        "date": "01/03/2026",
+        "count": 8,
+        "names": [
+          "Wilbur",
+          "Buddy",
+          "Scottie",
+          "Robin Hood",
+          "Pinon",
+          "Snapdragon",
+          "Udon",
+          "Sloth Bear"
+        ]
+      },
+      {
+        "date": "01/04/2026",
+        "count": 6,
+        "names": [
+          "Tom Hardy",
+          "Sake",
+          "Tonkatsu",
+          "Takoyaki",
+          "Yakitori",
+          "Kimchi"
+        ]
+      },
+      {
+        "date": "01/05/2026",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "01/06/2026",
+        "count": 0,
+        "names": []
+      },
+      {
+        "date": "01/07/2026",
+        "count": 3,
+        "names": [
+          "Kyla",
+          "Changa",
+          "Verbena"
         ]
       }
     ]
