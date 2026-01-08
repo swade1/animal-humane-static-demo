@@ -68,8 +68,35 @@
       }
     ],
     "returned_dogs": [],
-    "adopted_dogs": [],
+    "adopted_dogs": [
+      {
+        "name": "Goldenrod",
+        "dog_id": 212533055,
+        "url": "https://new.shelterluv.com/embed/animal/212533055",
+        "location": ""
+      }
+    ],
     "trial_adoption_dogs": [
+      {
+        "name": "Bucket",
+        "dog_id": 212481029,
+        "url": "https://new.shelterluv.com/embed/animal/212481029",
+        "location": "Westside Adoption Center, Trial Adoption",
+        "origin": "Owner Surrender",
+        "status": "Available",
+        "intake_date": "2025-12-30",
+        "length_of_stay_days": 9,
+        "birthdate": "2024-12-23",
+        "age_group": "Adult",
+        "breed": "Terrier, Pit Bull",
+        "secondary_breed": "",
+        "weight_group": "Large (60-99)",
+        "color": "Sable and White",
+        "bite_quarantine": 0,
+        "returned": 1,
+        "latitude": 0,
+        "longitude": 0
+      },
       {
         "name": "Noah",
         "dog_id": 212175617,
@@ -213,26 +240,6 @@
         "longitude": -106.5823
       },
       {
-        "name": "Bucket",
-        "dog_id": 212481029,
-        "url": "https://new.shelterluv.com/embed/animal/212481029",
-        "location": "Westside Adoption Center, Dog Kennel 6",
-        "origin": "Owner Surrender",
-        "status": "Available",
-        "intake_date": "2025-12-30",
-        "length_of_stay_days": 9,
-        "birthdate": "2024-12-23",
-        "age_group": "Adult",
-        "breed": "Terrier, Pit Bull",
-        "secondary_breed": "",
-        "weight_group": "Large (60-99)",
-        "color": "Sable and White",
-        "bite_quarantine": 0,
-        "returned": 1,
-        "latitude": 0,
-        "longitude": 0
-      },
-      {
         "name": "Wilbur",
         "dog_id": 210495598,
         "url": "https://new.shelterluv.com/embed/animal/210495598",
@@ -251,26 +258,6 @@
         "returned": 1,
         "latitude": 35.1102,
         "longitude": -106.5823
-      },
-      {
-        "name": "Simba",
-        "dog_id": 212546331,
-        "url": "https://new.shelterluv.com/embed/animal/212546331",
-        "location": "Main Kennel North, Main Campus - MKN-11",
-        "origin": "",
-        "status": "Available",
-        "intake_date": "2026-01-03",
-        "length_of_stay_days": 4,
-        "birthdate": "2025-01-03",
-        "age_group": "Adult",
-        "breed": "Dachshund",
-        "secondary_breed": "Mixed Breed (Small)",
-        "weight_group": "Small (0-24)",
-        "color": "White and Sable",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 0,
-        "longitude": 0
       },
       {
         "name": "Theo",

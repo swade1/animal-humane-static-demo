@@ -164,8 +164,29 @@
       }
     ],
     "returned_dogs": [],
-    "adopted_dogs": [],
+    "adopted_dogs": [
+      {
+        "id": 212533055,
+        "name": "Goldenrod",
+        "url": "https://new.shelterluv.com/embed/animal/212533055",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
+        }
+      }
+    ],
     "trial_dogs": [
+      {
+        "id": 212481029,
+        "name": "Bucket",
+        "url": "https://new.shelterluv.com/embed/animal/212481029",
+        "status": "Available",
+        "location": "Westside Adoption Center, Trial Adoption",
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
+      },
       {
         "id": 212175617,
         "name": "Noah",
@@ -239,31 +260,11 @@
         }
       },
       {
-        "id": 212481029,
-        "name": "Bucket",
-        "url": "https://new.shelterluv.com/embed/animal/212481029",
-        "status": "Available",
-        "location": "Westside Adoption Center, Dog Kennel 6",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
         "id": 210495598,
         "name": "Wilbur",
         "url": "https://new.shelterluv.com/embed/animal/210495598",
         "status": "Available",
         "location": "Main Campus - Main Kennel South, MKS-20",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 212546331,
-        "name": "Simba",
-        "url": "https://new.shelterluv.com/embed/animal/212546331",
-        "status": "Available",
-        "location": "Main Kennel North, Main Campus - MKN-11",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
