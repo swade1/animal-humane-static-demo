@@ -1,7 +1,72 @@
 {
   "success": true,
   "data": {
-    "new_dogs": [],
+    "new_dogs": [
+      {
+        "name": "Feathertop",
+        "url": "https://new.shelterluv.com/embed/animal/212533042"
+      },
+      {
+        "name": "Lola Bunny",
+        "url": "https://new.shelterluv.com/embed/animal/212534294"
+      },
+      {
+        "name": "Pepper",
+        "url": "https://new.shelterluv.com/embed/animal/212534432"
+      },
+      {
+        "name": "Tweety Bird",
+        "url": "https://new.shelterluv.com/embed/animal/212534313"
+      },
+      {
+        "name": "Salt",
+        "url": "https://new.shelterluv.com/embed/animal/212534419"
+      },
+      {
+        "name": "Rose",
+        "url": "https://new.shelterluv.com/embed/animal/212534379"
+      },
+      {
+        "name": "Goldenrod",
+        "url": "https://new.shelterluv.com/embed/animal/212533055"
+      },
+      {
+        "name": "Millie",
+        "url": "https://new.shelterluv.com/embed/animal/212624341"
+      },
+      {
+        "name": "Izzy",
+        "url": "https://new.shelterluv.com/embed/animal/212534346"
+      },
+      {
+        "name": "Rhino",
+        "url": "https://new.shelterluv.com/embed/animal/212534398"
+      },
+      {
+        "name": "Phoebe",
+        "url": "https://new.shelterluv.com/embed/animal/212559656"
+      },
+      {
+        "name": "Gambit",
+        "url": "https://new.shelterluv.com/embed/animal/212624022"
+      },
+      {
+        "name": "Daffy Duck",
+        "url": "https://new.shelterluv.com/embed/animal/212534307"
+      },
+      {
+        "name": "Indigo",
+        "url": "https://new.shelterluv.com/embed/animal/212533081"
+      },
+      {
+        "name": "Theodore",
+        "url": "https://new.shelterluv.com/embed/animal/212534399"
+      },
+      {
+        "name": "Aurora",
+        "url": "https://new.shelterluv.com/embed/animal/212534357"
+      }
+    ],
     "returned_dogs": [],
     "adopted_dogs": [],
     "trial_adoption_dogs": [
@@ -228,7 +293,7 @@
         "longitude": -106.7799
       },
       {
-        "name": "Stray Hold- Tina Fey",
+        "name": "Tina Fey",
         "dog_id": 212454118,
         "url": "https://new.shelterluv.com/embed/animal/212454118",
         "location": "Foster Home",
@@ -248,7 +313,7 @@
         "longitude": 0
       },
       {
-        "name": "Stray Hold- Chris Farley",
+        "name": "Chris Farley",
         "dog_id": 212454079,
         "url": "https://new.shelterluv.com/embed/animal/212454079",
         "location": "Foster Home",
@@ -268,7 +333,7 @@
         "longitude": 0
       },
       {
-        "name": "Stray Hold- Amy Poehler",
+        "name": "Amy Poehler",
         "dog_id": 212454142,
         "url": "https://new.shelterluv.com/embed/animal/212454142",
         "location": "Foster Home",
