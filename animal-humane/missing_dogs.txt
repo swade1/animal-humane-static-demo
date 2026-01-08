@@ -1,4 +1,5 @@
 Missing dogs (ID: Name):
+999999: Alpha Dog
 212459505: Burrito
 212459528: Hatch
 212459546: Taquito
@@ -6,9 +7,6 @@ Missing dogs (ID: Name):
 212477861: Ferb
 212533004: Pine
 212533023: Bearberry
-212533042: Feathertop
-212533055: Goldenrod
-212533081: Indigo
 212533685: Lily
 212533727: Melon
 212533742: Honeydew
@@ -27,15 +25,9 @@ Missing dogs (ID: Name):
 212533962: Pookie
 212533966: Velociraptor
 212533969: Triceratops
-212534294: Lola Bunny
-212534307: Daffy Duck
-212534313: Tweety Bird
-212534346: Izzy
-212534357: Aurora
-212534379: Rose
-212534398: Rhino
-212534399: Theodore
-212534419: Salt
-212534432: Pepper
 212534442: Daenerys
 212545856: Bruce
+212559039: Parzival
+212559176: Aech
+212559448: Jack
+212624209: Lover
