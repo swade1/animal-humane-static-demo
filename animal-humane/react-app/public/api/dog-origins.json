@@ -86,8 +86,8 @@
       "latitude": 35.5939,
       "longitude": -105.2239,
       "count": 50,
-      "adopted": 27,
-      "available": 23
+      "adopted": 28,
+      "available": 22
     },
     {
       "origin": "Sandoval County Animal Services",
@@ -336,6 +336,14 @@
       "count": 1,
       "adopted": 1,
       "available": 0
+    },
+    {
+      "origin": "Raton Humane Society",
+      "latitude": 36.8705,
+      "longitude": -104.4309,
+      "count": 3,
+      "adopted": 0,
+      "available": 3
     }
   ],
   "message": null,
