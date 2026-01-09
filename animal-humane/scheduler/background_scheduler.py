@@ -343,6 +343,9 @@ def _parse_index_datetime(index_name: str):
     except Exception:
         return None
 
+def run_orchestrator():
+    subprocess.run(["python", "orchestrator.py"], check=True)
+
 
 def main():
     logger.info("Starting Animal Humane Background Scheduler")
@@ -361,13 +364,13 @@ def main():
     schedule.every().day.at("17:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 5 PM MT
     schedule.every().day.at("19:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 7 PM MT
     
-    # Run diff analysis 10 minutes after each scrape
-    schedule.every().day.at("09:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 9:05 AM MT
-    schedule.every().day.at("11:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 11:05 AM MT
-    schedule.every().day.at("13:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 1:05 PM MT
-    schedule.every().day.at("15:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 3:05 PM MT
-    schedule.every().day.at("17:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 5:05 PM MT
-    schedule.every().day.at("19:05").do(scheduler.run_async, scheduler.run_diff_analysis)  # 7:05 PM MT
+    # Schedule orchestrator.py to run at 9:05, 11:05, 13:05, 15:05, 17:05, 19:05 MT
+    schedule.every().day.at("09:05").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("11:05").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("13:05").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("15:05").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("17:05").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("19:05").do(scheduler.run_async, run_orchestrator)
     
     # Health check every hour
     schedule.every().hour.do(scheduler.run_async, scheduler.health_check)  

@@ -1,0 +1,7 @@
+🔄 Updating static data for portfolio demo...
+⚠️  Skipping timestamp update (manual control active)
+✅ Synced location_info.jsonl to React public directory
+   📊 634 dog records synchronized
+🎉 Static data update complete (timestamp preserved)!
+INFO:     Will watch for changes in these directories: ['/Users/swade/KIRO-project/professional-portfolio/animal-humane']
+ERROR:    [Errno 48] Address already in use

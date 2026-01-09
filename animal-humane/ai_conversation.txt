@@ -1,0 +1,94 @@
+
+curl -s 'http://localhost:8000/openapi.json' | jq '.paths | keys[] | select(.=="/api/debug/raw-diff")'
+ Enable shell integration to improve command detection
+
+curl -s -X GET 'http://localhost:8000/api/debug/raw-diff' -D -
+ Enable shell integration to improve command detection
+
+curl -s -X GET 'http://localhost:8000/debug/es-connection'
+ Enable shell integration to improve command detection
+
+Proceeding to add a debug endpoint /api/debug/inspect-prince that returns intermediate values (availables count, whether Prince is considered available, most recent index, dog_groups for a trial record, and the full diff result) so we can trace where Prince is being excluded.
+
+Edited
+main.py+36-0
+docker cp /Users/swade/KIRO-project/professional-portfolio/animal-humane/api/main.py animal-humane-api-1:/app/api/main.py
+ Enable shell integration to improve command detection
+
+docker exec -it animal-humane-api-1 /bin/sh -c 'kill -HUP 1 || true'
+ Enable shell integration to improve command detection
+
+curl -s -X GET 'http://localhost:8000/api/debug/inspect-prince'
+ Enable shell integration to improve command detection
+
+curl -s 'http://localhost:8000/openapi.json' | jq '.paths | keys[] | select(.=="/api/debug/inspect-prince")'
+ Enable shell integration to improve command detection
+
+docker restart animal-humane-api-1
+ Enable shell integration to improve command detection
+
+curl -s 'http://localhost:8000/openapi.json' | jq '.paths | keys[] | select(.=="/api/debug/inspect-prince")'
+ Enable shell integration to improve command detection
+
+curl -s -X GET 'http://localhost:8000/api/debug/inspect-prince'
+ Enable shell integration to improve command detection
+
+curl -s -X GET 'http://localhost:9200/animal-humane-*/_search' -H 'Content-Type: application/json' -d '{"query": {"match": {"id": 212434888}}, "sort": [{"_index": {"order": "desc"}}], "size": 10 }'
+ Enable shell integration to improve command detection
+
+docker logs --tail 200 animal-humane-api-1 | tail -n 200
+ Enable shell integration to improve command detection
+
+docker exec -it animal-humane-api-1 python3 - << 'PY'
+from shelterdog_tracker.elasticsearch_handler import ElasticsearchHandler
+h = ElasticsearchHandler(host='http://elasticsearch:9200', index_name='animal-humane-latest')
+most_recent = h.get_most_recent_index()
+print('Most recent index:', most_recent)
+trial_dog = {'name':'Prince Charming','dog_id':212434888,'url':'https://new.shelterluv.com/embed/animal/212434888','location':'Trial Adoption'}
+print('get_dog_groups:', h.get_dog_groups([trial_dog], most_recent))
+# Run explicit search used in verification step
+body = {"sort": {"_index": {"order": "desc"}}, "query": {"match": {"id": 212434888}}, "size": 1}
+resp = h.es.search(index='animal-humane-*', body=body)
+print('search hits count:', len(resp.get('hits', {}).get('hits', [])))
+if resp.get('hits', {}).get('hits', []):
+    print('top index:', resp['hits']['hits'][0]['_index'], 'status:', resp['hits']['hits'][0]['_source'].get('status'))
+PY
+ Enable shell integration to improve command detection
+
+docker exec animal-humane-api-1 python3 - << 'PY'
+from shelterdog_tracker.elasticsearch_handler import ElasticsearchHandler
+h = ElasticsearchHandler(host='http://elasticsearch:9200', index_name='animal-humane-latest')
+most_recent = h.get_most_recent_index()
+print('Most recent index:', most_recent)
+trial_dog = {'name':'Prince Charming','dog_id':212434888,'url':'https://new.shelterluv.com/embed/animal/212434888','location':'Trial Adoption'}
+print('get_dog_groups:', h.get_dog_groups([trial_dog], most_recent))
+body = {"sort": {"_index": {"order": "desc"}}, "query": {"match": {"id": 212434888}}, "size": 1}
+resp = h.es.search(index='animal-humane-*', body=body)
+print('search hits count:', len(resp.get('hits', {}).get('hits', [])))
+if resp.get('hits', {}).get('hits', []):
+    print('top index:', resp['hits']['hits'][0]['_index'], 'status:', resp['hits']['hits'][0]['_source'].get('status'))
+PY
+ Enable shell integration to improve command detection
+
+Edited
+elasticsearch_handler.py
+docker cp /Users/swade/KIRO-project/professional-portfolio/animal-humane/shelterdog_tracker/elasticsearch_handler.py animal-humane-api-1:/app/shelterdog_tracker/elasticsearch_handler.py
+ Enable shell integration to improve command detection
+
+docker exec -it animal-humane-api-1 /bin/sh -c 'kill -HUP 1 || true'
+ Enable shell integration to improve command detection
+
+curl -s -X GET 'http://localhost:8000/api/debug/inspect-prince'
+ Enable shell integration to improve command detection
+
+docker logs --tail 200 animal-humane-api-1
+ Enable shell integration to improve command detection
+
+Edited
+elasticsearch_handler.py
+Edited
+elasticsearch_handler.py
+docker cp /Users/swade/KIRO-project/professional-portfolio/animal-humane/shelterdog_tracker/elasticsearch_handler.py animal-humane-api-1:/app/shelterdog_tracker/elasticsearch_handler.py
+Are you copying elasticsearch_handler.py into a docker container?
+
+Yes — I copied the updated elasticsearch_handler.py into the running container animal-humane-api-1 (via docker cp) and signaled the process to reload; the earlier copy succeeded (a later copy attempt was cancelled), and I can re-copy/restart if you want.

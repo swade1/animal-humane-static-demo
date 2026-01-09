@@ -56,5 +56,13 @@ def main():
     logger.info("Main application startup sequence completed successfully")
 
 
+    #kick off the diff_indices_runner.py equivalent (docker command at the top of diff_...py file)
+   
+    #automatically execute whatever updates are necessary.
+
+    #kick off the generate_*.py scripts 
+
+    #Check if vercel updates or if you have to trigger a re-deployment somehow.
+
 if __name__ == "__main__":
     main()

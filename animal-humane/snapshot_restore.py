@@ -7,7 +7,7 @@ snapshot_name = "animal_humane_bulk_snapshot"
 
 # Step 1: Create a snapshot for all indices
 # List all indices if you want to be more selective:
-indices = ",".join(es.indices.get_alias("*").keys())
+indices = ",".join(es.indices.get_alias(index="*").keys())
 snapshot_body = {
     "indices": indices,  # Use "_all" for all indices, or comma-separated names
     "include_global_state": False

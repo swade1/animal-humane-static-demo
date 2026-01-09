@@ -146,6 +146,24 @@
             "length_of_stay_days": 3
           },
           {
+            "name": "Pocky",
+            "breed": "Hound",
+            "age_group": "Puppy",
+            "length_of_stay_days": 9
+          },
+          {
+            "name": "Allsups",
+            "breed": "Shepherd, German",
+            "age_group": "Puppy",
+            "length_of_stay_days": 23
+          },
+          {
+            "name": "Bean",
+            "breed": "Shepherd, German",
+            "age_group": "Puppy",
+            "length_of_stay_days": 23
+          },
+          {
             "name": "Charmander",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -174,24 +192,6 @@
             "breed": "Shepherd",
             "age_group": "Puppy",
             "length_of_stay_days": 10
-          },
-          {
-            "name": "Pocky",
-            "breed": "Hound",
-            "age_group": "Puppy",
-            "length_of_stay_days": 9
-          },
-          {
-            "name": "Allsups",
-            "breed": "Shepherd, German",
-            "age_group": "Puppy",
-            "length_of_stay_days": 23
-          },
-          {
-            "name": "Bean",
-            "breed": "Shepherd, German",
-            "age_group": "Puppy",
-            "length_of_stay_days": 23
           },
           {
             "name": "Missy",
@@ -272,12 +272,6 @@
             "length_of_stay_days": 3
           },
           {
-            "name": "Tina Fey",
-            "breed": "Chihuahua",
-            "age_group": "Puppy",
-            "length_of_stay_days": 24
-          },
-          {
             "name": "Izzy",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -290,21 +284,9 @@
             "length_of_stay_days": 9
           },
           {
-            "name": "Rose",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 9
-          },
-          {
             "name": "Rhino",
             "breed": "Chihuahua, Short Coat",
             "age_group": "Adult",
-            "length_of_stay_days": 9
-          },
-          {
-            "name": "Theodore",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
             "length_of_stay_days": 9
           },
           {
@@ -330,6 +312,24 @@
             "breed": "Retriever, Labrador",
             "age_group": "Adult",
             "length_of_stay_days": 2
+          },
+          {
+            "name": "Tina Fey",
+            "breed": "Chihuahua",
+            "age_group": "Puppy",
+            "length_of_stay_days": 24
+          },
+          {
+            "name": "Rose",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 9
+          },
+          {
+            "name": "Theodore",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 9
           },
           {
             "name": "Chris Farley",

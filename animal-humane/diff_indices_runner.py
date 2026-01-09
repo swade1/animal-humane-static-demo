@@ -40,19 +40,24 @@ def run_updates(handler, results):
     handler.update_dogs(results)  
 
 if __name__ == "__main__":
+    import sys
+    print("[DEBUG] Starting diff_indices_runner.py", file=sys.stderr, flush=True)
     today_str = datetime.now().strftime('%m%d%Y')
     today_time = datetime.now().strftime('%Hh%Mm')
     index_name = f"animal-humane-{today_str}-{today_time}"
 
+    print(f"[DEBUG] Creating ElasticsearchHandler for index: {index_name}", file=sys.stderr, flush=True)
     handler = ElasticsearchHandler(host=config.elasticsearch.host, index_name=index_name)
+    print("[DEBUG] Running run_diffs()", file=sys.stderr, flush=True)
     results = run_diffs(handler)
+    print("[DEBUG] Finished run_diffs()", file=sys.stderr, flush=True)
 
-    answer = input("Please enter 'y' to start updates or 'n' to quit: ").strip().lower()
-    if answer == 'y':
-        run_updates(handler, results)
-    else:
-        print("Quitting.")
-        quit() 
+    # Optionally run updates automatically or skip
+    # print("[DEBUG] Skipping updates step", file=sys.stderr, flush=True)
+
+    # Print results as JSON to stdout for orchestrator
+    print("[DEBUG] Printing results as JSON", file=sys.stderr, flush=True)
+    print(json.dumps(results), flush=True)
  
     
 

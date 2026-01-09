@@ -516,3 +516,6 @@ curl -XGET 'localhost:9200/animal-humane-*/_search?pretty' -H 'Content-Type:appl
 
 curl -XGET 'localhost:9200/animal-humane-*/_search?pretty' -H 'Content-Type:application/json' -d '{"size": 0, "query":{"range":{"timestamp":{"lt":"now/d"}}}, "aggs": { "weeks": { "date_histogram": { "field": "timestamp", "calendar_interval": "week", "format": "yyyy-MM-dd", "time_zone": "UTC" }, "aggs":{ "id_filter":{"filter":{"term":{ "id": "211761683" }}}}}}}'
 
+
+
+curl -XGET 'localhost:9200/animal-humane-*/_search?pretty' -H 'Content-Type:application/json' -d '{"size": 0, "query": { "term": { "status": "adopted" } }, "aggs": { "adoptions_per_day": { "date_histogram": { "field": "timestamp", "calendar_interval": "day", "format": "MM/dd/yyyy", "time_zone": "-07:00" }, "aggs": { "unique_dogs": { "terms": { "field": "id", "size": 10000 }, "aggs": { "dog_names": { "top_hits": { "_source": "name", "size": 1 } } } } } } } }'

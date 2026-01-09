@@ -17,6 +17,8 @@ OUTPUT_PATH = os.path.join(
 )
 
 def main():
+    response = requests.post("http://localhost:8000/api/cache/clear")
+    print(response.status_code, response.text)
     try:
         resp = requests.get(API_URL)
         resp.raise_for_status()
@@ -31,3 +33,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+response = requests.post("http://localhost:8000/api/cache/clear")
+print(response.status_code, response.text)

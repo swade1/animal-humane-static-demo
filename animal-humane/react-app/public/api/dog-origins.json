@@ -43,8 +43,8 @@
     },
     {
       "origin": "Corrales Animal Services",
-      "latitude": 35.2393,
-      "longitude": -106.6054,
+      "latitude": 0,
+      "longitude": 0,
       "count": 4,
       "adopted": 3,
       "available": 1
@@ -74,20 +74,20 @@
       "available": 1
     },
     {
-      "origin": "Rio Rancho Animal Control",
-      "latitude": 35.2748,
-      "longitude": -106.6681,
-      "count": 6,
-      "adopted": 4,
-      "available": 2
-    },
-    {
       "origin": "City of Las Vegas Animal Care Center",
       "latitude": 35.5939,
       "longitude": -105.2239,
       "count": 52,
       "adopted": 30,
       "available": 22
+    },
+    {
+      "origin": "Rio Rancho Animal Control",
+      "latitude": 35.2748,
+      "longitude": -106.6681,
+      "count": 6,
+      "adopted": 4,
+      "available": 2
     },
     {
       "origin": "Sandoval County Animal Services",
@@ -330,20 +330,20 @@
       "available": 1
     },
     {
-      "origin": "Stray Hearts Animal Shelter",
-      "latitude": 36.3849818,
-      "longitude": -105.5993335,
-      "count": 1,
-      "adopted": 1,
-      "available": 0
-    },
-    {
       "origin": "Raton Humane Society",
       "latitude": 36.8705,
       "longitude": -104.4309,
       "count": 3,
       "adopted": 0,
       "available": 3
+    },
+    {
+      "origin": "Stray Hearts Animal Shelter",
+      "latitude": 36.3849818,
+      "longitude": -105.5993335,
+      "count": 1,
+      "adopted": 1,
+      "available": 0
     }
   ],
   "message": null,
