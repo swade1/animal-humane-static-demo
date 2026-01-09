@@ -80,12 +80,6 @@
             "length_of_stay_days": 23
           },
           {
-            "name": "Bucket",
-            "breed": "Terrier, Pit Bull",
-            "age_group": "Adult",
-            "length_of_stay_days": 9
-          },
-          {
             "name": "Kirby",
             "breed": "Terrier, Pit Bull",
             "age_group": "Adult",
@@ -95,6 +89,12 @@
             "name": "Seren",
             "breed": "Cattle Dog",
             "age_group": "Puppy",
+            "length_of_stay_days": 9
+          },
+          {
+            "name": "Bucket",
+            "breed": "Terrier, Pit Bull",
+            "age_group": "Adult",
             "length_of_stay_days": 9
           },
           {
@@ -140,6 +140,12 @@
             "length_of_stay_days": 3
           },
           {
+            "name": "Stray Hold - Astro",
+            "breed": "Shepherd, Australian",
+            "age_group": "Adult",
+            "length_of_stay_days": 2
+          },
+          {
             "name": "Charmander",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -170,12 +176,6 @@
             "length_of_stay_days": 9
           },
           {
-            "name": "Astro",
-            "breed": "Shepherd, Australian",
-            "age_group": "Adult",
-            "length_of_stay_days": 2
-          },
-          {
             "name": "Koala",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -201,12 +201,6 @@
           },
           {
             "name": "Missy",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 8
-          },
-          {
-            "name": "Penelope",
             "breed": "Shepherd",
             "age_group": "Puppy",
             "length_of_stay_days": 8
@@ -345,6 +339,12 @@
           },
           {
             "name": "Millie",
+            "breed": "Retriever, Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 1
+          },
+          {
+            "name": "Lover",
             "breed": "Retriever, Labrador",
             "age_group": "Adult",
             "length_of_stay_days": 1
@@ -533,19 +533,13 @@
       {
         "min": 181,
         "max": 210,
-        "count": 2,
+        "count": 1,
         "dogs": [
           {
             "name": "Billy",
             "breed": "Terrier, American Pit Bull",
             "age_group": "Adult",
             "length_of_stay_days": 202
-          },
-          {
-            "name": "Polly Pocket",
-            "breed": "Terrier, American Pit Bull",
-            "age_group": "Adult",
-            "length_of_stay_days": 181
           }
         ]
       },

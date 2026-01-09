@@ -184,9 +184,39 @@
         "section_metadata": {
           "source": "diff_analysis_adopted"
         }
+      },
+      {
+        "id": 211460888,
+        "name": "Polly Pocket",
+        "url": "https://new.shelterluv.com/embed/animal/211460888",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
+        }
+      },
+      {
+        "id": 212534335,
+        "name": "Penelope",
+        "url": "https://new.shelterluv.com/embed/animal/212534335",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
+        }
       }
     ],
     "trial_dogs": [
+      {
+        "id": 208806839,
+        "name": "Hachi",
+        "url": "https://new.shelterluv.com/embed/animal/208806839",
+        "status": "Available",
+        "location": "Main Campus, Trial Adoption",
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
+      },
       {
         "id": 212481029,
         "name": "Bucket",
@@ -275,16 +305,6 @@
         "url": "https://new.shelterluv.com/embed/animal/208821491",
         "status": "Available",
         "location": "Main Kennel North, Main Campus - MKN-04",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 210495598,
-        "name": "Wilbur",
-        "url": "https://new.shelterluv.com/embed/animal/210495598",
-        "status": "Available",
-        "location": "Main Campus - Main Kennel South, MKS-20",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -662,7 +682,7 @@
         }
       }
     ],
-    "total_dogs": 65
+    "total_dogs": 67
   },
   "message": null,
   "error": null

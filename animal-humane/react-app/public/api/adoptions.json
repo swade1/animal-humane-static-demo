@@ -14,22 +14,34 @@
       "los": 9
     },
     {
-      "name": "Changa",
-      "date": "01/07/2026",
-      "url": "https://new.shelterluv.com/embed/animal/212459481",
-      "los": 21
-    },
-    {
       "name": "Robin Hood",
       "date": "01/03/2026",
       "url": "https://new.shelterluv.com/embed/animal/212448974",
       "los": 19
     },
     {
+      "name": "Changa",
+      "date": "01/07/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212459481",
+      "los": 21
+    },
+    {
       "name": "Takoyaki",
       "date": "01/04/2026",
       "url": "https://new.shelterluv.com/embed/animal/212534254",
       "los": 5
+    },
+    {
+      "name": "Polly Pocket",
+      "date": "01/08/2026",
+      "url": "https://new.shelterluv.com/embed/animal/211460888",
+      "los": 181
+    },
+    {
+      "name": "Penelope",
+      "date": "01/08/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212534335",
+      "los": 8
     },
     {
       "name": "Tom Hardy",
@@ -48,18 +60,6 @@
       "date": "01/03/2026",
       "url": "https://new.shelterluv.com/embed/animal/210656727",
       "los": 30
-    },
-    {
-      "name": "Kyla",
-      "date": "01/07/2026",
-      "url": "https://new.shelterluv.com/embed/animal/212418519",
-      "los": 30
-    },
-    {
-      "name": "Simba",
-      "date": "01/07/2026",
-      "url": "https://new.shelterluv.com/embed/animal/212546331",
-      "los": 4
     },
     {
       "name": "Yakitori",
@@ -101,6 +101,18 @@
       "name": "Sun Bear",
       "date": "01/02/2026",
       "url": "https://new.shelterluv.com/embed/animal/212534235",
+      "los": 4
+    },
+    {
+      "name": "Kyla",
+      "date": "01/07/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212418519",
+      "los": 30
+    },
+    {
+      "name": "Simba",
+      "date": "01/07/2026",
+      "url": "https://new.shelterluv.com/embed/animal/212546331",
       "los": 4
     },
     {

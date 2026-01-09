@@ -78,9 +78,41 @@
         "dog_id": 212533055,
         "url": "https://new.shelterluv.com/embed/animal/212533055",
         "location": ""
+      },
+      {
+        "name": "Polly Pocket",
+        "dog_id": 211460888,
+        "url": "https://new.shelterluv.com/embed/animal/211460888",
+        "location": ""
+      },
+      {
+        "name": "Penelope",
+        "dog_id": 212534335,
+        "url": "https://new.shelterluv.com/embed/animal/212534335",
+        "location": ""
       }
     ],
     "trial_adoption_dogs": [
+      {
+        "name": "Hachi",
+        "dog_id": 208806839,
+        "url": "https://new.shelterluv.com/embed/animal/208806839",
+        "location": "Main Campus, Trial Adoption",
+        "origin": "Owner Surrender",
+        "status": "Available",
+        "intake_date": "2025-10-17",
+        "length_of_stay_days": 83,
+        "birthdate": "2022-04-10",
+        "age_group": "Adult",
+        "breed": "Retriever, Labrador",
+        "secondary_breed": "Mixed Breed (Large)",
+        "weight_group": "Large (60-99)",
+        "color": "Black and White",
+        "bite_quarantine": 1,
+        "returned": 0,
+        "latitude": 0,
+        "longitude": 0
+      },
       {
         "name": "Bucket",
         "dog_id": 212481029,
@@ -260,26 +292,6 @@
         "color": "",
         "bite_quarantine": 1,
         "returned": 0,
-        "latitude": 35.1102,
-        "longitude": -106.5823
-      },
-      {
-        "name": "Wilbur",
-        "dog_id": 210495598,
-        "url": "https://new.shelterluv.com/embed/animal/210495598",
-        "location": "Main Campus - Main Kennel South, MKS-20",
-        "origin": "ABQ Animal Welfare Department",
-        "status": "Available",
-        "intake_date": "2026-01-07",
-        "length_of_stay_days": 0,
-        "birthdate": "2024-09-18",
-        "age_group": "Adult",
-        "breed": "Retriever, Labrador",
-        "secondary_breed": "Mix",
-        "weight_group": "Medium (25-59)",
-        "color": "Black",
-        "bite_quarantine": 0,
-        "returned": 2,
         "latitude": 35.1102,
         "longitude": -106.5823
       },

@@ -5,9 +5,9 @@
       "origin": "ABQ Animal Welfare Department",
       "latitude": 35.1102,
       "longitude": -106.5823,
-      "count": 55,
+      "count": 56,
       "adopted": 39,
-      "available": 16
+      "available": 17
     },
     {
       "origin": "Humane Society of Lincoln County",
@@ -86,8 +86,8 @@
       "latitude": 35.5939,
       "longitude": -105.2239,
       "count": 50,
-      "adopted": 28,
-      "available": 22
+      "adopted": 29,
+      "available": 21
     },
     {
       "origin": "Sandoval County Animal Services",
@@ -117,9 +117,9 @@
       "origin": "Tucumcari Animal Shelter",
       "latitude": 35.1926,
       "longitude": -103.7197,
-      "count": 10,
+      "count": 11,
       "adopted": 8,
-      "available": 2
+      "available": 3
     },
     {
       "origin": "Truth or Consequences Animal Shelter",
