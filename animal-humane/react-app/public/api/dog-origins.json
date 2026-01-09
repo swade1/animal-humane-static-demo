@@ -86,8 +86,8 @@
       "latitude": 35.5939,
       "longitude": -105.2239,
       "count": 50,
-      "adopted": 29,
-      "available": 21
+      "adopted": 30,
+      "available": 20
     },
     {
       "origin": "Sandoval County Animal Services",
@@ -210,20 +210,20 @@
       "available": 0
     },
     {
-      "origin": "Bro & Tracy Animal Welfare",
-      "latitude": 35.2378,
-      "longitude": -106.6067,
-      "count": 4,
-      "adopted": 4,
-      "available": 0
-    },
-    {
       "origin": "RezDawg Rescue",
       "latitude": 35.0142,
       "longitude": -106.0846,
       "count": 11,
       "adopted": 6,
       "available": 5
+    },
+    {
+      "origin": "Bro & Tracy Animal Welfare",
+      "latitude": 35.2378,
+      "longitude": -106.6067,
+      "count": 4,
+      "adopted": 4,
+      "available": 0
     },
     {
       "origin": "DAGSHIP Rescue",

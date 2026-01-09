@@ -3,60 +3,32 @@
   "data": {
     "new_dogs": [
       {
-        "name": "Millie",
-        "url": "https://new.shelterluv.com/embed/animal/212624341"
-      },
-      {
-        "name": "Rhino",
-        "url": "https://new.shelterluv.com/embed/animal/212534398"
-      },
-      {
-        "name": "Theodore",
-        "url": "https://new.shelterluv.com/embed/animal/212534399"
-      },
-      {
-        "name": "Phoebe",
-        "url": "https://new.shelterluv.com/embed/animal/212559656"
-      },
-      {
-        "name": "Rose",
-        "url": "https://new.shelterluv.com/embed/animal/212534379"
-      },
-      {
-        "name": "Daffy Duck",
-        "url": "https://new.shelterluv.com/embed/animal/212534307"
-      },
-      {
-        "name": "Izzy",
-        "url": "https://new.shelterluv.com/embed/animal/212534346"
-      },
-      {
-        "name": "Goldenrod",
-        "url": "https://new.shelterluv.com/embed/animal/212533055"
+        "name": "Lover",
+        "url": "https://new.shelterluv.com/embed/animal/212624209"
       },
       {
         "name": "Gambit",
         "url": "https://new.shelterluv.com/embed/animal/212624022"
       },
       {
-        "name": "Lover",
-        "url": "https://new.shelterluv.com/embed/animal/212624209"
+        "name": "Rose",
+        "url": "https://new.shelterluv.com/embed/animal/212534379"
       },
       {
         "name": "Aurora",
         "url": "https://new.shelterluv.com/embed/animal/212534357"
       },
       {
-        "name": "Pepper",
-        "url": "https://new.shelterluv.com/embed/animal/212534432"
-      },
-      {
         "name": "Lola Bunny",
         "url": "https://new.shelterluv.com/embed/animal/212534294"
       },
       {
-        "name": "Tweety Bird",
-        "url": "https://new.shelterluv.com/embed/animal/212534313"
+        "name": "Indigo",
+        "url": "https://new.shelterluv.com/embed/animal/212533081"
+      },
+      {
+        "name": "Millie",
+        "url": "https://new.shelterluv.com/embed/animal/212624341"
       },
       {
         "name": "Feathertop",
@@ -67,8 +39,36 @@
         "url": "https://new.shelterluv.com/embed/animal/212534419"
       },
       {
-        "name": "Indigo",
-        "url": "https://new.shelterluv.com/embed/animal/212533081"
+        "name": "Daffy Duck",
+        "url": "https://new.shelterluv.com/embed/animal/212534307"
+      },
+      {
+        "name": "Rhino",
+        "url": "https://new.shelterluv.com/embed/animal/212534398"
+      },
+      {
+        "name": "Goldenrod",
+        "url": "https://new.shelterluv.com/embed/animal/212533055"
+      },
+      {
+        "name": "Theodore",
+        "url": "https://new.shelterluv.com/embed/animal/212534399"
+      },
+      {
+        "name": "Tweety Bird",
+        "url": "https://new.shelterluv.com/embed/animal/212534313"
+      },
+      {
+        "name": "Izzy",
+        "url": "https://new.shelterluv.com/embed/animal/212534346"
+      },
+      {
+        "name": "Pepper",
+        "url": "https://new.shelterluv.com/embed/animal/212534432"
+      },
+      {
+        "name": "Phoebe",
+        "url": "https://new.shelterluv.com/embed/animal/212559656"
       }
     ],
     "returned_dogs": [],
@@ -77,6 +77,12 @@
         "name": "Goldenrod",
         "dog_id": 212533055,
         "url": "https://new.shelterluv.com/embed/animal/212533055",
+        "location": ""
+      },
+      {
+        "name": "Soju",
+        "dog_id": 212534338,
+        "url": "https://new.shelterluv.com/embed/animal/212534338",
         "location": ""
       },
       {
@@ -176,6 +182,26 @@
     ],
     "other_unlisted_dogs": [
       {
+        "name": "Wilbur",
+        "dog_id": 210495598,
+        "url": "https://new.shelterluv.com/embed/animal/210495598",
+        "location": "Main Campus - Main Kennel South, MKS-20",
+        "origin": "ABQ Animal Welfare Department",
+        "status": "Available",
+        "intake_date": "2026-01-07",
+        "length_of_stay_days": 2,
+        "birthdate": "2024-09-18",
+        "age_group": "Adult",
+        "breed": "Retriever, Labrador",
+        "secondary_breed": "Mix",
+        "weight_group": "Medium (25-59)",
+        "color": "Black",
+        "bite_quarantine": 0,
+        "returned": 2,
+        "latitude": 35.1102,
+        "longitude": -106.5823
+      },
+      {
         "name": "Sandshrew",
         "dog_id": 212097486,
         "url": "https://new.shelterluv.com/embed/animal/212097486",
@@ -254,26 +280,6 @@
         "returned": 0,
         "latitude": 35.0142,
         "longitude": -106.0846
-      },
-      {
-        "name": "Scrappy Doo",
-        "dog_id": 212451899,
-        "url": "https://new.shelterluv.com/embed/animal/212451899",
-        "location": "Main Campus- Big Blue, BB-20",
-        "origin": "Stray",
-        "status": "Available",
-        "intake_date": "2025-12-16",
-        "length_of_stay_days": 23,
-        "birthdate": "2025-08-16",
-        "age_group": "Puppy",
-        "breed": "Shepherd",
-        "secondary_breed": "Mixed Breed (Medium)",
-        "weight_group": "Small (0-24)",
-        "color": "Brown and Black",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 0,
-        "longitude": 0
       },
       {
         "name": "Velma",
