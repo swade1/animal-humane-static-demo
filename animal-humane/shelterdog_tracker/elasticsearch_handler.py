@@ -1294,14 +1294,15 @@ class ElasticsearchHandler:
 
     def get_origins(self):
         # Query ALL dogs from shelters (both available and adopted)
-        # Exclude only Unknown, Stray, and Owner Surrender
+        # Exclude only Unknown, Stray, and Owner Surrender (also status:Euthanized)
         query = {
             "query": {
                 "bool": {
                     "must_not": [
                         {"term": {"origin.keyword": "Unknown"}},
                         {"term": {"origin.keyword": "Stray"}},
-                        {"term": {"origin.keyword": "Owner Surrender"}}
+                        {"term": {"origin.keyword": "Owner Surrender"}},
+                        {"term": {"status.keyword": "Euthanized"}},
                     ]
                 }
             },
