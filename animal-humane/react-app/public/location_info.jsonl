@@ -537,7 +537,7 @@
 {"name":"Smooch","id":211530732,"origin":"ABQ Animal Welfare Department","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Snacks","id":212042673,"origin":"Bernalillo County Animal Care","bite_quarantine":0,"returned":0,"latitude":35.1102,"longitude":-106.5823}
 {"name":"Snake","id":212155916,"origin":"Bayard Animal Control","bite_quarantine":0,"returned":0,"latitude":32.7795,"longitude":-108.1503}
-{"name":"Snapdragon","id":212533104,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":0,"latitude":35.5939,"longitude":-105.2239}
+{"name":"Snapdragon","id":212533104,"origin":"City of Las Vegas Animal Care Center","bite_quarantine":0,"returned":1,"latitude":35.5939,"longitude":-105.2239}
 {"name":"Snoopy","id":208812411,"origin":"Owner Surrender","bite_quarantine":0,"returned":5}
 {"name":"Snowy","id":212408918,"origin":"Torrance County Animal Shelter","bite_quarantine":0,"returned":0,"latitude":34.8712,"longitude":-106.0515}
 {"name":"Socks","id":212295388,"origin":"RezDawg Rescue","returned":0,"bite_quarantine":0,"latitude":35.0142,"longitude":-106.0846}

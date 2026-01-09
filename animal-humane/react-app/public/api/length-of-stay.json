@@ -5,7 +5,7 @@
       {
         "min": 0,
         "max": 30,
-        "count": 64,
+        "count": 63,
         "dogs": [
           {
             "name": "Dahlia",
@@ -158,36 +158,6 @@
             "length_of_stay_days": 23
           },
           {
-            "name": "Charmander",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 18
-          },
-          {
-            "name": "Squirtle",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 18
-          },
-          {
-            "name": "Bulbasaur",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 18
-          },
-          {
-            "name": "Agave",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 10
-          },
-          {
-            "name": "Yucca",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 10
-          },
-          {
             "name": "Missy",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -222,6 +192,36 @@
             "breed": "Coonhound",
             "age_group": "Senior",
             "length_of_stay_days": 23
+          },
+          {
+            "name": "Charmander",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 18
+          },
+          {
+            "name": "Squirtle",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 18
+          },
+          {
+            "name": "Bulbasaur",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 18
+          },
+          {
+            "name": "Agave",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 10
+          },
+          {
+            "name": "Yucca",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 10
           },
           {
             "name": "Snapdragon",
@@ -326,6 +326,12 @@
             "length_of_stay_days": 9
           },
           {
+            "name": "Lover",
+            "breed": "Retriever, Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 2
+          },
+          {
             "name": "Chris Farley",
             "breed": "Chihuahua",
             "age_group": "Puppy",
@@ -335,18 +341,6 @@
             "name": "Amy Poehler",
             "breed": "Chihuahua",
             "age_group": "Puppy",
-            "length_of_stay_days": 24
-          },
-          {
-            "name": "Lover",
-            "breed": "Retriever, Labrador",
-            "age_group": "Adult",
-            "length_of_stay_days": 2
-          },
-          {
-            "name": "Velma",
-            "breed": "Terrier, American Pit Bull",
-            "age_group": "Senior",
             "length_of_stay_days": 24
           },
           {
@@ -384,6 +378,12 @@
             "breed": "Mixed Breed (Large)",
             "age_group": "Adult",
             "length_of_stay_days": 3
+          },
+          {
+            "name": "Velma",
+            "breed": "Terrier, American Pit Bull",
+            "age_group": "Senior",
+            "length_of_stay_days": 24
           }
         ]
       },
@@ -454,7 +454,7 @@
             "length_of_stay_days": 79
           },
           {
-            "name": "Sandshrew",
+            "name": "Sammy",
             "breed": "Terrier, American Pit Bull",
             "age_group": "Adult",
             "length_of_stay_days": 78

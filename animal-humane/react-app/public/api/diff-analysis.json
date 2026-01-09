@@ -35,8 +35,35 @@
         "location": "Main Campus - Main Kennel South, MKS-05"
       }
     ],
-    "adopted_dogs": [],
+    "adopted_dogs": [
+      {
+        "name": "Princess Bubble Gum ",
+        "dog_id": 212478123,
+        "url": "https://new.shelterluv.com/embed/animal/212478123",
+        "location": ""
+      }
+    ],
     "trial_adoption_dogs": [
+      {
+        "name": "Wilbur",
+        "dog_id": 210495598,
+        "url": "https://new.shelterluv.com/embed/animal/210495598",
+        "location": "Main Campus, Trial Adoption",
+        "origin": "ABQ Animal Welfare Department",
+        "status": "Available",
+        "intake_date": "2026-01-07",
+        "length_of_stay_days": 2,
+        "birthdate": "2024-09-18",
+        "age_group": "Adult",
+        "breed": "Retriever, Labrador",
+        "secondary_breed": "Mix",
+        "weight_group": "Medium (25-59)",
+        "color": "Black",
+        "bite_quarantine": 0,
+        "returned": 2,
+        "latitude": 35.1102,
+        "longitude": -106.5823
+      },
       {
         "name": "Hachi",
         "dog_id": 208806839,
@@ -180,26 +207,6 @@
         "longitude": -106.5823
       },
       {
-        "name": "Princess Bubble Gum ",
-        "dog_id": 212478123,
-        "url": "https://new.shelterluv.com/embed/animal/212478123",
-        "location": "Main Campus- Big Blue, BB-19",
-        "origin": "RezDawg Rescue",
-        "status": "Available",
-        "intake_date": "2025-12-22",
-        "length_of_stay_days": 18,
-        "birthdate": "2023-12-22",
-        "age_group": "Adult",
-        "breed": "Shepherd",
-        "secondary_breed": "Mixed Breed (Medium)",
-        "weight_group": "Medium (25-59)",
-        "color": "Brown and Black",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 35.0142,
-        "longitude": -106.0846
-      },
-      {
         "name": "Harvest",
         "dog_id": 212454268,
         "url": "https://new.shelterluv.com/embed/animal/212454268",
@@ -216,26 +223,6 @@
         "color": "Black and Tan",
         "bite_quarantine": 0,
         "returned": 0,
-        "latitude": 35.1102,
-        "longitude": -106.5823
-      },
-      {
-        "name": "Wilbur",
-        "dog_id": 210495598,
-        "url": "https://new.shelterluv.com/embed/animal/210495598",
-        "location": "Main Campus - Main Kennel South, MKS-20",
-        "origin": "ABQ Animal Welfare Department",
-        "status": "Available",
-        "intake_date": "2026-01-07",
-        "length_of_stay_days": 2,
-        "birthdate": "2024-09-18",
-        "age_group": "Adult",
-        "breed": "Retriever, Labrador",
-        "secondary_breed": "Mix",
-        "weight_group": "Medium (25-59)",
-        "color": "Black",
-        "bite_quarantine": 0,
-        "returned": 2,
         "latitude": 35.1102,
         "longitude": -106.5823
       },

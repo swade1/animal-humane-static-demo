@@ -24,7 +24,9 @@ def run_in_container_and_get_urls(container, script):
     except Exception as e:
         print("Failed to parse output:", e)
         return None
-def updates_adoptions(es, adopted_dogs):
+
+# result is: {'adoptions': [{'name': 'Princess Bubble Gum ', 'dog_id': 212478123, 'url': 'https://new.shelterluv.com/embed/animal/212478123', 'location': ''}], 
+def update_adoption(es, adopted_dogs):
     for dog in adopted_dogs:
         dog_id = dog["dog_id"]
         # Find the most recent document for this dog_id
@@ -42,20 +44,18 @@ def updates_adoptions(es, adopted_dogs):
             es.update(
                 index=doc["_index"],
                 id=doc["_id"],
-                body={"doc": {"status": "adopted"}}
+                body={"doc": {"status": "adopted", "location":""}}
             )
-def update_returns(es, returned_dogs):
+
+#'returned': [{'name': 'Snapdragon', 'dog_id': 212533095, 'url': 'https://new.shelterluv.com/embed/animal/212533095', 'location': 'Main Cam    pus - Main Kennel South, MKS-05'}],
+def update_return(es, returned_dogs):#
+
     for dog in returned_dogs:
         dog_id = dog["dog_id"]
-        # Find the tso most recent docs for this dog
+        # Find the most recent docs for this dog
         res = es.search(
             index="animal-humane-*",
-            body={
-                "query": {"match": {"id": dog_id}},
-                "sort":[{"_index":{"order":"desc"}}],
-                "size": 2
-            }
-        )
+            body={"query": {"match": {"id": dog_id}}, "sort":[{"_index":{"order":"desc"}}], "size": 2 })
          
         hits = res["hits"]["hits"]
 
@@ -76,7 +76,23 @@ def update_returns(es, returned_dogs):
                 id=doc_id,
                 body={"doc": {"returned": current_returned + 1}}
             )
-
+         
+#'trial_adoptions': [{'name': 'Wilbur', 'dog_id': 210495598, 'url': 'https://new.shelterluv.com/embed/animal/210495598', 'location': 'Main Campus, Trial Adoption', 'origin': 'ABQ Animal Welfare Department', 'status': 'Available', 'intake_date': '2026-01-07', 'length_of_stay_days': 2, 'birthdate': '2024-09-18', 'age_group': 'Adult', 'breed': 'Retriever, Labrador', 'secondary_breed': 'Mix', 'weight_grou
+def update_trial_adoption(es,trial_dogs):
+    for dog in trial_dogs:
+        contains_trial_adoption = "Trial Adoption" in dog["location"]
+        if contains_trial_adoption:
+            pass
+        else:
+            res = es.search(index="animal-humane-*",body={"query":{"match":{"id":"dog_id"}},"sort":[{"_index":{"order":"desc"}}],"size":1})
+            hits = res["hits"]["hits"]
+            if hits:
+                doc = hits[0]
+                es.update(
+                    index=doc["_index"],
+                    id=doc["_id"],
+                    body={"doc": {"location":dog["location"].split(",", 1)[0] + ", Trial Adoption"}}
+                )
 def run_script(script_name):
     print(f"Running {script_name}...")
     result = subprocess.run([sys.executable, script_name], capture_output=True, text=True)
@@ -103,30 +119,28 @@ if __name__ == "__main__":
 
     # 1. Run diff_indices_runner.py inside the api docker container
     result = run_in_container_and_get_urls("animal-humane-api-1", "diff_indices_runner.py")
-
+    print()
+    print(f"result is: {result}")
     # 2. Update adoption status and returned field 
+    #'returned': [{'name': 'Snapdragon', 'dog_id': 212533095, 'url': 'https://new.shelterluv.com/embed/animal/212533095', 'location': 'Main Campus - Main Kennel South, MKS-05'}], 
+
 
     if result.get("adoptions"):
         adoption_fields = [
             {
-                "name": dog["name"],
-                "dog_id": dog["dog_id"],
-                "url": dog["url"],
-                "status": dog["status"],
-                "location": dog["location"]
+                "dog_id": dog["dog_id"]
             }
             for dog in result.get("adoptions", [])
         ]    
         print("Adopted dogs")
         print(json.dumps(adoption_fields),end="")
-        updates_adoptions(es, adoption_fields)
+
+        update_adoption(es, adoption_fields)
 
     if result.get("returned"):
         returned_fields = [
             {
-                "name": dog["name"],
                 "dog_id": dog["dog_id"],
-                "url": dog["url"],
                 "location": dog["location"]
             }
             for dog in result.get("returned", [])
@@ -134,7 +148,10 @@ if __name__ == "__main__":
         print()
         print("Dogs that have been returned")
         print(json.dumps(returned_fields),end="")
-        update_returns(es, returned_fields)
+
+        update_return(es, returned_fields)
+
+        
 
     # 3. Execute find_missing_dogs.py
     run_script("find_missing_dogs.py")

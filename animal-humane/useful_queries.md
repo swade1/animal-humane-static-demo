@@ -4,7 +4,7 @@ curl -X POST "localhost:9200/animal-humane-20250919-1900/_update/211812422" -H '
 ```
 ## Update location, status, and visible fields. Everything else will remain the same
 ```
-curl -XPOST 'localhost:9200/animal-humane-20251227-1300/_update/212363168?pretty' -H 'Content-Type:application/json' -d '{"doc":{"location":"","status":"adopted"}}'
+curl -XPOST 'localhost:9200/animal-humane-20251227-1300/_update/212363168?pretty' -H 'Content-Type:application/json' -d '{"doc":{"location":"Main Campus, Trial Adoption"}}'
 ```
 ## Change all "location":[...] fields to "location":".." (preserving the original location)
 ```

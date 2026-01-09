@@ -80,14 +80,24 @@
         "id": 212478123,
         "name": "Princess Bubble Gum ",
         "url": "https://new.shelterluv.com/embed/animal/212478123",
-        "status": "Available",
-        "location": "Main Campus- Big Blue, BB-19",
+        "status": null,
+        "location": "",
         "section_metadata": {
-          "source": "diff_analysis_unlisted"
+          "source": "diff_analysis_adopted"
         }
       }
     ],
     "trial_dogs": [
+      {
+        "id": 210495598,
+        "name": "Wilbur",
+        "url": "https://new.shelterluv.com/embed/animal/210495598",
+        "status": "Available",
+        "location": "Main Campus, Trial Adoption",
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
+      },
       {
         "id": 208806839,
         "name": "Hachi",
@@ -116,16 +126,6 @@
         "location": "Main Campus, Trial Adoption",
         "section_metadata": {
           "source": "diff_analysis_trial"
-        }
-      },
-      {
-        "id": 210495598,
-        "name": "Wilbur",
-        "url": "https://new.shelterluv.com/embed/animal/210495598",
-        "status": "Available",
-        "location": "Main Campus, Trial Adoption ",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
         }
       },
       {

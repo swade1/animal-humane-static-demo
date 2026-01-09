@@ -43,8 +43,8 @@
     },
     {
       "origin": "Corrales Animal Services",
-      "latitude": 0,
-      "longitude": 0,
+      "latitude": 35.2393,
+      "longitude": -106.6054,
       "count": 4,
       "adopted": 3,
       "available": 1
@@ -66,20 +66,20 @@
       "available": 1
     },
     {
-      "origin": "Bayard Animal Control",
-      "latitude": 32.7795,
-      "longitude": -108.1503,
-      "count": 8,
-      "adopted": 7,
-      "available": 1
-    },
-    {
       "origin": "City of Las Vegas Animal Care Center",
       "latitude": 35.5939,
       "longitude": -105.2239,
       "count": 52,
       "adopted": 30,
       "available": 22
+    },
+    {
+      "origin": "Bayard Animal Control",
+      "latitude": 32.7795,
+      "longitude": -108.1503,
+      "count": 8,
+      "adopted": 7,
+      "available": 1
     },
     {
       "origin": "Rio Rancho Animal Control",
