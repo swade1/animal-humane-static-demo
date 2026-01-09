@@ -3,101 +3,39 @@
   "data": {
     "new_dogs": [
       {
-        "name": "Lover",
-        "url": "https://new.shelterluv.com/embed/animal/212624209"
+        "name": "Pine",
+        "url": "https://new.shelterluv.com/embed/animal/212533004"
       },
       {
-        "name": "Gambit",
-        "url": "https://new.shelterluv.com/embed/animal/212624022"
+        "name": "Parzival",
+        "url": "https://new.shelterluv.com/embed/animal/212559039"
       },
       {
-        "name": "Rose",
-        "url": "https://new.shelterluv.com/embed/animal/212534379"
+        "name": "Ferb",
+        "url": "https://new.shelterluv.com/embed/animal/212477861"
       },
       {
-        "name": "Aurora",
-        "url": "https://new.shelterluv.com/embed/animal/212534357"
+        "name": "Bearberry",
+        "url": "https://new.shelterluv.com/embed/animal/212533023"
       },
       {
-        "name": "Lola Bunny",
-        "url": "https://new.shelterluv.com/embed/animal/212534294"
+        "name": "Aech",
+        "url": "https://new.shelterluv.com/embed/animal/212559176"
       },
       {
-        "name": "Indigo",
-        "url": "https://new.shelterluv.com/embed/animal/212533081"
-      },
-      {
-        "name": "Millie",
-        "url": "https://new.shelterluv.com/embed/animal/212624341"
-      },
-      {
-        "name": "Feathertop",
-        "url": "https://new.shelterluv.com/embed/animal/212533042"
-      },
-      {
-        "name": "Salt",
-        "url": "https://new.shelterluv.com/embed/animal/212534419"
-      },
-      {
-        "name": "Daffy Duck",
-        "url": "https://new.shelterluv.com/embed/animal/212534307"
-      },
-      {
-        "name": "Rhino",
-        "url": "https://new.shelterluv.com/embed/animal/212534398"
-      },
-      {
-        "name": "Goldenrod",
-        "url": "https://new.shelterluv.com/embed/animal/212533055"
-      },
-      {
-        "name": "Theodore",
-        "url": "https://new.shelterluv.com/embed/animal/212534399"
-      },
-      {
-        "name": "Tweety Bird",
-        "url": "https://new.shelterluv.com/embed/animal/212534313"
-      },
-      {
-        "name": "Izzy",
-        "url": "https://new.shelterluv.com/embed/animal/212534346"
-      },
-      {
-        "name": "Pepper",
-        "url": "https://new.shelterluv.com/embed/animal/212534432"
-      },
-      {
-        "name": "Phoebe",
-        "url": "https://new.shelterluv.com/embed/animal/212559656"
+        "name": "Jack",
+        "url": "https://new.shelterluv.com/embed/animal/212559448"
       }
     ],
-    "returned_dogs": [],
-    "adopted_dogs": [
+    "returned_dogs": [
       {
-        "name": "Goldenrod",
-        "dog_id": 212533055,
-        "url": "https://new.shelterluv.com/embed/animal/212533055",
-        "location": ""
-      },
-      {
-        "name": "Soju",
-        "dog_id": 212534338,
-        "url": "https://new.shelterluv.com/embed/animal/212534338",
-        "location": ""
-      },
-      {
-        "name": "Polly Pocket",
-        "dog_id": 211460888,
-        "url": "https://new.shelterluv.com/embed/animal/211460888",
-        "location": ""
-      },
-      {
-        "name": "Penelope",
-        "dog_id": 212534335,
-        "url": "https://new.shelterluv.com/embed/animal/212534335",
-        "location": ""
+        "name": "Snapdragon",
+        "dog_id": 212533095,
+        "url": "https://new.shelterluv.com/embed/animal/212533095",
+        "location": "Main Campus - Main Kennel South, MKS-05"
       }
     ],
+    "adopted_dogs": [],
     "trial_adoption_dogs": [
       {
         "name": "Hachi",
@@ -182,6 +120,46 @@
     ],
     "other_unlisted_dogs": [
       {
+        "name": "Harvest",
+        "dog_id": 212454268,
+        "url": "https://new.shelterluv.com/embed/animal/212454268",
+        "location": "Foster Home",
+        "origin": "ABQ Animal Welfare Department",
+        "status": "Available",
+        "intake_date": "2025-12-16",
+        "length_of_stay_days": 24,
+        "birthdate": "2024-06-16",
+        "age_group": "Adult",
+        "breed": "Shepherd",
+        "secondary_breed": "Mixed Breed (Medium)",
+        "weight_group": "Large (60-99)",
+        "color": "Black and Tan",
+        "bite_quarantine": 0,
+        "returned": 0,
+        "latitude": 35.1102,
+        "longitude": -106.5823
+      },
+      {
+        "name": "Athena",
+        "dog_id": 212464324,
+        "url": "https://new.shelterluv.com/embed/animal/212464324",
+        "location": "Westside Adoption Center, Dog Kennel 2",
+        "origin": "DAGSHIP Rescue",
+        "status": "Available",
+        "intake_date": "2025-12-18",
+        "length_of_stay_days": 22,
+        "birthdate": "2023-12-18",
+        "age_group": "Adult",
+        "breed": "Husky",
+        "secondary_breed": "Mixed Breed (Medium)",
+        "weight_group": "Medium (25-59)",
+        "color": "Black",
+        "bite_quarantine": 0,
+        "returned": 0,
+        "latitude": 32.2655,
+        "longitude": -107.7582
+      },
+      {
         "name": "Wilbur",
         "dog_id": 210495598,
         "url": "https://new.shelterluv.com/embed/animal/210495598",
@@ -200,26 +178,6 @@
         "returned": 2,
         "latitude": 35.1102,
         "longitude": -106.5823
-      },
-      {
-        "name": "Sandshrew",
-        "dog_id": 212097486,
-        "url": "https://new.shelterluv.com/embed/animal/212097486",
-        "location": "Main Campus - Main Kennel South, MKS-19",
-        "origin": "Edgewood Animal Control",
-        "status": "Available",
-        "intake_date": "2025-10-23",
-        "length_of_stay_days": 77,
-        "birthdate": "2022-10-23",
-        "age_group": "Adult",
-        "breed": "Terrier, American Pit Bull",
-        "secondary_breed": "Mixed Breed (Medium)",
-        "weight_group": "Medium (25-59)",
-        "color": "Black and White",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 35.0913,
-        "longitude": -106.1945
       },
       {
         "name": "Charmander",
@@ -282,26 +240,6 @@
         "longitude": -106.0846
       },
       {
-        "name": "Velma",
-        "dog_id": 208821491,
-        "url": "https://new.shelterluv.com/embed/animal/208821491",
-        "location": "Main Kennel North, Main Campus - MKN-04",
-        "origin": "ABQ Animal Welfare Department",
-        "status": "Available",
-        "intake_date": "2025-12-16",
-        "length_of_stay_days": 23,
-        "birthdate": "2016-07-08",
-        "age_group": "Senior",
-        "breed": "Terrier, American Pit Bull",
-        "secondary_breed": "",
-        "weight_group": "Large (60-99)",
-        "color": "",
-        "bite_quarantine": 1,
-        "returned": 0,
-        "latitude": 35.1102,
-        "longitude": -106.5823
-      },
-      {
         "name": "Theo",
         "dog_id": 208812286,
         "url": "https://new.shelterluv.com/embed/animal/208812286",
@@ -360,26 +298,6 @@
         "returned": 0,
         "latitude": 35.5939,
         "longitude": -105.2239
-      },
-      {
-        "name": "Goober",
-        "dog_id": 212383949,
-        "url": "https://new.shelterluv.com/embed/animal/212383949",
-        "location": "Main Kennel North, Main Campus - MKN-01",
-        "origin": "The Animal Services Center",
-        "status": "Available",
-        "intake_date": "2025-12-01",
-        "length_of_stay_days": 33,
-        "birthdate": "2024-03-03",
-        "age_group": "Adult",
-        "breed": "Mixed Breed (Large)",
-        "secondary_breed": "",
-        "weight_group": "Large (60-99)",
-        "color": "Black",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 32.3128,
-        "longitude": -106.7799
       },
       {
         "name": "Tina Fey",

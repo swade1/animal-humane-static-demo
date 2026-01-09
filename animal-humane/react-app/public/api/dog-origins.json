@@ -37,7 +37,7 @@
       "origin": "Socorro Animal Shelter and Adoption Center",
       "latitude": 34.0225,
       "longitude": -106.9031,
-      "count": 7,
+      "count": 8,
       "adopted": 6,
       "available": 1
     },
@@ -85,9 +85,9 @@
       "origin": "City of Las Vegas Animal Care Center",
       "latitude": 35.5939,
       "longitude": -105.2239,
-      "count": 50,
+      "count": 52,
       "adopted": 30,
-      "available": 20
+      "available": 22
     },
     {
       "origin": "Sandoval County Animal Services",
@@ -106,20 +106,20 @@
       "available": 0
     },
     {
+      "origin": "Tucumcari Animal Shelter",
+      "latitude": 35.1926,
+      "longitude": -103.7197,
+      "count": 14,
+      "adopted": 8,
+      "available": 6
+    },
+    {
       "origin": "Mountainair Animal Control",
       "latitude": 34.5197,
       "longitude": -106.2433,
       "count": 10,
       "adopted": 10,
       "available": 0
-    },
-    {
-      "origin": "Tucumcari Animal Shelter",
-      "latitude": 35.1926,
-      "longitude": -103.7197,
-      "count": 11,
-      "adopted": 8,
-      "available": 3
     },
     {
       "origin": "Truth or Consequences Animal Shelter",
@@ -154,20 +154,20 @@
       "available": 0
     },
     {
-      "origin": "Otero County Animal Control",
-      "latitude": 32.8995,
-      "longitude": -105.9603,
-      "count": 6,
-      "adopted": 6,
-      "available": 0
-    },
-    {
       "origin": "Torrance County Animal Shelter",
       "latitude": 34.8712,
       "longitude": -106.0515,
       "count": 9,
       "adopted": 8,
       "available": 1
+    },
+    {
+      "origin": "Otero County Animal Control",
+      "latitude": 32.8995,
+      "longitude": -105.9603,
+      "count": 6,
+      "adopted": 6,
+      "available": 0
     },
     {
       "origin": "Valencia County Animal Shelter",
@@ -213,9 +213,9 @@
       "origin": "RezDawg Rescue",
       "latitude": 35.0142,
       "longitude": -106.0846,
-      "count": 11,
+      "count": 12,
       "adopted": 6,
-      "available": 5
+      "available": 6
     },
     {
       "origin": "Bro & Tracy Animal Welfare",
