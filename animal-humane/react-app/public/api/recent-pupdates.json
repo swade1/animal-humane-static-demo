@@ -75,7 +75,18 @@
         }
       }
     ],
-    "adopted_dogs": [],
+    "adopted_dogs": [
+      {
+        "id": 212478123,
+        "name": "Princess Bubble Gum ",
+        "url": "https://new.shelterluv.com/embed/animal/212478123",
+        "status": "Available",
+        "location": "Main Campus- Big Blue, BB-19",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      }
+    ],
     "trial_dogs": [
       {
         "id": 208806839,
@@ -155,16 +166,6 @@
         "url": "https://new.shelterluv.com/embed/animal/208821491",
         "status": "Available",
         "location": "Main Kennel North, Main Campus - MKN-04",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 212478123,
-        "name": "Princess Bubble Gum ",
-        "url": "https://new.shelterluv.com/embed/animal/212478123",
-        "status": "Available",
-        "location": "Main Campus- Big Blue, BB-19",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
