@@ -108,6 +108,16 @@
         }
       },
       {
+        "id": 210495598,
+        "name": "Wilbur",
+        "url": "https://new.shelterluv.com/embed/animal/210495598",
+        "status": "Available",
+        "location": "Main Campus, Trial Adoption ",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
         "id": 212175628,
         "name": "Nubbin",
         "url": "https://new.shelterluv.com/embed/animal/212175628",
@@ -165,16 +175,6 @@
         "url": "https://new.shelterluv.com/embed/animal/212454268",
         "status": "Available",
         "location": "Foster Home",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 210495598,
-        "name": "Wilbur",
-        "url": "https://new.shelterluv.com/embed/animal/210495598",
-        "status": "Available",
-        "location": "Main Campus - Main Kennel South, MKS-20",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
