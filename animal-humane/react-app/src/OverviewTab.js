@@ -142,7 +142,7 @@ function OverviewTab() {
           </tr>
           <br />  {/* Added to preserve original line spacing */}
           <tr>
-            <td><strong>New this week:</strong></td>
+            <td><strong>New in the last 7 days:</strong></td>
             <td>{stats.newThisWeek}</td>
           </tr>
           <br />  {/* Added to preserve original line spacing */}
