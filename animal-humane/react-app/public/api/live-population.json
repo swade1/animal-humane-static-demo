@@ -122,26 +122,6 @@
       "longitude": -106.6646
     },
     {
-      "name": "Allsups",
-      "dog_id": 212459376,
-      "url": "https://new.shelterluv.com/embed/animal/212459376",
-      "location": "Westside Adoption Center, Dog Kennel 2",
-      "origin": "Bernalillo County Animal Care",
-      "status": "Available",
-      "intake_date": "2025-12-17",
-      "length_of_stay_days": 24,
-      "birthdate": "2025-11-03",
-      "age_group": "Puppy",
-      "breed": "Shepherd, German",
-      "secondary_breed": "Mixed Breed (Large)",
-      "weight_group": null,
-      "color": "Brown and White",
-      "bite_quarantine": 0,
-      "returned": 0,
-      "latitude": 35.0561,
-      "longitude": -106.6646
-    },
-    {
       "name": "Bean",
       "dog_id": 212459394,
       "url": "https://new.shelterluv.com/embed/animal/212459394",
