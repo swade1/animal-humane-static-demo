@@ -308,12 +308,6 @@
             "length_of_stay_days": 2
           },
           {
-            "name": "Tina Fey",
-            "breed": "Chihuahua",
-            "age_group": "Puppy",
-            "length_of_stay_days": 24
-          },
-          {
             "name": "Rose",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -332,6 +326,12 @@
             "length_of_stay_days": 2
           },
           {
+            "name": "Tina Fey",
+            "breed": "Chihuahua",
+            "age_group": "Puppy",
+            "length_of_stay_days": 24
+          },
+          {
             "name": "Chris Farley",
             "breed": "Chihuahua",
             "age_group": "Puppy",
@@ -342,12 +342,6 @@
             "breed": "Chihuahua",
             "age_group": "Puppy",
             "length_of_stay_days": 24
-          },
-          {
-            "name": "Ferb",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 18
           },
           {
             "name": "Pine",
@@ -378,6 +372,12 @@
             "breed": "Mixed Breed (Large)",
             "age_group": "Adult",
             "length_of_stay_days": 3
+          },
+          {
+            "name": "Ferb",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 18
           },
           {
             "name": "Velma",

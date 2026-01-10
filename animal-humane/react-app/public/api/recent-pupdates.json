@@ -141,26 +141,6 @@
     ],
     "unlisted_dogs": [
       {
-        "id": 212534379,
-        "name": "Rose",
-        "url": "https://new.shelterluv.com/embed/animal/212534379",
-        "status": "Available",
-        "location": "Westside Adoption Center, Dog Kennel 4",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
-        "id": 212534399,
-        "name": "Theodore",
-        "url": "https://new.shelterluv.com/embed/animal/212534399",
-        "status": "Available",
-        "location": "Westside Adoption Center, Dog Kennel 4",
-        "section_metadata": {
-          "source": "diff_analysis_unlisted"
-        }
-      },
-      {
         "id": 208821491,
         "name": "Velma",
         "url": "https://new.shelterluv.com/embed/animal/208821491",
@@ -513,7 +493,7 @@
         }
       }
     ],
-    "total_dogs": 50
+    "total_dogs": 48
   },
   "message": null,
   "error": null
