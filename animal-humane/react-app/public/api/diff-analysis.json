@@ -1,54 +1,14 @@
 {
   "success": true,
   "data": {
-    "new_dogs": [
-      {
-        "name": "Pine",
-        "url": "https://new.shelterluv.com/embed/animal/212533004"
-      },
-      {
-        "name": "Parzival",
-        "url": "https://new.shelterluv.com/embed/animal/212559039"
-      },
-      {
-        "name": "Ferb",
-        "url": "https://new.shelterluv.com/embed/animal/212477861"
-      },
-      {
-        "name": "Aech",
-        "url": "https://new.shelterluv.com/embed/animal/212559176"
-      },
-      {
-        "name": "Jack",
-        "url": "https://new.shelterluv.com/embed/animal/212559448"
-      }
-    ],
-    "returned_dogs": [
-      {
-        "name": "Snapdragon",
-        "dog_id": 212533095,
-        "url": "https://new.shelterluv.com/embed/animal/212533095",
-        "location": "Main Campus - Main Kennel South, MKS-05"
-      }
-    ],
+    "new_dogs": [],
+    "returned_dogs": [],
     "adopted_dogs": [
       {
-        "name": "Noah",
-        "dog_id": 212175617,
-        "url": "https://new.shelterluv.com/embed/animal/212175617",
+        "name": "Allsups",
+        "dog_id": 212459376,
+        "url": "https://new.shelterluv.com/embed/animal/212459376",
         "location": ""
-      },
-      {
-        "name": "Nubbin",
-        "dog_id": 212175628,
-        "url": "https://new.shelterluv.com/embed/animal/212175628",
-        "location": ""
-      },
-      {
-        "name":"Allsups",
-        "dog_id": 211459376,
-        "url":"https://new.shelterluv.com/embed/animal/212459376",
-        "location":""
       }
     ],
     "trial_adoption_dogs": [
@@ -73,26 +33,6 @@
         "longitude": -106.5823
       },
       {
-        "name": "Hachi",
-        "dog_id": 208806839,
-        "url": "https://new.shelterluv.com/embed/animal/208806839",
-        "location": "Main Campus, Trial Adoption",
-        "origin": "Owner Surrender",
-        "status": "Available",
-        "intake_date": "2025-10-17",
-        "length_of_stay_days": 83,
-        "birthdate": "2022-04-10",
-        "age_group": "Adult",
-        "breed": "Retriever, Labrador",
-        "secondary_breed": "Mixed Breed (Large)",
-        "weight_group": "Large (60-99)",
-        "color": "Black and White",
-        "bite_quarantine": 1,
-        "returned": 0,
-        "latitude": 0,
-        "longitude": 0
-      },
-      {
         "name": "Bucket",
         "dog_id": 212481029,
         "url": "https://new.shelterluv.com/embed/animal/212481029",
@@ -114,6 +54,26 @@
       }
     ],
     "other_unlisted_dogs": [
+      {
+        "name": "Stray Hold - Astro",
+        "dog_id": 212557508,
+        "url": "https://new.shelterluv.com/embed/animal/212557508",
+        "location": "Main Kennel North, Main Campus - MKN-27",
+        "origin": "Stray",
+        "status": "Available",
+        "intake_date": "2026-01-06",
+        "length_of_stay_days": 4,
+        "birthdate": "2024-07-06",
+        "age_group": "Adult",
+        "breed": "Shepherd, Australian",
+        "secondary_breed": "",
+        "weight_group": "Medium (25-59)",
+        "color": "",
+        "bite_quarantine": 0,
+        "returned": 0,
+        "latitude": 0,
+        "longitude": 0
+      },
       {
         "name": "Velma",
         "dog_id": 208821491,
@@ -155,10 +115,30 @@
         "longitude": -106.5823
       },
       {
+        "name": "Hachi",
+        "dog_id": 208806839,
+        "url": "https://new.shelterluv.com/embed/animal/208806839",
+        "location": "Main Campus - Main Kennel South, MKS-20",
+        "origin": "Owner Surrender",
+        "status": "Available",
+        "intake_date": "2025-10-17",
+        "length_of_stay_days": 83,
+        "birthdate": "2022-04-10",
+        "age_group": "Adult",
+        "breed": "Retriever, Labrador",
+        "secondary_breed": "Mixed Breed (Large)",
+        "weight_group": "Large (60-99)",
+        "color": "Black and White",
+        "bite_quarantine": 1,
+        "returned": 0,
+        "latitude": 0,
+        "longitude": 0
+      },
+      {
         "name": "Charmander",
         "dog_id": 212477913,
         "url": "https://new.shelterluv.com/embed/animal/212477913",
-        "location": "Westside Adoption Center, Dog Kennel 4",
+        "location": "Main Campus - Main Kennel South, MKS-12",
         "origin": "RezDawg Rescue",
         "status": "Available",
         "intake_date": "2025-12-22",
@@ -178,7 +158,7 @@
         "name": "Squirtle",
         "dog_id": 212477928,
         "url": "https://new.shelterluv.com/embed/animal/212477928",
-        "location": "Westside Adoption Center, Dog Kennel 4",
+        "location": "Main Campus - Main Kennel South, MKS-12",
         "origin": "RezDawg Rescue",
         "status": "Available",
         "intake_date": "2025-12-22",
@@ -198,7 +178,7 @@
         "name": "Bulbasaur",
         "dog_id": 212477943,
         "url": "https://new.shelterluv.com/embed/animal/212477943",
-        "location": "Westside Adoption Center, Dog Kennel 4",
+        "location": "Main Campus - Main Kennel South, MKS-12",
         "origin": "RezDawg Rescue",
         "status": "Available",
         "intake_date": "2025-12-22",

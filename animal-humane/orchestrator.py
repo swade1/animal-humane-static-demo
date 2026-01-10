@@ -1,9 +1,18 @@
 import json
+import logging
+
 import os
 import subprocess
 import sys
 from datetime import datetime
 from elasticsearch import Elasticsearch
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 
 
 def run_in_container_and_get_urls(container, script):
@@ -115,7 +124,7 @@ def git_push():
 
 
 if __name__ == "__main__":
-    logger.info("Running [orchestrator.py](http://_vscodecontentref_/2) at 11:10"))
+    logger.info("Running [orchestrator.py](http://_vscodecontentref_/2) at 11:10")
     es = Elasticsearch("http://localhost:9200")
 
     # 1. Run diff_indices_runner.py inside the api docker container

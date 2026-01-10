@@ -1661,13 +1661,13 @@
         "count": 8,
         "names": [
           "Tom Hardy",
+          "Noah",
+          "Nubbin",
           "Sake",
           "Tonkatsu",
           "Takoyaki",
           "Yakitori",
-          "Kimchi",
-          "Noah",
-          "Nubbin"
+          "Kimchi"
         ]
       },
       {
@@ -1704,16 +1704,16 @@
         "date": "01/09/2026",
         "count": 4,
         "names": [
-          "Princess Bubble Gum",
-          "Ferb",
           "Hermione",
+          "Ferb",
+          "Princess Bubble Gum ",
           "Bearberry"
         ]
       },
       {
         "date": "01/10/2026",
         "count": 1,
-        "names":[
+        "names": [
           "Allsups"
         ]
       }

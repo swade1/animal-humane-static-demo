@@ -344,6 +344,7 @@ def _parse_index_datetime(index_name: str):
         return None
 
 def run_orchestrator():
+    import subprocess
     logger.info("run_orchestrator() called")
     try:
         subprocess.run(["python", "orchestrator.py"], check=True)
@@ -376,13 +377,17 @@ def main():
     schedule.every().day.at("15:15").do(scheduler.run_async, run_orchestrator)
     schedule.every().day.at("17:15").do(scheduler.run_async, run_orchestrator)
     schedule.every().day.at("19:15").do(scheduler.run_async, run_orchestrator)
+
+    for job in schedule.get_jobs():
+        logger.info(f"Scheduled job: {job}")
+
     
     # Health check every hour
     schedule.every().hour.do(scheduler.run_async, scheduler.health_check)  
     
     logger.info("Scheduler configured with the following jobs (Mountain Time):")
     logger.info("- Scraping: 9:00, 11:00, 13:00, 15:00, 17:00, 19:00")
-    logger.info("- Diff analysis: 9:10, 11:10, 13:10, 15:10, 17:10, 19:10")
+    logger.info("- Diff analysis: 9:15, 11:15, 13:15, 15:15, 17:15, 19:15")
     logger.info("- Health check: Every hour")
     
     # Run initial health check

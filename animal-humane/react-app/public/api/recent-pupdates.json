@@ -5,33 +5,13 @@
     "returned_dogs": [],
     "adopted_dogs": [
       {
-        "id": 212175617,
-        "name": "Noah",
-        "url": "https://new.shelterluv.com/embed/animal/212175617",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_trial"
-        }
-      },
-      {
-        "id": 212175628,
-        "name": "Nubbin",
-        "url": "https://new.shelterluv.com/embed/animal/212175628",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_trial"
-        }
-      },
-      {
         "id": 212459376,
         "name": "Allsups",
         "url": "https://new.shelterluv.com/embed/animal/212459376",
         "status": null,
-        "location": null,
+        "location": "",
         "section_metadata": {
-          "source": "diff_analysis_trial"
+          "source": "diff_analysis_adopted"
         }
       }
     ],
@@ -40,16 +20,6 @@
         "id": 210495598,
         "name": "Wilbur",
         "url": "https://new.shelterluv.com/embed/animal/210495598",
-        "status": "Available",
-        "location": "Main Campus, Trial Adoption",
-        "section_metadata": {
-          "source": "diff_analysis_trial"
-        }
-      },
-      {
-        "id": 208806839,
-        "name": "Hachi",
-        "url": "https://new.shelterluv.com/embed/animal/208806839",
         "status": "Available",
         "location": "Main Campus, Trial Adoption",
         "section_metadata": {
@@ -68,6 +38,16 @@
       }
     ],
     "unlisted_dogs": [
+      {
+        "id": 212557508,
+        "name": "Stray Hold - Astro",
+        "url": "https://new.shelterluv.com/embed/animal/212557508",
+        "status": "Available",
+        "location": "Main Kennel North, Main Campus - MKN-27",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
       {
         "id": 208821491,
         "name": "Velma",
@@ -89,11 +69,21 @@
         }
       },
       {
+        "id": 208806839,
+        "name": "Hachi",
+        "url": "https://new.shelterluv.com/embed/animal/208806839",
+        "status": "Available",
+        "location": "Main Campus - Main Kennel South, MKS-20",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
         "id": 212477913,
         "name": "Charmander",
         "url": "https://new.shelterluv.com/embed/animal/212477913",
         "status": "Available",
-        "location": "Westside Adoption Center, Dog Kennel 4",
+        "location": "Main Campus - Main Kennel South, MKS-12",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -103,7 +93,7 @@
         "name": "Squirtle",
         "url": "https://new.shelterluv.com/embed/animal/212477928",
         "status": "Available",
-        "location": "Westside Adoption Center, Dog Kennel 4",
+        "location": "Main Campus - Main Kennel South, MKS-12",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -113,7 +103,7 @@
         "name": "Bulbasaur",
         "url": "https://new.shelterluv.com/embed/animal/212477943",
         "status": "Available",
-        "location": "Westside Adoption Center, Dog Kennel 4",
+        "location": "Main Campus - Main Kennel South, MKS-12",
         "section_metadata": {
           "source": "diff_analysis_unlisted"
         }
@@ -421,7 +411,7 @@
         }
       }
     ],
-    "total_dogs": 48
+    "total_dogs": 40
   },
   "message": null,
   "error": null
