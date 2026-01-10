@@ -350,12 +350,6 @@
             "length_of_stay_days": 10
           },
           {
-            "name": "Bearberry",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 10
-          },
-          {
             "name": "Parzival",
             "breed": "Shepherd, German",
             "age_group": "Adult",
@@ -534,12 +528,6 @@
         "max": 180,
         "count": 3,
         "dogs": [
-          {
-            "name": "Hermione",
-            "breed": "Retriever, Black Labrador",
-            "age_group": "Senior",
-            "length_of_stay_days": 161
-          },
           {
             "name": "Jane ",
             "breed": "Retriever, Labrador",

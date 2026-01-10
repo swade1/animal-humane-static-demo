@@ -15,10 +15,6 @@
         "url": "https://new.shelterluv.com/embed/animal/212477861"
       },
       {
-        "name": "Bearberry",
-        "url": "https://new.shelterluv.com/embed/animal/212533023"
-      },
-      {
         "name": "Aech",
         "url": "https://new.shelterluv.com/embed/animal/212559176"
       },
@@ -47,6 +43,18 @@
         "dog_id": 212477861,
         "url": "https://new.shelterluv.com/embed/animal/212477861",
         "location": ""
+      },
+      {
+        "name":"Hermione,
+        "dog_id": 211590344,
+        "url":"https://new.shelterluv.com/embed/animal/211590344",
+        "location":""
+      },
+      {
+        "name": "Bearberry",
+        "dog_id":212533023,
+        "url": "https://new.shelterluv.com/embed/animal/212533023",
+        "location":""
       }
     ],
     "trial_adoption_dogs": [

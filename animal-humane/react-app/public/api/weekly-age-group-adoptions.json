@@ -1,4 +1,4 @@
-{
+
   "success": true,
   "data": [
     {
@@ -57,9 +57,9 @@
     },
     {
       "week": "01/05/2026",
-      "Puppy": 6,
+      "Puppy": 7,
       "Adult": 4,
-      "Senior": 0
+      "Senior": 1
     }
   ],
   "message": null,
