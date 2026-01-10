@@ -374,12 +374,6 @@
             "length_of_stay_days": 3
           },
           {
-            "name": "Ferb",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 18
-          },
-          {
             "name": "Velma",
             "breed": "Terrier, American Pit Bull",
             "age_group": "Senior",

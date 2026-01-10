@@ -24,16 +24,6 @@
       },
       {
         "id": null,
-        "name": "Ferb",
-        "url": "https://new.shelterluv.com/embed/animal/212477861",
-        "status": null,
-        "location": null,
-        "section_metadata": {
-          "source": "diff_analysis_new"
-        }
-      },
-      {
-        "id": null,
         "name": "Bearberry",
         "url": "https://new.shelterluv.com/embed/animal/212533023",
         "status": null,
@@ -84,6 +74,16 @@
         "location": "",
         "section_metadata": {
           "source": "diff_analysis_adopted"
+        }
+      },
+      {
+        "id": null,
+        "name": "Ferb",
+        "url": "https://new.shelterluv.com/embed/animal/212477861",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_new"
         }
       }
     ],
