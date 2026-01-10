@@ -454,18 +454,6 @@
             "length_of_stay_days": 63
           },
           {
-            "name": "Noah",
-            "breed": "Chihuahua",
-            "age_group": "Adult",
-            "length_of_stay_days": 57
-          },
-          {
-            "name": "Nubbin",
-            "breed": "Chihuahua",
-            "age_group": "Adult",
-            "length_of_stay_days": 57
-          },
-          {
             "name": "Gandalf",
             "breed": "Shepherd",
             "age_group": "Adult",

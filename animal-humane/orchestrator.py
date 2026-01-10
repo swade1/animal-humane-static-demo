@@ -115,6 +115,7 @@ def git_push():
 
 
 if __name__ == "__main__":
+    logger.info("Running [orchestrator.py](http://_vscodecontentref_/2) at 11:10"))
     es = Elasticsearch("http://localhost:9200")
 
     # 1. Run diff_indices_runner.py inside the api docker container
@@ -125,31 +126,31 @@ if __name__ == "__main__":
     #'returned': [{'name': 'Snapdragon', 'dog_id': 212533095, 'url': 'https://new.shelterluv.com/embed/animal/212533095', 'location': 'Main Campus - Main Kennel South, MKS-05'}], 
 
 
-    if result.get("adoptions"):
-        adoption_fields = [
-            {
-                "dog_id": dog["dog_id"]
-            }
-            for dog in result.get("adoptions", [])
-        ]    
-        print("Adopted dogs")
-        print(json.dumps(adoption_fields),end="")
+    #if result.get("adoptions"):
+    #    adoption_fields = [
+    #        {
+    #            "dog_id": dog["dog_id"]
+    #        }
+    #        for dog in result.get("adoptions", [])
+    #    ]    
+    #    print("Adopted dogs")
+    #    print(json.dumps(adoption_fields),end="")
 
-        update_adoption(es, adoption_fields)
+    #    update_adoption(es, adoption_fields)
 
-    if result.get("returned"):
-        returned_fields = [
-            {
-                "dog_id": dog["dog_id"],
-                "location": dog["location"]
-            }
-            for dog in result.get("returned", [])
-        ]
-        print()
-        print("Dogs that have been returned")
-        print(json.dumps(returned_fields),end="")
+    #if result.get("returned"):
+    #    returned_fields = [
+    #        {
+    #            "dog_id": dog["dog_id"],
+    #            "location": dog["location"]
+    #        }
+    #        for dog in result.get("returned", [])
+    #    ]
+    #    print()
+    #    print("Dogs that have been returned")
+    #    print(json.dumps(returned_fields),end="")
 
-        update_return(es, returned_fields)
+    #    update_return(es, returned_fields)
 
         
 
