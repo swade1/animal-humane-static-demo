@@ -365,12 +365,12 @@ def main():
     schedule.every().day.at("19:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 7 PM MT
     
     # Schedule orchestrator.py to run at 9:05, 11:05, 13:05, 15:05, 17:05, 19:05 MT
-    schedule.every().day.at("09:05").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("11:05").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("13:05").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("15:05").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("17:05").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("19:05").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("09:10").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("11:10").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("13:10").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("15:10").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("17:10").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("19:10").do(scheduler.run_async, run_orchestrator)
     
     # Health check every hour
     schedule.every().hour.do(scheduler.run_async, scheduler.health_check)  
