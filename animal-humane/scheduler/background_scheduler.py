@@ -344,7 +344,12 @@ def _parse_index_datetime(index_name: str):
         return None
 
 def run_orchestrator():
-    subprocess.run(["python", "orchestrator.py"], check=True)
+    logger.info("run_orchestrator() called")
+    try:
+        subprocess.run(["python", "orchestrator.py"], check=True)
+        logger.info("orchestrator.py completed successfully")
+    except Exception as e:
+        logger.error(f"orchestrator.py failed: {e}")
 
 
 def main():
@@ -364,13 +369,13 @@ def main():
     schedule.every().day.at("17:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 5 PM MT
     schedule.every().day.at("19:00").do(scheduler.run_async, scheduler.scrape_and_index)  # 7 PM MT
     
-    # Schedule orchestrator.py to run at 9:05, 11:05, 13:05, 15:05, 17:05, 19:05 MT
-    schedule.every().day.at("09:10").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("11:10").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("13:10").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("15:10").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("17:10").do(scheduler.run_async, run_orchestrator)
-    schedule.every().day.at("19:10").do(scheduler.run_async, run_orchestrator)
+    # Schedule orchestrator.py to run at 9:15, 11:15, 13:15, 15:15, 17:15, 19:15 MT
+    schedule.every().day.at("09:15").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("11:15").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("13:15").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("15:15").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("17:15").do(scheduler.run_async, run_orchestrator)
+    schedule.every().day.at("19:15").do(scheduler.run_async, run_orchestrator)
     
     # Health check every hour
     schedule.every().hour.do(scheduler.run_async, scheduler.health_check)  

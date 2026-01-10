@@ -1,14 +1,14 @@
 {
   "success": true,
   "data": {
-    "total": 85,
+    "total": 83,
     "newThisWeek": 39,
-    "adoptedThisWeek": 29,
-    "trialAdoptions": 5,
+    "adoptedThisWeek": 31,
+    "trialAdoptions": 3,
     "ageGroups": [
       {
         "age_group": "Adult",
-        "count": 41
+        "count": 39
       },
       {
         "age_group": "Puppy",

@@ -43,18 +43,7 @@
         }
       }
     ],
-    "returned_dogs": [
-      {
-        "id": 212533095,
-        "name": "Snapdragon",
-        "url": "https://new.shelterluv.com/embed/animal/212533095",
-        "status": null,
-        "location": "Main Campus - Main Kennel South, MKS-05",
-        "section_metadata": {
-          "source": "diff_analysis_returned"
-        }
-      }
-    ],
+    "returned_dogs": [],
     "adopted_dogs": [
       {
         "id": 212478123,
@@ -95,6 +84,26 @@
         "section_metadata": {
           "source": "diff_analysis_new"
         }
+      },
+      {
+        "id": 212175617,
+        "name": "Noah",
+        "url": "https://new.shelterluv.com/embed/animal/212175617",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
+      },
+      {
+        "id": 212175628,
+        "name": "Nubbin",
+        "url": "https://new.shelterluv.com/embed/animal/212175628",
+        "status": null,
+        "location": null,
+        "section_metadata": {
+          "source": "diff_analysis_trial"
+        }
       }
     ],
     "trial_dogs": [
@@ -124,26 +133,6 @@
         "url": "https://new.shelterluv.com/embed/animal/212481029",
         "status": "Available",
         "location": "Westside Adoption Center, Trial Adoption",
-        "section_metadata": {
-          "source": "diff_analysis_trial"
-        }
-      },
-      {
-        "id": 212175617,
-        "name": "Noah",
-        "url": "https://new.shelterluv.com/embed/animal/212175617",
-        "status": "Available",
-        "location": "Main Campus, Trial Adoption",
-        "section_metadata": {
-          "source": "diff_analysis_trial"
-        }
-      },
-      {
-        "id": 212175628,
-        "name": "Nubbin",
-        "url": "https://new.shelterluv.com/embed/animal/212175628",
-        "status": "Available",
-        "location": "Main Campus, Trial Adoption",
         "section_metadata": {
           "source": "diff_analysis_trial"
         }
