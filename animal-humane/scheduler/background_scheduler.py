@@ -461,8 +461,13 @@ def main():
     # Main loop
     try:
         while True:
-            schedule.run_pending()
-            time.sleep(5)  # Check every 5 seconds
+            last_heartbeat = time.time()
+            while True:
+                schedule.run_pending()
+                if time.time() - last_heartbeat > 300:  # every 5 minutes
+                    logger.info("Scheduler main loop heartbeat")
+                    last_heartbeat = time.time()
+                time.sleep(5)
     except KeyboardInterrupt:
         logger.info("Scheduler stopped by user")
     except Exception as e:

@@ -124,7 +124,7 @@ def git_push():
 
 
 if __name__ == "__main__":
-    logger.info("Running [orchestrator.py](http://_vscodecontentref_/2) at 11:10")
+    logger.info("Running orchestrator.py")
     es = Elasticsearch("http://localhost:9200")
 
     # 1. Run diff_indices_runner.py inside the api docker container
