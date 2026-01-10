@@ -5,7 +5,7 @@
       {
         "min": 0,
         "max": 30,
-        "count": 59,
+        "count": 58,
         "dogs": [
           {
             "name": "Dahlia",
@@ -42,12 +42,6 @@
             "breed": "Retriever, Labrador",
             "age_group": "Adult",
             "length_of_stay_days": 23
-          },
-          {
-            "name": "Frankie",
-            "breed": "Chihuahua, Short Coat",
-            "age_group": "Senior",
-            "length_of_stay_days": 22
           },
           {
             "name": "Wiley",

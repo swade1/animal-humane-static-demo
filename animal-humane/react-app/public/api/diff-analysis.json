@@ -9,6 +9,12 @@
         "dog_id": 212459376,
         "url": "https://new.shelterluv.com/embed/animal/212459376",
         "location": ""
+      },
+      {
+        "name": "Frankie",
+        "dog_id": 212467941,
+        "url": "https://new.shelterluv.com/embed/animal/212467941",
+        "location": ""
       }
     ],
     "trial_adoption_dogs": [
@@ -54,26 +60,6 @@
       }
     ],
     "other_unlisted_dogs": [
-      {
-        "name": "Frankie",
-        "dog_id": 212467941,
-        "url": "https://new.shelterluv.com/embed/animal/212467941",
-        "location": "",
-        "origin": "Owner Surrender",
-        "status": "Available",
-        "intake_date": "2025-12-19",
-        "length_of_stay_days": 22,
-        "birthdate": "2018-12-19",
-        "age_group": "Senior",
-        "breed": "Chihuahua, Short Coat",
-        "secondary_breed": "",
-        "weight_group": "Small (0-24)",
-        "color": "Tan and White",
-        "bite_quarantine": 0,
-        "returned": 0,
-        "latitude": 0,
-        "longitude": 0
-      },
       {
         "name": "Stray Hold - Astro",
         "dog_id": 212557508,
