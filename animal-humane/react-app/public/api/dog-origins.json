@@ -314,14 +314,6 @@
       "available": 0
     },
     {
-      "origin": "Lovelace Biomedical Research",
-      "latitude": 35.0559,
-      "longitude": -106.5789,
-      "count": 5,
-      "adopted": 5,
-      "available": 0
-    },
-    {
       "origin": "Raton Humane Society",
       "latitude": 36.8705,
       "longitude": -104.4309,
@@ -336,6 +328,14 @@
       "count": 1,
       "adopted": 0,
       "available": 1
+    },
+    {
+      "origin": "Lovelace Biomedical Research",
+      "latitude": 35.0559,
+      "longitude": -106.5789,
+      "count": 5,
+      "adopted": 5,
+      "available": 0
     },
     {
       "origin": "Stray Hearts Animal Shelter",

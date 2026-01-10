@@ -39,6 +39,16 @@
     ],
     "unlisted_dogs": [
       {
+        "id": 212467941,
+        "name": "Frankie",
+        "url": "https://new.shelterluv.com/embed/animal/212467941",
+        "status": "Available",
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
         "id": 212557508,
         "name": "Stray Hold - Astro",
         "url": "https://new.shelterluv.com/embed/animal/212557508",
@@ -411,7 +421,7 @@
         }
       }
     ],
-    "total_dogs": 40
+    "total_dogs": 41
   },
   "message": null,
   "error": null

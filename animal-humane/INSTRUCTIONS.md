@@ -551,17 +551,11 @@ run generate_recent_pupdates_json.py
 
 Add, commit, and push to the repo.
 
+------------
 
-Format of raw data returned to main in diff_indices_runner.py (this is a dictionary where values are an empty list or list of dictionaries)
-{'adopted_dogs': [], 'trial_adoption_dogs': [{'name': 'Hachi', 'dog_id': 208806839, 'url': 'https://new.shelterluv.com/embed/animal/208806839', 'location': 'Main Campus, Trial Adoption', 'origin': 'Owner Surrender', 'status': 'Available', 'intake_date': '2025-10-17', 'length_of_stay_days': 83, 'birthdate': '2022-04-10', 'age_group': 'Adult', 'breed': 'Retriever, Labrador', 'secondary_breed': 'Mixed Breed (Large)', 'weight_group': 'Large (60-99)', 'color': 'Black and White', 'bite_quarantine': 1, 'returned': 0, 'latitude': 0, 'longitude': 0}, {'name': 'Bucket', 'dog_id': 212481029, 'url': 'https://new.shelterluv.com/embed/animal/212481029', 'location': 'Westside Adoption Center, Trial Adoption', 'origin': 'Owner Surrender', 'status': 'Available', 'intake_date': '2025-12-30', 'length_of_stay_days': 9, 'birthdate': '2024-12-23', 'age_group': 'Adult', 'breed': 'Terrier, Pit Bull', 'secondary_breed': '', 'weight_group': 'Large (60-99)', 'color': 'Sable and White', 'bite_quarantine': 0, 'returned': 1, 'latitude': 0, 'longitude': 0}, {'name': 'Noah', 'dog_id': 212175617, 'url': 'https://new.shelterluv.com/embed/animal/212175617', 'location': 'Main Campus, Trial Adoption', 'origin': 'Owner Surrender', 'status': 'Available', 'intake_date': '2025-11-08', 'length_of_stay_days': 57, 'birthdate': '2020-11-08', 'age_group': 'Adult', 'breed': 'Chihuahua', 'secondary_breed': '', 'weight_group': 'Small (0-24)', 'color': 'Tan and White', 'bite_quarantine': 0, 'returned': 0, 'latitude': 0, 'longitude': 0}, {'name': 'Nubbin', 'dog_id': 212175628, 'url': 'https://new.shelterluv.com/embed/animal/212175628', 'location': 'Main Campus, Trial Adoption', 'origin': 'Owner Surrender', 'status': 'Available', 'intake_date': '2025-11-08', 'length_of_stay_days': 57, 'birthdate': '2020-11-08', 'age_group': 'Adult', 'breed': 'Chihuahua', 'secondary_breed': '', 'weight_group': 'Small (0-24)', 'color': 'White and Tan', 'bite_quarantine': 0, 'returned': 0, 'latitude': 0, 'longitude': 0}], 'returned_dogs': [], 'other_unlisted_dogs': [{'name': 'Wilbur', 'dog_id': 210495598, 'url': 'https://new.shelterluv.com/embed/animal/210495598', 'location': 'Main Campus - Main Kennel South, MKS-20', 'origin': 'ABQ Animal Welfare Department', 'status': 'Available', 'intake_date': '2026-01-07', 'length_of_stay_days': 2, 'birthdate': '2024-09-18', 'age_group': 'Adult', 'breed': 'Retriever, Labrador', 'secondary_breed': 'Mix', 'weight_group': 'Medium
+Test run_orchestrator() in background_scheduler.py manually from inside virtual environment. This lets you test a function that you would normally have to wait to test until the next scheduled run.
 
+%python
+>>>from scheduler.background_scheduler import run_orchestrator
 
-
-To be updated:
-Trial adoptions don't need to be updated because the location including "Trial Adoption" has already been scraped and the status of Available doesn't change. 
-
-Unlisted dogs also don't need any updates 
-
-Adoptions and Returns are the only categories that need updates.
-Adoptions: "status":"adopted" 
-Returns: Increment "returned" field
+>>>run_orchestrator()

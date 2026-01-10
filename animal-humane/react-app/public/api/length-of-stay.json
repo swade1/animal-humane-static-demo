@@ -122,15 +122,15 @@
             "length_of_stay_days": 5
           },
           {
-            "name": "Stray Hold - Astro",
-            "breed": "Shepherd, Australian",
-            "age_group": "Adult",
-            "length_of_stay_days": 4
-          },
-          {
             "name": "Koala",
             "breed": "Shepherd",
             "age_group": "Puppy",
+            "length_of_stay_days": 4
+          },
+          {
+            "name": "Stray Hold - Astro",
+            "breed": "Shepherd, Australian",
+            "age_group": "Adult",
             "length_of_stay_days": 4
           },
           {
@@ -224,36 +224,6 @@
             "length_of_stay_days": 4
           },
           {
-            "name": "Charmander",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 19
-          },
-          {
-            "name": "Squirtle",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 19
-          },
-          {
-            "name": "Bulbasaur",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 19
-          },
-          {
-            "name": "Agave",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 11
-          },
-          {
-            "name": "Yucca",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 11
-          },
-          {
             "name": "Izzy",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -294,6 +264,36 @@
             "breed": "Retriever, Labrador",
             "age_group": "Adult",
             "length_of_stay_days": 3
+          },
+          {
+            "name": "Charmander",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 19
+          },
+          {
+            "name": "Squirtle",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 19
+          },
+          {
+            "name": "Bulbasaur",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 19
+          },
+          {
+            "name": "Agave",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 11
+          },
+          {
+            "name": "Yucca",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 11
           },
           {
             "name": "Rose",
