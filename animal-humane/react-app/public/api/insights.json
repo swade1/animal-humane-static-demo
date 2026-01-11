@@ -418,9 +418,8 @@
       },
       {
         "date": "08/26/2025",
-        "count": 4,
+        "count": 3,
         "names": [
-          "Alpha Dog",
           "Pancake",
           "Mindy",
           "Avery"
@@ -1712,8 +1711,9 @@
       },
       {
         "date": "01/10/2026",
-        "count": 6,
+        "count": 7,
         "names": [
+          "Alpha Dog",
           "Allsups",
           "Sparkles",
           "Frankie",

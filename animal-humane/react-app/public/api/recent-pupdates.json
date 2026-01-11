@@ -63,6 +63,16 @@
         "section_metadata": {
           "source": "diff_analysis_adopted"
         }
+      },
+      {
+        "id": 208812036,
+        "name": "Alpha Dog",
+        "url": "https://new.shelterluv.com/embed/animal/208812036",
+        "status": null,
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_adopted"
+        }
       }
     ],
     "trial_dogs": [
@@ -491,7 +501,7 @@
         }
       }
     ],
-    "total_dogs": 48
+    "total_dogs": 49
   },
   "message": null,
   "error": null

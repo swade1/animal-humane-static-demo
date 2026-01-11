@@ -90,6 +90,14 @@
       "available": 2
     },
     {
+      "origin": "Tucumcari Animal Shelter",
+      "latitude": 35.1926,
+      "longitude": -103.7197,
+      "count": 14,
+      "adopted": 8,
+      "available": 6
+    },
+    {
       "origin": "Sandoval County Animal Services",
       "latitude": 35.3515,
       "longitude": -106.4694,
@@ -104,14 +112,6 @@
       "count": 11,
       "adopted": 11,
       "available": 0
-    },
-    {
-      "origin": "Tucumcari Animal Shelter",
-      "latitude": 35.1926,
-      "longitude": -103.7197,
-      "count": 14,
-      "adopted": 8,
-      "available": 6
     },
     {
       "origin": "Mountainair Animal Control",

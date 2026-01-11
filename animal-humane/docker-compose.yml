@@ -75,6 +75,9 @@ services:
     depends_on:
       - elasticsearch
     restart: unless-stopped
+    volumes:
+      - ./shelterdog_tracker:/app/shelterdog_tracker
+      - ./diff_indices_runner.py:/app/diff_indices_runner.py
 
   frontend:
     image: animal-humane-frontend

@@ -122,12 +122,6 @@
             "length_of_stay_days": 10
           },
           {
-            "name": "Stray Hold - Astro",
-            "breed": "Shepherd, Australian",
-            "age_group": "Adult",
-            "length_of_stay_days": 4
-          },
-          {
             "name": "Bean",
             "breed": "Shepherd, German",
             "age_group": "Puppy",
@@ -158,6 +152,12 @@
             "length_of_stay_days": 5
           },
           {
+            "name": "Stray Hold - Astro",
+            "breed": "Shepherd, Australian",
+            "age_group": "Adult",
+            "length_of_stay_days": 4
+          },
+          {
             "name": "Monica",
             "breed": "Terrier, Pit Bull",
             "age_group": "Adult",
@@ -186,18 +186,6 @@
             "breed": "Terrier, Pit Bull",
             "age_group": "Adult",
             "length_of_stay_days": 4
-          },
-          {
-            "name": "Feathertop",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 11
-          },
-          {
-            "name": "Indigo",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 11
           },
           {
             "name": "Izzy",
@@ -236,6 +224,36 @@
             "length_of_stay_days": 3
           },
           {
+            "name": "Feathertop",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 11
+          },
+          {
+            "name": "Indigo",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 11
+          },
+          {
+            "name": "Rose",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 10
+          },
+          {
+            "name": "Theodore",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 10
+          },
+          {
+            "name": "Lover",
+            "breed": "Retriever, Labrador",
+            "age_group": "Adult",
+            "length_of_stay_days": 3
+          },
+          {
             "name": "Charmander",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -264,24 +282,6 @@
             "breed": "Shepherd",
             "age_group": "Puppy",
             "length_of_stay_days": 11
-          },
-          {
-            "name": "Rose",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 10
-          },
-          {
-            "name": "Theodore",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 10
-          },
-          {
-            "name": "Lover",
-            "breed": "Retriever, Labrador",
-            "age_group": "Adult",
-            "length_of_stay_days": 3
           },
           {
             "name": "Parzival",
