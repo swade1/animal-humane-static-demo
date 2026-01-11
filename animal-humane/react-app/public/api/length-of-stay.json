@@ -5,7 +5,7 @@
       {
         "min": 0,
         "max": 30,
-        "count": 58,
+        "count": 54,
         "dogs": [
           {
             "name": "Dahlia",
@@ -104,12 +104,6 @@
             "length_of_stay_days": 22
           },
           {
-            "name": "Sakura",
-            "breed": "Hound",
-            "age_group": "Puppy",
-            "length_of_stay_days": 10
-          },
-          {
             "name": "Mama",
             "breed": "Terrier, American Pit Bull",
             "age_group": "Adult",
@@ -170,12 +164,6 @@
             "length_of_stay_days": 4
           },
           {
-            "name": "Sparkles",
-            "breed": "Coonhound",
-            "age_group": "Senior",
-            "length_of_stay_days": 24
-          },
-          {
             "name": "Snapdragon",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -212,12 +200,6 @@
             "length_of_stay_days": 11
           },
           {
-            "name": "Tweety Bird",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 10
-          },
-          {
             "name": "Izzy",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -250,12 +232,6 @@
           {
             "name": "Gambit",
             "breed": "Husky",
-            "age_group": "Adult",
-            "length_of_stay_days": 3
-          },
-          {
-            "name": "Millie",
-            "breed": "Retriever, Labrador",
             "age_group": "Adult",
             "length_of_stay_days": 3
           },

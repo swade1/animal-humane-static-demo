@@ -1,9 +1,9 @@
 {
   "success": true,
   "data": {
-    "total": 81,
-    "newThisWeek": 33,
-    "adoptedThisWeek": 22,
+    "total": 77,
+    "newThisWeek": 31,
+    "adoptedThisWeek": 26,
     "trialAdoptions": 2,
     "ageGroups": [
       {
