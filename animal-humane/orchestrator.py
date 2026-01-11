@@ -127,10 +127,15 @@ if __name__ == "__main__":
     logger.info("Running orchestrator.py")
     es = Elasticsearch("http://localhost:9200")
 
-    # 1. Run diff_indices_runner.py inside the api docker container
-    result = run_in_container_and_get_urls("animal-humane-api-1", "diff_indices_runner.py")
-    print()
-    print(f"result is: {result}")
+    # 1. Run diff_indices_runner.py inside the api docker container diff_indices_runner.py doesn't return anything
+    #    It checks for differences and updates where necessary. It's stand-alone, which is why the updates here 
+    #    have been commented out. (At least that's my understanding as of 01/10/2026 at 4:54pm.)
+    run_in_container_and_get_urls("animal-humane-api-1", "diff_indices_runner.py")
+    #result = run_in_container_and_get_urls("animal-humane-api-1", "diff_indices_runner.py")
+    #print()
+    #print(type(result))
+    #print(exit)
+    #print(f"result is: {result}")
     # 2. Update adoption status and returned field 
     #'returned': [{'name': 'Snapdragon', 'dog_id': 212533095, 'url': 'https://new.shelterluv.com/embed/animal/212533095', 'location': 'Main Campus - Main Kennel South, MKS-05'}], 
 

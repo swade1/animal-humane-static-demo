@@ -49,6 +49,76 @@
     ],
     "unlisted_dogs": [
       {
+        "id": 212533004,
+        "name": "Pine",
+        "url": "https://new.shelterluv.com/embed/animal/212533004",
+        "status": "Available",
+        "location": "Main Campus- Big Blue, BB-06",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212533042,
+        "name": "Feathertop",
+        "url": "https://new.shelterluv.com/embed/animal/212533042",
+        "status": "Available",
+        "location": "Main Campus- Big Blue, BB-06",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212533081,
+        "name": "Indigo",
+        "url": "https://new.shelterluv.com/embed/animal/212533081",
+        "status": "Available",
+        "location": "Main Campus- Big Blue, BB-06",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212534313,
+        "name": "Tweety Bird",
+        "url": "https://new.shelterluv.com/embed/animal/212534313",
+        "status": "Available",
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212534322,
+        "name": "Sakura",
+        "url": "https://new.shelterluv.com/embed/animal/212534322",
+        "status": "Available",
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212624341,
+        "name": "Millie",
+        "url": "https://new.shelterluv.com/embed/animal/212624341",
+        "status": "Available",
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
+        "id": 212459749,
+        "name": "Sparkles",
+        "url": "https://new.shelterluv.com/embed/animal/212459749",
+        "status": "Available",
+        "location": "",
+        "section_metadata": {
+          "source": "diff_analysis_unlisted"
+        }
+      },
+      {
         "id": 212557508,
         "name": "Stray Hold - Astro",
         "url": "https://new.shelterluv.com/embed/animal/212557508",
@@ -421,7 +491,7 @@
         }
       }
     ],
-    "total_dogs": 41
+    "total_dogs": 48
   },
   "message": null,
   "error": null

@@ -122,16 +122,16 @@
             "length_of_stay_days": 4
           },
           {
-            "name": "Stray Hold - Astro",
-            "breed": "Shepherd, Australian",
-            "age_group": "Adult",
-            "length_of_stay_days": 4
-          },
-          {
             "name": "Pocky",
             "breed": "Hound",
             "age_group": "Puppy",
             "length_of_stay_days": 10
+          },
+          {
+            "name": "Stray Hold - Astro",
+            "breed": "Shepherd, Australian",
+            "age_group": "Adult",
+            "length_of_stay_days": 4
           },
           {
             "name": "Bean",
@@ -182,18 +182,6 @@
             "length_of_stay_days": 2
           },
           {
-            "name": "Feathertop",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 11
-          },
-          {
-            "name": "Indigo",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 11
-          },
-          {
             "name": "Lola Bunny",
             "breed": "Shepherd",
             "age_group": "Puppy",
@@ -206,16 +194,28 @@
             "length_of_stay_days": 10
           },
           {
-            "name": "Tweety Bird",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 10
-          },
-          {
             "name": "Phoebe",
             "breed": "Terrier, Pit Bull",
             "age_group": "Adult",
             "length_of_stay_days": 4
+          },
+          {
+            "name": "Feathertop",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 11
+          },
+          {
+            "name": "Indigo",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 11
+          },
+          {
+            "name": "Tweety Bird",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 10
           },
           {
             "name": "Izzy",
@@ -308,12 +308,6 @@
             "length_of_stay_days": 3
           },
           {
-            "name": "Pine",
-            "breed": "Shepherd",
-            "age_group": "Puppy",
-            "length_of_stay_days": 11
-          },
-          {
             "name": "Parzival",
             "breed": "Shepherd, German",
             "age_group": "Adult",
@@ -330,6 +324,12 @@
             "breed": "Mixed Breed (Large)",
             "age_group": "Adult",
             "length_of_stay_days": 4
+          },
+          {
+            "name": "Pine",
+            "breed": "Shepherd",
+            "age_group": "Puppy",
+            "length_of_stay_days": 11
           },
           {
             "name": "Tina Fey",
